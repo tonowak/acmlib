@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-using L = long long;
+using LL = long long;
 #define FOR(i, l, r) for(int i = (l); i <= (r); ++i)
 #define REP(i, n) FOR(i, 0, (n) - 1)
+template<class T> int size(T &&x) {
+	return int(x.size());
+}
 template<class A, class B> ostream& operator<<(ostream &out, const pair<A, B> &p) {
 	return out << '(' << p.first << ", " << p.second << ')';
 }
