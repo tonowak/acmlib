@@ -3,18 +3,15 @@
 // get_path(v, u) zwraca przedzialy do odpytania, z lca
 // get_path(v, u, false) wyrzuca lca
 
-struct HLD
-{
+struct HLD {
 	vector<vector<int>> graph;
 	vector<int> size, pre, pos, nxt, par;
 	int t = 0;
 
-	void init(int v, int p = -1)
-	{
+	void init(int v, int p = -1) {
 		par[v] = p;
 		size[v] = 1;
-		for(int &u : graph[v]) if(u != par[v])
-		{
+		for(int &u : graph[v]) if(u != par[v]) {
 			init(u, v);
 			size[v] += size[u];
 			if(size[u] > size[graph[v][0]])
@@ -22,11 +19,9 @@ struct HLD
 		}
 	}
 
-	void set_paths(int v)
-	{
+	void set_paths(int v) {
 		pre[v] = t++;
-		for(int &u : graph[v]) if(u != par[v])
-		{
+		for(int &u : graph[v]) if(u != par[v]) {
 			nxt[u] = (u == graph[v][0] ? nxt[v] : u);
 			set_paths(u);
 		}
@@ -34,16 +29,13 @@ struct HLD
 	}
 
 	HLD(int n, vector<vector<int>> graph, int root = 0)
-		: graph(graph), size(n), pre(n), pos(n), nxt(n), par(n)
-	{
+		: graph(graph), size(n), pre(n), pos(n), nxt(n), par(n) {
 		init(root);
 		set_paths(root);
 	}
 
-	int lca(int v, int u)
-	{
-		while(nxt[v] != nxt[u])
-		{
+	int lca(int v, int u) {
+		while(nxt[v] != nxt[u]) {
 			if(pre[v] < pre[u])
 				swap(v, u);
 			v = par[nxt[v]];
@@ -51,11 +43,9 @@ struct HLD
 		return (pre[v] < pre[u] ? v : u);
 	}
 
-	vector<pair<int, int>> path_up(int v, int u)
-	{
+	vector<pair<int, int>> path_up(int v, int u) {
 		vector<pair<int, int>> ret;
-		while(nxt[v] != nxt[u])
-		{
+		while(nxt[v] != nxt[u]) {
 			ret.emplace_back(pre[nxt[v]], pre[v]);
 			v = par[nxt[v]];
 		}
@@ -63,14 +53,12 @@ struct HLD
 		return ret;
 	}
 
-	vector<pair<int, int>> get_path(int v, int u, bool add_lca = true)
-	{
+	vector<pair<int, int>> get_path(int v, int u, bool add_lca = true) {
 		int w = lca(v, u);
 		auto ret = path_up(v, w);
 		auto path_u = path_up(u, w);
 		if(add_lca) ret.emplace_back(pre[w], pre[w]);
-		while(!path_u.empty())
-		{
+		while(!path_u.empty()) {
 			ret.emplace_back(path_u.back());
 			path_u.pop_back();
 		}
