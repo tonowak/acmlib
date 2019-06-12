@@ -33,9 +33,3 @@ int rd(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
 }
 // end of templates
-
-int main() {
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-
-}

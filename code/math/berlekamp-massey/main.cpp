@@ -1,9 +1,9 @@
 // Berlekamp-Massey
 // Autor : Michał Staniewski
-// Status : Nieprzetestowany
+// Status : Trochę potestowany
 // Berlekamp_Massey(x) zwraca rekurencję liniową dla ciągu x
 // get_kth(x, rec, k) zwraca k-ty element ciągu o wyrazach
-// początkowych x, i rekurencji liniowej rec
+// początkowych x, i rekurencji liniowej rec (indexowanie od 0)
 
 int mod = 1000696969;
 
@@ -33,9 +33,9 @@ vector<LL> Berlekamp_Massey(vector<LL> x) {
 
 		LL k = (t - x[i]) * fpow(ld, mod - 2) % mod;
 		vector<LL> c(i - lf - 1);
-		c.EB(k);
+		c.emplace_back(k);
 		for(int j = 0; j < ls.size(); j++)
-			c.EB(- k * ls[j] % mod);
+			c.emplace_back(- k * ls[j] % mod);
 
 		if(c.size() < cur.size()) c.resize(cur.size());
 		for(int j = 0; j < cur.size(); j++)
@@ -47,7 +47,7 @@ vector<LL> Berlekamp_Massey(vector<LL> x) {
 		cur = c;		
 	}
 
-	for(int &val : cur) val = (val % mod + mod) % mod;
+	for(LL &val : cur) val = (val % mod + mod) % mod;
 	return cur;
 }
 
@@ -56,7 +56,7 @@ LL get_kth(vector<LL> x, vector<LL> rec, LL k) {
 	auto combine = [&](vector<LL> a, vector<LL> b) {
 		vector<LL> ret(n * 2 + 1);
 		REP(i, n + 1) REP(j, n + 1)
-			ret[i + j] = (res[i + j] + a[i] * b[j]) % mod;
+			ret[i + j] = (ret[i + j] + a[i] * b[j]) % mod;
 		for(int i = 2 * n; i > n; i--) REP(j, n)
 			ret[i - j - 1] = (ret[i - j - 1] + ret[i] * rec[j]) % mod;
 		ret.resize(n + 1);
@@ -64,7 +64,7 @@ LL get_kth(vector<LL> x, vector<LL> rec, LL k) {
 	};
 
 	vector<LL> r(n + 1), pw(n + 1);
-	r[0] = 1, e[1] = 1;
+	r[0] = 1, pw[1] = 1;
 
 	for(++k; k; k /= 2) {
 		if(k % 2) r = combine(r, pw);
