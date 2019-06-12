@@ -1,8 +1,8 @@
 // Knuth-Morris-Pratt
 // Autor : Michał Staniewski
-// Status : Nieprzetestowany
+// Status : Przetestowany
 
-vector<int> pi(string &str) {
+vector<int> pi(string str) {
 	int len = size(str);
 	vector<int> ret(len);
 	for(int i = 1; i < len; i++)

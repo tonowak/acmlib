@@ -1,5 +1,5 @@
 // Test Pierwszości Millera-Rabina
-// Status : Trochę przetestowany
+// Status : Przetestowany
 // Miller_Rabin(n) zwraca, czy liczba jest pierwsza
 
 LL mul(LL a, LL b, LL mod) {
@@ -22,7 +22,7 @@ bool Miller_Rabin(LL n) {
 	while(d % 2 == 0)
 		d /= 2, r++;
 
-	for(int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 31}) {
+	for(int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}) {
 		if(n == a) return true;
 		LL x = fpow(a, d, n);
 		if(x == 1 || x == n - 1)
