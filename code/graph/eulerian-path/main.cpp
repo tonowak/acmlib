@@ -1,11 +1,12 @@
 // Ścieżka Eulera
 // Status : Nieprzetestowany
-// Eulerian_Path(m, graph()).get() zwraca ścieżkę
+// Eulerian_Path(m, graph).get() zwraca ścieżkę
 // lub pusty vector jeśli ścieżka nie istnieje
+// Przyjmuje graf z krawędziami {dest, id}
 
 struct Eulerian_Path
 {
-	vector<vector<pair<int, int>>> graph; // {dest, id}
+	vector<vector<pair<int, int>>> graph;
 	vector<bool> used;
 	vector<int> path, in, out;
 
