@@ -1,19 +1,10 @@
-// Rozszerzony Algorytm Euklidesa
-// Status : Przetestowany
-// a*x + b*y = gcd(a, b)
+#include "../../utils/headers/main.cpp"
 
-LL extended_gcd(LL a, LL b, LL &x, LL &y)
-{
+tuple<LL, LL, LL> extendedGcd(LL a, LL b) {
 	if(a == 0)
-	{
-		x = 0, y = 1;
-		return b;
-	}
-	
-	LL _x, _y;
-	LL gcd = extended_gcd(b % a, a, _x, _y);
-	x = _y - (b / a) * _x;
-	y = _x;
-
-	return gcd;
+		return {b, 0, 1};
+	LL x, y, nwd;
+	tie(nwd, x, y) = extendedGcd(b % a, a);
+	return {nwd, y - x * (b / a), x};
 }
+
