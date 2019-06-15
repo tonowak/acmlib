@@ -1,3 +1,13 @@
+/*
+ * Description: Dla danego (a, b) znajduje 
+ *   takie (gcd(a, b), x, y), że ax + by = gcd(a, b)
+ * Time: O(\log(\max(a, b)))
+ * Memory: same
+ * Usage:
+ *  int gcd, x, y;
+ *  tie(gcd, x, y) = extendedGcd(a, b);
+ */
+
 #include "../../utils/headers/main.cpp"
 
 tuple<LL, LL, LL> extendedGcd(LL a, LL b) {

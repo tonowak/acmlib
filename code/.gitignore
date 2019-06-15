@@ -1,3 +1,6 @@
 # Compiled files
 a.out
 .log
+.failed
+test
+main
