@@ -1,5 +1,5 @@
-#include "main.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
+#include "main.cpp"
 
 bool test(int) {
 	int test_type = rd(0, 1);
