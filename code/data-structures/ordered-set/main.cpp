@@ -1,5 +1,5 @@
 // Ordered Set
-// Status : Nieprzetestowany
+// Status : Przetestowany
 // Jeśli chcemy multiseta, to używamy par {val, id}
 // insert(x) dodaje element x
 // find_by_order(i) zwraca iterator do i-tego elementu
