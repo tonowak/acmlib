@@ -1,11 +1,11 @@
 // Ordered Set
-// Status : Nieprzetestowany
+// Status : Przetestowany
 // Jeśli chcemy multiseta, to używamy par {val, id}
 // insert(x) dodaje element x
 // find_by_order(i) zwraca iterator do i-tego elementu
 // order_of_key(x) zwraca, ile jest mniejszych elementów,
 // x nie musi być w secie
-// nie działa z -D_GLIBCXX_DEBUG:
+// nie działa z -D_GLIBCXX_DEBUG
 
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
