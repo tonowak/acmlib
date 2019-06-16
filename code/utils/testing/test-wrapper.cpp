@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "../headers/main.cpp"
 
 bool test(int milliseconds);
 

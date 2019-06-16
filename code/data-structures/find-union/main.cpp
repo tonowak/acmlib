@@ -1,9 +1,9 @@
-// status: untested
+// status: tested
 struct FindUnion {
 	vector<int> rep;
 	bool sameSet(int a, int b) { return find(a) == find(b); }
 	int size(int x) { return -rep[find(x)]; }
-	int find(int x) { return e[x] < 0 ? x : e[x] = find(e[x]); }
+	int find(int x) { return rep[x] < 0 ? x : rep[x] = find(rep[x]); }
 	bool join(int a, int b) {
 		a = find(a), b = find(b);
 		if(a == b) return false;

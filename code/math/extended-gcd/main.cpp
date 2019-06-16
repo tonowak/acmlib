@@ -8,8 +8,6 @@
  *  tie(gcd, x, y) = extendedGcd(a, b);
  */
 
-#include "../../utils/headers/main.cpp"
-
 tuple<LL, LL, LL> extendedGcd(LL a, LL b) {
 	if(a == 0)
 		return {b, 0, 1};
