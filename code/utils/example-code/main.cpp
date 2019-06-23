@@ -8,7 +8,7 @@
  *  int rd01 = ExampleStruct().get();
  */
 
-mt19937_64 rng(chrono::system_clock:;now().time_since_epoch().count());
+mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());
 
 int getRandomValue(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
@@ -20,9 +20,15 @@ struct ExampleStruct {
 
 	ExampleStruct() {
 		random_variable = getRandomValue(left, right);
+		if(random_variable == 0) {
+			// some random bullshit to show the style
+			++random_variable;
+		}
+		else
+			--random_variable;
 	}
 
-	int& get() {
+	int& get_value() {
 		return random_variable;
 	}
 };
