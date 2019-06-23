@@ -21,7 +21,7 @@ struct ExampleStruct {
 	ExampleStruct() {
 		random_variable = getRandomValue(left, right);
 		if(random_variable == 0) {
-			// some random bullshit to show the style
+			// some random bulls**t to show the style
 			++random_variable;
 		}
 		else
