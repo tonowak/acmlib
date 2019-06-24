@@ -4,7 +4,7 @@ bool test(int milliseconds);
 
 template<class T>
 int difference(T &start, T &end) {
-	return chrono::duration_cast<chrono::milliseconds>(end - start).count();
+	return int(chrono::duration_cast<chrono::milliseconds>(end - start).count());
 }
 
 int main(int argc, char *argv[]) {
