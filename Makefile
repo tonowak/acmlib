@@ -17,7 +17,6 @@ pdf: | build
 	$(LATEXCMD) code/main.tex </dev/null
 	$(LATEXCMD) code/main.tex </dev/null
 	cp pdf/build/main.pdf main.pdf
-	rm header.tmp
 
 clean: 
 	cd pdf/build && rm -f main.aux main.log main.tmp main.toc main.pdf main.ptc main.out

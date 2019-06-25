@@ -249,7 +249,7 @@
 	\penalty-100
 	#2
 	\immediate\write18{rm -f \@builddir/main.tmp} % Don't include old main.tmp on failure.
-	\immediate\write18{python2 pdf/kactl-include/preprocessor.py -i "\@kactldir/#2" -o \@builddir/main.tmp #1}
+	\immediate\write18{python2 pdf/kactl-include/preprocessor.py -i "\@kactldir/#2/main.cpp" -o \@builddir/main.tmp #1}
 	\immediate\input{\@builddir/main.tmp}
 }
 

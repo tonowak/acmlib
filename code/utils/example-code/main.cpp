@@ -1,11 +1,12 @@
 /**
- * Description: jakiś tam opis, można walnąć latexa: $2+2=5$.
+ * Description: jakiś tam opis, można walnąć latexa: $2+2=5$. ęóąśłżźćńĘÓĄŚŁŻŹĆŃ
  * Time: O(n \sqrt(n) \log^2(n)), gdzie $n$ to jakaś fajna zmienna
  * Memory: O(n \log n)
  * Status: untested / test.cpp / tested on codeforces/174D / not finished
  * Usage:
  *  int rd = getRandomValue(0, 5);
  *  int rd01 = ExampleStruct().get();
+ *  ęóąśłżźćńĘÓĄŚŁŻŹĆŃ
  */
 
 mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());

@@ -1,7 +1,9 @@
-// Drzewo Przedział Przedział
-// Status : Przetestowane
-// add(l, r, val) dodaje na przedziale
-// quert(l, r) bierze maxa z przedziału
+/*
+ * Description: Michał popisz sie opisem
+ * Usage:
+ *   add(l, r, val) dodaje na przedziale
+ *   quert(l, r) bierze maxa z przedziału
+ */
 
 struct Node {
 	int val, lazy;
@@ -25,7 +27,8 @@ struct Tree {
 	}
 
 	void propagate(int v) {
-		REP(i, 2) add_val(v * 2 + i, nodes[v].lazy);
+		REP(i, 2)
+			add_val(v * 2 + i, nodes[v].lazy);
 		nodes[v].lazy = 0;
 	}
 

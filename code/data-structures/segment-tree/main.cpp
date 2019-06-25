@@ -1,6 +1,8 @@
-// Drzewo Punkt-Przedział
-// Autor : Michał Staniewski
-// Status : Nieprzetestowane
+/*
+ * Description: Michał popisz sie opisem
+ * Usage: todo
+ */
+
 
 struct Tree {
 	using T = int;
@@ -23,8 +25,10 @@ struct Tree {
 		l += size, r += size;
 		T ret = (l != r ? f(nodes[l], nodes[r]) : nodes[l]);
 		while(l + 1 < r) {
-			if(l % 2 == 0) ret = f(ret, nodes[l + 1]);
-			if(r % 2 == 1) ret = f(ret, nodes[r - 1]);
+			if(l % 2 == 0)
+				ret = f(ret, nodes[l + 1]);
+			if(r % 2 == 1)
+				ret = f(ret, nodes[r - 1]);
 			l /= 2, r /= 2;
 		}
 	}

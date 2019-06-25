@@ -1,11 +1,13 @@
-// Ordered Set
-// Status : Przetestowany
-// Jeśli chcemy multiseta, to używamy par {val, id}
-// insert(x) dodaje element x
-// find_by_order(i) zwraca iterator do i-tego elementu
-// order_of_key(x) zwraca, ile jest mniejszych elementów,
-// x nie musi być w secie
-// nie działa z -D_GLIBCXX_DEBUG
+/*
+ * Description: lepszy set. 
+ *   Jeśli chcemy multiseta, to używamy par {val, id}. 
+ *   Nie działa z -D\_GLIBCXX\_DEBUG
+ * Usage:
+ *   insert(x) dodaje element x
+ *   find_by_order(i) zwraca iterator do i-tego elementu
+ *   order_of_key(x) zwraca, ile jest mniejszych elementów,
+ *   x nie musi być w secie
+ */
 
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>

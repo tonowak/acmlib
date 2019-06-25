@@ -1,17 +1,19 @@
-// todo: dodać komentarze, używać headerów, dodać test.cpp
+/*
+ * Status: Nieprzetestowane
+ * Description: Dla funkcji, których pary przecinaja sie 
+ *   co najwyżej raz, oblicza maximum w punkcie x. 
+ *   Podany kod jest dla funkcji liniowych
+ */
 
 struct Function {
 	int a, b;
-
 	L operator()(int x) {
 		return x * L(a) + b;
 	}
-
 	Function(int p = 0, int q = inf) : a(p), b(q) {}
 };
-
 ostream& operator<<(ostream &os, Function f) {
-	return os << '(' << f.a << ", " << f.b << ')';
+	return os << make_pair(f.a, f.b);
 }
 
 struct LiChaoTree {
@@ -20,7 +22,7 @@ struct LiChaoTree {
 
 	LiChaoTree(int n) {
 		while(size < n)
-			size <<= 1;
+			size *= 2;
 		tree.resize(size << 1);
 	}
 
@@ -53,29 +55,3 @@ struct LiChaoTree {
 		add_func(new_func, 1, 0, size - 1);
 	}
 };
-	
-
-int main() {
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-
-	int mx, q;
-	cin >> mx >> q;
-	LiChaoTree tree(mx + 1);
-
-	while(q --> 0) {
-		char c;
-		cin >> c;
-		if(c == 'A') {
-			int a, b;
-			cin >> a >> b;
-			tree.add_func(Function{a, b});
-		} else {
-			int x;
-			cin >> x;
-			cout << tree.get_min(x) << nl;
-		}
-
-		D << I(tree.tree);
-	}
-}

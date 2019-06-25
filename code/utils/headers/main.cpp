@@ -1,3 +1,9 @@
+/*
+ * Description: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
+ * Usage:
+ *   debug(a, b, c) << d << e; wypisze a, b, c:  a;  b;  c;  de
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long;

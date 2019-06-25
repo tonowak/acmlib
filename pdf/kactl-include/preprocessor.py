@@ -3,14 +3,26 @@
 
 # Source code preprocessor for KACTL building process.
 # Written by Håkan Terelius, 2008-11-24
+# Modified by Tomasz Nowak
 
 from __future__ import print_function
 import sys
 import getopt
 import subprocess
 
+def polskie(input):
+    input = input.replace('ę', r'\c e')
+    input = input.replace('ą', r'\c a')
+    input = input.replace('ż', r'\ensuremath{\dot{\text{z}}}')
+    input = input.replace('ł', r'l')
+    input = input.replace('Ę', r'\c E')
+    input = input.replace('Ą', r'\c A')
+    input = input.replace('Ż', r'\ensuremath{\dot{\text{Z}}}')
+    input = input.replace('Ł', r'L')
+    return input
 
 def escape(input):
+    input = polskie(input)
     input = input.replace('<', r'\ensuremath{<}')
     input = input.replace('>', r'\ensuremath{>}')
     return input
@@ -31,6 +43,7 @@ def codeescape(input):
     return input
 
 def ordoescape(input, esc=True):
+    input = polskie(input)
     if esc:
         input = escape(input)
     start = input.find("O(")
@@ -50,11 +63,11 @@ def ordoescape(input, esc=True):
 def addref(caption, outstream):
     caption = pathescape(caption).strip()
     print(r"\kactlref{%s}" % caption, file=outstream)
-    with open('header.tmp', 'a') as f:
+    with open('pdf/build/header.tmp', 'a') as f:
         f.write(caption + "\n")
 
 COMMENT_TYPES = [
-    ('/**', '*/'),
+    ('/*', '*/'),
     ("'''", "'''"),
     ('"""', '"""'),
 ]
@@ -160,7 +173,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
     if error:
         out.append(r"\kactlerror{%s: %s}" % (caption, error))
     else:
-        addref(caption, outstream)
+        foldername = caption.split('/')[-2]
+        addref(foldername, outstream)
         if commands.get("Description"):
             out.append(r"\defdescription{%s}" % escape(commands["Description"]))
         if commands.get("Memory"):
@@ -174,7 +188,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
         if nsource:
             out.append(r"\rightcaption{%s%d lines}" % (hsh, len(nsource.split("\n"))))
         langstr = ", language="+listingslang
-        out.append(r"\begin{lstlisting}[caption={%s}%s]" % (pathescape(caption), langstr))
+        # out.append(r"\begin{lstlisting}[caption={%s}%s]" % (pathescape(caption), langstr))
+        out.append(r"\begin{lstlisting}[caption={%s}%s]" % (foldername, langstr))
         out.append(nsource)
         out.append(r"\end{lstlisting}")
 
@@ -210,7 +225,7 @@ def print_header(data, outstream):
     if not until:
         # Nothing on this page, skip it.
         return
-    with open('header.tmp') as f:
+    with open('pdf/build/header.tmp') as f:
         lines = [x.strip() for x in f.readlines()]
     if until not in lines:
         # Nothing new on the page.
@@ -227,7 +242,7 @@ def print_header(data, outstream):
     output = r"\hspace{3mm}\textbf{" + output + "}"
     output = "\\fontsize{%d}{%d}" % (font_size, font_size) + output
     print(output, file=outstream)
-    with open('header.tmp', 'w') as f:
+    with open('pdf/build/header.tmp', 'w') as f:
         for line in lines[ind:]:
             f.write(line + "\n")
 
@@ -257,7 +272,8 @@ def main():
                 if language == None:
                     language = getlang(value)
                 if caption == None:
-                    caption = getfilename(value)
+                    # caption = getfilename(value)
+                    caption = value
             if option in ("-l", "--language"):
                 language = value
             if option in ("-c", "--caption"):
@@ -267,7 +283,7 @@ def main():
         if print_header_value is not None:
             print_header(print_header_value, outstream)
             return
-        print(" * \x1b[1m{}\x1b[0m".format(caption))
+        print(" * \x1b[1m{}\x1b[0m".format(value))
         if language == "cpp" or language == "cc" or language == "c" or language == "h" or language == "hpp":
             processwithcomments(caption, instream, outstream, 'C++')
         elif language == "java":
