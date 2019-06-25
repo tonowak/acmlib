@@ -1,6 +1,6 @@
 /**
  * Description: jakiś tam opis, można walnąć latexa: $2+2=5$. ęóąśłżźćńĘÓĄŚŁŻŹĆŃ
- * Time: O(n \sqrt(n) \log^2(n)), gdzie $n$ to jakaś fajna zmienna
+ * Time: O(n \sqrt{n} \log^2 n), gdzie $n$ to jakaś fajna zmienna
  * Memory: O(n \log n)
  * Status: untested / test.cpp / tested on codeforces/174D / not finished
  * Usage:

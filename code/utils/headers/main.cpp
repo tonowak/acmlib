@@ -38,4 +38,3 @@ mt19937_64 rng(seed);
 int rd(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
 }
-// end of templates
