@@ -1,6 +1,6 @@
-/*
- * Description: Dla danego (a, b) znajduje 
- *   takie (gcd(a, b), x, y), że ax + by = gcd(a, b)
+/**
+ * Description: Dla danego $(a, b)$ znajduje 
+ *   takie $(gcd(a, b), x, y)$, że $ax + by = gcd(a, b)$
  * Time: O(\log(\max(a, b)))
  * Memory: same
  * Usage:
