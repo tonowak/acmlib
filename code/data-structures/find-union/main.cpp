@@ -1,7 +1,7 @@
 /*
  * Status: Nieprzetestowane
- * Description: mniejszy do wiekszego
- * Time: O(\alpha(n))
+ * Opis: mniejszy do wiekszego
+ * Czas: O(\alpha(n))
  */
 
 struct FindUnion {

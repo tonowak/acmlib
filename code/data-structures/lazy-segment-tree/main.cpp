@@ -1,6 +1,6 @@
 /*
- * Description: Michał popisz sie opisem
- * Usage:
+ * Opis: Michał popisz sie opisem
+ * Użycie:
  *   add(l, r, val) dodaje na przedziale
  *   quert(l, r) bierze maxa z przedziału
  */

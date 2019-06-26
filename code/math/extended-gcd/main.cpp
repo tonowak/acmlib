@@ -1,8 +1,8 @@
 /*
- * Description: Dla danego $(a, b)$ znajduje 
+ * Opis: Dla danego $(a, b)$ znajduje 
  *   takie $(gcd(a, b), x, y)$, że $ax + by = gcd(a, b)$
- * Time: O(\log(\max(a, b)))
- * Usage:
+ * Czas: O(\log(\max(a, b)))
+ * Użycie:
  *  LL gcd, x, y; tie(gcd, x, y) = extendedGcd(a, b);
  */
 

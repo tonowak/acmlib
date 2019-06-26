@@ -1,8 +1,8 @@
 /*
- * Description: lepszy set. 
+ * Opis: lepszy set. 
  *   Jeśli chcemy multiseta, to używamy par {val, id}. 
  *   Nie działa z -D\_GLIBCXX\_DEBUG
- * Usage:
+ * Użycie:
  *   insert(x) dodaje element x
  *   find_by_order(i) zwraca iterator do i-tego elementu
  *   order_of_key(x) zwraca, ile jest mniejszych elementów,

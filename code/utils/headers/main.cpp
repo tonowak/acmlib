@@ -1,6 +1,6 @@
 /*
- * Description: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
- * Usage:
+ * Opis: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
+ * Użycie:
  *   debug(a, b, c) << d << e; wypisze a, b, c:  a;  b;  c;  de
  */
 

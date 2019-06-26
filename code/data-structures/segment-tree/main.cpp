@@ -1,6 +1,6 @@
 /*
- * Description: Michał popisz sie opisem
- * Usage: todo
+ * Opis: Michał popisz sie opisem
+ * Użycie: todo
  */
 
 
