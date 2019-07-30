@@ -27,8 +27,11 @@ int main(int argc, char *argv[]) {
 		}
 		auto curr = chrono::steady_clock::now();
 		int elapsed = difference(last_measured, curr);
-		cout << "OK: " << test_no++ << " (" << double(elapsed) / 1000 << " s)\n";
+		if(elapsed > 0 or test_no < 100 or test_no % 100 == 0)
+			cout << "OK: " << test_no << " (" << double(elapsed) / 1000 << " s)        \r";
+		++test_no;
 		last_measured = curr;
 	}
+	cout << '\n';
 }
 
