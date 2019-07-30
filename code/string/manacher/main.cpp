@@ -17,7 +17,6 @@ array<vector<int>, 2> manacher(vector<int> &in) {
 			int l = i - rad + z, r = i + rad;
 			while(0 <= l - 1 && r + 1 < n && in[l - 1] == in[r + 1])
 				++rad, ++r, --l;
-			debug(i, rad, l, r);
 			if(r > R)
 				L = l, R = r;
 		}
