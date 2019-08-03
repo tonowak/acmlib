@@ -1,7 +1,7 @@
 /*
  * Opis: radius[p][i] = $rad$ = największy promień palindromu
- *   parzystości p o środku i. $L=i-rad+!p, \; R=i+rad$ to palindrom
- *   dla [abaababaab] daje [003000020], [0100141000]
+ *   parzystości p o środku i. $L=i-rad+!p, \; R=i+rad$ to palindrom.
+ *   Dla [abaababaab] daje [003000020], [0100141000].
  * Czas: O(n)
  */
 
