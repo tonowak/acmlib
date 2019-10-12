@@ -1,8 +1,12 @@
-// Chińskie Twierdzenie o Resztach
-// crt(a, n, b, m) zwraca taką liczbę x, 
-// że x mod n = a i x mod m = b
-// m i n nie muszą być względnie pierwsze, ale wtedy może nie być rozwiązania
-// (jest na to assercik)
+/*
+ * Opis: Chińskie Twierdzenie o Resztach
+ * Czas: O(\log n)
+ * Pamięć : O(1)
+ * Użycie:
+ *   crt(a, m, b, n) zwraca takie x, że x mod m = a i x mod n = b
+ *   m i n nie muszą być wzlędnie pierwsze, ale może nie być wtedy rozwiązania
+ *   uwali się wtedy assercik, można zmienić na return -1
+ */
 
 tuple<LL, LL, LL> extendedGcd(LL a, LL b) {
 	if(a == 0)

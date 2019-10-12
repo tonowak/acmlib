@@ -1,16 +1,17 @@
 /*
- * Status: Nieprzetestowane
- * Description: mniejszy do wiekszego
+ * Status: Przetestowane na zadankach
+ * Opis: Find Union z mniejszy do wiekszego
+ * Pamięć: O(n)
  * Time: O(\alpha(n))
  */
 
 struct FindUnion {
 	vector<int> rep;
-	bool sameSet(int a, int b) { return find(a) == find(b); }
 	int size(int x) { return -rep[find(x)]; }
 	int find(int x) {
 		return rep[x] < 0 ? x : rep[x] = find(rep[x]); 
 	}
+	bool same_set(int a, int b) { return find(a) == find(b); }
 	bool join(int a, int b) {
 		a = find(a), b = find(b);
 		if(a == b)

@@ -12,8 +12,8 @@ int main()
 
 	auto rec = Berlekamp_Massey(x);
 	debug(rec);
+
 	LL k;
 	cin >> k;
-
 	cout << get_kth(x, rec, k);
 }

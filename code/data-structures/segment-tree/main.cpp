@@ -1,8 +1,13 @@
 /*
- * Description: Michał popisz sie opisem
- * Usage: todo
+ * Opis: Drzewo punkt-przedział
+ * Czas: O(\log n)
+ * Pamięć : O(n)
+ * Użycie:
+ *   Tree(n, val = 0) tworzy drzewo o n liściach, o wartościach val
+ *   update(pos, val) zmienia element pos na val
+ *   query(l, r) zwraca f na przedziale
+ *   edytujesz funkcję f, można T ustawić na long longa albo parę
  */
-
 
 struct Tree {
 	using T = int;
@@ -31,5 +36,6 @@ struct Tree {
 				ret = f(ret, nodes[r - 1]);
 			l /= 2, r /= 2;
 		}
+		return ret;
 	}
 };

@@ -1,20 +1,26 @@
-// Ścieżka Eulera
-// Status : Nieprzetestowany
-// Eulerian_Path(m, graph).get() zwraca ścieżkę
-// lub pusty vector jeśli ścieżka nie istnieje
-// Przyjmuje graf z krawędziami {dest, id}
+/*
+ * Opis: Ścieżka eulera
+ * Czas: O(n)
+ * Pamięć : O(n)
+ * Użycie:
+ *   krawędzie to pary (to, id) gdzie id dla grafu nieskierowanego jest
+ *   takie samo dla (u, v) i (v, u)
+ * 	 konstruktor: EulerianPath(m, graph)
+ * 	 graf musi być spójny
+ *   get_path() zwraca ścieżkę eulera
+ *   get_cycle() zwraca cykl eulera
+ *   jeśli nie ma, obie funkcję zwrócą pusty vector
+ */
 
-struct Eulerian_Path
-{
+struct EulerianPath {
 	vector<vector<pair<int, int>>> graph;
 	vector<bool> used;
-	vector<int> path, in, out;
+	vector<int> in, out;
+	vector<int> path, cycle
 
-	void init(int v = 0)
-	{
+	void init(int v = 0) {
 		in[v]++;
-		while(!graph[v].empty())
-		{
+		while(!graph[v].empty()) {
 			auto edge = graph[v].back();
 			graph[v].pop_back();
 			int u = edge.first;
@@ -27,8 +33,7 @@ struct Eulerian_Path
 		path.emplace_back(v);
 	}
 
-	Eulerian_Path(int m, vector<vector<pair<int, int>>> graph) : graph(graph)
-	{
+	EulerianPath(int m, vector<vector<pair<int, int>>> &graph) : graph(graph) {
 		int n = size(graph);
 		used.resize(m);
 		in.resize(n);
@@ -37,11 +42,13 @@ struct Eulerian_Path
 		init();
 		in[0]--;
 		debug(path, in, out);
-		// delete next line to get only cycles
+		cycle = path;
+		REP(i, n) if(in[i] != out[i]) cycle.clear();
 		if(path.size() != 0) in[path.back()]++, out[path[0]]++; 
 		REP(i, n) if(in[i] != out[i]) path.clear();
 		reverse(path.begin(), path.end());
 	}
 
-	vector<int> get() { return path; }
+	vector<int> get_path() { return path; }
+	vector<int> get_cycle() { return cycle; }
 };

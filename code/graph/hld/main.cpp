@@ -1,7 +1,16 @@
-// Heavy-Light Decomposition
-// Autor : Michał Staniewski
-// get_path(v, u) zwraca przedzialy do odpytania, z lca
-// get_path(v, u, false) wyrzuca lca
+/*
+ * Opis: Heavy-Light Decomposition
+ * Czas: O(\log n)
+ * Pamięć : O(n)
+ * Użycie:
+ *   kontruktor - HLD(n, graph)
+ *   lca(v, u) zwraca lca
+ *   get_vertex(v) zwraca pozycję odpowiadającą wierzchołkowi
+ *   get_path(v, u) zwraca przedziały do obsługiwania drzewem przedziałowym
+ *   get_path(v, u) jeśli robisz operacje na wierzchołkach
+ *   get_path(v, u, false) jeśli na krawędziach
+ *   get_subtree(v, u) zwraca przedział odpowiadający podrzewu v
+ */
 
 struct HLD {
 	vector<vector<int>> graph;
@@ -52,6 +61,8 @@ struct HLD {
 		if(pre[u] != pre[v]) ret.emplace_back(pre[u] + 1, pre[v]);
 		return ret;
 	}
+
+	int get_vertex(int v) { return pre[v]; }
 
 	vector<pair<int, int>> get_path(int v, int u, bool add_lca = true) {
 		int w = lca(v, u);

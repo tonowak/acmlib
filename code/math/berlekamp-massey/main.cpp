@@ -1,9 +1,12 @@
-// Berlekamp-Massey
-// Autor : Michał Staniewski
-// Status : Trochę potestowany
-// Berlekamp_Massey(x) zwraca rekurencję liniową dla ciągu x
-// get_kth(x, rec, k) zwraca k-ty element ciągu o wyrazach
-// początkowych x, i rekurencji liniowej rec (indexowanie od 0)
+/*
+ * Opis: Berlekamp-Massey
+ * Status: Chyba działa xd
+ * Czas: O(n^2 \log k)
+ * Pamięć : O(n)
+ * Użycie:
+ *   Berlekamp_Massey(x) zgaduje rekurencję liniową ciagu x
+ *   get_kth(x, rec, k) zwraca k-ty ciągu x o rekurencji rec
+ */
 
 int mod = 1000696969;
 

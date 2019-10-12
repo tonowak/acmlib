@@ -1,8 +1,12 @@
 /*
- * Description: Michał popisz sie opisem
- * Usage:
+ * Opis: Drzewo przedział-przedział
+ * Czas: O(\log n)
+ * Pamięć : O(n)
+ * Użycie:
  *   add(l, r, val) dodaje na przedziale
  *   quert(l, r) bierze maxa z przedziału
+ *   Zmieniając z maxa na co innego trzeba edytować
+ *   funkcje add_val i f
  */
 
 struct Node {
@@ -14,16 +18,18 @@ struct Tree {
 	vector<Node> nodes;
 	int size = 1;
 
+	void add_val(int v, int val) {
+		nodes[v].val += val;
+		nodes[v].lazy += val;
+	}
+
+	int f(int a, int b) { return max(a, b); }
+
 	Tree(int n) {
 		while(size < n) size *= 2;
 		nodes.resize(size * 2);
 		for(int i = size - 1; i >= 1; i--)
 			nodes[i].size = nodes[i * 2].size * 2;
-	}
-
-	void add_val(int v, int val) {
-		nodes[v].val += val;
-		nodes[v].lazy += val;
 	}
 
 	void propagate(int v) {
@@ -42,7 +48,7 @@ struct Tree {
 		else if(m <= l)
 			return query(l - m, r - m, v * 2 + 1);
 		else
-			return max(query(l, m - 1, v * 2), query(0, r - m, v * 2 + 1));
+			return f(query(l, m - 1, v * 2), query(0, r - m, v * 2 + 1));
 	}
 
 	void add(int l, int r, int val, int v = 1) {
@@ -59,6 +65,6 @@ struct Tree {
 		else
 			add(l, m - 1, val, v * 2), add(0, r - m, val, v * 2 + 1);
 
-		nodes[v].val = max(nodes[v * 2].val, nodes[v * 2 + 1].val);
+		nodes[v].val = f(nodes[v * 2].val, nodes[v * 2 + 1].val);
 	}
 };

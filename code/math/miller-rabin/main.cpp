@@ -1,6 +1,11 @@
-// Test Pierwszości Millera-Rabina
-// Status : Przetestowany
-// Miller_Rabin(n) zwraca, czy liczba jest pierwsza
+/*
+ * Opis: Drzewo przedział-przedział
+ * Czas: O(\log^2_n)
+ * Pamięć : O(1)
+ * Użycie:
+ *   Miller_Rabin(n) zwraca, czy n jest pierwsze
+ *   działa dla long longów
+ */
 
 LL mul(LL a, LL b, LL mod) {
 	return (a * b - (LL)((long double) a * b / mod) * mod + mod) % mod;
