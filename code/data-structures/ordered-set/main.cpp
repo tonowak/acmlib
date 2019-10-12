@@ -2,15 +2,15 @@
  * Opis: lepszy set. 
  *   Jeśli chcemy multiseta, to używamy par \{val, id\}.
  *   Nie działa z -D\_GLIBCXX\_DEBUG
- * Użycie
+ * Użycie:
  *   insert(x) dodaje element x (nie ma emplace)
  *   find_by_order(i) zwraca iterator do i-tego elementu
  *   order_of_key(x) zwraca, ile jest mniejszych elementów,
  *   x nie musi być w secie
  */
 
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 
 template<class T> using ordered_set = tree<
