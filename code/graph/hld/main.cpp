@@ -9,7 +9,7 @@
  *   get_path(v, u) zwraca przedziały do obsługiwania drzewem przedziałowym
  *   get_path(v, u) jeśli robisz operacje na wierzchołkach
  *   get_path(v, u, false) jeśli na krawędziach
- *   get_subtree(v, u) zwraca przedział odpowiadający podrzewu v
+ *   get_subtree(v) zwraca przedział odpowiadający podrzewu v
  */
 
 struct HLD {
