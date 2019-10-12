@@ -2,7 +2,7 @@
  * Status: Przetestowane na zadankach
  * Opis: Find Union z mniejszy do wiekszego
  * Pamięć: O(n)
- * Time: O(\alpha(n))
+ * Czas: O(\alpha(n))
  */
 
 struct FindUnion {
