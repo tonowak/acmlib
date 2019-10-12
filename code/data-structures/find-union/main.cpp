@@ -1,15 +1,14 @@
 /*
  * Status: Przetestowane na zadankach
  * Opis: Find Union z mniejszy do wiekszego
- * Pamięć: O(n)
- * Czas: O(\alpha(n))
+ * Czas: O(\alpha(n)) oraz O(n) pamięciowo
  */
 
 struct FindUnion {
 	vector<int> rep;
 	int size(int x) { return -rep[find(x)]; }
 	int find(int x) {
-		return rep[x] < 0 ? x : rep[x] = find(rep[x]); 
+		return rep[x] < 0 ? x : rep[x] = find(rep[x]);
 	}
 	bool same_set(int a, int b) { return find(a) == find(b); }
 	bool join(int a, int b) {
@@ -24,3 +23,4 @@ struct FindUnion {
 	}
 	FindUnion(int n) : rep(n, -1) {}
 };
+
