@@ -82,8 +82,8 @@ def find_start_comment(source, start=None):
     return first
 
 def processwithcomments(caption, instream, outstream, listingslang):
-    knowncommands = ['Author', 'Date', 'Description', 'Source', 'Time', 'Memory', 'License', 'Status', 'Usage']
-    requiredcommands = ['Description']
+    knowncommands = ['Author', 'Date', 'Opis', 'Source', 'Czas', 'Pamięć', 'License', 'Status', 'Użycie']
+    requiredcommands = ['Opis']
     includelist = []
     error = ""
     warning = ""
@@ -175,14 +175,14 @@ def processwithcomments(caption, instream, outstream, listingslang):
     else:
         foldername = caption.split('/')[-2]
         addref(foldername, outstream)
-        if commands.get("Description"):
-            out.append(r"\defdescription{%s}" % escape(commands["Description"]))
-        if commands.get("Memory"):
-            out.append(r"\defmemory{%s}" % ordoescape(commands["Memory"]))
-        if commands.get("Time"):
-            out.append(r"\deftime{%s}" % ordoescape(commands["Time"]))
-        if commands.get("Usage"):
-            out.append(r"\defusage{%s}" % codeescape(commands["Usage"]))
+        if commands.get("Opis"):
+            out.append(r"\defdescription{%s}" % escape(commands["Opis"]))
+        if commands.get("Pamięć"):
+            out.append(r"\defmemory{%s}" % ordoescape(commands["Pamięć"]))
+        if commands.get("Czas"):
+            out.append(r"\deftime{%s}" % ordoescape(commands["Czas"]))
+        if commands.get("Użycie"):
+            out.append(r"\defusage{%s}" % codeescape(commands["Użycie"]))
         if includelist:
             out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
         if nsource:

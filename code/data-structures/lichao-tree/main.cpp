@@ -1,6 +1,6 @@
 /*
  * Status: Nieprzetestowane
- * Description: Dla funkcji, których pary przecinaja sie 
+ * Opis: Dla funkcji, których pary przecinaja sie 
  *   co najwyżej raz, oblicza maximum w punkcie x. 
  *   Podany kod jest dla funkcji liniowych
  */

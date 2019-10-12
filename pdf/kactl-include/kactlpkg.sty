@@ -344,10 +344,10 @@
 
 \long\def\@makecaption#1#2{
 	\vspace{-3pt}
-	\ifthenelse{\boolean{hasdescription}}{\codeheader{Description}{\@defdescription}}{}
-	\ifthenelse{\boolean{hastime}}{\codeheader{Time}{\@deftime}}{}
-	\ifthenelse{\boolean{hasmemory}}{\codeheader{Memory}{\@defmemory}}{}
-	\ifthenelse{\boolean{hasusage}}{\codeheader{Usage}{\@defusage}}{}
+	\ifthenelse{\boolean{hasdescription}}{\codeheader{Opis}{\@defdescription}}{}
+	\ifthenelse{\boolean{hastime}}{\codeheader{Czas}{\@deftime}}{}
+	\ifthenelse{\boolean{hasmemory}}{\codeheader{Pamięć}{\@defmemory}}{}
+	\ifthenelse{\boolean{hasusage}}{\codeheader{Użycie}{\@defusage}}{}
 	\ifthenelse{\boolean{hasleftcaption}}{\vspace{0pt}}{\vspace{-5pt}}
 	\tiny
 	\texttt{\@leftcaption} \hfill \@rightcaption

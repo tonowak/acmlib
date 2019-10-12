@@ -1,6 +1,6 @@
 /*
- * Description: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
- * Usage:
+ * Opis: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
+ * Użycie:
  *   debug(a, b, c) << d << e; wypisze a, b, c:  a;  b;  c;  de
  */
 
@@ -29,7 +29,7 @@ template<class T, class... Args> void dump(T &&x, Args... args) {
 #ifdef DEBUG
   const int seed = 1;
   struct Nl{~Nl(){cerr << '\n';}};
-# define debug(x...) cerr << (#x != "" ? #x ":  " : ""), dump(x), Nl(), cerr
+# define debug(x...) cerr << (strcmp(#x, "") ? #x ":  " : ""), dump(x), Nl(), cerr << ""
 #else
   const int seed = chrono::system_clock::now().time_since_epoch().count();
 # define debug(...) 0 && cerr

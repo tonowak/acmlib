@@ -1,7 +1,7 @@
 /*
  * Status: Nieprzetestowane
- * Description: indexowanie od 0
- * Usage:
+ * Opis: indexowanie od 0
+ * Użycie:
  *   update(pos, val) dodaje val do elementu pos
  *   query(pos) zwraca sumę pierwszych pos elementów
  *   lower_bound(val) zwraca pos, że suma [0, pos] <= val

@@ -50,7 +50,7 @@ struct SCC {
 		REP(v, n)
 			for(int u : graph[v])
 				if(group[v] != group[u])
-					ans[v].emplace_back(u);
+					ans[group[v]].emplace_back(group[u]);
 
 		if(not delete_same)
 			return ans;
