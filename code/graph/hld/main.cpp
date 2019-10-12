@@ -76,5 +76,5 @@ struct HLD {
 		return ret;
 	}
 
-	pair<int, int> get_subree(int v) { return {pre[v], pos[v] - 1}; }
+	pair<int, int> get_subtree(int v) { return {pre[v], pos[v] - 1}; }
 };
