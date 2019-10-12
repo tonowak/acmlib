@@ -1,48 +1,52 @@
-- [ ] GRAFY
-    - [ ] Jump-pointery
-    - [ ] HLD & Euler Tour
-    - [ ] Matching
-    - [ ] Min Vertex Cover
-    - [ ] Hungarian 
-    - [ ] Flow (Dinic, min cost max flow)
-    - [ ] Topo sort
-    - [ ] Dijkstra
-    - [ ] Floyd Warshal
-    - [ ] silne spójne składowe (SCC) 
-    - [ ] cykl Eulera 
-    - [ ] MST (?)
-    - [ ] 2-SAT 
+GRAFY
+- [ ] Jump-pointery
+- [x] HLD & Euler Tour
+- [ ] Matching
+- [ ] Min Vertex Cover
+- [ ] Hungarian 
+- [ ] Flow (Dinic, min cost max flow)
+- [ ] Topo sort
+- [ ] Dijkstra
+- [ ] Floyd Warshal
+- [x] silne spójne składowe (SCC) 
+- [x] cykl Eulera 
+- [ ] MST (?)
+- [ ] 2-SAT 
 
-- [ ] STRUKTURY DANYCH
-    - [ ] Drzewa przedziałowe
-    - [ ] LiChao Tree
-    - [ ] Ordered Set
-    - [ ] Find Union
-    
-- [ ] MATMA
-    - [ ] Rozszerzony algorytm euklidesa, odwrotność modulo 
-    - [ ] Chińskie Twierdzenie o Resztach 
-    - [ ] Szybkie potęgowanie 
-    - [ ] Sito Erastotenesa
-    - [ ] Funkcja Phi
-    - [ ] Potęgowanie macierzy 
-    - [ ] Dwumian Newton'a
-    - [ ] FFT
+STRUKTURY DANYCH
+- [x] Drzewa przedziałowe
+- [x] LiChao Tree
+- [x] Ordered Set
+- [x] Find Union
+- [x] Fenwick Tree
+ 
+MATMA
+- [x] Rozszerzony algorytm euklidesa, odwrotność modulo 
+- [x] Chińskie Twierdzenie o Resztach 
+- [x] Szybkie potęgowanie 
+- [x] Berlekamp-Massey / Rekurencja Liniowa
+- [x] Test pierwszości Millera-Rabina
+- [x] Eliminacja Gauss
+- [ ] Sito Erastotenesa
+- [ ] Funkcja Phi
+- [ ] Potęgowanie macierzy 
+- [ ] Dwumian Newton'a
+- [ ] FFT
 
-- [ ] GEOMETRIA 
-    - [ ] Struct punkt
-    - [ ] Struct prosta / odcinek
-    - [ ] Odległość pomiędzy obiektami
-    - [ ] Przecięcie odcinków
-    - [ ] Iloczyn wektorowy dla (prosta, punkt)
-    - [ ] Otoczka wypukła
-    - [ ] Pole wielokąta
-    - [ ] Cięcie wielokąta prostą
+GEO
+- [ ] Struct punkt
+- [ ] Struct prosta / odcinek
+- [ ] Odległość pomiędzy obiektami
+- [ ] Przecięcie odcinków
+- [ ] Iloczyn wektorowy dla (prosta, punkt)
+- [ ] Otoczka wypukła
+- [ ] Pole wielokąta
+- [ ] Cięcie wielokąta prostą
 
-- [ ] ALGORYTMY TEKSTOWE 
-    - [ ] Tablica pi, algorytm KMP  
-    - [ ] Algorytm Manachera 
-    - [ ] Z/Pref algo
-    - [ ] Hashowanie
-    - [ ] Drzewo Trie 
-    - [ ] Tablica suffixowa 
+TEKSTY
+- [x] Tablica pi, algorytm KMP  
+- [x] Algorytm Manachera 
+- [x] Z/Pref algo
+- [x] Hashowanie
+- [ ] Drzewo Trie 
+- [ ] Tablica suffixowa 
