@@ -1,0 +1,156 @@
+\chapter{Wzorki}
+
+\section{Równości}
+\[ax^2+bx+c=0 \Rightarrow x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
+
+Wierzchołek paraboli $= (- \frac{b}{2a}, - \frac{\Delta}{4a})$.
+
+\[\begin{aligned}ax+by=e\\cx+dy=f\end{aligned}
+\Rightarrow
+\begin{aligned}x=\dfrac{ed-bf}{ad-bc}\\y=\dfrac{af-ec}{ad-bc}\end{aligned}\]
+
+\section{Pitagolas}
+Trójki $(a, b, c)$, takie że $a^2+b^2=c^2$:
+ \[ a=k\cdot (m^{2}-n^{2}),\ \,b=k\cdot (2mn),\ \,c=k\cdot (m^{2}+n^{2}), \]
+ gdzie $m > n > 0$, $k > 0$, $m \bot n$, oraz albo $m$ albo $n$ jest parzyste.
+
+\section{Generowanie względnie pierwszych par}
+Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (nieparzysta-nieparzysta), rozgałęzienia są do $(2m-n,m)$, $(2m+n,m)$ oraz $(m+2n,n)$.
+
+\section{Liczby pierwsze}
+	$p=962592769$ to liczba na NTT, czyli $2^{21} \mid p-1$, which may be useful. Do hashowania:
+	970592641 (31-bit), 31443539979727 (45-bit), 3006703054056749 (52-bit). 
+
+	Jest 78498 pierwszych $\leq$ 1\,000\,000.
+
+	Generatorów jest $\phi(\phi(p^a))$, czyli dla $p>2$ zawsze istnieje.
+
+\section{Dzielniki}
+	$\sum_{d|n} d = O(n \log \log n)$.
+
+	Liczba dzielników $n$ jest co najwyżej 100 dla $n < 5e4$, 500 dla $n < 1e7$, 2000 dla $n < 1e10$, 200\,000 dla $n < 1e19$.
+
+
+	\subsection{Lemat Burnside'a}
+		Liczba takich samych obiektów z dokładnością do symetrii wynosi
+		Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
+		 \[ {\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, \]
+		Gdzie $G$ to zbiór symetrii (ruchów) oraz $X^g$ to punkty (obiekty) stałe symetrii $g$.
+
+\section{Silnia}
+		\begin{center}
+			\begin{tabular}{l}
+				\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+					$n$  & 1 & 2 & 3 & 4  & 5   & 6   & 7    & 8     & 9      & 10\\
+					\hline
+					$n!$ & 1 & 2 & 6 & 24 & 120 & 720 & 5040 & 40320 & 362880 & 3628800\\
+				\end{tabular}\\
+					\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+					$n$  & 11    & 12    & 13    & 14     & 15     & 16     & 17\\
+					\hline
+					$n!$ & 4.0e7 & 4.8e8 & 6.2e9 & 8.7e10 & 1.3e12 & 2.1e13 & 3.6e14\\
+				\end{tabular}\\
+				\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+					$n$  & 20   & 25   & 30   & 40   & 50   & 100   & 150   & 171\\
+					\hline
+					$n!$ & 2e18 & 2e25 & 3e32 & 8e47 & 3e64 & 9e157 & 6e262 & \scriptsize{$>$DBL\_MAX}\\
+				\end{tabular}
+			\end{tabular}
+		\end{center}
+
+	\subsection{Symbol Newtona}
+		$ \binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}=\binom{n-1}{k-1}+\binom{n-2}{k-1}+\dots+\binom{k-1}{k-1}$
+		$$ (x+y)^n=\sum_{k=0}^n x^k y^{n-k} $$
+
+\section{Wzorki na pewne ciągi}
+	\subsection{Derangements}
+		Liczba takich permutacji, że $p_i \neq i$ (żadna liczba nie wraca na tą samą pozycję).
+		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
+
+	\subsection{Partition function}
+		Liczba sposobów zapisania $n$ jako sumę posortowanych liczb dodatnich.
+		\[ p(0) = 1,\ p(n) = \sum_{k \in \mathbb Z \setminus \{0\}}{(-1)^{k+1} p(n - k(3k-1) / 2)} \]
+		\[ p(n) \sim 0.145 / n \cdot \exp(2.56 \sqrt{n}) \]
+
+		\begin{center}
+		\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+			$n$    & 0 & 1 & 2 & 3 & 4 & 5 & 6  & 7  & 8  & 9  & 20  & 50  & 100 \\ \hline
+			$p(n)$ & 1 & 1 & 2 & 3 & 5 & 7 & 11 & 15 & 22 & 30 & 627 & $\mathtt{\sim}$2e5 & $\mathtt{\sim}$2e8 \\
+		\end{tabular}
+		\end{center}
+
+	\subsection{Liczby Eulera pierwszego rzędu}
+		Liczba permutacji $\pi \in S_n$ gdzie $k$ elementów jest większych niż poprzedni: $k$ razy $\pi(j)>\pi(j+1)$, $k+1$ razy $\pi(j)\geq j$, k razy $\pi(j)>j$.
+		$$E(n,k) = (n-k)E(n-1,k-1) + (k+1)E(n-1,k)$$
+		$$E(n,0) = E(n,n-1) = 1$$
+		$$E(n,k) = \sum_{j=0}^k(-1)^j\binom{n+1}{j}(k+1-j)^n$$
+
+	\subsection{Stirling pierwszego rzędu}
+		Liczba permutacji długości $n$ mające $k$ cykli.
+		\begin{align*}
+			&c(n,k) = c(n-1,k-1) + (n-1) c(n-1,k),\ c(0,0) = 1 \\
+			&\textstyle \sum_{k=0}^n c(n,k)x^k = x(x+1) \dots (x+n-1)
+		\end{align*}
+		$c(8,k) = 8, 0, 5040, 13068, 13132, 6769, 1960, 322, 28, 1$ \\
+		$c(n,2) = 0, 0, 1, 3, 11, 50, 274, 1764, 13068, 109584, \dots$
+
+	\subsection{Stirling drugiego rzędu}
+		Liczba permutacji długości $n$ mające $k$ spójnych.
+		$$S(n,k) = S(n-1,k-1) + k S(n-1,k)$$
+		$$S(n,1) = S(n,n) = 1$$
+		$$S(n,k) = \frac{1}{k!}\sum_{j=0}^k (-1)^{k-j}\binom{k}{j}j^n$$
+
+	\subsection{Liczby Catalana}
+		\[ C_n=\frac{1}{n+1}\binom{2n}{n}= \binom{2n}{n}-\binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} \]
+		\[ C_0=1,\ C_{n+1} = \frac{2(2n+1)}{n+2}C_n,\ C_{n+1}=\sum C_iC_{n-i} \]
+		${C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, \dots}$
+
+		\begin{itemize}[noitemsep]
+			\item ścieżki na planszy $n\times n$.
+			\item nawiasowania po $n$ ().
+			\item liczba drzew binarnych z $n+1$ liściami (0 lub 2 syny).
+			\item skierowanych drzew z $n+1$ wierzchołkami.
+			\item triangulacje $n+2$-kąta.
+			\item permutacji $[n]$ bez 3-wyrazowego rosnącego podciągu?
+		\end{itemize}
+
+		\hfil
+	
+	\subsection{Formuła Cayley'a}
+		Liczba różnych drzew (z dokładnością do numerowania wierzchołków) wynosi $n^{n-2}$.
+		Liczba sposobów by zespójnić $k$ spójnych o rozmiarach $s_1, s_2, \dots, s_k$ wynosi $s_1 \cdot s_2 \cdot \dots \cdot s_k \cdot n^{k-2}$.
+
+\section{Funkcje multiplikatywne}
+		\begin{itemize}[noitemsep]
+			\item $id(n)=n$, $\mathbbm{1} \ast \varphi = id$
+			\item $\mathbbm{1}(n)=1$
+			\item $\tau(n)=$ liczba dzielników dodatnich, $\mathbbm{1} \ast \mathbbm{1} = \tau$
+			\item $\sigma(n)=$ suma dzielników dodatnich, $id \ast \mathbbm{1} = \sigma$
+			\item $\varphi(n)=$ liczba liczb względnie pierwszych z $n$ większych równych 1, $id \ast \mu = \varphi$
+			\item $\mu(n)=$ 1 dla $n=1$, 0 gdy istnieje $p$, że $p^2 | n$, oraz $(-1)^k$ jak $n$ jest iloczynem $k$ parami różnych liczb pierwszych
+			\item $\epsilon(n)=$ 1 dla $n=1$ oraz 0 dla $n>1$, $f \ast \epsilon = f$, $\mathbbm{1} \ast \varphi = \epsilon$
+			\item $(f \ast g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})$
+			\item $f \ast g = g \ast f$
+			\item $f \ast (g \ast h) = (f \ast g) \ast h$
+			\item $f \ast (g+h) = f \ast g + f \ast h$
+			\item jak dwie z trzech funkcji $f \ast g = h$ są multiplikatywne, to trzecia też
+			\item $f \ast g = \epsilon \Rightarrow g(n) = -\frac{\sum_{d|n,d>1} f(d) g(\frac{n}{d})}{f(1)}$
+			\item równoważne:
+			\begin{itemize}
+				\item $g(n) = \sum_{d|n} f(d)$
+				\item $f(n) = \sum_{d|n} g(d) \mu(\frac{n}{d})$
+				\item $\sum_{k=1}^n g(k) = \sum_{d=1}^n \lfloor \frac{n}{d} \rfloor f(d)$
+			\end{itemize}
+			\item $\varphi(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)$
+			\item $\varphi(n) = n \cdot (1 - \frac{1}{p_1}) \cdot (1 - \frac{1}{p_2}) \dots (1 - \frac{1}{p_k})$
+		\end{itemize}
+
+\section{Zasada włączeń i wyłączeń}
+
+$$| \bigcup_{i=1}^n A_i | = \sum_{\emptyset \neq J \subseteq  \{1,\dots,n\}} (-1)^{|J|+1} | \bigcap_{j \in J} A_j | $$
+
+\section{Fibonacci}
+
+$$F_n = \frac{\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}$$
+
+$F_{n-1}F_{n+1}-F_n^2=(-1)^n$, $F_{n+k}=F_k F_{n+1} + F_{k-1} F_n$, $F_n | F_{nk}$, $NWD(F_m, F_n) = F_{NWD(m, n)}$

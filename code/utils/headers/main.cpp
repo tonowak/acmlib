@@ -37,5 +37,10 @@ template<class T, class... Args> void dump(T &&x, Args... args) {
 mt19937_64 rng(seed);
 int rd(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
-
 }
+
+// int main() {
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(0);
+// 
+// }
