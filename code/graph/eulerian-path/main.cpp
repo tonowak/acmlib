@@ -4,7 +4,7 @@
  * Użycie:
  *   krawędzie to pary (to, id) gdzie id dla grafu nieskierowanego jest
  *   takie samo dla (u, v) i (v, u)
- * 	 konstruktor: EulerianPath(m, graph)
+ * 	 konstruktor - EulerianPath(m, graph)
  * 	 graf musi być spójny
  *   get_path() zwraca ścieżkę eulera
  *   get_cycle() zwraca cykl eulera
