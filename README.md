@@ -1,5 +1,5 @@
 GRAFY
-- [ ] Jump-pointery
+- [x] Jump-pointery
 - [x] HLD & Euler Tour
 - [ ] Matching
 - [ ] Min Vertex Cover
