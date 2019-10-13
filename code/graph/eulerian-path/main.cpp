@@ -1,7 +1,6 @@
 /*
  * Opis: Ścieżka eulera
  * Czas: O(n)
- * Pamięć : O(n)
  * Użycie:
  *   krawędzie to pary (to, id) gdzie id dla grafu nieskierowanego jest
  *   takie samo dla (u, v) i (v, u)

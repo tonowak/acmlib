@@ -1,9 +1,9 @@
 /*
- * Opis: Drzewo przedział-przedział
+ * Opis: Test pierwszości Millera-Rabina
  * Czas: O(\log^2_n)
  * Pamięć : O(1)
  * Użycie:
- *   Miller_Rabin(n) zwraca, czy n jest pierwsze
+ *   Miller_Rabin(n) zwraca czy n jest pierwsze
  *   działa dla long longów
  */
 

@@ -1,7 +1,6 @@
 /*
  * Opis: Heavy-Light Decomposition
  * Czas: O(\log n)
- * Pamięć : O(n)
  * Użycie:
  *   kontruktor - HLD(n, graph)
  *   lca(v, u) zwraca lca

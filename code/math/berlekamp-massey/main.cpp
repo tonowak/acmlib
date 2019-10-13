@@ -8,7 +8,7 @@
  *   get_kth(x, rec, k) zwraca k-ty ciągu x o rekurencji rec
  */
 
-int mod = 1000696969;
+int mod = 1e9 + 696969;
 
 LL fpow(LL a, LL n) {
 	if(n == 0) return 1;

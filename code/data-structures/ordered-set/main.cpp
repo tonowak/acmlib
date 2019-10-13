@@ -1,12 +1,12 @@
 /*
- * Opis: lepszy set. 
- *   Jeśli chcemy multiseta, to używamy par \{val, id\}.
- *   Nie działa z -D\_GLIBCXX\_DEBUG
+ * Opis: Ordered Set
  * Użycie:
  *   insert(x) dodaje element x (nie ma emplace)
  *   find_by_order(i) zwraca iterator do i-tego elementu
  *   order_of_key(x) zwraca, ile jest mniejszych elementów,
  *   x nie musi być w secie
+ *   Jeśli chcemy multiseta, to używamy par \{val, id\}.
+ *   Nie działa z -D\_GLIBCXX\_DEBUG
  */
 
 #include <ext/pb_ds/assoc_container.hpp>

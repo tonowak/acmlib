@@ -1,7 +1,9 @@
 /*
  * Status: Nieprzetestowane
- * Opis: indexowanie od 0
+ * Opis: Drzewo potęgowe
+ * Czas: O(\log n)
  * Użycie:
+ *   wszystko indexowane od 0
  *   update(pos, val) dodaje val do elementu pos
  *   query(pos) zwraca sumę pierwszych pos elementów
  *   lower_bound(val) zwraca pos, że suma [0, pos] <= val

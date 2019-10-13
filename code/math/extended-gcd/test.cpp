@@ -8,7 +8,7 @@ bool test(int) {
 	LL a = rd(-limit, limit), b = rd(-limit, limit);
 	LL good_gcd = __gcd(a, b);
 	LL gcd, x, y;
-	tie(gcd, x, y) = extendedGcd(a, b);
+	tie(gcd, x, y) = extended_gcd(a, b);
 	assert(gcd == good_gcd);
 
 	if(test_type == 0)

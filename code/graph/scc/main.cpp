@@ -1,10 +1,18 @@
+/*
+ * Opis: Silnie Spójnie Składowe
+ * Czas: O(\log n)
+ * Użycie:
+ *   kontruktor - SCC(graph)
+ *   group[v] to numer silnie spójnej wierzchołka v
+ *   get_compressed() zwraca graf siline spójnych
+ *   get_compressed(false) nie usuwa multikrawędzi
+ */
 
 struct SCC {
 	int n;
 	vector<vector<int>> graph;
 	int group_cnt = 0;
 	vector<int> group;
-	// vector<vector<int>> get_compressed(bool delete_same = true);
 
 
 	vector<vector<int>> rev_graph;
