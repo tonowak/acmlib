@@ -1,6 +1,6 @@
 /*
  * Opis: Jump Pointery
- * Czas: O(\log n)
+ * Czas: O(n \log n + q \log n)
  * Użycie:
  *   konstruktor - JumpPtr(graph)
  *   można ustawić roota
@@ -19,7 +19,7 @@ struct JumpPtr {
 			if(u != par[v]) {
 				par[u] = v;
 				dep[u] = dep[v] + 1;
-				dfs(u);
+				par_dfs(u);
 			}
 		}
 	}

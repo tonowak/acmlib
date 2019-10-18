@@ -15,8 +15,8 @@ struct MCMF {
 	};
 
 	int n;
-	const LL inf_LL = 0x3f3f3f3f3f3f3f3f;
-	const int inf_int = 0x3f3f3f3f;
+	const LL inf_LL = 1e18;
+	const int inf_int = 1e9;
 	vector<vector<int>> graph;
 	vector<Edge> edges;
 

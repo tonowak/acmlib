@@ -5,22 +5,22 @@
  */
 
 vector<vector<int>> graph;
-vector<int> matched, visited;
-int clear_time = 0;
+vector<int> match, vis;
+int t = 0;
  
-bool match_DFS(int v) {
-	visited[v] = clear_time;
+bool match_dfs(int v) {
+	vis[v] = t;
 	for(int u : graph[v])
-		if(matched[u] == -1) {
-			matched[u] = v;
-			matched[v] = u;
+		if(match[u] == -1) {
+			match[u] = v;
+			match[v] = u;
 			return true;
 		}
  
 	for(int u : graph[v])
-		if(visited[matched[u]] != clear_time && match_DFS(matched[u])) {
-			matched[u] = v;
-			matched[v] = u;
+		if(vis[match[u]] != t && match_dfs(match[u])) {
+			match[u] = v;
+			match[v] = u;
 			return true;
 		}
 	return false;
@@ -28,20 +28,20 @@ bool match_DFS(int v) {
  
 int match() {
 	int n = int(graph.size());
-	matched.resize(n, -1);
-	visited.resize(n);
+	match.resize(n, -1);
+	vis.resize(n);
  
-	int delta = -1;
-	while(delta != 0) {
-		delta = 0;
-		++clear_time;
+	int d = -1;
+	while(d != 0) {
+		d = 0;
+		++t;
 		for(int v = 0; v < n; ++v)
-			if(matched[v] == -1)
-				delta += match_DFS(v);
+			if(match[v] == -1)
+				d += match_dfs(v);
 	}
-	int answer = 0;
+	int ans = 0;
 	for(int v = 0; v < n; ++v)
-		if(matched[v] != -1)
-			++answer;
-	return answer / 2;
+		if(match[v] != -1)
+			++ans;
+	return ans / 2;
 }
