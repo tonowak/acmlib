@@ -7,11 +7,10 @@ GRAFY
 - [x] Flow (Dinic, min cost max flow)
 - [ ] Topo sort
 - [ ] Dijkstra
-- [ ] Floyd Warshal
+- [x] Floyd Warshal
 - [x] silne spójne składowe (SCC) 
 - [x] cykl Eulera 
-- [ ] MST (?)
-- [ ] 2-SAT 
+- [x] 2-SAT 
 
 STRUKTURY DANYCH
 - [x] Drzewa przedziałowe
@@ -48,5 +47,5 @@ TEKSTY
 - [x] Algorytm Manachera 
 - [x] Z/Pref algo
 - [x] Hashowanie
-- [ ] Drzewo Trie 
+- [x] Drzewo Trie 
 - [ ] Tablica suffixowa 
