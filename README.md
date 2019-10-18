@@ -1,10 +1,10 @@
 GRAFY
 - [x] Jump-pointery
 - [x] HLD & Euler Tour
-- [ ] Matching
+- [x] Matching
 - [ ] Min Vertex Cover
 - [ ] Hungarian 
-- [ ] Flow (Dinic, min cost max flow)
+- [x] Flow (Dinic, min cost max flow)
 - [ ] Topo sort
 - [ ] Dijkstra
 - [ ] Floyd Warshal
@@ -34,11 +34,11 @@ MATMA
 - [ ] FFT
 
 GEO
-- [ ] Struct punkt
+- [x] Struct punkt
 - [ ] Struct prosta / odcinek
 - [ ] Odległość pomiędzy obiektami
-- [ ] Przecięcie odcinków
-- [ ] Iloczyn wektorowy dla (prosta, punkt)
+- [x] Przecięcie odcinków
+- [x] Iloczyn wektorowy dla (prosta, punkt)
 - [ ] Otoczka wypukła
 - [ ] Pole wielokąta
 - [ ] Cięcie wielokąta prostą
