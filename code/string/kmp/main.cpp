@@ -1,8 +1,12 @@
-// Knuth-Morris-Pratt
-// Autor : Michał Staniewski
-// Status : Przetestowany
+/*
+ * Status: Przetestowane
+ * Opis: KMP
+ * Czas: O(n)
+ * Użycie:
+ * KMP(str) zwraca tablicę pi 
+ */
 
-vector<int> pi(string str) {
+vector<int> KMP(string &str) {
 	int len = size(str);
 	vector<int> ret(len);
 	for(int i = 1; i < len; i++)

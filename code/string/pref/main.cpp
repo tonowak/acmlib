@@ -1,9 +1,13 @@
-// Pref
-// Autor : Michał Staniewski
-// Status : Przetestowany
-// [0, pref[i]) == [i, i + pref[i])
+/*
+ * Status: Przetestowane
+ * Opis: Algorytm pref
+ * Czas: O(n)
+ * Użycie:
+ * pref(str) zwraca tablicę prefixo prefixową
+ * [0, pref[i]) = [i, i + pref[i])
+ */
 
-vector<int> pref(string str) {
+vector<int> pref(string &str) {
 	int len = size(str);	
 	vector<int> ret(len);
 	ret[0] = len;

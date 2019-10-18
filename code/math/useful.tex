@@ -9,7 +9,7 @@ Wierzchołek paraboli $= (- \frac{b}{2a}, - \frac{\Delta}{4a})$.
 \Rightarrow
 \begin{aligned}x=\dfrac{ed-bf}{ad-bc}\\y=\dfrac{af-ec}{ad-bc}\end{aligned}\]
 
-\section{Pitagolas}
+\section{Pitagoras}
 Trójki $(a, b, c)$, takie że $a^2+b^2=c^2$:
  \[ a=k\cdot (m^{2}-n^{2}),\ \,b=k\cdot (2mn),\ \,c=k\cdot (m^{2}+n^{2}), \]
  gdzie $m > n > 0$, $k > 0$, $m \bot n$, oraz albo $m$ albo $n$ jest parzyste.
@@ -63,11 +63,11 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 		$$ (x+y)^n=\sum_{k=0}^n x^k y^{n-k} $$
 
 \section{Wzorki na pewne ciągi}
-	\subsection{Derangements}
+	\subsection{Nieporządek}
 		Liczba takich permutacji, że $p_i \neq i$ (żadna liczba nie wraca na tą samą pozycję).
 		\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
 
-	\subsection{Partition function}
+	\subsection{Liczba podziałów}
 		Liczba sposobów zapisania $n$ jako sumę posortowanych liczb dodatnich.
 		\[ p(0) = 1,\ p(n) = \sum_{k \in \mathbb Z \setminus \{0\}}{(-1)^{k+1} p(n - k(3k-1) / 2)} \]
 		\[ p(n) \sim 0.145 / n \cdot \exp(2.56 \sqrt{n}) \]
