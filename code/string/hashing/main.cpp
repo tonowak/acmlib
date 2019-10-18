@@ -1,8 +1,11 @@
-// Haszowanie
-// Autor : Michał Staniewski
-// Status : Przetestowane
-// get_hash(l, r) zwraca hash przedziału [l, r]
-// baza jest randomowa, żeby nie zostać zhackowanym
+/*
+ * Status: Przetestowane
+ * Opis: Haszowanie
+ * Czas: O(1)
+ * Użycie:
+ * get_hash(l, r) zwraca hasza [l, r] włącznie
+ * można zmienić modulo i bazę
+ */
 
 struct Hashing
 {

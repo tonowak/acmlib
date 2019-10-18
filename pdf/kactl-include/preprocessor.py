@@ -38,6 +38,8 @@ def codeescape(input):
     input = input.replace('\n', '\\\\\n')
     input = input.replace('{', r'\{')
     input = input.replace('}', r'\}')
+    input = input.replace('[', '{[}')
+    input = input.replace(']', '{]}')
     input = input.replace('^', r'\ensuremath{\hat{\;}}')
     input = escape(input)
     return input
