@@ -1,7 +1,6 @@
 # Compiled files
 a.out
 .log
-.tmp
 .failed
 test
 main
