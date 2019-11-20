@@ -1,24 +1,25 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-vector<int> get_poly() {
+vector<LL> get_poly() {
 	int n = rd(1, 1e3);
-	vector<int> A(n);
-	REP(i, n) A[i] = rd(0, 1e3);
+	vector<LL> A(n);
+	REP(i, n) A[i] = rd(0, 1e9);
 	return A;
 }
 
-vector<int> mul(vector<int> A, vector<int> B) {
-	vector<int> res(size(A) + size(B) - 1);
+int mod = 1e9 + 7;
+vector<LL> mul(vector<LL> A, vector<LL> B) {
+	vector<LL> res(size(A) + size(B) - 1);
 	REP(i, size(A)) REP(j, size(B))
-		res[i + j] += A[i] * B[j];
+		res[i + j] = (res[i + j] + A[i] * B[j]) % mod;
 	return res;
 }
 
 bool test(int ms) {
-	vector<int> A = get_poly(), B = get_poly();
+	vector<LL> A = get_poly(), B = get_poly();
 	debug(A, B);
 	debug(mul(A, B));
-	debug(conv_int(A, B));
-	return mul(A, B) != conv_int(A, B);
+	debug(conv_mod(A, B, mod));
+	return mul(A, B) != conv_mod(A, B, mod);
 }
