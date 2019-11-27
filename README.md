@@ -6,7 +6,6 @@ GRAFY
 - [ ] Hungarian 
 - [x] Flow (Dinic, min cost max flow)
 - [ ] Topo sort
-- [ ] Dijkstra
 - [x] Floyd Warshal
 - [x] silne spójne składowe (SCC) 
 - [x] cykl Eulera 
@@ -29,8 +28,9 @@ MATMA
 - [ ] Sito Erastotenesa
 - [ ] Funkcja Phi
 - [ ] Potęgowanie macierzy 
-- [ ] Dwumian Newton'a
-- [ ] FFT
+- [x] Rho Pollarda
+- [x] Dwumian Newton'a
+- [x] FFT
 
 GEO
 - [x] Struct punkt
@@ -48,4 +48,4 @@ TEKSTY
 - [x] Z/Pref algo
 - [x] Hashowanie
 - [x] Drzewo Trie 
-- [ ] Tablica suffixowa 
+- [x] Tablica suffixowa 
