@@ -17,7 +17,7 @@ struct EulerianPath {
 	vector<int> in, out;
 	vector<int> path, cycle
 
-	void init(int v = 0) {
+	void dfs(int v = 0) {
 		in[v]++;
 		while(!graph[v].empty()) {
 			auto edge = graph[v].back();
@@ -27,7 +27,7 @@ struct EulerianPath {
 			if(used[id]) continue;
 			used[id] = true;
 			out[v]++;
-			init(u);
+			dfs(u);
 		}
 		path.emplace_back(v);
 	}
@@ -38,7 +38,7 @@ struct EulerianPath {
 		in.resize(n);
 		out.resize(n);
 
-		init();
+		dfs();
 		in[0]--;
 		debug(path, in, out);
 		cycle = path;

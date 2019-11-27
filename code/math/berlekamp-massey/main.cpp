@@ -1,80 +1,68 @@
 /*
- * Opis: Berlekamp-Massey
+ * Opis: Zgadywanie rekurencji
  * Status: Chyba działa xd
  * Czas: O(n^2 \log k)
  * Pamięć : O(n)
  * Użycie:
- *   Berlekamp_Massey(x) zgaduje rekurencję liniową ciagu x
- *   get_kth(x, rec, k) zwraca k-ty ciągu x o rekurencji rec
+ *   Berlekamp_Massey<mod> bm(x) zgaduje rekurencję ciągu x
+ *   bm.get(k) zwraca k-ty wyraz ciągu x (index 0)
  */
 
-int mod = 1e9 + 696969;
+template<int mod>
+struct BerlekampMassey {
+	int mul(int a, int b) {
+		return (LL) a * b % mod;
+	}
+	int add(int a, int b) {
+		return a + b < mod ? a + b : a + b - mod;
+	}
+	int qpow(int a, int n) {
+		if(n == 0) return 1;
+		if(n % 2 == 1) return mul(qpow(a, n - 1), a);
+		return qpow(mul(a, a), n / 2);
+	}
 
-LL fpow(LL a, LL n) {
-	if(n == 0) return 1;
-	if(n % 2 == 1) return fpow(a, n - 1) * a % mod;
-	LL r = fpow(a, n / 2);
-	return r * r % mod;
-}
-
-vector<LL> Berlekamp_Massey(vector<LL> x) {
-	vector<LL> cur, ls;
-	LL lf = 0, ld = 0;
-
-	for(int i = 0; i < x.size(); i++) {
-		LL t = 0;
-		for(int j = 0; j < cur.size(); j++)
-			t = (t + x[i - 1 - j] * cur[j]) % mod;
-
-		if((t - x[i]) % mod == 0) continue;
-		if(cur.empty()) {
-			cur.resize(i + 1);
-			lf = i;
-			ld = (t - x[i]) % mod;
-			continue;
+	int n;
+	vector<int> x, C;
+	BerlekampMassey(vector<int> &x) : x(x) {
+		vector<int> B; B = C = {1};
+		int b = 1, m = 0;
+		REP(i, size(x)) {
+			m++;
+			int d = x[i];
+			FOR(j, 1, size(C) - 1)
+				d = add(d, mul(C[j], x[i - j]));
+			if(d == 0) continue;
+			auto _B = C; 
+			C.resize(max(size(C), m + size(B)));
+			int coef = mul(d, qpow(b, mod - 2));
+			FOR(j, m, m + size(B) - 1) 
+				C[j] = (C[j] - mul(coef, B[j - m]) + mod) % mod;
+			if(size(_B) < m + size(B)) { B = _B; b = d; m = 0; }
 		}
-
-		LL k = (t - x[i]) * fpow(ld, mod - 2) % mod;
-		vector<LL> c(i - lf - 1);
-		c.emplace_back(k);
-		for(int j = 0; j < ls.size(); j++)
-			c.emplace_back(- k * ls[j] % mod);
-
-		if(c.size() < cur.size()) c.resize(cur.size());
-		for(int j = 0; j < cur.size(); j++)
-			c[j] = (c[j] + cur[j]) % mod;
-
-		if(i - lf + (int)ls.size() >= (int)cur.size())
-			ls = cur, lf = i, ld = (t - x[i]);
-
-		cur = c;		
+		C.erase(C.begin());
+		for(int &t : C) t = add(mod, -t);
+		n = size(C);
 	}
 
-	for(LL &val : cur) val = (val % mod + mod) % mod;
-	return cur;
-}
-
-LL get_kth(vector<LL> x, vector<LL> rec, LL k) {
-	int n = size(rec);
-	auto combine = [&](vector<LL> a, vector<LL> b) {
-		vector<LL> ret(n * 2 + 1);
+	vector<int> combine(vector<int> a, vector<int> b) {
+		vector<int> ret(n * 2 + 1);
 		REP(i, n + 1) REP(j, n + 1)
-			ret[i + j] = (ret[i + j] + a[i] * b[j]) % mod;
+			ret[i + j] = add(ret[i + j], mul(a[i], b[j]));
 		for(int i = 2 * n; i > n; i--) REP(j, n)
-			ret[i - j - 1] = (ret[i - j - 1] + ret[i] * rec[j]) % mod;
-		ret.resize(n + 1);
+			ret[i - j - 1] = add(ret[i - j - 1], mul(ret[i], C[j]));
 		return ret;
-	};
-
-	vector<LL> r(n + 1), pw(n + 1);
-	r[0] = 1, pw[1] = 1;
-
-	for(++k; k; k /= 2) {
-		if(k % 2) r = combine(r, pw);
-		pw = combine(pw, pw);
 	}
 
-	LL ret = 0;
-	REP(i, n) ret = (ret + r[i + 1] * x[i]) % mod;
-	return ret;
-}
+	int get(LL k) {
+		vector<int> r(n + 1), pw(n + 1);
+		r[0] = pw[1] = 1;
+		for(k++; k; k /= 2) {
+			if(k % 2) r= combine(r, pw);
+			pw = combine(pw, pw);
+		}
+		LL ret = 0;
+		REP(i, n) ret = add(ret, mul(r[i + 1], x[i]));
+		return ret;
+	}
+};

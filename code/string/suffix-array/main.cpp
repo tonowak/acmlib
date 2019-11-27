@@ -14,15 +14,20 @@ struct SuffixArray {
 		int n = size(s) + 1, k = 0, a, b;
 		vector<int> x(s.begin(), s.end() + 1);
 		vector<int> y(n), ws(max(n, lim)), rank(n);
-		sa = lcp = y, iota(sa.begin(), sa.end(), 0);
+		sa = lcp = y;
+		iota(sa.begin(), sa.end(), 0);
+
 		for(int j = 0, p = 0; p < n; j = max(1, j * 2), lim = p) {
-			p = j, iota(y.begin(), y.end(), n - j);
-			REP(i, n) if(sa[i] >= j) y[p++] = sa[i] - j;
+			p = j;
+			iota(y.begin(), y.end(), n - j);
+			REP(i, n) if(sa[i] >= j)
+				y[p++] = sa[i] - j;
 			fill(ws.begin(), ws.end(), 0);
 			REP(i, n) ws[x[i]]++;
 			FOR(i, 1, lim - 1) ws[i] += ws[i - 1];
 			for(int i = n; i--;) sa[--ws[x[y[i]]]] = y[i];
-			swap(x, y), p = 1, x[sa[0]] = 0;
+			swap(x, y);
+			p = 1, x[sa[0]] = 0;
 			FOR(i, 1, n - 1) a = sa[i - 1], b = sa[i], x[b] =
 				(y[a] == y[b] && y[a + j] == y[b + j]) ? p - 1 : p++;
 		}

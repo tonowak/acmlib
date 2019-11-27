@@ -1,10 +1,10 @@
 /*
- * Opis: FFT
- * Status: Chyba działa xd
+ * Status: Przetestowane
+ * Opis: Mnożenie wielomianów
  * Czas: O(n \log n)
  * Użycie:
  *   conv(a, b) zwraca iloczyn wielomianów a i b
- *   conv_int(a, b) robi to samo, tyle że wykorzystując inty
+ *   conv_mod(a, b, M) zwraca iloczyn modulo, większa dokładność
  */
 
 using Complex = complex<double>;

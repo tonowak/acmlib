@@ -5,15 +5,8 @@ int main()
 {
 	int n;
 	cin >> n;
-
-	vector<LL> x(n);
-	REP(i, n)
-		cin >> x[i];
-
-	auto rec = Berlekamp_Massey(x);
-	debug(rec);
-
-	LL k;
-	cin >> k;
-	cout << get_kth(x, rec, k);
+	vector<int> x(n);
+	REP(i, n) cin >> x[i];
+	BerlekampMassey<int(1e9 + 696969)> bm(x);
+	REP(k, 10) debug(k, bm.get(k));
 }

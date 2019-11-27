@@ -1,14 +1,13 @@
 /*
  * Status: Przetestowane
- * Opis: Haszowanie
- * Czas: O(1)
- * Użycie:
+ * Opis:
+ * Użycie: 
  * get_hash(l, r) zwraca hasza [l, r] włącznie
  * można zmienić modulo i bazę
+ * Czas: O(1)
  */
 
-struct Hashing
-{
+struct Hashing {
 	vector<LL> ha, pw;
 	LL mod = 1000696969;
 	int base;

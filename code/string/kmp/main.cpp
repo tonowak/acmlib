@@ -1,9 +1,7 @@
 /*
  * Status: Przetestowane
- * Opis: KMP
+ * Opis: KMP(str) zwraca tablicę pi
  * Czas: O(n)
- * Użycie:
- * KMP(str) zwraca tablicę pi 
  */
 
 vector<int> KMP(string &str) {
