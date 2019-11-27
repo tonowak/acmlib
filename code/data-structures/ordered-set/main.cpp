@@ -9,8 +9,11 @@
  *   Nie działa z -D_GLIBCXX_DEBUG
  */
 
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
+#undef _GLIBCXX_DEBUG
+...
+
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
 using namespace __gnu_pbds;
 
 template<class T> using ordered_set = tree<
