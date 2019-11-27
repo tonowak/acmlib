@@ -31,6 +31,9 @@ istream& operator>>(istream &is, P &p) {
 Double cross(P a, P b) {
 	return a.x * b.y - a.y * b.x;
 }
+Double cross(P a, P b, P c) {
+	return cross(b - a, c - a);
+}
 Double dot(P a, P b) {
 	return a.x * b.x + a.y * b.y;
 }
