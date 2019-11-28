@@ -31,3 +31,8 @@ vector<P> intersect(P a, P b, P c, P d, bool segments) {
 	return {s.begin(), s.end()};
 }
 
+
+P intersect(P a, P b, P c, P d, bool segments) {
+	Double c1 = cross(c - a, b - a), c2 = cross(d - a, b - a);
+	if(c1 != c2) r
+}

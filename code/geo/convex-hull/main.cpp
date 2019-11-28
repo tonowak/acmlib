@@ -7,6 +7,7 @@
  * hull zwraca punkty na otoczce
  */
 #include "../point/main.cpp"
+Double cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
 pair<vector<int>, vector<int>> top_bot_hull(vector<P> &pts) {
 	int n = size(pts);
 	vector<int> ord(n);

@@ -4,7 +4,11 @@
  */
 
 #include "../rho-pollard/main.cpp"
-#include "../exp/main.cpp"
+LL exp(LL a, LL b, int m) {
+	if(b == 0) return 1;
+	if(b & 1) return a * exp(a, b - 1, m) % m;
+	return exp(a * a % m, b / 2);
+}
 int primitive_root(int p) {
 	int q = p - 1;
 	vector<LL> v = factor(q); vector<int> fact;

@@ -28,15 +28,11 @@ istream& operator>>(istream &is, P &p) {
 	p = P(a, b);
 	return is;
 }
-Double cross(P a, P b) {
-	return a.x * b.y - a.y * b.x;
+bool operator==(P a, P b) { 
+	return equal(a.x, b.x) && equal(a.y, b.y); 
 }
-Double cross(P a, P b, P c) {
-	return cross(b - a, c - a);
-}
-Double dot(P a, P b) {
-	return a.x * b.x + a.y * b.y;
-}
-P rotate(P x, P center, Double radians) {
-	return (x - center) * exp(P(0, radians)) + center;
-}
+
+Double cross(P a, P b) { return a.x * b.y - a.y * b.x; }
+Double dot(P a, P b) { return a.x * b.x + a.y * b.y; }
+Double sq_dist(P a, P b) { return dot(a - b, a - b); }
+Double dist(P a, P b) { return abs(a - b); }
