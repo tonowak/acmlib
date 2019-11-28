@@ -3,7 +3,4 @@
 
 // Test kompilacji :')
 int main() { 
-	P a, b, p, q;
-	cin >> a >> b >> p >> q;
-	debug(parallel(a, b, p, q));
 }

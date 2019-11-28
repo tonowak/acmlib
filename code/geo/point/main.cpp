@@ -32,6 +32,7 @@ bool operator==(P a, P b) {
 	return equal(a.x, b.x) && equal(a.y, b.y); 
 }
 
+// cross({1, 0}, {0, 1}) = 1
 Double cross(P a, P b) { return a.x * b.y - a.y * b.x; }
 Double dot(P a, P b) { return a.x * b.x + a.y * b.y; }
 Double sq_dist(P a, P b) { return dot(a - b, a - b); }

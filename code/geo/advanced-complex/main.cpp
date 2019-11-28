@@ -32,12 +32,18 @@ bool is_parallel(P a, P b, P p, P q) {
 }
 // check czy sa prostopadle
 bool is_perpendicular(P a, P b, P p, P q) {
-	P c = (a - b) / (c - d); return c == -conj(c);
+	P c = (a - b) / (p - q); return c == -conj(c);
 }
 // zwraca takie q, ze (p, q) jest rownolegle do (a, b)
-P parallel(P a, P b, P p) { return p + a - b; }
+P parallel(P a, P b, P p) {
+	return p + a - b;
+}
 // zwraca takie q, ze (p, q) jest prostopadle do (a, b)
-P perpendicular(P a, P b, P p) { return reflect(p, a, b); }
+P perpendicular(P a, P b, P p) { 
+	return reflect(p, a, b);
+}
 // przeciecie srodkowych trojkata
-P centro(P a, P b, P c) { return (a + b + c) / 3; }
+P centro(P a, P b, P c) { 
+	return (a + b + c) / 3.0L;
+}
 
