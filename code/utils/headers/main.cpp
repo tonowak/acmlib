@@ -4,6 +4,7 @@
  *   debug(a, b, c) << d << e; wypisze a, b, c:  a;  b;  c;  de
  */
 
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long;
