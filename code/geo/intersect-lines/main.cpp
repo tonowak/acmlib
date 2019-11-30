@@ -1,11 +1,10 @@
 /*
  * Opis: Przecięcie prostych lub odcinków
- * Użycie:
- *   v = intersect(a, b, c, d, s) zwraca przecięcie (s ? odcinków : prostych) ab oraz cd
- *   if size(v) == 0: nie ma przecięć
- *   if size(v) == 1: v[0] jest przecięciem
- *   if size(v) == 2 and s: (v[0], v[1]) to odcinek, w którym są wszystkie inf rozwiązań
- *   if size(v) == 2 and s == false: v to niezdefiniowane punkty (inf rozwiązań)
+ * Użycie: v = intersect(a, b, c, d, s) zwraca przecięcie (s ? odcinków : prostych) ab oraz cd
+ * if size(v) == 0: nie ma przecięć
+ * if size(v) == 1: v[0] jest przecięciem
+ * if size(v) == 2 and s: (v[0], v[1]) to odcinek, w którym są wszystkie inf rozwiązań
+ * if size(v) == 2 and s == false: v to niezdefiniowane punkty (inf rozwiązań)
  */
 
 #include "../point/main.cpp"

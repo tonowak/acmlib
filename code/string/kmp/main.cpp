@@ -1,6 +1,7 @@
 /*
  * Status: Przetestowane
- * Opis: KMP(str) zwraca tablicę pi
+ * Opis: KMP(str) zwraca tablicę pi.
+ * [0, pi[i]) = (i - pi[i], i]
  * Czas: O(n)
  */
 

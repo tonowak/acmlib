@@ -1,18 +1,14 @@
 /*
  * Opis: Ścieżka eulera
  * Czas: O(n)
- * Użycie:
- *   krawędzie to pary (to, id) gdzie id dla grafu nieskierowanego jest
- *   takie samo dla (u, v) i (v, u)
- * 	 konstruktor - EulerianPath(m, graph)
- * 	 graf musi być spójny
- *   get_path() zwraca ścieżkę eulera
- *   get_cycle() zwraca cykl eulera
+ * Użycie: krawędzie to pary (to, id) gdzie id dla grafu nieskierowanego jest takie samo dla (u, v) i (v, u)
+ * 	 graf musi być spójny, get_path() zwraca ścieżkę eulera, get_cycle() zwraca cykl eulera
  *   jeśli nie ma, obie funkcję zwrócą pusty vector
  */
 
+using PII = pair<int, int>;
 struct EulerianPath {
-	vector<vector<pair<int, int>>> graph;
+	vector<vector<PII>> graph;
 	vector<bool> used;
 	vector<int> in, out;
 	vector<int> path, cycle
@@ -32,7 +28,7 @@ struct EulerianPath {
 		path.emplace_back(v);
 	}
 
-	EulerianPath(int m, vector<vector<pair<int, int>>> &graph) : graph(graph) {
+	EulerianPath(int m, vector<vector<PII>> &graph) : graph(graph) {
 		int n = size(graph);
 		used.resize(m);
 		in.resize(n);

@@ -1,3 +1,10 @@
+
+/*
+ * Opis: Struktura do działań modulo
+ * Czas: O(1), dzielenie O(\log mog)
+ * Użycie: Ustaw modulo w ostatniej linii. Jeśli modulo nie jest const, usuń pierwszy wiersz i zadeklaruj mod
+ */
+
 template<int mod>
 struct mi {
 	int val;
@@ -57,4 +64,4 @@ struct mi {
 	friend mi operator*(mi a, const mi &b) { return a *= b; }
 	friend mi operator/(mi a, const mi &b) { return a /= b; }
 };
-// using ModInt = mi<int(1e9 + 7)>;
+using MI = mi<int(1e9 + 7)>;

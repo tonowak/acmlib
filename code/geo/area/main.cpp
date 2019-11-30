@@ -1,8 +1,6 @@
 /*
  * Opis: Pole wielokąta, niekoniecznie wypukłego
- * Użycie: 
- * w vectorze muszą być wierzchołki zgodnie z kierunkiem ruchu zegara
- * jeśli Double jest intem to może się psuć / 2
+ * Użycie: w vectorze muszą być wierzchołki zgodnie z kierunkiem ruchu zegara. Jeśli Double jest intem to może się psuć / 2. 
  * area(a, b, c) zwraca pole trójkąta o takich długościach boku
  */
 #include "../point/main.cpp"
