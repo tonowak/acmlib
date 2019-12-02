@@ -6,11 +6,8 @@
  *   order_of_key(x) zwraca, ile jest mniejszych elementów,
  *   x nie musi być w secie
  *   Jeśli chcemy multiseta, to używamy par {val, id}.
- *   Nie działa z -D_GLIBCXX_DEBUG
+ *   Przed includem trzeba dać #undef _GLIBCXX_DEBUG
  */
-
-#undef _GLIBCXX_DEBUG
-...
 
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
