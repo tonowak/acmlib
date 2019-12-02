@@ -3,7 +3,7 @@
  * Czas: O(1)
  * Użycie:
  * np hash_map<int, int>
- * trzeba przed includem dać #undef _GLIBCXX_DEBUG
+ * trzeba przed includem dać undef _GLIBCXX_DEBUG
  */
 
 #include<ext/pb_ds/assoc_container.hpp>
