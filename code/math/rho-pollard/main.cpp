@@ -1,6 +1,8 @@
 /*
  * Opis: Rozkład na czynniki Rho Pollarda
  * Czas: O(n^{\frac{1}{4}})
+ * Użycie: factor(n) zwraca vector dzielników pierwszych n, niekoniecznie posortowany
+ * factor(12) = {2, 2, 3}, factor(545423) = {53, 41, 251};
  */
 
 #include "../miller-rabin/main.cpp"

@@ -1,5 +1,5 @@
 /*
- * Opis: Ordered Set
+ * Opis: set z dodatkowymi funkcjami
  * Użycie:
  *   insert(x) dodaje element x (nie ma emplace)
  *   find_by_order(i) zwraca iterator do i-tego elementu

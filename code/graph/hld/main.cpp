@@ -7,7 +7,7 @@
  *   get_vertex(v) zwraca pozycję odpowiadającą wierzchołkowi
  *   get_path(v, u) zwraca przedziały do obsługiwania drzewem przedziałowym
  *   get_path(v, u) jeśli robisz operacje na wierzchołkach
- *   get_path(v, u, false) jeśli na krawędziach
+ *   get_path(v, u, false) jeśli na krawędziach (nie zawiera lca)
  *   get_subtree(v) zwraca przedział odpowiadający podrzewu v
  */
 
@@ -15,7 +15,6 @@ struct HLD {
 	vector<vector<int>> graph;
 	vector<int> size, pre, pos, nxt, par;
 	int t = 0;
-
 	void init(int v, int p = -1) {
 		par[v] = p;
 		size[v] = 1;
@@ -26,7 +25,6 @@ struct HLD {
 				swap(u, graph[v][0]);
 		}
 	}
-
 	void set_paths(int v) {
 		pre[v] = t++;
 		for(int &u : graph[v]) if(u != par[v]) {
@@ -35,13 +33,11 @@ struct HLD {
 		}
 		pos[v] = t;
 	}
-
 	HLD(int n, vector<vector<int>> graph, int root = 0)
 		: graph(graph), size(n), pre(n), pos(n), nxt(n), par(n) {
 		init(root);
 		set_paths(root);
 	}
-
 	int lca(int v, int u) {
 		while(nxt[v] != nxt[u]) {
 			if(pre[v] < pre[u])
@@ -50,7 +46,6 @@ struct HLD {
 		}
 		return (pre[v] < pre[u] ? v : u);
 	}
-
 	vector<pair<int, int>> path_up(int v, int u) {
 		vector<pair<int, int>> ret;
 		while(nxt[v] != nxt[u]) {
@@ -60,9 +55,7 @@ struct HLD {
 		if(pre[u] != pre[v]) ret.emplace_back(pre[u] + 1, pre[v]);
 		return ret;
 	}
-
 	int get_vertex(int v) { return pre[v]; }
-
 	vector<pair<int, int>> get_path(int v, int u, bool add_lca = true) {
 		int w = lca(v, u);
 		auto ret = path_up(v, w);
@@ -74,6 +67,5 @@ struct HLD {
 		}
 		return ret;
 	}
-
 	pair<int, int> get_subtree(int v) { return {pre[v], pos[v] - 1}; }
 };
