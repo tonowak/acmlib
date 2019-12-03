@@ -1,0 +1,63 @@
+\section{Troubleshoot}
+\footnotesize{
+\textbf{Przed submitem}:
+\begin{itemize}
+	\item Narysuj parę przykładów i przetestuj kod
+	\item Czy limity czasu są ostre? Wygeneruj maxtest.
+	\item Czy zużycie pamięci jest spoko?
+	\item Czy gdzieś mogą być overflowy? 
+	\item Upewnij sie, żeby submitnąć dobry plik.
+\end{itemize}
+
+\textbf{Wrong Answer}:
+\begin{itemize}
+	\item Wydrukuj kod i debug output
+	\item Czy czyścisz struktury pomiędzy test case'ami?
+	\item Czy twój kod obsługuje cały zasięg wejścia?
+	\item Przeczytaj jeszcze raz treść.
+	\item Czy zrozumiałeś dobrze zadanie?
+	\item Czy obsługujesz dobrze wszystkie przypadki brzegowe?
+	\item Niezainicjalizowane zmienne?
+	\item Overflowy?
+	\item Mylisz n z m lub i z j, itp?
+	\item Czy format wyjścia jest na pewno dobry?
+	\item Czy jesteś pewien, że twój algorytm działa?
+	\item Czy są specjalne przypadki, o których nie pomyślałeś?
+	\item Dodaj asserty, może submitnij jeszcze raz z nimi.
+	\item Stwórz/Wygeneruj przykłady.
+	\item Wytłumacz algorytm komuś innemu.
+	\item Poproś kogoś, żeby spojrzał na twój kod.
+	\item Przejdź się, np do toalety.
+	\item Przepisz kod od nowa, lub niech ktoś inny to zrobi.
+	\item Przeleć przez tą listę jeszcze raz.
+\end{itemize}
+
+\textbf{Runetime Error}:
+\begin{itemize}
+	\item Czy przetestowałeś lokalnie wszystkie przypadki brzegowe?
+	\item Niezainicjalizowane zmienne?
+	\item Czy odwołujesz się poza zasięg vectora?
+	\item Czy jakieś asserty mogły się odpalić?
+	\item Dzielenie przez 0? mod 0?
+	\item Nieskończona rekurencja?
+	\item Unieważnione iteratory lub wskaźniki?
+	\item Czy używasz za dużo pamięci?
+	% \item Debug with resubmits (e.g. remapped signals, see Various).
+\end{itemize}
+
+\textbf{Time Limit Exceeded}:
+\begin{itemize}
+	\item Czy mogą być gdzieś nieskończone pętle?
+	\item Jaka jest złożoność algorytmu?
+	\item Czy nie kopiujesz dużo niepotrzebnych danych? (referencje)
+	\item Pamiętaj o linijkach do iostreama
+	\item Zastąp vectory i mapy w kodzie (odpowiednio array i unordered\_map)
+	\item Co inni myślą o twoim algorytmie?
+\end{itemize}
+
+\textbf{Memory Limit Exceeded}:
+\begin{itemize}
+	\item Jaka jest maksymalna ilość pamięci twój algorytm potrzebuje?
+	\item Czy czyścisz struktury pomiędzy test case'ami?
+\end{itemize}
+}
