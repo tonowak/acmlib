@@ -1,6 +1,6 @@
 /*
  * Opis: Test pierwszości Millera-Rabina
- * Czas: O(\log^2_n)
+ * Czas: O(\log^2n)
  * Pamięć : O(1)
  * Użycie:
  *   miller_rabin(n) zwraca czy n jest pierwsze
