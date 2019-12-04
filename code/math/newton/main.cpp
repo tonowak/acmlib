@@ -1,3 +1,9 @@
+/*
+ * Opis: Dwumian Newtona
+ * Czas: O(n \log n + q)
+ * Użycie: get(n, k) zwraca n po k
+ */
+#include "../mod-int/main.cpp"
 struct Newton {
 	vector<MI> fac, rev;
 	Newton(int n) {
@@ -7,7 +13,6 @@ struct Newton {
 		for(int i = n; i >= 1; i--)
 			rev[i - 1] = rev[i] * i;
 	}
-
 	MI get(int n, int k) {
 		return fac[n] * rev[n - k] * rev[k];
 	}

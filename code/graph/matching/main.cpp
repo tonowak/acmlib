@@ -1,7 +1,7 @@
 /*
  * Opis: Turbo Matching
- * Czas: Mniej więcej O(n \log n), najgorzej O(n^2)
- * Użycie: wierzchołki grafu nie muszą być ładnie podzielone na dwia przedziały, musi być po prostu dwudzielny. Funkcja match() działa w o(n), nieważne jak małe zmiany się wprowadzi do aktualnego matchingu.
+ * Czas: Średnio około O(n \log n), najgorzej O(n^2)
+ * Użycie: wierzchołki grafu nie muszą być ładnie podzielone na dwia przedziały, musi być po prostu dwudzielny.
  */
 
 vector<vector<int>> graph;

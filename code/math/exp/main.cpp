@@ -8,4 +8,4 @@ LL exp(LL a, LL b, LL m) {
 	if(b & 1) return a * exp(a, b - 1, m) % m;
 	LL t = exp(a, b / 2, m);
 	return t * t % m;
-}
+} 

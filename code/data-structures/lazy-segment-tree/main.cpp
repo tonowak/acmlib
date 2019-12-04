@@ -9,8 +9,9 @@
  *   funkcje add_val i f
  */
 
+using T = int;
 struct Node {
-	int val, lazy;
+	T val, lazy;
 	int size = 1;
 };
 
@@ -18,12 +19,12 @@ struct Tree {
 	vector<Node> nodes;
 	int size = 1;
 
-	void add_val(int v, int val) {
+	void add_val(int v, T val) {
 		nodes[v].val += val;
 		nodes[v].lazy += val;
 	}
 
-	int f(int a, int b) { return max(a, b); }
+	T f(T a, T b) { return max(a, b); }
 
 	Tree(int n) {
 		while(size < n) size *= 2;
@@ -38,7 +39,7 @@ struct Tree {
 		nodes[v].lazy = 0;
 	}
 
-	int query(int l, int r, int v = 1) {
+	T query(int l, int r, int v = 1) {
 		if(l == 0 && r == nodes[v].size - 1)
 			return nodes[v].val;
 		propagate(v);	
@@ -51,7 +52,7 @@ struct Tree {
 			return f(query(l, m - 1, v * 2), query(0, r - m, v * 2 + 1));
 	}
 
-	void add(int l, int r, int val, int v = 1) {
+	void add(int l, int r, T val, int v = 1) {
 		if(l == 0 && r == nodes[v].size - 1) {
 			add_val(v, val);
 			return;

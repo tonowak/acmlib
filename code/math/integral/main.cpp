@@ -1,6 +1,8 @@
 /* 
- * Opis: Wzór na całkę z zasady Simpsona. 
- * Daj asserta na błąd, zwiększ n
+ * Opis: Wzór na całkę z zasady Simpsona - zwraca całkę na przedziale [a, b]
+ * Czas: O(n)
+ * Użycie: intergral([](T x) { return 3 * x * x - 8 * x + 3; }, a, b)
+ * Daj asserta na błąd, ewentualnie zwiększ n (im większe n, tym mniejszy błąd)
  */
 
 using T = double;

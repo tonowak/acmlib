@@ -13,7 +13,6 @@ struct JumpPtr {
 	int LOG = 20;
 	vector<vector<int>> graph, jump;
 	vector<int> par, dep;
-
 	void par_dfs(int v) {
 		for(int u : graph[v]) {
 			if(u != par[v]) {
@@ -23,26 +22,22 @@ struct JumpPtr {
 			}
 		}
 	}
-		
 	JumpPtr(vector<vector<int>> &graph, int root = 0) : graph(graph) {
 		int n = size(graph);
 		par.resize(n, -1);
 		dep.resize(n);
 		par_dfs(root);
-		
 		jump.resize(LOG, vector<int>(n));
 		jump[0] = par;
 		FOR(i, 1, LOG - 1) REP(j, n)
 			jump[i][j] = jump[i - 1][j] == -1 ? -1 : jump[i - 1][jump[i - 1][j]];
 	}
-
 	int jump_up(int v, int k) {
 		for(int i = LOG - 1; i >= 0; i--)
 			if(k & (1 << i))
 				v = jump[i][v];
 		return v;
 	}
-
 	int lca(int a, int b) {
 		if(dep[a] < dep[b]) swap(a, b);
 		int delta = dep[a] - dep[b];

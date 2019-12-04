@@ -2,6 +2,8 @@
  * Status: Przetestowane
  * Opis: Set dla funkcji liniowych
  * Czas: O(\log n)
+ * Użycie: add(a, b) dodaje funkcję y = ax + b
+ * query(x) zwraca największe y w punkcie x, x < inf
  */
 
 struct Line {
@@ -33,7 +35,6 @@ struct LineContainer : multiset<Line, less<>> {
 	}
 	LL query(LL x) {
 		assert(!empty());
-		auto l = *lower_bound(x);
-		return l.eval(x);
+		return lower_bound(x)->eval(x);
 	}
 };

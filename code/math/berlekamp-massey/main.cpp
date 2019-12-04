@@ -1,5 +1,5 @@
 /*
- * Opis: Zgadywanie rekurencji
+ * Opis: Zgadywanie rekurencji liniowej
  * Status: Chyba działa xd
  * Czas: O(n^2 \log k)
  * Pamięć : O(n)
@@ -27,9 +27,8 @@ struct BerlekampMassey {
 	BerlekampMassey(vector<int> &x) : x(x) {
 		vector<int> B; B = C = {1};
 		int b = 1, m = 0;
-		REP(i, size(x)) {
-			m++;
-			int d = x[i];
+		REP(i, size(x)) { 
+			m++; int d = x[i];
 			FOR(j, 1, size(C) - 1)
 				d = add(d, mul(C[j], x[i - j]));
 			if(d == 0) continue;
