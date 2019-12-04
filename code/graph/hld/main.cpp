@@ -2,7 +2,7 @@
  * Opis: Heavy-Light Decomposition
  * Czas: O(\log n)
  * Użycie:
- *   kontruktor - HLD(n, graph)
+ *   kontruktor - HLD(n, adj)
  *   lca(v, u) zwraca lca
  *   get_vertex(v) zwraca pozycję odpowiadającą wierzchołkowi
  *   get_path(v, u) zwraca przedziały do obsługiwania drzewem przedziałowym
@@ -12,31 +12,30 @@
  */
 
 struct HLD {
-	vector<vector<int>> graph;
+	vector<vector<int>> adj;
 	vector<int> size, pre, pos, nxt, par;
 	int t = 0;
 	void init(int v, int p = -1) {
 		par[v] = p;
 		size[v] = 1;
-		for(int &u : graph[v]) if(u != par[v]) {
+		for(int &u : adj[v]) if(u != par[v]) {
 			init(u, v);
 			size[v] += size[u];
-			if(size[u] > size[graph[v][0]])
-				swap(u, graph[v][0]);
+			if(size[u] > size[adj[v][0]])
+				swap(u, adj[v][0]);
 		}
 	}
 	void set_paths(int v) {
 		pre[v] = t++;
-		for(int &u : graph[v]) if(u != par[v]) {
-			nxt[u] = (u == graph[v][0] ? nxt[v] : u);
+		for(int &u : adj[v]) if(u != par[v]) {
+			nxt[u] = (u == adj[v][0] ? nxt[v] : u);
 			set_paths(u);
 		}
 		pos[v] = t;
 	}
-	HLD(int n, vector<vector<int>> graph, int root = 0)
-		: graph(graph), size(n), pre(n), pos(n), nxt(n), par(n) {
-		init(root);
-		set_paths(root);
+	HLD(int n, vector<vector<int>> &adj)
+		: adj(adj), size(n), pre(n), pos(n), nxt(n), par(n) {
+		init(0), set_paths(0);
 	}
 	int lca(int v, int u) {
 		while(nxt[v] != nxt[u]) {
@@ -61,10 +60,7 @@ struct HLD {
 		auto ret = path_up(v, w);
 		auto path_u = path_up(u, w);
 		if(add_lca) ret.emplace_back(pre[w], pre[w]);
-		while(!path_u.empty()) {
-			ret.emplace_back(path_u.back());
-			path_u.pop_back();
-		}
+		ret.insert(ret.end(), path_u.begin(), path_u.end());
 		return ret;
 	}
 	pair<int, int> get_subtree(int v) { return {pre[v], pos[v] - 1}; }
