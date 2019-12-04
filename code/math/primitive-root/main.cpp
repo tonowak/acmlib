@@ -1,6 +1,6 @@
 /*
  * Opis: Dla pierwszego $p$ znajduje generator modulo $p$ 
- * Czas: O(\log^2(p))
+ * Czas: O(\log^2(p)) (ale spora stała, zależy )
  */
 
 #include "../rho-pollard/main.cpp"
