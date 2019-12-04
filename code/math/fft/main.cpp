@@ -4,7 +4,6 @@
  * Czas: O(n \log n)
  * Użycie:
  *   conv(a, b) zwraca iloczyn wielomianów a i b
- *   conv_mod(a, b, M) zwraca iloczyn modulo, większa dokładność
  */
 
 using Complex = complex<double>;
@@ -24,8 +23,7 @@ void fft(vector<Complex> &a) {
 	REP(i, n) if(i < rev[i]) swap(a[i], a[rev[i]]);
 	for(int k = 1; k < n; k *= 2) {
 		for(int i = 0; i < n; i += 2 * k) REP(j, k) {
-			auto x = (double *) &rt[j + k], y = (double *) &a[i + j + k];
-			Complex z(x[0] * y[0] - x[1] * y[1], x[0] * y[1] + x[1] * y[0]);
+			Complex z = rt[j + k] * a[i + j + k]; // mozna zoptowac rozpisujac
 			a[i + j + k] = a[i + j] - z;
 			a[i + j] += z;
 		}
@@ -47,25 +45,3 @@ vector<double> conv(vector<double> &a, vector<double> &b) {
 	return res;
 }
 
-vector<LL> conv_mod(vector<LL> &a, vector<LL> &b, int M) {
-	if(a.empty() || b.empty()) return {};
-	vector<LL> res(size(a) + size(b) - 1);
-	int B = 32 - __builtin_clz(size(res)), n = 1 << B;
-	int cut = int(sqrt(M));
-	vector<Complex> L(n), R(n), outl(n), outs(n);
-	REP(i, size(a)) L[i] = Complex((int) a[i] / cut, (int) a[i] % cut);
-	REP(i, size(b)) R[i] = Complex((int) b[i] / cut, (int) b[i] % cut);
-	fft(L), fft(R);
-	REP(i, n) {
-		int j = -i & (n - 1);
-		outl[j] = (L[i] + conj(L[j])) * R[i] / (2.0 * n);
-		outs[j] = (L[i] - conj(L[j])) * R[i] / (2.0 * n) / 1i;
-	}
-	fft(outl), fft(outs);
-	REP(i, size(res)) {
-		LL av = LL(real(outl[i]) + 0.5), cv = LL(imag(outs[i]) + 0.5);
-		LL bv = LL(imag(outl[i]) + 0.5) + LL(real(outs[i]) + 0.5);
-		res[i] = ((av % M * cut + bv) % M * cut + cv) % M;
-	}
-	return res;
-}
