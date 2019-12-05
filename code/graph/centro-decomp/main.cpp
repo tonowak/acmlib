@@ -1,6 +1,6 @@
 /*
  * Opis: template do Centroid Decomposition
- * Czas: O(\log n)
+ * Czas: O(n \log n)
  * Użycie:
  *   konstruktor - HLD(n, graf)
  *   swój kod wrzucamy do funkcji decomp
