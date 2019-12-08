@@ -44,7 +44,7 @@ struct mi {
 		return *this;
 	}
 	mi& operator*=(const mi &m) {
-		val = (LL) val & m.val % mod;
+		val = (LL) val * m.val % mod;
 		return *this;
 	}
 	friend mi qpow(mi a, LL n) {
