@@ -33,7 +33,6 @@ struct CentroDecomp {
 			v = mx.second;
 		}
 	}
-	vector<PII> cen;
 	void decomp(int v) {
 		done[v = centro(v)] = true;
 		// kodzik idzie tutaj
