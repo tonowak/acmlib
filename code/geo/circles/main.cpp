@@ -27,7 +27,7 @@ vector<P> circle_circle(D x1, D y1, D r1, D x2, D y2, D r2) {
 	x2 -= x1;
 	y2 -= y1;
 	// now x1 = y1 = 0;
-	if(sign(x2) == 0 and sign(x2) == 0) {
+	if(sign(x2) == 0 and sign(y2) == 0) {
 		if(equal(r1, r2))
 			return {{0, 0}, {0, 0}, {0, 0}}; // inf points
 		else
