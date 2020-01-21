@@ -31,17 +31,14 @@ int match() {
 	match.resize(n, -1);
 	vis.resize(n);
  
-	int d = -1;
+	int ans = 0, d = -1;
 	while(d != 0) {
 		d = 0;
 		++t;
 		for(int v = 0; v < n; ++v)
 			if(match[v] == -1)
 				d += match_dfs(v);
+		ans += d;
 	}
-	int ans = 0;
-	for(int v = 0; v < n; ++v)
-		if(match[v] != -1)
-			++ans;
-	return ans / 2;
+	return ans;
 }
