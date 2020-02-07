@@ -1,0 +1,172 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, total={460pt, 700pt}]{geometry}
+\usepackage{array}
+\usepackage[polish]{babel}
+\renewcommand{\arraystretch}{1.25}
+ 
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage[lastpage,user]{zref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{scalerel}
+\usepackage{fancyvrb}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue}
+ 
+\let\oldverbatim\verbatim
+\let\oldendverbatim\endverbatim
+\def\verbatim{\Verbatim[samepage=true]}
+\def\endverbatim{\endVerbatim}
+ 
+\let\OldIncludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{\OldIncludegraphics[scale=0.55, #1]{#2}}
+ 
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+ 
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\section*{Wykład o strategii (Tomasz Nowak)}
+
+\begin{itemize}
+    \item Przypomnienie zasad drugiego etapu OI
+    \begin{itemize}
+        \item pytania tylko w pierwszych dwóch godzinach, odpowiedzi tak / nie / niepoprawne pytanie / odpowiedź wynika z treści zadania / bez odpowiedzi. Pytania techniczne przez całe zawody
+        \item często wchodzić na pytania (o tym jak Michał nie zauważył zmiany podzadania na BOI)
+        \item drukowanie i kopia zapasowa, skrypt submit (o tym, jak chyba dwa lata temu przesunięto o godzinę drugi etap, bo w jednym mieście padło zasilanie kompów z live cd)
+        \item max 15 submitów, liczy się ostatni submit
+        \item w plikach są przykładowe i limity czasu
+        \item dokumentacja
+    \end{itemize}
+    
+    \item Minimum, by się dostać do finału
+    \begin{itemize}
+        \item ostatnie progi: 200, 162, 200, 87, 80, 168, 140, 206, 175, 62. Łatwo wyciągnąć wnioski
+        \item w pierwszym dniu oczywiście, najlepiej celować w wzorcówkę i bruta albo dwa bruty, nie da się niczego mądrego powiedzieć
+        \item zależnie od wyniku w pierwszym dniu, strategia się zmienia w drugim dniu (sytuacja wygląda tak, że powinno się sklepać wzorcówkę, albo można na spokojnie bezpieczniej dwa bruty)
+        \item bardzo kluczowe jest rozpoznanie łatwiejszego zadania, które zazwyczaj jest (Justynka na drugim etapie OIG (nie OI) wyzerowała bo klepała 2h hardkora)
+        \item nieprzewidywalność i niepewność i brak wiedzy
+    \end{itemize}
+    
+    \item Idealny ,,early game`` podczas contestu
+    \begin{itemize}
+        \item *zrozumieć* *oba* zadania podczas pierwsze pół godziny, albo nawet godziny. Nigdy nie kminić tylko nad jednym zadaniem. Nigdy nie dopuścić do sytuacji, gdzie się klepie zadanko, a drugie jest jeszcze nieprzeczytane (jakieś przykłady takich błędów z życia)
+        \item zrobić wiele swoich przykładów, zamiast przykładowych z treści (podchwytliwe treści i przykładowe)
+        \item potwierdzić, że się rozumie treść, na podstawie przykładowych
+        \item nigdy nie zaszkodzi przeczytać treść jeszcze raz, od początku do końca (pierwszy dzień warsztatów staszicowych)
+        \item zrozumieć każdy szczegół treści, szczególnie dziwne warunki (po co one są albo co ułatwiają)
+    \end{itemize}
+    
+    \item Doświadczenie w rozwiązywaniu zadań
+    \begin{itemize}
+        \item słabą intuicję można nadrobić dużym doświadczeniem
+        \item rozwiązanie może korzystać z techniki lub obserwacji, którą znamy
+        \item intuicja - czujemy z jakiego podejścia/przekształcenia należy skorzystać
+        \item doświadczenie - mamy dużą listę pomysłów, z których można skorzystać w danym zadaniu
+        \item dużo osób ma spore doświadczenie, ale nie zdaje sobie z tego sprawy (jak je wykorzystać?)
+        \item może warto przed OIem przejrzeć przez zadania, które się wbiło, i przypomnieć sobie rozwiązania i wyciągnąć z nich całą ,,esencję''? Dla każdego zadania skrócić jak najbardziej ideę rozwiązania, w taki sposób, że gdyby się sobie powiedziało o tym, kiedy się kminiło zadanko, to to by znacząco pomogło
+        \item ostatnio zadania są częściej na techniki, niż obserwacje. Oznacza to większy nacisk na doświadczenie
+        \item przykład: znajomość problemów NP-trudnych
+    \end{itemize}
+    
+    \item Lista technik to złoto
+    \begin{itemize}
+        \item przedstawić kilka zadanek na każde podejście
+        \item dlaczego lista technik może czasem znacząco pomóc w rozwiązaniu zadania
+        \item podkreślić, że lista technik to złoto
+        \item nakrzyczeć, by znali na pamięć podejścia, gdyż może to pomóc
+        \item wyjaśnić, że nie ma powodu się jej wstydzić
+    \end{itemize}
+    
+    \item Pewność siebie - dlaczego czasem się (niepotrzebnie) poddajemy
+    \begin{itemize}
+        \item Szczecin to zadupie, nie mamy osób, z którymi możemy się porównywać
+        \item jesteśmy lepsi, niż nam się wydaje
+        \item moja historyjka na finale OI - wbiłem jedno zadanko, pomyślałem ,,mm, ładne i trudne zadanie, po to tu przyjechałem. Ok, jestem już zadowolony ze swojego wyniku''. Co z tego wyszło? Nie wbiłem łatwych, a na pewno mnie na to było stać. Patrzyłem na te zadania i wgl nie miałem podejścia by je wbić na 100.
+        \item często się zdarza, że zatrzymujemy się przy łatwiejszym zadanku i się poddajemy, a jesteśmy w stanie zrobić nawet trudniejsze. ,,Flow''
+        \item pewność siebie może mieć wpływ na wynik na conteście
+        \item jak budować pewność siebie? Porobić / przypomnieć sobie zadanka drugoetapowe
+        \item nie daj się przerazić treści, często autorzy specjalnie próbują przerazić
+        \item nie bój się algorytmu, tylko go sklep
+        \item celować wyżej
+        \item załóż, że zadania są łatwe
+    \end{itemize}
+    
+    \item Co zrobić, gdy ma się laga mózgu?
+    \begin{itemize}
+        \item opcja 1: nie walczyć z tym, tylko przeczekać. Zrobić sobie przerwę, pójść zjeść kanapkę, pójść do toalety
+        \item opcja 2: spróbować ,,zresetować'' kminę, tzn spojrzeć na zadanie od nowa, przypomnieć sobie jakie obserwacje zostały zrobione (albo jakie obserwacje by się przydały), przypomnieć sobie w głowie listę technik (szczególnie listę podejść), spróbować z nich maksymalnie skorzystać, spróbować przypomnieć sobie podobne zadanka, które się robiło, albo podobne podejścia. Powołać się na swoje doświadczenie i wgl
+    \end{itemize}
+    
+    \item Dobry ,,midgame`` podczas contestu
+    \begin{itemize}
+        \item klepać najpierw bruty (nie zawsze ale zazwyczaj tak) - dlaczego to jest bardzo bardzo bardzo dobre (pomaga przy dużej liczbie kwestii i sytuacji), mamy już na starcie jakieś punkciki
+        \item dobre jest klepać kolejne podzadania, jednak czasem podzadania to bait
+        \item nie zapominać, że są dwa zadania, oraz nie wiemy które jest łatwiejsze
+        \item często zdarza mi się, że nic nie mam podczas pierwszych trzech godzin contestu, a potem maxuję (narysować wykres ,,ile mi się wydaje że mam'' oraz ,,ile w praktyce wymyśliłem'')
+        \item rozwiązywanie zadań często u mnie wygląda tak, że próbuję wyczerpać pomysły/podejścia/techniki które mi się przyjdą do głowy z doświadczenia, albo szukam obserwacji (przy czym wiem jakie mniej więcej szukać), zazwyczaj to się udaje
+        \item nie stresować się xd (wiem że łatwo powiedzieć), naprawdę nie jest koniec świata jak się obudzimy w połowie i pomyśli się ,,ej, ale ja jeszcze nie mam, shit, no to koniec''
+    \end{itemize}
+    
+    \item Jak nie marnować czasu?
+    \begin{itemize}
+        \item Justyna w pierwszej klasie na drugim etapie OI
+        \item \textit{Jak macie geo to uciekajcie} - Kacper Walentynowicz
+        \item W momencie, kiedy myślę, że powinienem klepać od nowa, jak tego nie zrobię to zawsze żałuję
+        \item \textit{Czasami się opłaca klepać od nowa, zanim to będzie za późno} - Justyna Jaworska
+        \item Klepać rozwiązania etapowo (kolejne podzadania), dać przykłady z pisania przedział-przedział. Sprawdzać kolejne części kodu. Jak się skończy fragment kodu, powinno się zastanowić czy na pewno jest git i czy można go przetestować, bo potem marnuje się czas na debuggowanie wszystkiego naraz (binsearch wielu rzeczy naraz po kodzie jest trudniejszy niż zwykły binsearch)
+        \item spróbować przekminić kod, zanim się spróbuje go napisać (nie jest to dla każdego, ale spróbować nie zaszkodzi)
+        \item wkopanie się może być z trzech powodów: zła implementacja albo zostawienie jednego zadania albo klepanie heury
+        \item sztuczki implementacyjne: add i mul dla modulo, spróbować sprowadzić klepę do użycia znanego już rozwiązania, np. konstrukcja grafu i bfs
+        \item nagłówki: rozsądna opcja podczas contestu. Można np napisać wypisywacz vectora intów, a jak potrzeba to rozszerzyć do template<class T>
+        \item jak się jest w pewnym momencie niepewny czego się robi, to jest źle
+        \item poddanie się boli, ale może się opłacić
+        \item koksy kminią na zmianę nad zadaniami (przykład: tourist, ja, Michał)
+    \end{itemize}
+    
+    \item Dobry ,,endgame'' podczas contestu
+    \begin{itemize}
+        \item \textit{Myśl dwa razy, abyś nie musiał kodzić trzy razy} - Karol Pokorski
+        \item \textit{Jak widzę, że klepię gówno, to po prostu usuwam kod} - Marek Skiba
+        \item jak *bardzo* ważne jest testowanie rozwiązań (Michał zerował część P w staszicowych contestach)
+        \item można skorzystać z brutów sklepanych wcześniej, jednak bruty powinny nie mieć wspólnej części kodu z wzorcówką
+        \item generować wszystkie możliwe testy, shuffle'ować też jeżeli to może mieć znaczenie 
+        \item poza testowaniem, co można zrobić? Limity czasu oraz limity pamięci oraz overflow. Jak je sprawdzić?
+        \item flagi kompilacji oraz narzędzie gdb (oraz oiejq OIa jeżeli jest)
+        \item TODO rozszerzyć o klepaniu, konieczności testowania, błędach przy tym
+        \item jak jest wiele testów w pliku, to najlepiej generować $t=2$
+        \item na ich kompach, które są beznadziejne, najlepiej jest robić mało testów z dużym $t$ zamiast dużo z małym $t$ (nawet jak trzeba u siebie dodać istnienie $t$)
+        \item często opłaca się bardziej zasubmitować bruta, niż nieprzetestowaną wzorcówkę (zależy od dużo rzeczy)
+    \end{itemize}
+    
+    \item Co zapamiętać na pamięć przed OIem?
+    \begin{itemize}
+        \item listę technik, szczególnie podejścia
+        \item flagi kompilacji
+        \item sposób użycja gdb
+        \item prostą wersję nagłówków (najlepiej swoją wersję)
+        \item w jaki sposób sprawdzić czas i pamięć programu
+        \item generatorka i sprawdzarka
+    \end{itemize}
+    
+    \item Jak dużo wyciągnąć z tego obozu
+    \begin{itemize}
+        \item trzy OIowe zadanka bez odsłonięć, polecam pisać bruty. Czyli maksować EV wyniku zamiast nie patrzeć na prawdopodobieństwo zbugowania i celować w maxy
+        \item spróbować wyciągnąć z zadań jak najwięcej esencji
+        \item stały jest bardzo ważny, buduje praktykę i doświadczenie. Zazwyczaj nie pamięta się technik, których się nigdy nie klepało (zresztą to może powodować wkopienie się, tak jak Justynka w pierwszej klasie)
+        \item warsztaty technikowe
+        \item ponownie, stały jest bardzo ważny
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+

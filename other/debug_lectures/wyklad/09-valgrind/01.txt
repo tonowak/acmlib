@@ -1,0 +1,3 @@
+// main ma być skompilowany z O2 bez debuga
+valgrind tools=callgrind ./main < test.in > test.out
+kcachegrind wygenerowany_plik

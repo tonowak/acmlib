@@ -1,0 +1,295 @@
+\documentclass[15pt]{article}
+
+\usepackage[a4paper, margin={1cm,2cm}]{geometry}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{XIII LO Szczecin, Tomasz Nowak}
+\lhead{Techniki na drugie etapy OI}
+
+\begin{document}
+
+\begin{itemize}
+    \item BRUTY
+    \begin{itemize}
+        \item maski bitowe: przejrzenie wszystkich podciągów \href{http://solve.edu.pl/~sparingi/resources}{video}
+        \item generowanie wszystkich ciągów n-elementowych
+        \begin{itemize}
+            \item generowanie wszystkich permutacji
+        \end{itemize}
+        \item wyznaczanie ścieżki między dwoma wierzchołkami (graf/drzewo)
+        \item skomplikowane backtracki
+    \end{itemize}
+    
+    \item DEBUG \href{https://sim.ugo.si/api/download/file/jySGuWzthXf0VT9sONUAjlcojsnaUM}{artykuł}
+    \begin{itemize}
+        \item pisanie generatorek
+        \begin{itemize}
+            \item sprawdzarka w bashu \href{https://sim.ugo.si/api/download/file/W7738Bo24gH14MTXjiImqaiwG4iNy8}{plik zip}
+            \item sprawdzarka w C++
+            \item generowanie losowych liczb, permutacji, drzew, grafów skierowanych / nieskierowanych / spójnych / bez multikrawędzi
+        \end{itemize}
+        \item wykrywanie błędów
+        \begin{itemize}
+            \item flagi kompilacji \href{https://sim.ugo.si/api/download/file/1fhJzfNSSRaV0Yax9HAXpwq8xzcQka}{plik zip}
+            \item czas wykonania programu oraz zużyta pamięć \href{https://sim.ugo.si/api/download/file/PurVW2KifPwKWUyH9N7NC2PXAnCYZv}{plik zip}
+            \item używanie narzędzia gdb do wykrywania runtime error'ów ($\uparrow$ plik zip)
+            \item nagłówki ($\uparrow$ pierwszy zip)
+        \end{itemize}
+    \end{itemize}
+    
+    \item GRAFY
+    \begin{itemize}
+        \item Drzewa \href{http://kompendium.meetit.pl/kurs#graph3}{artykuł}
+        \begin{itemize}
+            \item jump-pointery
+            \begin{itemize}
+                \item najniższy wspólny przodek (LCA)
+                \item operacje na ścieżkach (np. otrzymanie maximum)
+            \end{itemize}
+            \item właściwości numeracji wierzchołków w drzewie
+            \begin{itemize}
+                \item preorder, postorder, podobne \href{http://kompendium.meetit.pl/kurs#graph5}{artykuł}
+            \end{itemize}
+            \item dynamiki na drzewie
+            \item znane algorytmy: szukanie centroidów, średnicy drzewa
+        \end{itemize}
+        
+        \item Graf dwudzielny
+        \begin{itemize}
+            \item określanie dwudzielności grafu
+            \item skojarzenia w grafach dwudzielnych \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://kompendium.meetit.pl/kurs#graph9}{artykuł}
+            \item twierdzenie Halla ($\uparrow$ artykuł)
+            \item twierdzenie K\"{o}niga \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://www.deltami.edu.pl/temat/matematyka/teoria_grafow/2013/10/31/W_grafach_dwudzielnych_jest_latwiej/}{artykuł}
+        \end{itemize}
+        
+        \item Skierowany Graf Acykliczny (DAG)
+        \begin{itemize}
+            \item sortowanie topologiczne (toposort) \href{http://kompendium.meetit.pl/kurs#graphB}{artykuł}
+            \item dynamiki na DAGach ($\uparrow$ artykuł)
+            \item podział na warstwy
+        \end{itemize}
+        
+        \item Grafy \href{http://kompendium.meetit.pl/kurs#graph1}{artykuł}
+        \begin{itemize}
+            \item DFS, BFS \href{http://was.zaa.mimuw.edu.pl/?q=node/31}{video} \href{http://kompendium.meetit.pl/kurs#graph1}{artykuł}
+            \item drzewo DFS \href{http://was.zaa.mimuw.edu.pl/?q=node/33}{video}
+            \begin{itemize}
+                \item funkcja low \& mosty, punkty artykulacji, dwuspójne \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://was.zaa.mimuw.edu.pl/?q=node/39}{video2} \href{http://kompendium.meetit.pl/kurs#graph7}{artykuł}
+            \end{itemize}
+            \item Dijkstra \href{http://kompendium.meetit.pl/kurs#graph2}{artykuł}
+            \item rozbicie wierzchołkowe
+            \item potęgowanie macierzy sąsiedztwa \href{http://was.zaa.mimuw.edu.pl/?q=node/35}{video} \href{http://kompendium.meetit.pl/kurs#dp5}{artykuł}
+            \item silne spójne składowe (SCC) \href{http://kompendium.meetit.pl/kurs#graphB}{artykuł}
+            \item cykl Eulera \href{http://was.zaa.mimuw.edu.pl/?q=node/31}{video} \href{http://kompendium.meetit.pl/kurs#graph1}{artykuł}
+            \item minimalne drzewo rozpinające (MST)
+            \begin{itemize}
+                \item algorytm Kruskala (mniej ważny: algorytm Prima) \href{http://was.zaa.mimuw.edu.pl/?q=node/39}{video} \href{http://kompendium.meetit.pl/kurs#graph7}{artykuł} 
+                \item Prufer Code do brutowania wszystkich możliwych drzew \href{https://cp-algorithms.com/graph/pruefer_code.html}{article}
+            \end{itemize}
+            \item rozbicie wierzchołkowe 
+            \item 2-SAT \href{http://solve.edu.pl/~sparingi/resources}{video}
+        \end{itemize}
+        
+        \item Meduzy \href{http://kompendium.meetit.pl/kurs#graph8}{artykuł}
+        
+        \item Grafy planarne \href{http://kompendium.meetit.pl/kurs#graphD}{artykuł}
+        \begin{itemize}
+            \item wzór Eulera ($\uparrow$ artykuł)
+            \item zapytania o istnienie ścieżki w grafie planarnym ($\uparrow$ artykuł)
+        \end{itemize}
+    \end{itemize}
+    
+    \item STRUKTURY DANYCH
+    \begin{itemize}
+        \item Trie \href{http://kompendium.meetit.pl/kurs#text4}{artykuł}
+        \item Drzewa przedziałowe \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://kompendium.meetit.pl/kurs#struct2}{artykuł}
+        \begin{itemize}
+            \item drzewa przedział-przedział \href{http://was.zaa.mimuw.edu.pl/?q=node/8}{video} ($\uparrow$ video) ($\uparrow$ artykuł)
+            \item drzewa trwałe, wskaźnikowe
+        \end{itemize}
+        \item Sqrt \href{http://kompendium.meetit.pl/kurs#struct4}{artykuł}
+        \begin{itemize}
+            \item sqrt decomposition
+            \item split \& rebuild
+            \item algorytm mo ($\uparrow$ artykuł)
+        \end{itemize}
+        \item kolejka monotoniczna \href{http://kompendium.meetit.pl/kurs#struct3}{artykuł}
+        \item mniejszy do większego
+        \item find \& union \href{http://kompendium.meetit.pl/kurs#struct5}{artykuł} \href{http://solve.edu.pl/~sparingi/resources}{video}
+        \item sumy prefixowe \href{http://kompendium.meetit.pl/kurs#basic1}{artykuł}
+        \item std::vector jako stos, std::deque jako kolejka, std::set, std::map \href{http://kompendium.meetit.pl/kurs#basic7}{artykuł}
+        \item sort
+        \begin{itemize}
+            \item std::sort, komparator i błędy z komparatorem
+            \item sortowanie kubełkowe \href{http://kompendium.meetit.pl/kurs#basic5}{artykuł}
+            \item skalowanie \href{http://kompendium.meetit.pl/kurs#basic6}{artykuł}
+        \end{itemize}
+    \end{itemize}
+    
+    \item DYNAMIKI \href{http://kompendium.meetit.pl/kurs#meth3}{artykuł}
+    \begin{itemize}
+        \item problem plecakowy (różne odmiany, sqrt optymalizacja) \href{http://kompendium.meetit.pl/kurs#dp1}{artykuł}
+        \item dynamiki kombinatoryczne \href{http://kompendium.meetit.pl/kurs#dp2}{artykuł}
+        \item dynamiki przedziałowe \href{http://kompendium.meetit.pl/kurs#dp3}{artykuł}
+        \item dynamiki optymalizacyjne ($\uparrow$ artykuł)
+        \item dynamiki wykładnicze \href{http://kompendium.meetit.pl/kurs#dp4}{artykuł}
+        \item potęgowanie macierzy \href{http://was.zaa.mimuw.edu.pl/?q=node/35}{video} \href{http://kompendium.meetit.pl/kurs#dp5}{artykuł}
+    \end{itemize}
+    
+    \item MATMA
+    \begin{itemize}
+        \item arytmetyka modulo
+        \begin{itemize}
+            \item najmniejszy wspólny dzielnik (NWD) \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://kompendium.meetit.pl/kurs#num1}{artykuł}
+            \begin{itemize}
+                \item rozszerzony algorytm euklidesa, odwrotność modulo \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://kompendium.meetit.pl/kurs#num2}{artykuł}
+            \end{itemize}
+            \item funkcja Phi (totient Eulera) \href{http://solve.edu.pl/~sparingi/resources}{video}
+            \begin{itemize}
+                \item Małe Twierdzenie Fermat (MTF) ($\uparrow$ video)
+            \end{itemize}
+            \item Chińskie Twierdzenie o Resztach (CTR) ($\uparrow$ video)
+            \item szybkie potęgowanie \href{http://kompendium.meetit.pl/kurs#basic4}{artykuł}
+        \end{itemize}
+        \item znajdowanie dzielników (sqrt), dzielników pierwszych (sito Eratostenesa/sqrt) \href{http://kompendium.meetit.pl/kurs#num1}{artykuł}
+        \item teoria gier \href{http://kompendium.meetit.pl/kurs#games1}{artykuł}
+        \begin{itemize}
+            \item twierdzenie Sprague-Grundy'ego \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://was.zaa.mimuw.edu.pl/?q=node/18}{video2} \href{http://kompendium.meetit.pl/kurs#games2}{artykuł}
+        \end{itemize}
+        \item potęgowanie macierzy \href{http://was.zaa.mimuw.edu.pl/?q=node/35}{video} \href{http://kompendium.meetit.pl/kurs#dp5}{artykuł}
+        \item podstawy kombinatoryki
+        \begin{itemize}
+            \item dwumian Newton'a
+            \item zasada włączeń i wyłączeń
+        \end{itemize}
+        \item rozwiązania probabilistyczne, paradoks urodzeń
+        \item suma ciągu harmonicznego, złożoność sita
+    \end{itemize}
+    
+    \item GEOMETRIA \href{http://kompendium.meetit.pl/kurs#geo1}{artykuł} \href{http://informatyka.wroc.pl/node/455?page=0,0}{artykuł2}
+    \begin{itemize}
+        \item iloczyn wektorowy ($\uparrow$ artykuł)
+        \item pole wielokąta \href{http://kompendium.meetit.pl/kurs#geo2}{artykuł}
+        \item wielokąty wypukłe ($\uparrow$ artykuł)
+        \begin{itemize}
+            \item otoczka wypukła \href{http://kompendium.meetit.pl/kurs#geo4}{artykuł}
+        \end{itemize}
+        \item zamiatanie \href{http://was.zaa.mimuw.edu.pl/?q=node/37}{video} \href{http://kompendium.meetit.pl/kurs#geo5}{artykuł}
+        \item sortowanie kątowe \href{http://kompendium.meetit.pl/kurs#geo3}{artykuł}
+        \item geometria obliczeniowa \href{http://was.zaa.mimuw.edu.pl/?q=node/15}{video} \href{http://was.zaa.mimuw.edu.pl/?q=node/45}{video2}
+        \item najbliższa para punktów \href{http://was.zaa.mimuw.edu.pl/?q=node/37}{video}
+        \item najdalsza para punktów
+    \end{itemize}
+    
+    \item ALGORYTMY TEKSTOWE \href{http://kompendium.meetit.pl/kurs#text1}{artykuł}
+    \begin{itemize}
+        \item liniowe algorytmy tekstowe \href{http://was.zaa.mimuw.edu.pl/?q=node/5}{video} \href{http://kompendium.meetit.pl/kurs#text3}{artykuł}
+        \begin{itemize}
+            \item tablica pi, algorytm KMP \href{http://solve.edu.pl/~sparingi/resources}{video} ($\uparrow$ video)
+            \item algorytm Manachera \href{http://was.zaa.mimuw.edu.pl/?q=node/5}{video}
+            \item tablica prefixo-prefixowa ($\uparrow$ video)
+            \item szablony ($\uparrow$ video)
+            \item okresy ($\uparrow$ video)
+        \end{itemize}
+        \item hashowanie (posłów, podciągów, przypisanie literkom / liczbom losowe wagi i sprawdzanie sumy)($\uparrow$ video) \href{http://kompendium.meetit.pl/kurs#text2}{artykuł}
+        \item drzewo Trie \href{http://kompendium.meetit.pl/kurs#text4}{artykuł}
+        \item tablica suffixowa \href{http://solve.edu.pl/~sparingi/resources}{video} \href{http://kompendium.meetit.pl/kurs#text7}{artykuł}
+    \end{itemize}
+    
+    \item OPTYMALIZACJE
+    \begin{itemize}
+        \item dziel i zwyciężaj \href{http://kompendium.meetit.pl/kurs#meth1}{artykuł}
+        \begin{itemize}
+            \item bardziej skomplikowane przykłady dziel i zwyciężaj
+            \item meet in the middle, czyli wzorcówka dla $n \leq 40$ \href{http://kompendium.meetit.pl/kurs#dp4}{artykuł}
+        \end{itemize}
+        \item wyszukiwanie binarne \href{http://kompendium.meetit.pl/kurs#basic2}{artykuł}
+        \begin{itemize}
+            \item wyszukiwanie binarne po wyniku
+            \item wyszukiwanie binarne wielu rzeczy na raz / równoległe wyszukiwanie binarne
+        \end{itemize}
+        \item koszt zamortyzowany
+        \begin{itemize}
+            \item gąsienica \href{http://kompendium.meetit.pl/kurs#basic3}{artykuł}
+            \item zadania na stos
+        \end{itemize}
+        \item skalowanie \href{http://kompendium.meetit.pl/kurs#basic6}{artykuł}
+        \item lider ciągu
+        \item odpowiednie struktury danych
+        \item bitsety
+    \end{itemize}
+    
+    \newpage
+    \item PODEJŚCIA
+    \begin{itemize}
+        \item dynamik
+        \item algorytm zachłanny \href{http://kompendium.meetit.pl/kurs#meth2}{artykuł}
+        \item sposób "liczba dobrych obiektów = liczba wszystkich obiektów - liczba złych obiektow"
+        \item czy warunek konieczny = warunek wystarczający?
+        \item odpowiednie przekształcenie równania; uniezależnienie funkcji od jakiejś zmiennej; zauważenie wypukłości
+        \item zastanowić się nad łatwiejszym problemem, bez jakiegoś elementu z treści
+        \item sprowadzić problem do innego, łatwiejszego/mniejszego problemu
+        \item sprowadzić problem 2D do problemu 1D (zamiatanie; niezależność wyniku dla współrzędnych X od współrzędnych Y)
+        \item konstrukcja grafu
+        \item określenie struktury grafu
+        \item napisanie bruta przed wzorcówką (przynajmniej gwarantowane punkty są, a potem sprawdzaczka)
+        \item optymalizacja bruta do wzorcówki
+        \item czy można poprawić (może zachłannie) rozwiązanie nieoptymalne?
+        \item czy są ciekawe fakty w rozwiązaniach optymalnych (może się do tego przydać brute)
+        \item sklepać brute który sprawdza obserwacje, zawsze jeśli potrzebujemy zoptymalizować dp, wypisać wartości na małym przykładzie
+        \item sprawdzić czy w zadaniu czegoś jest "mało" (np. czy wynik jest mały, albo jakaś zmienna, może się do tego przydać brute)
+        \item odpowiednio "wzbogacić" jakiś algorytm (np. Dijkstrę)
+        \item spróbować obliczyć wkład do wyniku jakiegoś elementu
+        \item jeżeli miałoby się teraz zrobić to zadanie i to nie jest hardkor, jakie obserwacje by pomogły?
+        \item cokolwiek poniżej $10^9$ operacji ma szansę wejść na 100 pkt
+        \item coś ciekawego w limitach w zadaniu i subtaskach?
+        \item obserwacje, obserwacje, obserwacje!
+        \item co można wykonać offline? czy jest coś, czego kolejność nie ma znaczenia?
+	    \item co można posortować? czy jest zawsze jakaś pewna optymalna kolejność / czy można ustalić jak ta kolejność wygląda?
+        \item narysować dużo swoich własnych przykładów i coś z nich wywnioskować
+    	\item skupić się na jakimś specjalnym elemencie, najczęściej najmniejszego/największego (np. spojrzeć na jedynkę w permutacji)
+	    \item szacowanie wyniku - czy wynik jest mały? czy można skonstruować algorytm, który zawsze znajdzie górne ograniczenie na wynik?
+        \item nie gardzić punktami gdy leżą na ulicy (podzadania)
+    \end{itemize}
+    
+    \item UWAGI, CZĘSTE BŁĘDY
+    \begin{itemize}
+        \item pamiętaj o pamięci... $10^6$ intów $= 4$ MB 
+        \item long longi...
+        \item na OIu flaga -fsanitize=address lub -fsanitize=undefined może nie działać, trzeba wtedy skorzystać z kompilatora g++-4.9 zamiast clang++
+        \item na OIu jakiekolwiek komparatory do sort'ów wymagają, by argumenty były const
+        \item funkcja resize() w vectorach nie czyści (nie resetuje wartości) pozostałych elementów - kłopotliwe jak się ma tablice globalne i wiele testów w jednym pliku weściowym
+        \item pamiętaj o trzech magicznych linijkach podczas korzystania z cin, cout
+        \item nie można szybko sprawdzać odległości między iteratorami w secie/mapie (w szczególności, set nie potrafi szybko odpowiadać na pytania "którym elementem jest x")
+        \item jak w treści jest jakiś dziwny warunek i nie wiadomo co on w treści robi (lub jakaś zmienna jest podejrzanie mała), jest to klucz do rozwiązania
+    \end{itemize}
+    
+    \item MATERIAŁY
+    \begin{itemize}
+        \item \href{http://solve.edu.pl/~sparingi/resources}{solve.edu.pl/\textasciitilde sparingi/resources}
+        \item \href{http://was.zaa.mimuw.edu.pl}{was.zaa.mimuw.edu.pl} (lepsza jakość nagrań na \href{https://www.youtube.com/channel/UCZjaIYhRs2wAZn9tPED_yuw}{youtube})
+        \item \href{http://kompendium.meetit.pl/kurs}{komendium.meetit.pl}
+        \item \href{https://cp-algorithms.com/}{cp-algorithms.com} (artykuły po angielsku)
+        \item książka "Wprowadzenie do algorytmów" by Cormen, podobno w bibliotece szkolnej
+        \item książka "Zaprzyjaźnij się z algorytmami" - podstawy
+        \item książki Olimpiady Informatycznej
+        \begin{itemize}
+            \item Przygody Bajtazara
+            \item W Poszukiwaniu Wyzwań
+            \item niebieskie książeczki - omówienia zadań z OI
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\end{document}
+

@@ -1,0 +1,6 @@
+gdb -q main # odpal gdb na programie main
+            # potem kolejne komendy w gdb:
+r < t.in    # odpal program na danym teście
+bt          # backtrace, czyli stos funkcji
+q           # quit
+y           # yes, quit
