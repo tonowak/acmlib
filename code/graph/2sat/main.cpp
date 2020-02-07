@@ -2,7 +2,7 @@
  * Opis: Zwraca poprawne przyporządkowanie zmiennym logicznym dla problemu 2-SAT, albo mówi, że takie nie istnieje
  * Użycie:
  *  TwoSat ts(ilość zmiennych);
- *  ~ oznacza negację
+ *  \~ oznacza negację
  *  ts.either(0, \tilde3); // var 0 is true or var 3 is false
  *  ts.set_value(2); // var 2 is true
  *  ts.at_most_one({0,\tilde1,2}); // co najwyżej jedna z var 0, \tilde1 i  2 to prawda

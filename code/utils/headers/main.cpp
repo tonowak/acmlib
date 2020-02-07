@@ -4,6 +4,7 @@
  *   debug(a, b, c) << d << e; wypisze a, b, c:  a;  b;  c;  de
  */
 
+#pragma once
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long;
@@ -26,21 +27,23 @@ template<class T, class... Args> void dump(T &&x, Args... args) {
 	cerr << x << ";  ";
 	dump(args...);
 }
+struct Nl{~Nl(){cerr << '\n';}};
 #ifdef DEBUG
-  const int seed = 1;
-  struct Nl{~Nl(){cerr << '\n';}};
 # define debug(x...) cerr << (strcmp(#x, "") ? #x ":  " : ""), dump(x), Nl(), cerr << ""
 #else
-  const int seed = chrono::system_clock::now().time_since_epoch().count();
 # define debug(...) 0 && cerr
 #endif
+
+const int seed = chrono::system_clock::now().time_since_epoch().count();
 mt19937_64 rng(seed);
 int rd(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
 }
 
-// int main() {
-//     ios_base::sync_with_stdio(0);
-//     cin.tie(0);
-// 
-// }
+/*
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+}
+*/

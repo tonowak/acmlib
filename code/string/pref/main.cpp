@@ -1,10 +1,8 @@
 /*
  * Status: Przetestowane
- * Opis: Algorytm pref
- * Czas: O(n)
- * Użycie:
- * pref(str) zwraca tablicę prefixo prefixową
+ * Opis: pref(str) zwraca tablicę prefixo prefixową
  * [0, pref[i]) = [i, i + pref[i])
+ * Czas: O(n)
  */
 
 vector<int> pref(string &str) {

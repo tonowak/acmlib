@@ -1,14 +1,20 @@
 /*
  * Opis: Przecięcie prostych lub odcinków
- * Użycie:
- *   v = intersect(a, b, c, d, s) zwraca przecięcie (s ? odcinków : prostych) ab oraz cd
- *   if size(v) == 0: nie ma przecięć
- *   if size(v) == 1: v[0] jest przecięciem
- *   if size(v) == 2 and s: (v[0], v[1]) to odcinek, w którym są wszystkie inf rozwiązań
- *   if size(v) == 2 and s == false: v to niezdefiniowane punkty (inf rozwiązań)
+ * Użycie: intersection(a, b, c, d) zwraca przecięcie prostych ab oraz cd
+ * v = intersect(a, b, c, d, s) zwraca przecięcie (s ? odcinków : prostych) ab oraz cd
+ * if size(v) == 0: nie ma przecięć
+ * if size(v) == 1: v[0] jest przecięciem
+ * if size(v) == 2 and s: (v[0], v[1]) to odcinek, w którym są wszystkie inf rozwiązań
+ * if size(v) == 2 and s == false: v to niezdefiniowane punkty (inf rozwiązań)
  */
 
 #include "../point/main.cpp"
+
+P intersection(P a, P b, P c, P d) {
+	Double c1 = cross(c - a, b - a), c2 = cross(d - a, b - a);
+	assert(c1 != c2); // proste nie moga byc rownolegle
+	return (c1 * d  - c2 * c) / (c1 - c2);
+}
 
 bool on_segment(P a, P b, P p) {
 	return equal(cross(a - p, b - p), 0) and dot(a - p, b - p) <= 0;
@@ -30,4 +36,3 @@ vector<P> intersect(P a, P b, P c, P d, bool segments) {
 	if(on_segment(a, b, d)) s.emplace(d);
 	return {s.begin(), s.end()};
 }
-

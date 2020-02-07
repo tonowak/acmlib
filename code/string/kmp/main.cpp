@@ -1,9 +1,8 @@
 /*
  * Status: Przetestowane
- * Opis: KMP
+ * Opis: KMP(str) zwraca tablicę pi.
+ * [0, pi[i]) = (i - pi[i], i]
  * Czas: O(n)
- * Użycie:
- * KMP(str) zwraca tablicę pi 
  */
 
 vector<int> KMP(string &str) {
