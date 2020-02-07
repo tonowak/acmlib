@@ -1,0 +1,5 @@
+#  komenda:
+time ./main < t.in > m.out
+#  albo jak jest oiejq:
+oiejq ./main < t.in > m.out
+#  to, czy jest, czy nie, okaże się na próbnym
