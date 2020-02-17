@@ -23,19 +23,16 @@ template<class T> auto operator<<(ostream &out, T &&x) -> decltype(x.begin(), ou
 	return out << '}';
 }
 void dump() {}
-template<class T, class... Args> void dump(T &&x, Args... args) {
-	cerr << x << ";  ";
-	dump(args...);
+template<class... Args> void dump(Args&&... args) {
+	((cerr << args << ";  "), ...);
 }
-struct Nl{~Nl(){cerr << '\n';}};
 #ifdef DEBUG
-# define debug(x...) cerr << (strcmp(#x, "") ? #x ":  " : ""), dump(x), Nl(), cerr << ""
+  struct Nl{~Nl(){cerr << '\n';}};
+# define debug(x...) cerr << (* #x ? "[" #x "]: " : ""), dump(x), Nl(), cerr << ""
 #else
 # define debug(...) 0 && cerr
 #endif
-
-const int seed = chrono::system_clock::now().time_since_epoch().count();
-mt19937_64 rng(seed);
+mt19937_64 rng(0);
 int rd(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
 }
