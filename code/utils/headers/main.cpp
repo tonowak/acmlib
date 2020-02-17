@@ -18,8 +18,8 @@ template<class A, class B> ostream& operator<<(ostream &out, const pair<A, B> &p
 }
 template<class T> auto operator<<(ostream &out, T &&x) -> decltype(x.begin(), out) {
 	out << '{';
-	for(auto it = x.begin(); it != x.end(); ++it)
-		out << *it << (it == prev(x.end()) ? "" : ", ");
+	for(auto &e : x)
+        	out << e << (&e == &*--x.end() ? "" : ", ");
 	return out << '}';
 }
 template<class... Args> void dump(Args&&... args) {
