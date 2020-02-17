@@ -1,5 +1,5 @@
-#include "main.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
+#include "main.cpp"
 
 bool test(int) {
 	freopen("t.in", "r", stdin);
