@@ -22,7 +22,6 @@ template<class T> auto operator<<(ostream &out, T &&x) -> decltype(x.begin(), ou
 		out << *it << (it == prev(x.end()) ? "" : ", ");
 	return out << '}';
 }
-void dump() {}
 template<class... Args> void dump(Args&&... args) {
 	((cerr << args << ";  "), ...);
 }
