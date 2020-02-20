@@ -18,24 +18,20 @@ template<class A, class B> ostream& operator<<(ostream &out, const pair<A, B> &p
 }
 template<class T> auto operator<<(ostream &out, T &&x) -> decltype(x.begin(), out) {
 	out << '{';
-	for(auto it = x.begin(); it != x.end(); ++it)
-		out << *it << (it == prev(x.end()) ? "" : ", ");
+	for(auto &e : x)
+        	out << e << (&e == &*--x.end() ? "" : ", ");
 	return out << '}';
 }
-void dump() {}
-template<class T, class... Args> void dump(T &&x, Args... args) {
-	cerr << x << ";  ";
-	dump(args...);
+template<class... Args> void dump(Args&&... args) {
+	((cerr << args << ";  "), ...);
 }
-struct Nl{~Nl(){cerr << '\n';}};
 #ifdef DEBUG
-# define debug(x...) cerr << (strcmp(#x, "") ? #x ":  " : ""), dump(x), Nl(), cerr << ""
+  struct Nl{~Nl(){cerr << '\n';}};
+# define debug(x...) cerr << (* #x ? "[" #x "]: " : ""), dump(x), Nl(), cerr << ""
 #else
 # define debug(...) 0 && cerr
 #endif
-
-const int seed = chrono::system_clock::now().time_since_epoch().count();
-mt19937_64 rng(seed);
+mt19937_64 rng(0);
 int rd(int l, int r) {
 	return uniform_int_distribution<int>(l, r)(rng);
 }
