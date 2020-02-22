@@ -12,7 +12,7 @@
  */
 
 struct HLD {
-	vector<vector<int>> adj;
+	vector<vector<int>> &adj;
 	vector<int> size, pre, pos, nxt, par;
 	int t = 0;
 	void init(int v, int p = -1) {

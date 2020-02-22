@@ -7,7 +7,7 @@
  */
 
 struct CentroDecomp {
-	vector<vector<int>> adj;
+	vector<vector<int>> &adj;
 	vector<bool> done;
 	vector<int> sub, par;
 	CentroDecomp(int n, vector<vector<int>> &adj) 

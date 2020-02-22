@@ -11,7 +11,7 @@
 
 struct JumpPtr {
 	int LOG = 20;
-	vector<vector<int>> graph, jump;
+	vector<vector<int>> &graph, jump;
 	vector<int> par, dep;
 	void par_dfs(int v) {
 		for(int u : graph[v]) {

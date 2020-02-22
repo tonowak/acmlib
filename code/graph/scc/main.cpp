@@ -10,7 +10,7 @@
 
 struct SCC {
 	int n;
-	vector<vector<int>> graph;
+	vector<vector<int>> &graph;
 	int group_cnt = 0;
 	vector<int> group;
 
