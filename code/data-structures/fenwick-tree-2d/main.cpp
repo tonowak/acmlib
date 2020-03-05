@@ -3,14 +3,14 @@
  * Opis: Drzewo potęgowe 2d offline
  * Czas: O(\log^2 n) Pamięć O(n \log n)
  * Użycie:
- * wywołujemy proprocess(x, y) na pozycjach, które chcemy updateować, później init()
+ * wywołujemy preprocess(x, y) na pozycjach, które chcemy updateować, później init()
  * update(x, y, val) dodaje val do a[x, y], query(X, Y) zwraca sumę po a[x, y] że x < X i y < Y
  */
 #include "../fenwick-tree/main.cpp"
 struct Fenwick2d {
 	vector<vector<int>> ys;
 	vector<Fenwick> ft;
-	FT2(int limx) : ys(limx) ()
+	Fenwick2d(int limx) : ys(limx) {}
 	void preprocess(int x, int y) {
 		for(; x < size(ys); x |= x + 1) ys[x].push_back(y);
 	}

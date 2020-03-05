@@ -6,62 +6,63 @@
  */
 
 template<int mod>
-struct mi {
+struct modular {
 	int val;
-	mi() { val = 0; }
-	mi(const LL& v) {
+	modular() { val = 0; }
+	modular(const LL& v) {
 		val = (-mod <= v && v <= mod) ? v : v % mod;
 		if(val < 0) val += mod;
 	}
+	int to_int() { return val; }
 
-	friend ostream& operator<<(ostream &os, const mi &a) {
+	friend ostream& operator<<(ostream &os, const modular &a) {
 		return os << a.val;
 	}
-	friend istream& operator>>(istream &is, mi &a) {
+	friend istream& operator>>(istream &is, modular &a) {
 		return is >> a.val;
 	}
 
-	friend bool operator==(const mi &a, const mi &b) {
+	friend bool operator==(const modular &a, const modular &b) {
 		return a.val == b.val;
 	}
-	friend bool operator!=(const mi &a, const mi &b) {
+	friend bool operator!=(const modular &a, const modular &b) {
 		return !(a == b);
 	}
-	friend bool operator<(const mi &a, const mi &b) {
+	friend bool operator<(const modular &a, const modular &b) {
 		return a.val < b.val;
 	}
-	friend bool operator<=(const mi &a, const mi &b) {
+	friend bool operator<=(const modular &a, const modular &b) {
 		return a.val <= b.val;
 	}
 
-	mi operator-() const { return mi(-val); }
-	mi& operator+=(const mi &m) {
+	modular operator-() const { return modular(-val); }
+	modular& operator+=(const modular &m) {
 		if((val += m.val) >= mod) val -= mod;
 		return *this;
 	}
-	mi& operator-=(const mi &m) {
+	modular& operator-=(const modular &m) {
 		if((val -= m.val) < 0) val += mod;
 		return *this;
 	}
-	mi& operator*=(const mi &m) {
+	modular& operator*=(const modular &m) {
 		val = (LL) val * m.val % mod;
 		return *this;
 	}
-	friend mi qpow(mi a, LL n) {
+	friend modular qpow(modular a, LL n) {
 		if(n == 0) return 1;
 		if(n % 2 == 1) return qpow(a, n - 1) * a;
 		return qpow(a * a, n / 2);
 	}
-	friend mi inv(const mi &a) {
+	friend modular inv(const modular &a) {
 		assert(a != 0); return qpow(a, mod - 2);
 	}
-	mi& operator /=(const mi &m) { 
+	modular& operator /=(const modular &m) { 
 		return (*this) *= inv(m); 
 	}
 
-	friend mi operator+(mi a, const mi &b) { return a += b; }
-	friend mi operator-(mi a, const mi &b) { return a -= b; }
-	friend mi operator*(mi a, const mi &b) { return a *= b; }
-	friend mi operator/(mi a, const mi &b) { return a /= b; }
+	friend modular operator+(modular a, const modular &b) { return a += b; }
+	friend modular operator-(modular a, const modular &b) { return a -= b; }
+	friend modular operator*(modular a, const modular &b) { return a *= b; }
+	friend modular operator/(modular a, const modular &b) { return a /= b; }
 };
-using MI = mi<int(1e9 + 7)>;
+using MI = modular<int(1e9 + 7)>;
