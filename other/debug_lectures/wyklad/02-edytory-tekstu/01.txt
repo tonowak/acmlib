@@ -1,5 +1,0 @@
-Geany, Kate - są OK na OIu
-Codeblocks i inne - NIE
-vim, Emacs - trudne
-
-Sublime Text 3, Atom - fajne
