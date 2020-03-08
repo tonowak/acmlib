@@ -65,4 +65,5 @@ struct modular {
 	friend modular operator*(modular a, const modular &b) { return a *= b; }
 	friend modular operator/(modular a, const modular &b) { return a /= b; }
 };
-using MI = modular<int(1e9 + 7)>;
+using mint = modular<int(1e9 + 7)>;
+// using mint = modular<int(998244353)>;
