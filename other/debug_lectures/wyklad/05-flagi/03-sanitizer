@@ -1,5 +1,0 @@
-fsanitize=address
-
-fsanitize=undefined
-
-fsanitize=address,undefined fno-omit-frame-pointer fno-optimize-sibling-calls

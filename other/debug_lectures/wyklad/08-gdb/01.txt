@@ -1,6 +1,0 @@
-gdb -q main
-potem: r < test.in
-potem: bt
-potem: q (quit)
-
-man gdb
