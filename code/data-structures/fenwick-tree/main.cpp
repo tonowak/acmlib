@@ -22,13 +22,4 @@ struct Fenwick {
 			ret += s[pos - 1];
 		return ret;
 	}
-	int lower_bound(LL val) {
-		if(val <= 0) return -1;
-		int pos = 0;
-		for(int pw = 1 << 25; pw; pw /= 2) {
-			if(pos + pw <= size(s) && s[pos + pw - 1] < sum)
-				pos += pw, sum -= s[pos - 1];
-		}
-		return pos;
-	}
 };

@@ -1,5 +1,5 @@
 c() {
-	clang++ -O3 -std=c++11 -Wall -Wextra -Wshadow \
+	clang++ -std=c++11 -Wall -Wextra -Wshadow \
 		-Wconversion -Wno-sign-conversion -Wfloat-equal \
 		-D_GLIBCXX_DEBUB -fsanitize=address,undefined -ggdb3 \
 		-DDEBUG $1.cpp -o $1
