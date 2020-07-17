@@ -10,8 +10,7 @@
 
 #include "../extended-gcd/main.cpp"
 
-LL crt(LL a, LL m, LL b, LL n)
-{
+LL crt(LL a, LL m, LL b, LL n) {
 	if(n > m) swap(a, b), swap(m, n);
 	LL d, x, y;
 	tie(d, x, y) = extended_gcd(m, n);

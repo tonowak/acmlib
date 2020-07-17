@@ -27,6 +27,6 @@ struct Hashing {
 	}
 
 	int operator()(int l, int r) {
-		return (((LL) ha[r + 1] - ha[l] * pw[r - l + 1]) % mod + mod) % mod;
+		return ((ha[r + 1] - (LL) ha[l] * pw[r - l + 1]) % mod + mod) % mod;
 	}
 };
