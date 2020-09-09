@@ -27,7 +27,7 @@ struct LineContainer : multiset<Line, less<>> {
 		auto z = insert({a, b, 0}), y = z++, x = y;
 		while(intersect(y, z)) z = erase(z);
 		if(x != begin() && intersect(--x, y))
-			intersect(x, y = erase(y));
+			intersect(x, erase(y));
 		while((y = x) != begin() && (--x)->p >= y->p)
 			intersect(x, erase(y));
 	}
@@ -36,4 +36,3 @@ struct LineContainer : multiset<Line, less<>> {
 		return lower_bound(x)->eval(x);
 	}
 };
-

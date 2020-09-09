@@ -12,9 +12,7 @@ struct Treap {
 	struct Node {
 		int prio, val, cnt;
 		Node *l = nullptr, *r = nullptr;
-		Node(int val) : val(val) {
-			prio = rd(0, 1 << 30);
-		}
+		Node(int val) : val(val), prio(rng()) {}
 	};
 	using pNode = Node*;
 	pNode root = nullptr;
@@ -49,17 +47,4 @@ struct Treap {
 		merge(root, root, new Node(val));
 		merge(root, root, t);
 	}
-
-	pNode get(pNode t, int key) {
-		if(key == cnt(t->l)) return t;
-		else if(key < cnt(t->l)) 
-			return get(t->l, key);
-		else
-			return get(t->r, key - cnt(t->l) - 1);
-	}
-
-	int size() { return cnt(root); }
-	int operator[](int key) {
-		return get(root, key)->val;
-	};
 };

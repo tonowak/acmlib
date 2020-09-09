@@ -18,6 +18,8 @@ struct HLD {
 	void init(int v, int p = -1) {
 		par[v] = p;
 		size[v] = 1;
+		if(size(adj[v]) > 1 && adj[v][0] == p) 
+			swap(adj[v][0], adj[v][1]);
 		for(int &u : adj[v]) if(u != par[v]) {
 			init(u, v);
 			size[v] += size[u];
