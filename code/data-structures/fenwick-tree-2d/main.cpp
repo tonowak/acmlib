@@ -1,10 +1,10 @@
 /*
- * Status: Nieprzetestowane
+ * Status: Przetestowane
  * Opis: Drzewo potęgowe 2d offline
  * Czas: O(\log^2 n) Pamięć O(n \log n)
  * Użycie:
  * wywołujemy preprocess(x, y) na pozycjach, które chcemy updateować, później init()
- * update(x, y, val) dodaje val do a[x, y], query(X, Y) zwraca sumę po a[x, y] że x < X i y < Y
+ * update(x, y, val) dodaje val do a[x, y], query(x, y) zwraca sumę na prostokącie (0, 0) - (x, y)
  */
 #include "../fenwick-tree/main.cpp"
 struct Fenwick2d {
@@ -12,12 +12,13 @@ struct Fenwick2d {
 	vector<Fenwick> ft;
 	Fenwick2d(int limx) : ys(limx) {}
 	void preprocess(int x, int y) {
-		for(; x < size(ys); x |= x + 1) ys[x].push_back(y);
+		for(; x < size(ys); x |= x + 1)
+			ys[x].push_back(y);
 	}
 	void init() {
 		for(auto &v : ys) {
 			sort(v.begin(), v.end());
-			ft.emplace_back(size(v));
+			ft.emplace_back(size(v) + 1);
 		}
 	}
 	int ind(int x, int y) {
@@ -30,8 +31,8 @@ struct Fenwick2d {
 	}
 	LL query(int x, int y) {
 		LL sum = 0;
-		for(; x; x &= x - 1)
-			sum += ft[x - 1].query(ind(x - 1, y));
+		for(x++; x > 0; x &= x - 1)
+			sum += ft[x - 1].query(ind(x - 1, y + 1) - 1);
 		return sum;
 	}
 };

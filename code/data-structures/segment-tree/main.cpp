@@ -13,21 +13,21 @@ struct Tree {
 	using T = int;
 	T f(T a, T b) { return a + b; }
 	vector<T> tree;
-	int size = 1;
+	int sz = 1;
 
 	Tree(int n, T val = 0) {
-		while(size < n) size *= 2;
-		tree.resize(size * 2, val);
+		while(sz < n) sz *= 2;
+		tree.resz(sz * 2, val);
 	}
 
 	void update(int pos, T val) {
-		tree[pos += size] = val;
+		tree[pos += sz] = val;
 		while(pos /= 2)
 			tree[pos] = f(tree[pos * 2], tree[pos * 2 + 1]);
 	}
 
 	T query(int l, int r) {
-		l += size, r += size;
+		l += sz, r += sz;
 		T ret = (l != r ? f(tree[l], tree[r]) : tree[l]);
 		while(l + 1 < r) {
 			if(l % 2 == 0)

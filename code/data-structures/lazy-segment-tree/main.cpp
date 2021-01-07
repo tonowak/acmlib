@@ -12,12 +12,12 @@
 using T = int;
 struct Node {
 	T val, lazy;
-	int size = 1;
+	int sz = 1;
 };
 
 struct Tree {
 	vector<Node> tree;
-	int size = 1;
+	int sz = 1;
 
 	void add_val(int v, T val) {
 		tree[v].val += val;
@@ -27,10 +27,10 @@ struct Tree {
 	T f(T a, T b) { return max(a, b); }
 
 	Tree(int n) {
-		while(size < n) size *= 2;
-		tree.resize(size * 2);
-		for(int i = size - 1; i >= 1; i--)
-			tree[i].size = tree[i * 2].size * 2;
+		while(sz < n) sz *= 2;
+		tree.resize(sz * 2);
+		for(int i = sz - 1; i >= 1; i--)
+			tree[i].sz = tree[i * 2].sz * 2;
 	}
 
 	void propagate(int v) {
@@ -40,10 +40,10 @@ struct Tree {
 	}
 
 	T query(int l, int r, int v = 1) {
-		if(l == 0 && r == tree[v].size - 1)
+		if(l == 0 && r == tree[v].sz - 1)
 			return tree[v].val;
 		propagate(v);	
-		int m = tree[v].size / 2;
+		int m = tree[v].sz / 2;
 		if(r < m)
 			return query(l, r, v * 2);
 		else if(m <= l)
@@ -53,12 +53,12 @@ struct Tree {
 	}
 
 	void add(int l, int r, T val, int v = 1) {
-		if(l == 0 && r == tree[v].size - 1) {
+		if(l == 0 && r == tree[v].sz - 1) {
 			add_val(v, val);
 			return;
 		}
 		propagate(v);
-		int m = tree[v].size / 2;
+		int m = tree[v].sz / 2;
 		if(r < m)
 			add(l, r, val, v * 2);
 		else if(m <= l)
