@@ -1,45 +1,31 @@
 /*
  * Opis: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
  * Użycie:
- *   debug(a, b, c) << d << e; wypisze a, b, c:  a;  b;  c;  de
+ *   debug(a, b, c); wypisze [a, b, c]: a; b; c;
  */
-
 #pragma once
+
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long;
 #define FOR(i, l, r) for(int i = (l); i <= (r); ++i)
 #define REP(i, n) FOR(i, 0, (n) - 1)
-template<class T> int size(T &&x) {
-	return int(x.size());
+#define size(x) int((x).size())
+template<class A, class B> auto& operator<<(ostream &o, pair<A, B> p) {
+	return o << '(' << p.first << ", " << p.second << ')';
 }
-template<class A, class B> ostream& operator<<(ostream &out, const pair<A, B> &p) {
-	return out << '(' << p.first << ", " << p.second << ')';
-}
-template<class T> auto operator<<(ostream &out, T &&x) -> decltype(x.begin(), out) {
-	out << '{';
-	for(auto &e : x)
-        	out << e << (&e == &*--x.end() ? "" : ", ");
-	return out << '}';
-}
-template<class... Args> void dump(Args&&... args) {
-	((cerr << args << ";  "), ...);
+template<class T> auto operator<<(ostream &o, T x) -> decltype(x.end(), o) {
+	o << '{'; int i = 0; for(auto e : x) o << ", "+2*!i++ << e; return o << '}';
 }
 #ifdef DEBUG
-  struct Nl{~Nl(){cerr << '\n';}};
-# define debug(x...) cerr << (* #x ? "[" #x "]: " : ""), dump(x), Nl(), cerr << ""
+#define debug(x...) cerr << "[" #x "]: ", [](auto... a) {((cerr << a << "; "), ...); }(x), cerr << '\n'
 #else
-# define debug(...) 0 && cerr
+#define debug(...) {}
 #endif
-mt19937_64 rng(0);
-int rd(int l, int r) {
-	return uniform_int_distribution<int>(l, r)(rng);
-}
 
 /*
 int main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+	cin.tie(0)->sync_with_stdio(0);
 
 }
 */
