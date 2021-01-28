@@ -1,7 +1,7 @@
 c() {
 	clang++ -std=c++17 -Wall -Wextra -Wshadow \
 		-Wconversion -Wno-sign-conversion -Wfloat-equal \
-		-D_GLIBCXX_DEBUB -fsanitize=address,undefined -ggdb3 \
+		-D_GLIBCXX_DEBUG -fsanitize=address,undefined -ggdb3 \
 		-DDEBUG -DLOCAL $1.cpp -o $1
 }
 nc() {
