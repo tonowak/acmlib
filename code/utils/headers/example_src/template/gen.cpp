@@ -5,9 +5,9 @@ using LL=long long;
 #define REP(i,n) FOR(i,0,(n)-1)
 #define size(x) int((x).size())
 template<class A,class B>auto&operator<<(ostream&o,pair<A,B>p){return o<<'('<<p.first<<", "<<p.second<<')';}
-template<class T>auto operator<<(ostream&o,T x)->decltype(x.end(),o){o<<'{';int i=0;for(auto e:x)o<<", "+2*!i++<<e;return o<<'}';}
+template<class T>auto operator<<(ostream&o,T x)->decltype(x.end(),o){o<<'{';int i=0;for(auto e:x)o<<(", ")+2*!i++<<e;return o<<'}';}
 #ifdef DEBUG
-#define debug(x...) cerr<<"["#x"]: ",[](auto...a){((cerr<<a<<"; "),...);}(x),cerr<<'\n'
+#define debug(x...) cerr<<"["#x"]: ",[](auto...$){((cerr<<$<<"; "),...);}(x),cerr<<'\n'
 #else
 #define debug(...) {}
 #endif
