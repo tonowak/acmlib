@@ -13,17 +13,17 @@
 
 struct HLD {
 	vector<vector<int>> &adj;
-	vector<int> size, pre, pos, nxt, par;
+	vector<int> sz, pre, pos, nxt, par;
 	int t = 0;
 	void init(int v, int p = -1) {
 		par[v] = p;
-		size[v] = 1;
+		sz[v] = 1;
 		if(size(adj[v]) > 1 && adj[v][0] == p) 
 			swap(adj[v][0], adj[v][1]);
 		for(int &u : adj[v]) if(u != par[v]) {
 			init(u, v);
-			size[v] += size[u];
-			if(size[u] > size[adj[v][0]])
+			sz[v] += sz[u];
+			if(sz[u] > sz[adj[v][0]])
 				swap(u, adj[v][0]);
 		}
 	}
@@ -36,7 +36,7 @@ struct HLD {
 		pos[v] = t;
 	}
 	HLD(int n, vector<vector<int>> &adj)
-		: adj(adj), size(n), pre(n), pos(n), nxt(n), par(n) {
+		: adj(adj), sz(n), pre(n), pos(n), nxt(n), par(n) {
 		init(0), set_paths(0);
 	}
 	int lca(int v, int u) {

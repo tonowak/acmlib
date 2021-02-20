@@ -4,41 +4,38 @@
  * Użycie: wierzchołki grafu nie muszą być ładnie podzielone na dwia przedziały, musi być po prostu dwudzielny.
  */
 
-vector<vector<int>> graph;
-vector<int> match, vis;
-int t = 0;
- 
-bool match_dfs(int v) {
-	vis[v] = t;
-	for(int u : graph[v])
-		if(match[u] == -1) {
-			match[u] = v;
-			match[v] = u;
-			return true;
-		}
- 
-	for(int u : graph[v])
-		if(vis[match[u]] != t && match_dfs(match[u])) {
-			match[u] = v;
-			match[v] = u;
-			return true;
-		}
-	return false;
-}
- 
-int match() {
-	int n = int(graph.size());
-	match.resize(n, -1);
-	vis.resize(n);
- 
-	int ans = 0, d = -1;
-	while(d != 0) {
-		d = 0;
-		++t;
-		for(int v = 0; v < n; ++v)
-			if(match[v] == -1)
-				d += match_dfs(v);
-		ans += d;
+struct Matching {
+	vector<vector<int>> &adj;
+	vector<int> mat, vis;
+	int t = 0, ans = 0;
+	bool mat_dfs(int v) {
+		vis[v] = t;
+		for(int u : adj[v])
+			if(mat[u] == -1) {
+				mat[u] = v;
+				mat[v] = u;
+				return true;
+			}
+		for(int u : adj[v])
+			if(vis[mat[u]] != t && mat_dfs(mat[u])) {
+				mat[u] = v;
+				mat[v] = u;
+				return true;
+			}
+		return false;
 	}
-	return ans;
-}
+	Matching(vector<vector<int>> &adj) : adj(adj) {
+		mat = vis = vector<int>(size(adj), -1);
+	}
+	int get() {
+		int d = -1;
+		while(d != 0) {
+			d = 0, ++t;
+			REP(v, size(adj))
+				if(mat[v] == -1)
+					d += mat_dfs(v);
+			ans += d;
+		}
+		return ans;
+	}
+};

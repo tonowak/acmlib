@@ -17,7 +17,7 @@ struct Tree {
 
 	Tree(int n, T val = 0) {
 		while(sz < n) sz *= 2;
-		tree.resz(sz * 2, val);
+		tree.resize(sz * 2, val);
 	}
 
 	void update(int pos, T val) {
