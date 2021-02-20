@@ -14,6 +14,7 @@ struct Line {
 	pair<D, D> get_dir() { return {- A / B, - C / B}; }
 	// prosta pq
 	Line(P p, P q) {
+		assert(not equal(p.x, q.x) or not equal(p.y, q.y));
 		if(!equal(p.x, q.x)) {
 			A = (q.y - p.y) / (p.x - q.x);
 			B = 1, C = -(A * p.x + B * p.y);
