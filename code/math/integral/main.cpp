@@ -11,5 +11,5 @@ T intergral(function<T(T)> f, T a, T b) {
 	T delta = (b - a) / n, sum = f(a) + f(b);
 	FOR(i, 1, 2 * n - 1) 
 		sum += f(a + i * delta) * (i & 1 ? 4 : 2);
-	return sum * dif / 3;
+	return sum * delta / 3; // bylo dif, ale zmienilem na delta, moze zadziala bo nie wiem co to jest to dif xd
 }

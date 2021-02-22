@@ -12,13 +12,13 @@ struct Fenwick2d {
 	vector<Fenwick> ft;
 	Fenwick2d(int limx) : ys(limx) {}
 	void preprocess(int x, int y) {
-		for(; x < size(ys); x |= x + 1)
+		for(; x < ssize(ys); x |= x + 1)
 			ys[x].push_back(y);
 	}
 	void init() {
 		for(auto &v : ys) {
 			sort(v.begin(), v.end());
-			ft.emplace_back(size(v) + 1);
+			ft.emplace_back(ssize(v) + 1);
 		}
 	}
 	int ind(int x, int y) {
@@ -26,7 +26,7 @@ struct Fenwick2d {
 		return distance(ys[x].begin(), it);
 	}
 	void update(int x, int y, LL val) {
-		for(; x < size(ys); x |= x + 1)
+		for(; x < ssize(ys); x |= x + 1)
 			ft[x].update(ind(x, y), val);
 	}
 	LL query(int x, int y) {

@@ -9,11 +9,13 @@
  *   robimy sobie vector<Treap>, żeby obsługiwać trwałość
  */
 
+mt19937 rng_key(0);
+
 struct Treap {
 	struct Node {
 		int val, prio, sub = 1;
 		Node *l = nullptr, *r = nullptr;
-		Node(int val) : val(val), prio(rng()) {}
+		Node(int _val) : val(_val), prio(rng_key()) {}
 	};
 	using pNode = Node*;
 	pNode root = nullptr;

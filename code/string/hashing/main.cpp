@@ -7,6 +7,7 @@
  * można zmienić modulo i bazę
  * Czas: O(1)
  */
+#include "../../random-stuff/rd/main.cpp"
 
 struct Hashing {
 	vector<int> ha, pw;
@@ -14,10 +15,10 @@ struct Hashing {
 	int base;
 
 	Hashing(string &str, int b = -1) {
-		if(b == -1) base = rd(30, 50);
+		if(b == -1) base = my_rd(30, 50);
 		else base = b;
 
-		int len = size(str);
+		int len = ssize(str);
 		ha.resize(len + 1);
 		pw.resize(len + 1, 1);
 		REP(i, len) {

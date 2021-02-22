@@ -6,7 +6,7 @@
  */
 
 vector<int> KMP(string &str) {
-	int len = size(str);
+	int len = ssize(str);
 	vector<int> ret(len);
 	for(int i = 1; i < len; i++)
 	{

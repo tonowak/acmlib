@@ -24,14 +24,14 @@ struct Matching {
 			}
 		return false;
 	}
-	Matching(vector<vector<int>> &adj) : adj(adj) {
-		mat = vis = vector<int>(size(adj), -1);
+	Matching(vector<vector<int>> &_adj) : adj(_adj) {
+		mat = vis = vector<int>(ssize(adj), -1);
 	}
 	int get() {
 		int d = -1;
 		while(d != 0) {
 			d = 0, ++t;
-			REP(v, size(adj))
+			REP(v, ssize(adj))
 				if(mat[v] == -1)
 					d += mat_dfs(v);
 			ans += d;

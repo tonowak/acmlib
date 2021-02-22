@@ -22,8 +22,8 @@ struct JumpPtr {
 			}
 		}
 	}
-	JumpPtr(vector<vector<int>> &graph, int root = 0) : graph(graph) {
-		int n = size(graph);
+	JumpPtr(vector<vector<int>> &_graph, int root = 0) : graph(_graph) {
+		int n = ssize(graph);
 		par.resize(n, -1);
 		dep.resize(n);
 		par_dfs(root);

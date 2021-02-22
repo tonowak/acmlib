@@ -12,7 +12,7 @@ struct Fenwick {
 	vector<LL> s;
 	Fenwick(int n) : s(n) {}
 	void update(int pos, LL val) {
-		for(; pos < size(s); pos |= pos + 1)
+		for(; pos < ssize(s); pos |= pos + 1)
 			s[pos] += val;
 	}
 	LL query(int pos) {

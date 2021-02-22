@@ -4,7 +4,6 @@
  *   Nie tworzyć zmiennych o nazwie "x" lub "y".
  * Użycie: P p = {5, 6}; abs(p) = length; arg(p) = kąt; polar(len, angle); exp(angle)
  */
-#include "../../utils/headers/main.cpp"
 using Double = long double;
 using P = complex<Double>;
 #define x real()

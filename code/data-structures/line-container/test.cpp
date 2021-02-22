@@ -5,7 +5,7 @@ using PII = pair<int, int>;
 #define ST first
 #define ND second
 
-bool test(int ms) {
+void test() {
 	vector<PII> f;
 	auto eval = [&](PII p, int x) { return p.ST * x + p.ND; };
 	auto get = [&](int x) {
@@ -26,10 +26,7 @@ bool test(int ms) {
 		}
 		else {
 			int x = rd(-1000, 1000); 
-			if(get(x) != lc.query(x))
-				return true;
+			assert(get(x) == lc.query(x));
 		}
 	}
-
-	return false;
 }

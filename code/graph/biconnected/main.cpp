@@ -13,7 +13,7 @@ struct BiconComps {
 	vector<array<int, 2>> edges;
 	BiconComps(int n) : graph(n), low(n), pre(n, -1) {}
 	void add_edge(int u, int v) {
-		int q = size(edges);
+		int q = ssize(edges);
 		graph[u].emplace_back(q);
 		graph[v].emplace_back(q);
 		edges.push_back({u, v});

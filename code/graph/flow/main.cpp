@@ -18,8 +18,8 @@ struct Dinic {
 	Dinic(int N) : n(N), graph(n) {}
 
 	void add_edge(int v, int u, T cap) {
-		debug() << "adding edge " << make_pair(v, u) << " with cap " << cap;
-		int e = size(edges);
+		debug(v, u, cap);
+		int e = ssize(edges);
 		graph[v].emplace_back(e);
 		graph[u].emplace_back(e + 1);
 		edges.emplace_back(Edge{v, u, 0, cap});
@@ -31,7 +31,7 @@ struct Dinic {
 		dist.assign(n, 0);
 		dist[source] = 1;
 		deque<int> que = {source};
-		while(size(que) and dist[sink] == 0) {
+		while(ssize(que) and dist[sink] == 0) {
 			int v = que.front();
 			que.pop_front();
 			for(int e : graph[v])
@@ -47,7 +47,7 @@ struct Dinic {
 	T dfs(int v, int sink, T flow = numeric_limits<T>::max()) {
 		if(flow == 0 or v == sink)
 			return flow;
-		for(; ended_at[v] != size(graph[v]); ++ended_at[v]) {
+		for(; ended_at[v] != ssize(graph[v]); ++ended_at[v]) {
 			Edge &e = edges[graph[v][ended_at[v]]];
 			if(dist[v] + 1 == dist[e.u])
 				if(T pushed = dfs(e.u, sink, min(flow, e.cap - e.flow))) {

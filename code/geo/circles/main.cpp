@@ -1,6 +1,6 @@
 /*
  * Opis: Przecięcia okręgu oraz prostej ax+by+c=0 oraz przecięcia okręgu oraz okręgu.
- * Użycie: size(circle_circle(...)) == 3 to jest nieskończenie wiele rozwiązań
+ * Użycie: ssize(circle_circle(...)) == 3 to jest nieskończenie wiele rozwiązań
  */
 #include "../point/main.cpp"
 using D = Double;

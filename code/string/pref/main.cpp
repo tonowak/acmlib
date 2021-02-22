@@ -6,7 +6,7 @@
  */
 
 vector<int> pref(string &str) {
-	int len = size(str);	
+	int len = ssize(str);	
 	vector<int> ret(len);
 	ret[0] = len;
 	int i = 1, m = 0;

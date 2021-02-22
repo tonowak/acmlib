@@ -17,13 +17,13 @@ vector</*LL*/double> get_poly() {
 
 int mod = 1e9 + 7;
 vector<LL> mul(vector<LL> A, vector<LL> B) {
-	vector<LL> res(size(A) + size(B) - 1);
-	REP(i, size(A)) REP(j, size(B))
+	vector<LL> res(ssize(A) + ssize(B) - 1);
+	REP(i, ssize(A)) REP(j, ssize(B))
 		res[i + j] = (res[i + j] + A[i] * B[j]) % mod;
 	return res;
 }
 
-bool test(int ms) {
+void test() { 
 	/*
 	vector<LL> A = get_poly(), B = get_poly();
 	debug(A, B);

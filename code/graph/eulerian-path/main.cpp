@@ -21,9 +21,9 @@ struct EulerianPath {
 		}
 		path.emplace_back(v);
 	}
-	EulerianPath(int m, vector<vector<PII>> &adj) : adj(adj) {
+	EulerianPath(int m, vector<vector<PII>> _adj) : adj(_adj) {
 		used.resize(m); dfs(0);
-		if(size(path) != m + 1) path.clear();
+		if(ssize(path) != m + 1) path.clear();
 		reverse(path.begin(), path.end());
 	}
 };

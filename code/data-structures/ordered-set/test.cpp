@@ -1,7 +1,7 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-bool test(int) {
+void test() {
 	ordered_set<int> s;
 	int n = rd(1, 100);
 	vector<int> a(n);
@@ -12,10 +12,6 @@ bool test(int) {
 	}
 
 	sort(a.begin(), a.end());
-	REP(i, n) {
-		if(a[i] != *s.find_by_order(i))
-			return true;
-	}
-
-	return false;
+	REP(i, n)
+		assert(a[i] == *s.find_by_order(i));
 }

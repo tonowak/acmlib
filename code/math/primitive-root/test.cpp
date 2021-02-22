@@ -2,7 +2,7 @@
 #include "main.cpp"
 //#include "../miller-rabin/main.cpp"
 
-bool test(int) {
+void test() {
 	LL p;
 	while(true) {
 		p = rd(7, 15);
@@ -17,7 +17,6 @@ bool test(int) {
 		debug(res);
 		assert(res.find(mult) == res.end());
 		res.insert(mult);
-		mult = mult * g % p;
+		mult = (mult * g) % p;
 	}
-	return false;
 }

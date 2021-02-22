@@ -1,8 +1,8 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-bool test(int milli) {
-	int n = milli > 1000 ? 1000 : 10;
+void test() {
+	int n = 10;
 	n = rd(1, n);
 	int m = rd(n, n * n / 4 + 1);
 
@@ -14,7 +14,7 @@ bool test(int milli) {
 		vector<bool> reachable(n);
 		reachable[root] = true;
 		deque<int> que = {root};
-		while(size(que)) {
+		while(ssize(que)) {
 			int v = que.front();
 			que.pop_front();
 			for(int u : graph[v])
@@ -34,12 +34,8 @@ bool test(int milli) {
 	debug(graph, scc.group);
 	REP(v, n)
 		REP(u, n)
-			if(reachable[v][u] && reachable[u][v]) {
-				if(scc.group[v] != scc.group[u])
-					return true;
-			} else {
-				if(scc.group[v] == scc.group[u])
-					return true;
-			}
-	return false;
+			if(reachable[v][u] && reachable[u][v])
+				assert(scc.group[v] == scc.group[u]);
+			else
+				assert(scc.group[v] != scc.group[u]);
 }

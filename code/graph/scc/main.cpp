@@ -33,8 +33,8 @@ struct SCC {
 				group_dfs(u, color);
 	}
 
-	SCC(vector<vector<int>> &graph) : graph(graph) {
-		n = size(graph);
+	SCC(vector<vector<int>> &_graph) : graph(_graph) {
+		n = ssize(graph);
 		rev_graph.resize(n);
 		REP(v, n)
 			for(int u : graph[v])

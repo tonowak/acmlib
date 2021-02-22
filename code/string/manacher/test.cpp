@@ -1,7 +1,7 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-bool test(int) {
+void test() {
 	int n = rd(1, 10);
 	vector<int> in(n);
 	for(int &x : in)
@@ -21,8 +21,5 @@ bool test(int) {
 			int mid = (l + r) / 2, len = r - l + 1;
 			radius[len % 2][mid] = max(radius[len % 2][mid], len / 2);
 		}
-
-	if(radius != manacher(in))
-		return true;
-	return false;
+	assert(radius == manacher(in));
 }

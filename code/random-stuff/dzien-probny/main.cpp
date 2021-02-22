@@ -3,7 +3,7 @@
  */
 
 void test_int128() {
-	__int128_t x = (1llu << 62);
+	__int128 x = (1llu << 62);
 	x *= x;
 	string s;
 	while(x) {
@@ -20,6 +20,7 @@ void test_float128() {
 
 void test_clock() {
 	long seeed = chrono::system_clock::now().time_since_epoch().count();
+	(void) seeed;
 	auto start = chrono::system_clock::now();
 
 	while(true) {
@@ -31,9 +32,10 @@ void test_clock() {
 }
 
 void test_rd() {
-	mt19937_64 rng(0);
+	// czy jest sens to testowac?
+	mt19937_64 my_rng(0);
 	auto rd = [&](int l, int r) {
-		return uniform_int_distribution<int>(l, r)(rng);
+		return uniform_int_distribution<int>(l, r)(my_rng);
 	};
 	assert(rd(0, 0) == 0);
 }

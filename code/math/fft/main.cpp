@@ -8,7 +8,7 @@
 
 using Complex = complex<double>;
 void fft(vector<Complex> &a) {
-	int n = size(a), L = 31 - __builtin_clz(n);
+	int n = ssize(a), L = 31 - __builtin_clz(n);
 	static vector<complex<long double>> R(2, 1);
 	static vector<Complex> rt(2, 1);
 	for(static int k = 2; k < n; k *= 2) {
@@ -32,16 +32,16 @@ void fft(vector<Complex> &a) {
 
 vector<double> conv(vector<double> &a, vector<double> &b) {
 	if(a.empty() || b.empty()) return {};
-	vector<double> res(size(a) + size(b) - 1);
-	int L = 32 - __builtin_clz(size(res)), n = (1 << L);
+	vector<double> res(ssize(a) + ssize(b) - 1);
+	int L = 32 - __builtin_clz(ssize(res)), n = (1 << L);
 	vector<Complex> in(n), out(n);
 	copy(a.begin(), a.end(), in.begin());
-	REP(i, size(b)) in[i].imag(b[i]);
+	REP(i, ssize(b)) in[i].imag(b[i]);
 	fft(in);
 	for(auto &x : in) x *= x;
 	REP(i, n) out[i] = in[-i & (n - 1)] - conj(in[i]);
 	fft(out);
-	REP(i, size(res)) res[i] = imag(out[i]) / (4 * n);
+	REP(i, ssize(res)) res[i] = imag(out[i]) / (4 * n);
 	return res;
 }
 

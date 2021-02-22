@@ -3,7 +3,7 @@
 #include "../primitive-root/main.cpp"
 #include "main.cpp"
 
-bool test(int) {
+void test() {
 	LL p;
 	while(true) {
 		p = rd(2, 100000000);
@@ -14,6 +14,5 @@ bool test(int) {
 	int e = discrete_log(a, b, p);
 	debug(p, a, b, e);
 	assert(exp(a, e, p) == b);
-	return false;
 }
 

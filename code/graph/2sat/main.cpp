@@ -16,7 +16,7 @@ struct TwoSat {
 	vector<vector<int>> gr;
 	vector<int> values;
 
-	TwoSat(int n = 0) : n(n), gr(2*n) {}
+	TwoSat(int _n = 0) : n(_n), gr(2*n) {}
 
 	void either(int f, int j) {
 		f = max(2*f, -1-2*f);
@@ -33,9 +33,9 @@ struct TwoSat {
 	}
 
 	void at_most_one(vector<int>& li) {
-		if(size(li) <= 1) return;
+		if(ssize(li) <= 1) return;
 		int cur = ~li[0];
-		FOR(i, 2, size(li) - 1) {
+		FOR(i, 2, ssize(li) - 1) {
 			int next = add_var();
 			either(cur, ~li[i]);
 			either(cur, next);

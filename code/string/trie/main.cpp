@@ -8,7 +8,7 @@ struct Trie {
 	vector<unordered_map<char, int>> child = {{}};
 	int get_child(int v, char a) {
 		if(child[v].find(a) == child[v].end()) {
-			child[v][a] = size(child); 
+			child[v][a] = ssize(child); 
 			child.emplace_back();
 		}
 		return child[v][a];

@@ -11,7 +11,7 @@ struct RMQ {
 	vector<vector<int>> st;
 	vector<int> pre;
 	RMQ(vector<int> &a) {
-		int n = size(a), lg = 0;
+		int n = ssize(a), lg = 0;
 		while((1 << lg) < n) lg++;
 		st.resize(lg + 1, vector<int>(a));
 		st[0] = a;

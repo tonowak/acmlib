@@ -1,14 +1,15 @@
 /*
- * Status: Nieprzetestowane
+ * Status: Nieprzetestowane (ZBUGGOWANE)
  * Opis: Dla funkcji, których pary przecinaja sie 
  *   co najwyżej raz, oblicza maximum w punkcie x. 
  *   Podany kod jest dla funkcji liniowych
  */
 
+constexpr LL inf = LL(1e9);
 struct Function {
 	int a, b;
-	L operator()(int x) {
-		return x * L(a) + b;
+	LL operator()(int x) {
+		return x * LL(a) + b;
 	}
 	Function(int p = 0, int q = inf) : a(p), b(q) {}
 };
@@ -26,9 +27,9 @@ struct LiChaoTree {
 		tree.resize(size << 1);
 	}
 
-	L get_min(int x) {
+	LL get_min(int x) {
 		int v = x + size;
-		L ans = inf;
+		LL ans = inf;
 		while(v) {
 			ans = min(ans, tree[v](x));
 			v >>= 1;

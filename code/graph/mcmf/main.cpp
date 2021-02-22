@@ -23,7 +23,7 @@ struct MCMF {
 	MCMF(int N) : n(N), graph(n) {}
 
 	void add_edge(int v, int u, int cap, LL cost) {
-		int e = size(edges);
+		int e = ssize(edges);
 		graph[v].emplace_back(e);
 		graph[u].emplace_back(e + 1);
 		edges.emplace_back(Edge{v, u, 0, cap, cost});
@@ -38,7 +38,7 @@ struct MCMF {
 		vector<bool> inside(n);
 		inside[source] = true;
 
-		while(size(que)) {
+		while(ssize(que)) {
 			int v = que.front();
 			inside[v] = false;
 			que.pop_front();

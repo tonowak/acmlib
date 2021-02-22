@@ -1,7 +1,7 @@
 // todo: dokończyć kod, poprawić komentarze, includować header
 
 int gauss(vector<vector<double>> a, vector<double> &ans) {
-	int n = int(a.size()), m = int(a[0].size()) - 1;
+	int n = ssize(a), m = ssize(a[0]) - 1;
 	static constexpr double epsilon = 1e-6;
 	vector<int> where(m, -1);
 
@@ -36,6 +36,8 @@ int gauss(vector<vector<double>> a, vector<double> &ans) {
 
 		++row;
 	}
+
+	(void) ans;
 
 	// todo: return number of solutions (-1, 0, 1)
 	return -1;

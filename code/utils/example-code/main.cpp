@@ -16,7 +16,7 @@ int getRandomValue(int l, int r) {
 
 struct ExampleStruct {
 	int random_variable;
-	constexpr int left = 0, right = 1;
+	static constexpr int left = 0, right = 1;
 
 	ExampleStruct() {
 		random_variable = getRandomValue(left, right);

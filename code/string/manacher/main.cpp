@@ -6,7 +6,7 @@
  */
 
 array<vector<int>, 2> manacher(vector<int> &in) {
-	int n = size(in);
+	int n = ssize(in);
 	array<vector<int>, 2> radius = {{vector<int>(n - 1), vector<int>(n)}};
 	REP(parity, 2) {
 		int z = parity ^ 1, L = 0, R = 0;

@@ -9,7 +9,7 @@
 #include "../point/main.cpp"
 Double cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
 pair<vector<int>, vector<int>> top_bot_hull(vector<P> &pts) {
-	int n = size(pts);
+	int n = ssize(pts);
 	vector<int> ord(n);
 	REP(i, n) ord[i] = i;
 	sort(ord.begin(), ord.end(), [&](int i, int j) {
@@ -20,9 +20,9 @@ pair<vector<int>, vector<int>> top_bot_hull(vector<P> &pts) {
 	vector<int> top, bot;
 	REP(dir, 2) {
 		vector<int> &hull = (dir ? bot : top);
-		auto l = [&](int i) { return pts[hull[size(hull) - i]]; };
+		auto l = [&](int i) { return pts[hull[ssize(hull) - i]]; };
 		for(int i : ord) {
-			while(size(hull) > 1 && cross(l(2), l(1), pts[i]) >= 0)
+			while(ssize(hull) > 1 && cross(l(2), l(1), pts[i]) >= 0)
 				hull.pop_back();
 			hull.emplace_back(i);
 		}

@@ -1,7 +1,7 @@
-#include "../../utils/headers/main.cpp"
+#include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-int main() {
+void test() {
 	test_int128();
 	//test_float128();
 	test_clock();

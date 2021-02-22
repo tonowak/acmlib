@@ -1,6 +1,14 @@
 #include "../headers/main.cpp"
 
-bool test(int milliseconds);
+void test();
+
+mt19937 rng(0);
+int rd(int l, int r) {
+	return uniform_int_distribution<int>(l, r)(rng);
+}
+LL rd_ll(LL l, LL r) {
+	return uniform_int_distribution<LL>(l, r)(rng);
+}
 
 template<class T>
 int difference(T &start, T &end) {
@@ -20,15 +28,16 @@ int main(int argc, char *argv[]) {
 	int test_no = 0;
 
 	while(difference(start_time, last_measured) < milli_limit) {
-		int remaining_milli = milli_limit - difference(start_time, last_measured);
-		if(test(remaining_milli)) {
+		try {
+			test();
+		}
+		catch(const exception &e) {
 			cout << "WA: " << test_no << '\n';
-			return 0;
+			return 1;
 		}
 		auto curr = chrono::steady_clock::now();
-		int elapsed = difference(last_measured, curr);
-		if(elapsed > 0 or test_no < 100 or test_no % 100 == 0)
-			cout << "OK: " << test_no << " (" << double(elapsed) / 1000 << " s)        \r";
+		if(test_no < 1000 or test_no % 1000 == 0)
+			cout << "OK: " << test_no << " (" << double(difference(start_time, last_measured)) / 1000 << " s)        \r";
 		++test_no;
 		last_measured = curr;
 	}

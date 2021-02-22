@@ -8,11 +8,13 @@
  *   treap[i] zwraca i-tą wartość
  */
 
+mt19937 rng_key(0);	
+
 struct Treap {
 	struct Node {
 		int prio, val, cnt;
 		Node *l = nullptr, *r = nullptr;
-		Node(int val) : val(val), prio(rng()) {}
+		Node(int _val) : prio(rng_key()), val(_val) {}
 	};
 	using pNode = Node*;
 	pNode root = nullptr;

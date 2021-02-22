@@ -4,7 +4,7 @@
  */
 
 struct SuffixAutomaton {
-    /*static constexpr*/ int sigma = 26;
+    static constexpr int sigma = 26;
     using Node = array<int, sigma>; // map<int, int>
     Node new_node;
 
@@ -22,7 +22,7 @@ struct SuffixAutomaton {
         length.emplace_back(length[last] + 1);
         link.emplace_back(0);
 
-        int r = size(edges) - 1, p = last;
+        int r = ssize(edges) - 1, p = last;
         while(p != -1 && edges[p][c] == -1) {
             edges[p][c] = r;
             p = link[p];
@@ -35,7 +35,7 @@ struct SuffixAutomaton {
                 edges.emplace_back(edges[q]);
                 length.emplace_back(length[p] + 1);
                 link.emplace_back(link[q]);
-                int q_prim = size(edges) - 1;
+                int q_prim = ssize(edges) - 1;
 
                 link[q] = link[r] = q_prim;
                 while(p != -1 && edges[p][c] == q) {
