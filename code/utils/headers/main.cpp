@@ -10,7 +10,7 @@ using namespace std;
 using LL = long long;
 #define FOR(i, l, r) for(int i = (l); i <= (r); ++i)
 #define REP(i, n) FOR(i, 0, (n) - 1)
-#define size(x) int((x).size())
+#define ssize(x) int(x.size())
 template<class A, class B> auto& operator<<(ostream &o, pair<A, B> p) {
 	return o << '(' << p.first << ", " << p.second << ')';
 }
