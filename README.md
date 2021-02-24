@@ -1,61 +1,72 @@
 credits for make: https://github.com/kth-competitive-programming/kactl/
-####  Current goal:
-- [ ] rework testing, make it more automatic
-- [ ] review code already added
-#
-#### Review list:
-##### Math:
-- [ ]  extended-gcd
-- [ ] crt
-- [ ] berlekamp-massey
-- [ ] miller-rabin
-- [ ] rho-pollard
-- [ ] fft
-- [ ] fft-mod
-- [ ] integral
-- [ ] primitive-root
-- [ ] discrete-log
-#### Data structures:
-- [ ] find-union
-- [ ] fenwick
-- [ ] fenwick2d
-- [ ] lazy-segment-tree
-- [ ] rmq
-- [ ] ordered-set
-- [ ] hash-map
-- [ ] line-container
-- [ ] lichao-tree
-- [ ] treap
-- [ ] persistent-treap
-##### Graph:
-- [ ] eulerian-path
-- [ ] jump-ptr
-- [ ] scc
-- [ ] biconnected
-- [ ] 2sat
-- [ ] hld
-- [ ] centro-decomp
-- [ ] matching
-- [ ] flow
-- [ ] mcmf
-##### Geometry:
-- [ ] point
-- [ ] advanced-complex
-- [ ] line
-- [ ] intersect-lines
-- [ ] area
-- [ ] convex-hull
-- [ ] circles
-##### Strings:
-- [ ] hashing
-- [ ] kmp
-- [ ] pref
-- [ ] manacher
-- [ ] trie
-- [ ] suffix-automaton
-- [ ] suffix-array
-#
-##### To add:
-- [ ] Hungarian 
-- [ ] Max independent set
-- [ ] Geometry
+
+## Building
+
+```
+make pdf
+python test.py
+```
+do `test.py` można dać ścieżkę do odpowiedniego folderu jak chce się wytestować mniej kodów.
+Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
+
+## Testing status
+- [x] random-stuff/dzien-probny
+- [ ] random-stuff/math-constants
+- [ ] random-stuff/rd
+- [x] data-structures/fenwick-tree-2d
+- [ ] data-structures/fenwick-tree
+- [ ] data-structures/find-union
+- [ ] data-structures/hash-map
+- [ ] data-structures/lazy-segment-tree
+- [ ] data-structures/lichao-tree
+- [x] data-structures/line-container
+- [x] data-structures/ordered-set
+- [ ] data-structures/persistent-treap
+- [ ] data-structures/rmq
+- [ ] data-structures/segment-tree
+- [ ] data-structures/treap
+- [ ] geo/advanced-complex
+- [ ] geo/area
+- [x] geo/circles
+- [ ] geo/convex-hull
+- [x] geo/intersect-lines
+- [ ] geo/line
+- [ ] geo/point
+- [ ] graph/2sat
+- [ ] graph/biconnected
+- [ ] graph/centro-decomp
+- [ ] graph/eulerian-path
+- [ ] graph/flow
+- [x] graph/hld
+- [ ] graph/jump-ptr
+- [ ] graph/matching
+- [ ] graph/mcmf
+- [x] graph/scc
+- [ ] math/berlekamp-massey
+- [x] math/crt
+- [x] math/discrete-log
+- [ ] math/discrete-root
+- [x] math/exp
+- [x] math/extended-gcd
+- [ ] math/fft-mod
+- [ ] math/fft
+- [ ] math/gauss
+- [ ] math/integral
+- [ ] math/miller-rabin
+- [ ] math/mod-int
+- [ ] math/newton
+- [x] math/primitive-root
+- [ ] math/rho-pollard
+- [ ] math/sieve
+- [ ] math/bignum
+- [x] optimizations/fio
+- [ ] optimizations/pragmy
+- [ ] string/hashing
+- [ ] string/kmp
+- [x] string/manacher
+- [ ] string/pref
+- [ ] string/suffix-array
+- [ ] string/suffix-automaton
+- [ ] string/trie
+- [ ] utils/example-code
+- [ ] utils/print-tree
