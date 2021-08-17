@@ -50,6 +50,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/extended-gcd
 - [ ] math/fft-mod
 - [ ] math/fft
+- [x] math/fwht
 - [ ] math/gauss
 - [ ] math/integral
 - [ ] math/miller-rabin
