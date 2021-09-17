@@ -1,4 +1,3 @@
-
 /*
  * Opis: Struktura do działań modulo
  * Czas: O(1), dzielenie O(\log mod)
@@ -10,7 +9,7 @@ struct modular {
 	int val;
 	modular() { val = 0; }
 	modular(const LL& v) {
-		val = (-mod <= v && v <= mod) ? v : v % mod;
+		val = (-mod <= v && v <= mod) ? (int) v : v % mod;
 		if(val < 0) val += mod;
 	}
 	int to_int() { return val; }
@@ -56,8 +55,13 @@ struct modular {
 	friend modular inv(const modular &a) {
 		assert(a != 0); return qpow(a, mod - 2);
 	}
-	modular& operator /=(const modular &m) { 
+	modular& operator/=(const modular &m) { 
 		return (*this) *= inv(m); 
+	}
+	modular operator++(int) {
+		modular res = (*this);
+		(*this) += 1;
+		return res;
 	}
 
 	friend modular operator+(modular a, const modular &b) { return a += b; }
@@ -66,4 +70,4 @@ struct modular {
 	friend modular operator/(modular a, const modular &b) { return a /= b; }
 };
 using mint = modular<int(1e9 + 7)>;
-// using mint = modular<int(998244353)>;
+// using mint = modular<998244353>;
