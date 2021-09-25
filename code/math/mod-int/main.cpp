@@ -9,7 +9,7 @@ struct modular {
 	int val;
 	modular() { val = 0; }
 	modular(const LL& v) {
-		val = (-mod <= v && v <= mod) ? (int) v : v % mod;
+		val = int((-mod <= v && v <= mod) ? (int) v : v % mod);
 		if(val < 0) val += mod;
 	}
 	int to_int() { return val; }
@@ -71,3 +71,17 @@ struct modular {
 };
 using mint = modular<int(1e9 + 7)>;
 // using mint = modular<998244353>;
+
+struct BinomCoeff {
+	vector<mint> fac, rev;
+	BinomCoeff(int n) {
+		fac = rev = vector<mint>(n + 1, 1);
+		FOR(i, 1, n) fac[i] = fac[i - 1] * i;
+		rev[n] = 1 / fac[n];
+		for(int i = n; i >= 1; i--)
+			rev[i - 1] = rev[i] * i;
+	}
+	mint operator()(int n, int k) {
+		return fac[n] * rev[n - k] * rev[k];
+	}
+};
