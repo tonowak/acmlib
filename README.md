@@ -18,7 +18,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] data-structures/find-union
 - [ ] data-structures/hash-map
 - [ ] data-structures/lazy-segment-tree
-- [ ] data-structures/lichao-tree
+- [x] data-structures/lichao-tree
 - [x] data-structures/line-container
 - [x] data-structures/ordered-set
 - [ ] data-structures/persistent-treap
@@ -52,7 +52,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] math/fft
 - [x] math/fwht
 - [ ] math/gauss
-- [ ] math/integral
+- [x] math/integral
 - [ ] math/miller-rabin
 - [ ] math/mod-int
 - [ ] math/newton
@@ -71,3 +71,4 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] string/trie
 - [ ] utils/example-code
 - [ ] utils/print-tree
+- [x] math/floor-sum
