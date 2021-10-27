@@ -53,7 +53,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/fwht
 - [ ] math/gauss
 - [x] math/integral
-- [ ] math/miller-rabin
+- [x] math/miller-rabin
 - [ ] math/mod-int
 - [ ] math/newton
 - [x] math/primitive-root
