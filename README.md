@@ -58,7 +58,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] math/newton
 - [x] math/primitive-root
 - [x] math/rho-pollard
-- [ ] math/sieve
+- [x] math/sieve
 - [ ] math/bignum
 - [x] optimizations/fio
 - [ ] optimizations/pragmy
