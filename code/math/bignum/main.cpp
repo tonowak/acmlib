@@ -2,8 +2,6 @@
  * Opis: Reprezentacja dużych int'ów
  * Status: Przetestowane na jednym zadaniu xd
  * Czas: Podstawa 1e9, mnożenie kwadratowe, dzielenie to mnożenie z logiem
- * Użycie:
- *   cout << Num("123") % Num("32")
  */
 
 struct Num {

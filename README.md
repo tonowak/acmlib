@@ -38,7 +38,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] graph/eulerian-path
 - [ ] graph/flow
 - [x] graph/hld
-- [ ] graph/jump-ptr
+- [x] graph/jump-ptr
 - [ ] graph/matching
 - [ ] graph/mcmf
 - [x] graph/scc
