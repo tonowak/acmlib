@@ -122,27 +122,23 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 
 \section{Funkcje multiplikatywne}
 		\begin{itemize}[noitemsep]
-			\item $id(n)=n$, $\mathbbm{1} \ast \varphi = id$
-			\item $\mathbbm{1}(n)=1$
-			\item $\tau(n)=$ liczba dzielników dodatnich, $\mathbbm{1} \ast \mathbbm{1} = \tau$
-			\item $\sigma(n)=$ suma dzielników dodatnich, $id \ast \mathbbm{1} = \sigma$
-			\item $\varphi(n)=$ liczba liczb względnie pierwszych z $n$ większych równych 1, $id \ast \mu = \varphi$
-			\item $\mu(n)=$ 1 dla $n=1$, 0 gdy istnieje $p$, że $p^2 | n$, oraz $(-1)^k$ jak $n$ jest iloczynem $k$ parami różnych liczb pierwszych
-			\item $\epsilon(n)=$ 1 dla $n=1$ oraz 0 dla $n>1$, $f \ast \epsilon = f$, $\mathbbm{1} \ast \mu = \epsilon$
-			\item $(f \ast g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})$
+			\item $\epsilon\left(n\right) = [n = 1]$
+			\item $id_k\left(n\right) = n^k$, $id = id_1$, $\mathbbm{1} = id_0$
+			\item $\sigma_k\left(n\right) = \sum_{d|n}d^k$, $\sigma = \sigma_1$, $\tau = \sigma_0$
+			\item $\mu\left(p^k\right) = [k = 0] - [k = 1]$
+			\item $\varphi\left(p^k\right) = p^k - p^{k - 1}$
+			\item $\left(f \ast g\right)\left(n\right) = \sum_{d|n}f\left(d\right)g\left(\frac{n}{d}\right)$
 			\item $f \ast g = g \ast f$
-			\item $f \ast (g \ast h) = (f \ast g) \ast h$
-			\item $f \ast (g+h) = f \ast g + f \ast h$
+			\item $f \ast \left(g \ast h\right) = \left(f \ast g\right) \ast h$
+			\item $f \ast \left(g + h\right) = f \ast g + f \ast h$
 			\item jak dwie z trzech funkcji $f \ast g = h$ są multiplikatywne, to trzecia też
-			\item $f \ast g = \epsilon \Rightarrow g(n) = -\frac{\sum_{d|n,d>1} f(d) g(\frac{n}{d})}{f(1)}$
-			\item równoważne:
-			\begin{itemize}
-				\item $g(n) = \sum_{d|n} f(d)$
-				\item $f(n) = \sum_{d|n} g(d) \mu(\frac{n}{d})$
-				\item $\sum_{k=1}^n g(k) = \sum_{d=1}^n \lfloor \frac{n}{d} \rfloor f(d)$
-			\end{itemize}
-			\item $\varphi(p^k) = p^k - p^{k-1} = p^{k-1}(p-1)$
-			\item $\varphi(n) = n \cdot (1 - \frac{1}{p_1}) \cdot (1 - \frac{1}{p_2}) \dots (1 - \frac{1}{p_k})$
+			\item $f \ast \mathbbm{1} = g \Leftrightarrow g \ast \mu = f$
+			\item $f \ast \epsilon = f$
+			\item $\mu \ast \mathbbm{1} = \epsilon$, $[n = 1] = \sum_{d|n}\mu\left(d\right)\frac{n}{d}$
+			\item $\varphi \ast \mathbbm{1} = id$
+			\item $id_k \ast \mathbbm{1} = \sigma_k$, $id \ast \mathbbm{1} = \sigma$, $\mathbbm{1} \ast \mathbbm{1} = \tau$
+			\item $s_f\left(n\right) = \sum_{i=1}^nf\left(i\right)$
+			\item $s_f\left(n\right) = \frac{s_{f\ast g}\left(n\right) - \sum_{d=2}^n s_f\left(\lfloor\frac{n}{d}\rfloor\right)g\left(d\right)}{g\left(1\right)}$
 		\end{itemize}
 
 \section{Zasada włączeń i wyłączeń}
