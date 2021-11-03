@@ -1,11 +1,11 @@
 /*
- * Opis: Rozwiązywanie układów liniowych (modint albo double)
+ * Opis: Rozwiązywanie układów liniowych (modint albo double) NIEPRZETESTOWANE
  * Czas: O(nm(n + m))
  * Użycie: Wrzucam n vectorów {wsp_x0, wsp_x1, ..., wsp_xm, suma},
  *   gauss wtedy zwraca liczbę rozwiązań
  *   (0, 1 albo 2 (tzn. nieskończoność))
  *   oraz jedno poprawne rozwiązanie (o ile istnieje).
- *   Przykład: gauss({2, -1, 1, 7}, {1, 1, 1, 1}, {0, 1, -1, 6.5})
+ *   Przykład - gauss({2, -1, 1, 7}, {1, 1, 1, 1}, {0, 1, -1, 6.5})
  *   zwraca (1, {6.75, 0.375, -6.125})
  */
 
@@ -57,7 +57,7 @@ pair<int, vector<T>> gauss(vector<vector<T>> a) {
 	int n = ssize(a); // liczba wierszy
 	int m = ssize(a[0]) - 1; // liczba zmiennych
 
-	vector<int> where(m, -1); // w którym wierszu jest zdefiniowana i-ta zmienna
+	vector<int> where(m, -1); // w ktorym wierszu jest zdefiniowana i-ta zmienna
 	for(int col = 0, row = 0; col < m and row < n; ++col) {
 		int sel = row;
 		for(int y = row; y < n; ++y)
