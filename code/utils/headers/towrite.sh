@@ -20,7 +20,7 @@ using LL=long long;
 template<class A,class B>auto&operator<<(ostream&o,pair<A,B>p){return o<<'('<<p.first<<", "<<p.second<<')';}
 template<class T>auto operator<<(ostream&o,T x)->decltype(x.end(),o){o<<'{';int i=0;for(auto e:x)o<<(", ")+2*!i++<<e;return o<<'}';}
 #ifdef DEBUG
-#define debug(x...) cerr<<"["#x"]: ",[](auto...$){((cerr<<$<<"; "),...);}(x),cerr<<'\n'
+#define debug(x...) cerr<<"["#x"]: ",[](auto...$){((cerr<<$<<"; "),...)<<'\n';}(x)
 #else
 #define debug(...) {}
 #endif
@@ -31,23 +31,28 @@ int main() {
 }:wq
 cp main.cpp brute.cpp
 cp main.cpp gen.cpp
-vim spr.sh
-#!/bin/bash
-for ((i=0;1;i++));do
-	./gen<g.in>t.in
-	./main<t.in>m.out
-	./brute<t.in>b.out
-	if diff -w m.out b.out>/dev/null;then
-		printf "OK $i\r"
-	else
-		echo WA
-		exit 0
-	fi
-done:wq
 vim gen.cpp
 G5komt19937 rng(chrono::system_clock::now().time_since_epoch().count());
 int rd(int l, int r) {
 	return rng()%(r-l+1)+l;
 }:wq
 cd ..
+vim .bashrc
+Gospr() {
+	for ((i=0;;i++));do
+		./gen<g.in>t.in
+		./main<t.in>m.out
+		./brute<t.in>b.out
+		if diff -w m.out b.out>/dev/null;then
+			printf "OK $i\r"
+		else
+			echo WA
+			exit 0
+		fi
+	done
+}:wq
+vim .vimrc
+set nu rnu hls is nosol ts=4 sw=4 ch=2 sc
+filetype indent plugin on
+syntax on:wq
 
