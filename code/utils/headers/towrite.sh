@@ -47,7 +47,7 @@ Gospr() {
 			printf "OK $i\r"
 		else
 			echo WA
-			exit 0
+			return 0
 		fi
 	done
 }:wq
