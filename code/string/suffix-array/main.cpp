@@ -5,7 +5,7 @@
  * Użycie: SuffixArray t(s, lim) - lim to rozmiar alfabetu
  * sa zawiera posortowane suffixy, zawiera pusty suffix
  * lcp[i] to lcp suffixu sa[i - 1] i sa[i]
- * Dla s = "aabaaab" sa = {6, 3, 0, 4, 1, 5, 2}, lcp = {0, 0, 3, 1, 2, 0, 1}
+ * Dla s = "aabaaab" sa = {7, 3, 4, 0, 5, 1, 6, 2}, lcp = {0, 0, 2, 3, 1, 2, 0, 1}
  */
 
 struct SuffixArray {
