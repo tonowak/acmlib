@@ -72,3 +72,4 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] utils/example-code
 - [ ] utils/print-tree
 - [x] math/floor-sum
+- [x] gauss/

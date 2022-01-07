@@ -1,5 +1,5 @@
 /*
- * Opis: Rozwiązywanie układów liniowych (modint albo double) NIEPRZETESTOWANE
+ * Opis: Rozwiązywanie układów liniowych (modint albo double)
  * Czas: O(nm(n + m))
  * Użycie: Wrzucam n vectorów {wsp_x0, wsp_x1, ..., wsp_xm, suma},
  *   gauss wtedy zwraca liczbę rozwiązań
