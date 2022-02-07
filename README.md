@@ -51,7 +51,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] math/fft-mod
 - [ ] math/fft
 - [x] math/fwht
-- [ ] math/gauss
+- [x] math/gauss
 - [x] math/integral
 - [x] math/miller-rabin
 - [ ] math/mod-int
@@ -72,4 +72,5 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] utils/example-code
 - [ ] utils/print-tree
 - [x] math/floor-sum
-- [x] gauss/
+- [x] math/ntt
+- [ ] math/simple-modulo
