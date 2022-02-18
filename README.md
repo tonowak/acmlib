@@ -74,3 +74,4 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/floor-sum
 - [x] math/ntt
 - [ ] math/simple-modulo
+- [x] optimizations/linear-knapsach
