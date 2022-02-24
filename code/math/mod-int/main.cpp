@@ -15,6 +15,14 @@ struct modular {
 	int to_int() { return val; }
 
 	friend ostream& operator<<(ostream &os, const modular &a) {
+#ifdef DEBUG
+		constexpr int mx = 1024;
+		for(int y = 1; y <= mx; ++y)
+			if(a * y <= mx)
+				return os << (a * y).val << '/' << y;
+			else if(mod - a * y <= mx)
+				return os << '-' << (mod - a * y).val << '/' << y;
+#endif
 		return os << a.val;
 	}
 	friend istream& operator>>(istream &is, modular &a) {
@@ -44,7 +52,7 @@ struct modular {
 		return *this;
 	}
 	modular& operator*=(const modular &m) {
-		val = (LL) val * m.val % mod;
+		val = int((LL) val * m.val % mod);
 		return *this;
 	}
 	friend modular qpow(modular a, LL n) {
