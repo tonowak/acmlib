@@ -75,3 +75,5 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/ntt
 - [ ] math/simple-modulo
 - [x] optimizations/linear-knapsach
+- [x] graph/cactus-cycles
+- [x] graph/toposort
