@@ -10,7 +10,8 @@
 template</*integral*/class I>
 pair<bool, vector<int>> negative_cycle(vector<vector<pair<int, I>>> graph) {
 	int n = ssize(graph);
-	vector<int> dist(n), from(n, -1);
+	vector<I> dist(n);
+	vector<int> from(n, -1);
 	int v_on_cycle;
 	REP(iter, n) {
 		v_on_cycle = -1;
