@@ -10,70 +10,71 @@ do `test.py` można dać ścieżkę do odpowiedniego folderu jak chce się wytes
 Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 
 ## Testing status
-- [x] random-stuff/dzien-probny
-- [ ] random-stuff/math-constants
-- [ ] random-stuff/rd
-- [x] data-structures/fenwick-tree-2d
-- [ ] data-structures/fenwick-tree
-- [ ] data-structures/find-union
-- [ ] data-structures/hash-map
-- [ ] data-structures/lazy-segment-tree
-- [x] data-structures/lichao-tree
-- [x] data-structures/line-container
-- [x] data-structures/ordered-set
-- [ ] data-structures/persistent-treap
-- [ ] data-structures/rmq
-- [ ] data-structures/segment-tree
-- [ ] data-structures/treap
-- [ ] geo/advanced-complex
-- [ ] geo/area
-- [x] geo/circles
-- [ ] geo/convex-hull
-- [x] geo/intersect-lines
-- [ ] geo/line
 - [ ] geo/point
+- [ ] geo/line
+- [ ] geo/area
+- [x] geo/intersect-lines
+- [x] geo/circles
+- [ ] geo/advanced-complex
+- [ ] geo/convex-hull
+- [x] math/integral
+- [x] math/sieve
+- [x] math/extended-gcd
+- [ ] math/fft-mod
+- [x] math/fwht
+- [x] math/gauss
+- [ ] math/mod-int
+- [x] math/floor-sum
+- [ ] math/simple-modulo
+- [x] math/rho-pollard
+- [ ] math/fft
+- [ ] math/bignum
+- [ ] math/discrete-root
+- [x] math/discrete-log
+- [x] math/primitive-root
+- [x] math/crt
+- [x] math/miller-rabin
+- [ ] math/berlekamp-massey
+- [x] math/ntt
+- [x] math/exp
+- [x] optimizations/fio
+- [x] optimizations/linear-knapsack
+- [ ] optimizations/pragmy
+- [ ] utils/example-code
+- [ ] utils/print-tree
+- [ ] string/trie
+- [ ] string/pref
+- [ ] string/suffix-array
+- [ ] string/hashing
+- [x] string/manacher
+- [ ] string/kmp
+- [ ] string/suffix-automaton
+- [ ] random-stuff/rd
+- [ ] random-stuff/math-constants
+- [x] random-stuff/dzien-probny
+- [ ] data-structures/hash-map
+- [x] data-structures/associative-queue
+- [ ] data-structures/segment-tree
+- [x] data-structures/lichao-tree
+- [ ] data-structures/rmq
+- [ ] data-structures/find-union
+- [ ] data-structures/lazy-segment-tree
+- [ ] data-structures/treap
+- [x] data-structures/line-container
+- [ ] data-structures/fenwick-tree
+- [x] data-structures/ordered-set
+- [x] data-structures/fenwick-tree-2d
+- [ ] data-structures/persistent-treap
 - [ ] graph/2sat
+- [x] graph/toposort
 - [ ] graph/biconnected
-- [ ] graph/centro-decomp
+- [ ] graph/mcmf
 - [ ] graph/eulerian-path
-- [ ] graph/flow
 - [x] graph/hld
 - [x] graph/jump-ptr
 - [ ] graph/matching
-- [ ] graph/mcmf
-- [x] graph/scc
-- [ ] math/berlekamp-massey
-- [x] math/crt
-- [x] math/discrete-log
-- [ ] math/discrete-root
-- [x] math/exp
-- [x] math/extended-gcd
-- [ ] math/fft-mod
-- [ ] math/fft
-- [x] math/fwht
-- [x] math/gauss
-- [x] math/integral
-- [x] math/miller-rabin
-- [ ] math/mod-int
-- [ ] math/newton
-- [x] math/primitive-root
-- [x] math/rho-pollard
-- [x] math/sieve
-- [ ] math/bignum
-- [x] optimizations/fio
-- [ ] optimizations/pragmy
-- [ ] string/hashing
-- [ ] string/kmp
-- [x] string/manacher
-- [ ] string/pref
-- [ ] string/suffix-array
-- [ ] string/suffix-automaton
-- [ ] string/trie
-- [ ] utils/example-code
-- [ ] utils/print-tree
-- [x] math/floor-sum
-- [x] math/ntt
-- [ ] math/simple-modulo
-- [x] optimizations/linear-knapsach
 - [x] graph/cactus-cycles
-- [x] graph/toposort
+- [x] graph/negative-cycle
+- [x] graph/scc
+- [ ] graph/centro-decomp
+- [ ] graph/flow
