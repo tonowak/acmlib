@@ -1,3 +1,4 @@
+setxkbmap -option caps:escape
 vim .bashrc
 c() {
 	g++ -std=c++17 -Wall -Wextra -Wshadow -Wconversion -Wno-sign-conversion -Wfloat-equal -D_GLIBCXX_DEBUG -fsanitize=address,undefined -ggdb3 -DDEBUG -DLOCAL $1.cpp -o $1
@@ -55,4 +56,3 @@ vim .vimrc
 set nu rnu hls is nosol ts=4 sw=4 ch=2 sc
 filetype indent plugin on
 syntax on:wq
-
