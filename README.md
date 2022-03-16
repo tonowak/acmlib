@@ -78,3 +78,5 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] graph/scc
 - [ ] graph/centro-decomp
 - [ ] graph/flow
+- [x] data-structures/link-cut
+- [x] optimizations/random
