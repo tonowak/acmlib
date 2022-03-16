@@ -8,9 +8,9 @@
  */
 
 struct AdditionalInfo {
-    using T = LL;
-    static constexpr T neutral = 0; // Remember that there is a nil vertex!
-    T node_value = neutral, splay_value = neutral;//, splay_value_reversed = neutral;
+	using T = LL;
+	static constexpr T neutral = 0; // Remember that there is a nil vertex!
+	T node_value = neutral, splay_value = neutral;//, splay_value_reversed = neutral;
 	T whole_subtree_value = neutral, virtual_value = neutral;
 
 	T splay_lazy = neutral; // lazy propagation on paths
@@ -18,17 +18,17 @@ struct AdditionalInfo {
 	T whole_subtree_lazy = neutral, whole_subtree_cancel = neutral; // lazy propagation on subtrees
 	T whole_subtree_size = 0, virtual_size = 0; // 0 because of nil
 
-    void set_value(T x) {
-        node_value = splay_value = whole_subtree_value = x;
+	void set_value(T x) {
+		node_value = splay_value = whole_subtree_value = x;
 		splay_size = 1;
 		whole_subtree_size = 1;
-    }
-    void update_from_sons(AdditionalInfo &l, AdditionalInfo &r) {
-        splay_value = l.splay_value + node_value + r.splay_value;
+	}
+	void update_from_sons(AdditionalInfo &l, AdditionalInfo &r) {
+		splay_value = l.splay_value + node_value + r.splay_value;
 		splay_size = l.splay_size + 1 + r.splay_size;
 		whole_subtree_value = l.whole_subtree_value + node_value + virtual_value + r.whole_subtree_value;
 		whole_subtree_size = l.whole_subtree_size + 1 + virtual_size + r.whole_subtree_size;
-    }
+	}
 	void change_virtual(AdditionalInfo &virtual_son, int delta) {
 		assert(delta == -1 or delta == 1);
 		virtual_value += delta * virtual_son.whole_subtree_value;
@@ -78,7 +78,7 @@ struct Splay {
 		int subsize_splay = 1;
 		bool lazy_flip = false;
 
-        AdditionalInfo info;
+		AdditionalInfo info;
 	};
 	vector<Node> t;
 	const int nil;
@@ -92,12 +92,12 @@ struct Splay {
 
 	void apply_lazy_and_push(int v) {
 		auto &[l, r] = t[v].child;
-        if(t[v].lazy_flip) {
-            for(int c : {l, r})
-                t[c].lazy_flip ^= 1;
-            swap(l, r);
-        }
-        t[v].info.push_lazy(t[l].info, t[r].info, t[v].lazy_flip);
+		if(t[v].lazy_flip) {
+			for(int c : {l, r})
+				t[c].lazy_flip ^= 1;
+			swap(l, r);
+		}
+		t[v].info.push_lazy(t[l].info, t[r].info, t[v].lazy_flip);
 		for(int c : {l, r})
 			if(c != nil)
 				t[c].info.pull_lazy_from_parent(t[v].info);
@@ -105,15 +105,15 @@ struct Splay {
 	}
 
 	void update_from_sons(int v) {
-        // assumes that v's info is pushed
+		// assumes that v's info is pushed
 		auto [l, r] = t[v].child;
 		t[v].subsize_splay = t[l].subsize_splay + 1 + t[r].subsize_splay;
-        for(int c : {l, r})
+		for(int c : {l, r})
 			apply_lazy_and_push(c);
-        t[v].info.update_from_sons(t[l].info, t[r].info);
+		t[v].info.update_from_sons(t[l].info, t[r].info);
 	}
 
-    // After that, v is pushed and updated
+	// After that, v is pushed and updated
 	void splay(int v) {
 		apply_lazy_and_push(v);
 		auto set_child = [&](int x, int c, int d) {
@@ -266,12 +266,12 @@ struct LinkCut : Splay {
 	}
 
 	// Applies function f on vertex v (useful for a single add/set operation)
-    void apply_on_vertex(int v, function<void (AdditionalInfo&)> f) {
-        access(v);
-        f(t[v].info);
-        // apply_lazy_and_push(v); not needed
-        // update_from_sons(v);
-    }
+	void apply_on_vertex(int v, function<void (AdditionalInfo&)> f) {
+		access(v);
+		f(t[v].info);
+		// apply_lazy_and_push(v); not needed
+		// update_from_sons(v);
+	}
 
 	// Assumes that v and u are in same tree.
 	// Adds val to each vertex in path from v to u.
