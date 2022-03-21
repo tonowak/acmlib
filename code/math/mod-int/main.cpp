@@ -9,7 +9,7 @@ struct modular {
 	int val;
 	modular() { val = 0; }
 	modular(const LL& v) {
-		val = int((-mod <= v && v <= mod) ? (int) v : v % mod);
+		val = int((-mod <= v && v < mod) ? (int) v : v % mod);
 		if(val < 0) val += mod;
 	}
 	int to_int() { return val; }
