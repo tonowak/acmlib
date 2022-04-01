@@ -80,3 +80,4 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] graph/flow
 - [x] data-structures/link-cut
 - [x] optimizations/random
+- [x] sos-dp/
