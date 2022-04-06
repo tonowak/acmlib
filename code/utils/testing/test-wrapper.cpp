@@ -32,15 +32,13 @@ int main(int argc, char *argv[]) {
 			test();
 		}
 		catch(const exception &e) {
-			cout << "WA: " << test_no << '\n';
+            cout << "WA\n";
 			return 1;
 		}
 		auto curr = chrono::steady_clock::now();
-		if(test_no < 1000 or test_no % 1000 == 0)
-			cout << "OK: " << test_no << " (" << double(difference(start_time, last_measured)) / 1000 << " s)        \r";
 		++test_no;
 		last_measured = curr;
 	}
-	cout << '\n';
+    cout << "OK (tests passed: " << test_no << ")\n";
 }
 

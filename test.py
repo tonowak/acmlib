@@ -47,7 +47,7 @@ for root, subdirs, files in os.walk(root_dir + '/' + testing_dir):
             if 'submit.txt' in files:
                 print('Has submission')
                 tested = True
-            elif 'notesting.txt' in files:
+            elif '.notesting' in files:
                 print('Skipping testing')
                 tested = True
             else:
