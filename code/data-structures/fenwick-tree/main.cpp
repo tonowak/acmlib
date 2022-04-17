@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Drzewo potęgowe
  * Czas: O(\log n)
  * Użycie:
@@ -20,5 +19,8 @@ struct Fenwick {
 		for(pos++; pos > 0; pos &= pos - 1)
 			ret += s[pos - 1];
 		return ret;
+	}
+	LL query(int l, int r) {
+		return query(r) - (l == 0 ? 0LL : query(l - 1));
 	}
 };

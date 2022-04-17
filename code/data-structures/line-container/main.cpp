@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Set dla funkcji liniowych
  * Czas: O(\log n)
  * Użycie: add(a, b) dodaje funkcję y = ax + b

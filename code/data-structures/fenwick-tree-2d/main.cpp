@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Drzewo potęgowe 2d offline
  * Czas: O(\log^2 n) Pamięć O(n \log n)
  * Użycie:

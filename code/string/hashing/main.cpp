@@ -1,6 +1,5 @@
 /*
- * Status: Przetestowane
- * Opis:
+ * Opis: Pojedyńcze i podwójne hashowanie.
  * Użycie: 
  * Hashing hsh(str);
  * hsh(l, r) zwraca hasza [l, r] włącznie

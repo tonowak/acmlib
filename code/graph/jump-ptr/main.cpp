@@ -72,8 +72,10 @@ struct OperationJumpPtr {
 		int n = ssize(g);
 		vector<vector<int>> unweighted_g(n);
 		REP(v, n)
-			for(auto [u, w] : g[v])
+			for(auto [u, w] : g[v]) {
+				(void) w;
 				unweighted_g[v].emplace_back(u);
+			}
 		ptr = SimpleJumpPtr(unweighted_g, root);
 		ans_jmp.resize(ptr.bits, vector<PathAns>(n));
 		REP(v, n)

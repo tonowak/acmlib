@@ -12,7 +12,7 @@ pair<bool, vector<int>> negative_cycle(vector<vector<pair<int, I>>> graph) {
 	int n = ssize(graph);
 	vector<I> dist(n);
 	vector<int> from(n, -1);
-	int v_on_cycle;
+	int v_on_cycle = -1;
 	REP(iter, n) {
 		v_on_cycle = -1;
 		REP(v, n)

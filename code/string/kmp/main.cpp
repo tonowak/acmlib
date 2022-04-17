@@ -1,18 +1,30 @@
 /*
- * Status: Przetestowane
  * Opis: KMP(str) zwraca tablicę pi.
- * [0, pi[i]) = (i - pi[i], i]
+ * Zachodzi [0, pi[i]) = (i - pi[i], i].
+ * Użycie:
+ *   get_kmp("abaababaab") == {0,0,1,1,2,3,2,3,4,5};
+ *   get_borders("abaababaab") == {2,5,10};
  * Czas: O(n)
  */
 
-vector<int> KMP(string &str) {
+vector<int> get_kmp(string str) {
 	int len = ssize(str);
 	vector<int> ret(len);
-	for(int i = 1; i < len; i++)
-	{
+	for(int i = 1; i < len; i++) {
 		int pos = ret[i - 1];
-		while(pos && str[i] != str[pos]) pos = ret[pos - 1];
+		while(pos and str[i] != str[pos])
+			pos = ret[pos - 1];
 		ret[i] = pos + (str[i] == str[pos]);
 	}
 	return ret;
+}
+
+vector<int> get_borders(string str) {
+	vector<int> kmp = get_kmp(str), ret;
+	int len = ssize(str);
+	while(len) {
+		ret.emplace_back(len);
+		len = kmp[len - 1];
+	}
+	return vector<int>(ret.rbegin(), ret.rend());
 }

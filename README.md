@@ -12,23 +12,23 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 ## Testing status
 - [ ] geo/point
 - [ ] geo/line
-- [ ] geo/area
+- [x] geo/area
 - [x] geo/intersect-lines
 - [x] geo/circles
 - [ ] geo/advanced-complex
-- [ ] geo/convex-hull
+- [x] geo/convex-hull
 - [x] geo/halfplane-intersection
 - [x] math/integral
 - [x] math/sieve
 - [x] math/extended-gcd
-- [ ] math/fft-mod
+- [x] math/fft-mod
 - [x] math/fwht
 - [x] math/gauss
-- [ ] math/mod-int
+- [x] math/mod-int
 - [x] math/floor-sum
-- [ ] math/simple-modulo
+- [x] math/simple-modulo
 - [x] math/rho-pollard
-- [ ] math/fft
+- [x] math/fft
 - [x] math/bignum
 - [ ] math/discrete-root
 - [x] math/discrete-log
@@ -42,31 +42,31 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] optimizations/random
 - [x] optimizations/sos-dp
 - [x] optimizations/linear-knapsack
-- [ ] optimizations/pragmy
-- [ ] utils/example-code
-- [ ] utils/print-tree
-- [ ] string/trie
-- [ ] string/pref
+- [x] optimizations/pragmy
+- [x] utils/example-code
+- [x] utils/print-tree
+- [x] string/trie
+- [x] string/pref
 - [ ] string/suffix-array
 - [x] string/lyndon-min-cyclic-rot
-- [ ] string/hashing
+- [x] string/hashing
 - [x] string/manacher
-- [ ] string/kmp
+- [x] string/kmp
 - [ ] string/suffix-automaton
-- [ ] random-stuff/rd
-- [ ] random-stuff/math-constants
+- [x] random-stuff/rd
+- [x] random-stuff/math-constants
 - [x] random-stuff/dzien-probny
 - [x] data-structures/link-cut
-- [ ] data-structures/hash-map
+- [x] data-structures/hash-map
 - [x] data-structures/associative-queue
 - [ ] data-structures/segment-tree
 - [x] data-structures/lichao-tree
-- [ ] data-structures/rmq
+- [x] data-structures/rmq
 - [ ] data-structures/find-union
 - [ ] data-structures/lazy-segment-tree
 - [ ] data-structures/treap
 - [x] data-structures/line-container
-- [ ] data-structures/fenwick-tree
+- [x] data-structures/fenwick-tree
 - [x] data-structures/ordered-set
 - [x] data-structures/fenwick-tree-2d
 - [ ] data-structures/persistent-treap
@@ -79,6 +79,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] graph/gomory-hu
 - [x] graph/hld
 - [x] graph/jump-ptr
+- [x] graph/konig-theorem
 - [x] graph/matching
 - [x] graph/cactus-cycles
 - [x] graph/negative-cycle

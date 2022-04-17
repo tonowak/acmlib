@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Kolejka wspierająca dowolną operację łączną
  * Czas: O(1) zamortyzowany
  * Użycie:

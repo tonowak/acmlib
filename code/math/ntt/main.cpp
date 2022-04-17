@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Mnożenie wielomianów mod 998244353
  * Czas: O(n \log n)
  * Użycie:

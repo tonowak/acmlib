@@ -1,11 +1,10 @@
 /*
- * Status: Przetestowane
  * Opis: pref(str) zwraca tablicę prefixo prefixową
  * [0, pref[i]) = [i, i + pref[i])
  * Czas: O(n)
  */
 
-vector<int> pref(string &str) {
+vector<int> pref(string str) {
 	int len = ssize(str);	
 	vector<int> ret(len);
 	ret[0] = len;

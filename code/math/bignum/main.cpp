@@ -1,6 +1,5 @@
 /*
  * Opis: Reprezentacja dużych int'ów
- * Status: Przetestowane
  * Czas: Podstawa 1e9, mnożenie, dzielenie oraz modulo kwadratowe, wersje operatorX(Num, int) liniowe
  */
 

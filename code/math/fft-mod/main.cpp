@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Mnożenie wielomianów
  * Czas: O(n \log n)
  * Użycie:
@@ -7,9 +6,9 @@
  */
 
 #include "../fft/main.cpp"
-vector<LL> conv_mod(vector<LL> &a, vector<LL> &b, int M) {
-	if(a.empty() || b.empty()) return {};
-	vector<LL> res(ssize(a) + ssize(b) - 1);
+vector<int> conv_mod(vector<int> a, vector<int> b, int M) {
+	if(a.empty() or b.empty()) return {};
+	vector<int> res(ssize(a) + ssize(b) - 1);
 	int B = 32 - __builtin_clz(ssize(res)), n = 1 << B;
 	int cut = int(sqrt(M));
 	vector<Complex> L(n), R(n), outl(n), outs(n);
@@ -25,7 +24,7 @@ vector<LL> conv_mod(vector<LL> &a, vector<LL> &b, int M) {
 	REP(i, ssize(res)) {
 		LL av = LL(real(outl[i]) + 0.5), cv = LL(imag(outs[i]) + 0.5);
 		LL bv = LL(imag(outl[i]) + 0.5) + LL(real(outs[i]) + 0.5);
-		res[i] = ((av % M * cut + bv) % M * cut + cv) % M;
+		res[i] = int(((av % M * cut + bv) % M * cut + cv) % M);
 	}
 	return res;
 }

@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane
  * Opis: Mnożenie wielomianów
  * Czas: O(n \log n)
  * Użycie:

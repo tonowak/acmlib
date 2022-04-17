@@ -46,7 +46,7 @@ void fastout(int x) {
 	static char t[10];
 	int i = 0;
 	while(x) {
-		t[i++] = '0' + (x % 10);
+		t[i++] = char('0' + (x % 10));
 		x /= 10;
 	}
 	while(--i >= 0)
