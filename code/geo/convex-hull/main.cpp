@@ -32,6 +32,8 @@ pair<vector<int>, vector<int>> top_bot_hull(vector<P> &pts) {
 }
 
 vector<int> hull_id(vector<P> &pts) {
+	if(pts.empty())
+		return {};
 	vector<int> top, bot;
 	tie(top, bot) = top_bot_hull(pts);
 	top.pop_back(), bot.pop_back();
