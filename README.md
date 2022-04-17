@@ -17,6 +17,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] geo/circles
 - [ ] geo/advanced-complex
 - [ ] geo/convex-hull
+- [x] geo/halfplane-intersection
 - [x] math/integral
 - [x] math/sieve
 - [x] math/extended-gcd
@@ -28,7 +29,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] math/simple-modulo
 - [x] math/rho-pollard
 - [ ] math/fft
-- [ ] math/bignum
+- [x] math/bignum
 - [ ] math/discrete-root
 - [x] math/discrete-log
 - [x] math/primitive-root
@@ -38,6 +39,8 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/ntt
 - [x] math/exp
 - [x] optimizations/fio
+- [x] optimizations/random
+- [x] optimizations/sos-dp
 - [x] optimizations/linear-knapsack
 - [ ] optimizations/pragmy
 - [ ] utils/example-code
@@ -45,6 +48,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] string/trie
 - [ ] string/pref
 - [ ] string/suffix-array
+- [x] string/lyndon-min-cyclic-rot
 - [ ] string/hashing
 - [x] string/manacher
 - [ ] string/kmp
@@ -52,6 +56,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] random-stuff/rd
 - [ ] random-stuff/math-constants
 - [x] random-stuff/dzien-probny
+- [x] data-structures/link-cut
 - [ ] data-structures/hash-map
 - [x] data-structures/associative-queue
 - [ ] data-structures/segment-tree
@@ -66,18 +71,17 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] data-structures/fenwick-tree-2d
 - [ ] data-structures/persistent-treap
 - [ ] graph/2sat
+- [x] graph/blossom
 - [x] graph/toposort
 - [ ] graph/biconnected
 - [ ] graph/mcmf
 - [ ] graph/eulerian-path
+- [x] graph/gomory-hu
 - [x] graph/hld
 - [x] graph/jump-ptr
-- [ ] graph/matching
+- [x] graph/matching
 - [x] graph/cactus-cycles
 - [x] graph/negative-cycle
 - [x] graph/scc
 - [ ] graph/centro-decomp
 - [ ] graph/flow
-- [x] data-structures/link-cut
-- [x] optimizations/random
-- [x] sos-dp/
