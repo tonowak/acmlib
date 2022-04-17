@@ -2,6 +2,7 @@
  * Opis: Turbo Matching
  * Czas: Średnio około O(n \log n), najgorzej O(n^2)
  * Użycie: wierzchołki grafu nie muszą być ładnie podzielone na dwia przedziały, musi być po prostu dwudzielny.
+ *   Przykład: auto [match_size, match] = Matching(graph)();
  */
 
 struct Matching {
@@ -27,7 +28,7 @@ struct Matching {
 	Matching(vector<vector<int>> &_adj) : adj(_adj) {
 		mat = vis = vector<int>(ssize(adj), -1);
 	}
-	int get() {
+	pair<int, vector<int>> operator()() {
 		int d = -1;
 		while(d != 0) {
 			d = 0, ++t;
@@ -36,6 +37,6 @@ struct Matching {
 					d += mat_dfs(v);
 			ans += d;
 		}
-		return ans;
+		return {ans, mat};
 	}
 };
