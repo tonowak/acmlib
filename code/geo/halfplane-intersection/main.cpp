@@ -4,7 +4,7 @@
  * Użycie:
  *   Halfplane(a, b) tworzy półpłaszczyznę wzdłuż prostej a-b z obszarem po lewej stronie wektora a->b.
  *   Jeżeli zostało zwróconych mniej, niż trzy punkty, to pole przecięcia jest puste.
- *   Przykład: halfplane_intersection({Halfplane(P(2, 1), P(4, 2)), Halfplane(P(6, 3), P(2, 4)), Halfplane(P(-4, 7), P(4, 2))}) == {(4, 2), (6, 3), (0, 4.5)}
+ *   Na przykład halfplane_intersection({Halfplane(P(2, 1), P(4, 2)), Halfplane(P(6, 3), P(2, 4)), Halfplane(P(-4, 7), P(4, 2))}) == {(4, 2), (6, 3), (0, 4.5)}
  *   Pole przecięcia jest zawsze ograniczone, ponieważ w kodzie są dodawane cztery półpłaszczyzny o współrzędnych w +/-inf, ale nie należy na tym polegać przez eps oraz błędy precyzji (najlepiej jest zmniejszyć inf tyle, ile się da).
  */
 

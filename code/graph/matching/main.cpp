@@ -2,7 +2,7 @@
  * Opis: Turbo Matching
  * Czas: Średnio około O(n \log n), najgorzej O(n^2)
  * Użycie: wierzchołki grafu nie muszą być ładnie podzielone na dwia przedziały, musi być po prostu dwudzielny.
- *   Przykład: auto [match_size, match] = Matching(graph)();
+ *   Na przykład auto [match_size, match] = Matching(graph)();
  */
 
 struct Matching {
