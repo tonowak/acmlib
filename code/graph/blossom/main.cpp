@@ -3,7 +3,6 @@
  * Czas: Jeden rabin powie O(nm), drugi rabin powie, że to nawet nie jest O(n^3).
  * Użycie:
  *   W grafie nie może być pętelek.
- *   Źródlo: https://codeforces.com/blog/entry/92339?#comment-810242
  *   Funkcja zwraca match'a, tzn match[v] == -1 albo z kim jest sparowany v.
  *   Rozmiar matchingu to (sum_v bool(match[v] != -1)) / 2.
  */
