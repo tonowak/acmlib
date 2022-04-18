@@ -10,7 +10,7 @@ do `test.py` można dać ścieżkę do odpowiedniego folderu jak chce się wytes
 Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 
 ## Testing status
-- [ ] geo/point
+- [x] geo/point
 - [ ] geo/line
 - [x] geo/area
 - [x] geo/intersect-lines
@@ -86,3 +86,8 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] graph/scc
 - [ ] graph/centro-decomp
 - [ ] graph/flow
+- [x] data-structures/link-cut
+- [x] optimizations/random
+- [x] sos-dp/
+- [x] math/simplex
+- [x] optimizations/sos-dp

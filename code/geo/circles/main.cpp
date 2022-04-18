@@ -3,7 +3,6 @@
  * Użycie: ssize(circle_circle(...)) == 3 to jest nieskończenie wiele rozwiązań
  */
 #include "../point/main.cpp"
-using D = Double;
 
 vector<P> circle_line(D r, D a, D b, D c) {
 	D len_ab = a * a + b * b,

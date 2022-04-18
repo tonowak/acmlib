@@ -7,13 +7,13 @@
  * hull zwraca punkty na otoczce
  */
 #include "../point/main.cpp"
-Double cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
-pair<vector<int>, vector<int>> top_bot_hull(vector<P> &pts) {
+D cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
+pair<vector<int>, vector<int>> top_bot_hull(const vector<P> &pts) {
 	int n = ssize(pts);
 	vector<int> ord(n);
 	REP(i, n) ord[i] = i;
 	sort(ord.begin(), ord.end(), [&](int i, int j) {
-		P &a = pts[i], &b = pts[j];
+		const P &a = pts[i], &b = pts[j];
 		return make_pair(a.x, a.y) < make_pair(b.x, b.y);
 	});
 
@@ -31,9 +31,8 @@ pair<vector<int>, vector<int>> top_bot_hull(vector<P> &pts) {
 	return {top, bot};
 }
 
-vector<int> hull_id(vector<P> &pts) {
-	if(pts.empty())
-		return {};
+vector<int> hull_id(const vector<P> &pts) {
+	if(pts.empty()) return {};
 	vector<int> top, bot;
 	tie(top, bot) = top_bot_hull(pts);
 	top.pop_back(), bot.pop_back();
@@ -41,7 +40,7 @@ vector<int> hull_id(vector<P> &pts) {
 	return top;
 }
 
-vector<P> hull(vector<P> &pts) {
+vector<P> hull(const vector<P> &pts) {
 	vector<P> ret;
 	for(int i : hull_id(pts))
 		ret.emplace_back(pts[i]);

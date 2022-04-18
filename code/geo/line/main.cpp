@@ -4,7 +4,6 @@
 
 #include "../point/main.cpp"
 struct Line {
-	using D = Double;
 	D A, B, C;
 	// postac ogolna Ax + By + C = 0
 	Line(D a, D b, D c) : A(a), B(b), C(c) {}

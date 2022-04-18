@@ -11,7 +11,7 @@
 #include "../point/main.cpp"
 
 P intersection(P a, P b, P c, P d) {
-	Double c1 = cross(c - a, b - a), c2 = cross(d - a, b - a);
+	D c1 = cross(c - a, b - a), c2 = cross(d - a, b - a);
 	assert(c1 != c2); // proste nie moga byc rownolegle
 	return (c1 * d  - c2 * c) / (c1 - c2);
 }
@@ -21,7 +21,7 @@ bool on_segment(P a, P b, P p) {
 }
 
 vector<P> intersect(P a, P b, P c, P d, bool segments) {
-	Double acd = cross(c - a, d - c), bcd = cross(c - b, d - c),
+	D acd = cross(c - a, d - c), bcd = cross(c - b, d - c),
 		   cab = cross(a - c, b - a), dab = cross(a - d, b - a);
 	if((segments and sign(acd) * sign(bcd) < 0 and sign(cab) * sign(dab) < 0)
 	   or (not segments and not equal(bcd, acd)))
@@ -29,7 +29,7 @@ vector<P> intersect(P a, P b, P c, P d, bool segments) {
 	if(not segments)
 		return {a, a};
 	// skip for not segments
-	set<P, Sortx> s;
+	set<P> s;
 	if(on_segment(c, d, a)) s.emplace(a);
 	if(on_segment(c, d, b)) s.emplace(b);
 	if(on_segment(a, b, c)) s.emplace(c);

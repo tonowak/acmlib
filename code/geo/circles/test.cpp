@@ -1,8 +1,8 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-Double rd_double(Double l, Double r) {
-	return uniform_real_distribution<Double>(l, r)(rng);
+D rd_double(D l, D r) {
+	return uniform_real_distribution<D>(l, r)(rng);
 }
 
 void test() {

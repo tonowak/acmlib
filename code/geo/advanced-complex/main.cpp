@@ -4,7 +4,7 @@
 #include "../point/main.cpp"
 
 // nachylenie k-> y = kx + m
-Double slope(P a, P b) { return tan(arg(b - a)); }
+D slope(P a, P b) { return tan(arg(b - a)); }
 // rzut p na ab
 P project(P p, P a, P b) {
 	return a + (b - a) * dot(p - a, b - a) / norm(a - b);
@@ -14,16 +14,16 @@ P reflect(P p, P a, P b) {
 	return a + conj((p - a) / (b - a)) * (b - a);
 }
 // obrot a wzgledem p o theta radianow
-P rotate(P a, P p, Double theta) {
-	return (a - p) * polar(1.0L, theta) + p;
+P rotate(P a, P p, D theta) {
+	return (a - p) * polar(1.0, theta) + p;
 }
 // kat ABC, w radianach, zawsze zwraca mniejszy kat
-Double angle(P a, P b, P c) {
+D angle(P a, P b, P c) {
 	return abs(remainder(arg(a - b) - arg(c - b), 2.0 * M_PI));
 }
 // szybkie przeciecie prostych, nie dziala dla rownoleglych
 P intersection(P a, P b, P p, P q) {
-	Double c1 = cross(p - a, b - a), c2 = cross(q - a, b - a);
+	D c1 = cross(p - a, b - a), c2 = cross(q - a, b - a);
 	return (c1 * q - c2 * p) / (c1 - c2);
 }
 // check czy sa rownolegle
@@ -44,6 +44,6 @@ P perpendicular(P a, P b, P p) {
 }
 // przeciecie srodkowych trojkata
 P centro(P a, P b, P c) { 
-	return (a + b + c) / 3.0L;
+	return (a + b + c) / 3.0;
 }
 
