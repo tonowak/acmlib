@@ -15,7 +15,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] geo/area
 - [x] geo/intersect-lines
 - [x] geo/circles
-- [ ] geo/advanced-complex
+- [x] geo/advanced-complex
 - [x] geo/convex-hull
 - [x] geo/halfplane-intersection
 - [x] math/integral
@@ -86,8 +86,5 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] graph/scc
 - [ ] graph/centro-decomp
 - [ ] graph/flow
-- [x] data-structures/link-cut
-- [x] optimizations/random
 - [x] sos-dp/
 - [x] math/simplex
-- [x] optimizations/sos-dp

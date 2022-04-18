@@ -1,0 +1,22 @@
+BasedOnStyle: Google
+AlignAfterOpenBracket: AlwaysBreak
+AlignOperands: AlignAfterOperator
+BreakBeforeBinaryOperators: NonAssignment
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AllowShortLambdasOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+BinPackArguments: false
+BinPackParameters: false
+ForEachMacros: ['FOR', 'REP']
+IndentWidth: 4
+ColumnLimit: 80
+SpaceAfterCStyleCast: true
+SpaceBeforeParens: Never
+SpaceBeforeRangeBasedForLoopColon: false
+SpacesBeforeTrailingComments: 1
+Language: Cpp
+Standard: Auto

@@ -4,6 +4,7 @@
  * Użycie: P p = {5, 6}; abs(p) = length; arg(p) = kąt; polar(len, angle);
  * exp(angle)
  */
+#pragma once
 
 template <class T>
 struct Point : complex<T> {

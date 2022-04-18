@@ -57,7 +57,7 @@ struct BerlekampMassey {
 		vector<int> r(n + 1), pw(n + 1);
 		r[0] = pw[1] = 1;
 		for(k++; k; k /= 2) {
-			if(k % 2) r= combine(r, pw);
+			if(k % 2) r = combine(r, pw);
 			pw = combine(pw, pw);
 		}
 		LL ret = 0;

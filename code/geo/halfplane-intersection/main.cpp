@@ -12,7 +12,7 @@
 
 struct Halfplane {
 	P p, pq;
-	Double angle;
+	D angle;
 
 	Halfplane() {}
 	Halfplane(P a, P b) : p(a), pq(b - a) {
@@ -33,7 +33,7 @@ P inter(Halfplane s, Halfplane t) {
 
 vector<P> halfplane_intersection(vector<Halfplane> h) {
 	for(int i = 0; i < 4; ++i) {
-		constexpr Double inf = 1e9;
+		constexpr D inf = 1e9;
 		array box = {P(-inf, -inf), P(inf, -inf), P(inf, inf), P(-inf, inf)};
 		h.emplace_back(box[i], box[(i + 1) % 4]);
 	}

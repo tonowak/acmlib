@@ -15,7 +15,7 @@ P reflect(P p, P a, P b) {
 }
 // obrot a wzgledem p o theta radianow
 P rotate(P a, P p, D theta) {
-	return (a - p) * polar(1.0, theta) + p;
+	return (a - p) * polar(1.0L, theta) + p;
 }
 // kat ABC, w radianach, zawsze zwraca mniejszy kat
 D angle(P a, P b, P c) {
@@ -44,6 +44,6 @@ P perpendicular(P a, P b, P p) {
 }
 // przeciecie srodkowych trojkata
 P centro(P a, P b, P c) { 
-	return (a + b + c) / 3.0;
+	return (a + b + c) / 3.0L;
 }
 

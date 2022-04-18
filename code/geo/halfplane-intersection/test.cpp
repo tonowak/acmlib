@@ -31,7 +31,7 @@ void test() {
 	int n = rd(0, 10);
 	vector<Halfplane> in;
 	for(int i = 0; i < 4; ++i) {
-		constexpr Double inf = 1e5;
+		constexpr D inf = 1e5;
 		array box = {P(-inf, -inf), P(inf, -inf), P(inf, inf), P(-inf, inf)};
 		in.emplace_back(box[i], box[(i + 1) % 4]);
 	}
@@ -53,8 +53,8 @@ void test() {
 	auto ans1 = halfplane_intersection(in);
 	auto ans2 = brute_halfplane(in);
 	debug(ans1, ans2);
-	sort(ans1.begin(), ans1.end(), Sortx());
-	sort(ans2.begin(), ans2.end(), Sortx());
+	sort(ans1.begin(), ans1.end());
+	sort(ans2.begin(), ans2.end());
 	ans2.erase(unique(ans2.begin(), ans2.end()), ans2.end());
 	assert(ssize(ans1) == ssize(ans2));
 	REP(i, ssize(ans1))
