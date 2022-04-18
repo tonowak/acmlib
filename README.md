@@ -15,12 +15,13 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] geo/area
 - [x] geo/intersect-lines
 - [x] geo/circles
-- [x] geo/advanced-complex
+- [ ] geo/advanced-complex
 - [x] geo/convex-hull
 - [x] geo/halfplane-intersection
 - [x] math/integral
 - [x] math/sieve
 - [x] math/extended-gcd
+- [x] math/simplex
 - [x] math/fft-mod
 - [x] math/fwht
 - [x] math/gauss
@@ -35,7 +36,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/primitive-root
 - [x] math/crt
 - [x] math/miller-rabin
-- [ ] math/berlekamp-massey
+- [x] math/berlekamp-massey
 - [x] math/ntt
 - [x] math/exp
 - [x] optimizations/fio
@@ -70,21 +71,19 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] data-structures/ordered-set
 - [x] data-structures/fenwick-tree-2d
 - [ ] data-structures/persistent-treap
-- [ ] graph/2sat
+- [x] graph/2sat
 - [x] graph/blossom
 - [x] graph/toposort
 - [ ] graph/biconnected
-- [ ] graph/mcmf
+- [x] graph/mcmf
 - [ ] graph/eulerian-path
 - [x] graph/gomory-hu
 - [x] graph/hld
 - [x] graph/jump-ptr
-- [x] graph/konig-theorem
 - [x] graph/matching
 - [x] graph/cactus-cycles
 - [x] graph/negative-cycle
+- [x] graph/konig-theorem
 - [x] graph/scc
 - [ ] graph/centro-decomp
-- [ ] graph/flow
-- [x] sos-dp/
-- [x] math/simplex
+- [x] graph/flow
