@@ -10,8 +10,8 @@ template <class T>
 struct Point : complex<T> {
     T *m = (T *) this, &x, &y;
     Point(T _x = 0, T _y = 0) : complex<T>(_x, _y), x(m[0]), y(m[1]) {}
-    Point(complex<T> c) : complex<T>(c), x(m[0]), y(m[1]) {}
-    Point(const Point &p) : complex<T>(p.x, p.y), x(m[0]), y(m[1]) {}
+    Point(complex<T> c) : Point(c.real(), c.imag()) {}
+    Point(const Point &p) : Point(p.x, p.y) {}
     Point &operator=(const Point &p) {
         x = p.x, y = p.y;
         return *this;
