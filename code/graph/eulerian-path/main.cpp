@@ -12,18 +12,27 @@ struct EulerianPath {
 	vector<bool> used;
 	vector<int> path;
 	void dfs(int v) {
-		while(!adj[v].empty()) {
-			int u, id; tie(u, id) = adj[v].back();
-			adj[v].pop_back();
-			if(used[id]) continue;
-			used[id] = true;
-			dfs(u);
-		}
-		path.emplace_back(v);
+            while(!adj[v].empty()) {
+                auto [u, id] = adj[v].back();
+                adj[v].pop_back();
+                if(used[id]) continue;
+                used[id] = true;
+                dfs(u);
+            }
+            path.emplace_back(v);
 	}
-	EulerianPath(int m, vector<vector<PII>> _adj) : adj(_adj) {
-		used.resize(m); dfs(0);
-		if(ssize(path) != m + 1) path.clear();
-		reverse(path.begin(), path.end());
+	EulerianPath(vector<vector<PII>> _adj, bool directed = false) : adj(_adj) {
+            int s = 0, m = 0;
+            vector<int> in(ssize(adj));
+            REP(i, ssize(adj)) for(auto [j, id] : adj[i]) in[j]++, m++;
+            REP(i, ssize(adj)) if(directed) {
+                if(in[i] < ssize(adj[i])) s = i;
+            } else {
+                if(ssize(adj[i]) % 2) s = i;
+            }
+            m /= (2 - directed);
+            used.resize(m); dfs(s);
+            if(ssize(path) != m + 1) path.clear();
+            reverse(path.begin(), path.end());
 	}
 };
