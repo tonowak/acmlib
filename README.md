@@ -48,12 +48,12 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] utils/print-tree
 - [x] string/trie
 - [x] string/pref
-- [ ] string/suffix-array
+- [x] string/suffix-array
 - [x] string/lyndon-min-cyclic-rot
 - [x] string/hashing
 - [x] string/manacher
 - [x] string/kmp
-- [ ] string/suffix-automaton
+- [x] string/suffix-automaton
 - [x] random-stuff/rd
 - [x] random-stuff/math-constants
 - [x] random-stuff/dzien-probny
