@@ -1,2 +1,0 @@
-Przetestowane na: https://www.spoj.com/problems/RMQSQ/
-Submit: https://www.spoj.com/files/src/25459689/
