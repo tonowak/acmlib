@@ -78,7 +78,7 @@ struct Dinic {
 				if(i % 2) // considering only original edges
 					continue;
 				Edge &e = edges[i];
-				ret[make_pair(v, e.u)] = e.flow;
+				ret[pair(v, e.u)] = e.flow;
 			}
 		return ret;
 	}

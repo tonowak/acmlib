@@ -13,7 +13,7 @@ struct Function {
 	Function(int p = 0, int q = inf) : a(p), b(q) {}
 };
 ostream& operator<<(ostream &os, Function f) {
-	return os << make_pair(f.a, f.b);
+	return os << pair(f.a, f.b);
 }
 
 struct LiChaoTree {
