@@ -21,6 +21,6 @@ struct Fenwick {
 		return ret;
 	}
 	LL query(int l, int r) {
-		return query(r) - (l == 0 ? 0LL : query(l - 1));
+		return query(r) - query(l - 1);
 	}
 };
