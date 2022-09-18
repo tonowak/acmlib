@@ -1,4 +1,4 @@
-int mod = -1; // set manually with constexpr
+constexpr int mod = 998'244'353;
 
 int add(int a, int b) {
 	a += b;

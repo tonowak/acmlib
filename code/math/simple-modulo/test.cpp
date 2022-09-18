@@ -2,7 +2,6 @@
 #include "main.cpp"
 
 void test() {
-	mod = int(1e9) + 7;
 	assert(add(mod - 1, mod - 1) == mod - 2);
 	assert(sub(0, mod - 1) == 1);
 	assert(sub(mod - 1, 0) == mod - 1);
