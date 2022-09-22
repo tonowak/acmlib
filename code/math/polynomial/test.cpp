@@ -29,7 +29,7 @@ void test() {
 	{ // powi_slow
 		auto a = get_vec(0, mn);
 		int n = rd(1, mn);
-		int k = rd(1, mk);
+		int k = rd(0, mk);
 		vi b{1};
 		REP(i, k)
 			b = mod_xn(conv(b, a), n);
@@ -79,7 +79,10 @@ void test() {
 	}
 
 	{ // powi
-		// TODO
+		auto a = get_vec(0, mn);
+		int n = rd(1, mn);
+		int k = rd(0, mk);
+		assert(eq(powi(a, k, n), powi_slow(a, k, n)));
 	}
 
 	{ // eval

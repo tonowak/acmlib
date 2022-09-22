@@ -62,11 +62,6 @@ vi powi_slow(const vi &a, int k, int n) {
 	return mod_xn(v, n);
 }
 
-void sub(vi& a, const vi& b) { // KONIECZNE
-	a.resize(max(ssize(a), ssize(b)));
-	REP(i, ssize(b)) a[i] = sub(a[i], b[i]);
-}
-
 vi sqrt(const vi& a, int n) {
 	auto at = [&](int i) { if(i < ssize(a)) return a[i]; else return 0; };
 	assert(ssize(a) and a[0] == 1);
@@ -95,6 +90,11 @@ vi sqrt(const vi& a, int n) {
 		REP(i, x) v.emplace_back(mul(c[i + x], inv2));
 	}
 	return mod_xn(v, n);
+}
+
+void sub(vi& a, const vi& b) { // KONIECZNE
+	a.resize(max(ssize(a), ssize(b)));
+	REP(i, ssize(b)) a[i] = sub(a[i], b[i]);
 }
 
 vi inv(const vi& a, int n) {
@@ -159,9 +159,25 @@ vi exp(const vi& a, int n) { // WYMAGA deriv, integr
 }
 
 vi powi(const vi& a, int k, int n) { // WYMAGA log, exp
-	// TODO
-	(void)a; (void)k; (void)n;
-	return {};
+	vi v = mod_xn(a, n);
+	int cnt = 0;
+	while(cnt < ssize(v) and !v[cnt])
+		++cnt;
+	if(LL(cnt) * k >= n)
+		return {};
+	v.erase(v.begin(), v.begin() + cnt);
+	if(v.empty())
+		return k ? vi{} : vi{1};
+	int powi0 = powi(v[0], k);
+	int inv0 = inv(v[0]);
+	for(int& e : v) e = mul(e, inv0);
+	v = log(v, n - cnt * k);
+	for(int& e : v) e = mul(e, k);
+	v = exp(v, n - cnt * k);
+	for(int& e : v) e = mul(e, powi0);
+	vi t(cnt * k, 0);
+	v.insert(v.begin(), t.begin(), t.end());
+	return v;
 }
 
 vi eval(const vi& a, const vi& x) {
