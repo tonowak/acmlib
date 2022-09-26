@@ -34,9 +34,16 @@ vi integr(vi a) {
 }
 
 vi powi_deg(const vi& a, int k, int n) {
-	// TODO
-	(void)a; (void)k; (void)n;
-	return {};
+	assert(ssize(a) and a[0] != 0);
+	vi v(n);
+	v[0] = powi(a[0], k);
+	FOR(i, 1, n - 1) {
+		FOR(j, 1, min(ssize(a) - 1, i)) {
+			v[i] = add(v[i], mul(a[j], mul(v[i - j], sub(mul(k, j), i - j))));
+		}
+		v[i] = mul(v[i], inv(mul(i, a[0])));
+	}
+	return v;
 }
 
 vi mod_xn(const vi& a, int n) { // KONIECZNE

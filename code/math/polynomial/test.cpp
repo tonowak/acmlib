@@ -37,7 +37,11 @@ void test() {
 	}
 
 	{ // powi_deg
-		// TODO
+		auto a = get_vec(1, mn);
+		a[0] = rd(1, mod - 1);
+		int n = rd(1, mn);
+		int k = rd(0, mk);
+		assert(eq(powi_deg(a, k, n), powi_slow(a, k, n)));
 	}
 
 	{ // sqrt
