@@ -81,14 +81,15 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 			}
 			vector<Edge> sorted_edges;
 			function<void (int)> dfs = [&](int v) {
-				if(not outgoing_for_face[v].empty()) {
+				while(not outgoing_for_face[v].empty()) {
 					auto [u, e] = outgoing_for_face[v].back();
 					outgoing_for_face[v].pop_back();
-					sorted_edges.emplace_back(Edge{e, v, u});
 					dfs(u);
+					sorted_edges.emplace_back(Edge{e, v, u});
 				}
 			};
 			dfs(edges[comps[leader].front() / 2].first);
+			reverse(sorted_edges.begin(), sorted_edges.end());
 
 			LL area = 0;
 			for(auto edge : sorted_edges) {
