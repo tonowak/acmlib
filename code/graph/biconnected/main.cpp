@@ -1,53 +1,72 @@
 
 /*
- * Opis: Dwuspójne składowe
- * Czas: O(n)
- * Użycie: add_edge(u, v) dodaje krawędź (u, v), u != v, bo get() nie działa
- * po wywołaniu init() w .bicon mamy dwuspójne(vector ideków krawędzi na każdą), w .edges mamy krawędzie
+ * Opis: Dwuspójne składowe, mosty oraz punkty artykulacji.
+ * Czas: O(n + m)
+ * Użycie: po skonstruowaniu, bicon = zbiór list id krawędzi, bridges = lista id krawędzi będącymi mostami, arti_points = lista wierzchołków będącymi punktami artykulacji. Tablice są nieposortowane. Wspiera multikrawędzie i wiele spójnych, ale nie pętelki.
  */
 
-struct BiconComps {
-	using PII = pair<int, int>;
-	vector<vector<int>> graph, bicon;
-	vector<int> low, pre, s;
-	vector<array<int, 2>> edges;
-	BiconComps(int n) : graph(n), low(n), pre(n, -1) {}
-	void add_edge(int u, int v) {
-		int q = ssize(edges);
-		graph[u].emplace_back(q);
-		graph[v].emplace_back(q);
-		edges.push_back({u, v});
-	}
-	int get(int v, int id) {
-		for(int r : edges[id])
-			if(r != v) return r;
-	}
-	int t = 0;
+struct Low {
+	vector<vector<int>> graph;
+	vector<int> low, pre;
+	vector<pair<int, int>> edges;
+
+	vector<vector<int>> bicon;
+	vector<int> bicon_stack, arti_points, bridges;
+
 	void dfs(int v, int p) {
+		static int t = 0;
 		low[v] = pre[v] = t++;
-		bool par = false;
+		bool considered_parent = false;
+		int son_count = 0;
+		bool is_arti = false;
+
 		for(int e : graph[v]) {
-			int u = get(v, e);
-			if(u == p && !par) {
-				par = true;
-				continue;
-			}
+			int u = edges[e].first ^ edges[e].second ^ v;
+			if(u == p and not considered_parent)
+				considered_parent = true;
 			else if(pre[u] == -1) {
-				s.emplace_back(e); dfs(u, v);
+				bicon_stack.emplace_back(e); 
+				dfs(u, v);
 				low[v] = min(low[v], low[u]);
+
 				if(low[u] >= pre[v]) {
 					bicon.emplace_back();
 					do {
-						bicon.back().emplace_back(s.back());
-						s.pop_back();
+						bicon.back().emplace_back(bicon_stack.back());
+						bicon_stack.pop_back();
 					} while(bicon.back().back() != e);
 				}
+
+				++son_count;
+				if(p != -1 and low[u] >= pre[v])
+					is_arti = true;
+
+				if(low[u] > pre[v])
+					bridges.emplace_back(e);
 			}
 			else if(pre[v] > pre[u]) {
 				low[v] = min(low[v], pre[u]);
-				s.emplace_back(e);
+				bicon_stack.emplace_back(e);
 			}
 		}
+
+		if(p == -1 and son_count > 1)
+			is_arti = true;
+		if(is_arti)
+			arti_points.emplace_back(v);
 	}
-	void init() { dfs(0, -1); }
+
+	Low(int n, vector<pair<int, int>> _edges) : graph(n), low(n), pre(n, -1), edges(_edges) {
+		REP(i, ssize(edges)) {
+			auto [v, u] = edges[i];
+#ifdef LOCAL
+			assert(v != u);
+#endif
+			graph[v].emplace_back(i);
+			graph[u].emplace_back(i);
+		}
+		REP(v, n)
+			if(pre[v] == -1)
+				dfs(v, -1);
+	}
 };
