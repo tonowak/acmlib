@@ -1,4 +1,4 @@
-#include "../headers/main.cpp"
+#include "../main_test.cpp"
 
 void test();
 

@@ -34,7 +34,7 @@ for root, subdirs, files in os.walk(root_dir + '/' + testing_dir):
         else:
             # merging file with headers and checking if it compiles
             print("Compiling", code_name)
-            os.system('cp ' + root_dir + '/code/utils/headers/main.cpp a.cpp')
+            os.system('cp ' + root_dir + '/code/utils/main_test.cpp a.cpp')
             os.system('cat main.cpp >> a.cpp')
             os.system('sed -i "s/#pragma once//" a.cpp')
             os.system('echo "int main(){}" >> a.cpp')
