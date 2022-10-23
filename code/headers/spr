@@ -1,4 +1,3 @@
-#!/bin/bash
 for ((i=0; i<1000000; i++)); do
 	./gen < g.in > t.in
 	./main < t.in > m.out

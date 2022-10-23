@@ -1,11 +1,11 @@
 c() {
-	clang++ -std=c++17 -Wall -Wextra -Wshadow \
+	g++ -std=c++17 -Wall -Wextra -Wshadow \
 		-Wconversion -Wno-sign-conversion -Wfloat-equal \
 		-D_GLIBCXX_DEBUG -fsanitize=address,undefined -ggdb3 \
 		-DDEBUG -DLOCAL $1.cpp -o $1
 }
 nc() {
-	clang++ -DLOCAL -O3 -std=c++17 -static $1.cpp -o $1 # -m32
+	g++ -DLOCAL -O3 -std=c++17 -static $1.cpp -o $1 # -m32
 }
 alias cp='cp -i'
 alias mv='mv -i'
