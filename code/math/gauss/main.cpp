@@ -1,7 +1,7 @@
 /*
  * Opis: Rozwiązywanie układów liniowych (modint albo double)
  * Czas: O(nm(n + m))
- * Użycie: Wrzucam n vectorów {wsp_x0, wsp_x1, ..., wsp_xm, suma},
+ * Użycie: Wrzucam n vectorów {wsp_x0, wsp_x1, ..., wsp_xm - 1, suma},
  *   gauss wtedy zwraca liczbę rozwiązań
  *   (0, 1 albo 2 (tzn. nieskończoność))
  *   oraz jedno poprawne rozwiązanie (o ile istnieje).
