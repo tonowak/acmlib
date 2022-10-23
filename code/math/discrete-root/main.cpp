@@ -1,16 +1,15 @@
 /* 
- * Opis : NIE DZIAŁA!
- * Dla piewrszego $p$ oraz $a \perp p, k$ znajduje
- * $b$ takie, że $b^k = a$ (pierwiastek k-tego stopnia z $a$) 
+ * Opis: Dla pierwszego $mod$ oraz $a \perp mod, k$ znajduje $b$ takie, że $b^k = a$ (pierwiastek k-tego stopnia z $a$). Jak zwróci -1 to nie istnieje.
 */
 
 #include "../primitive-root/main.cpp"
 #include "../discrete-log/main.cpp"
 
-LL discrete_root(LL a, LL k, LL p) {
-	LL g = primitive_root(p);
-	LL m = discrete_log(g, a, p);
-    LL inv = exp(k, p - 2, p);
-	return m * inv % p;
+int discrete_root(int a, int k) {
+	int g = primitive_root();
+	int y = discrete_log(powi(g, k), a);
+	if(y == -1)
+		return -1;
+	return powi(g, y);
 }
 

@@ -7,14 +7,14 @@
  *   działa dla long longów
  */
 
-LL mul(LL a, LL b, LL mod) {
-	return (a * b - (LL)((long double) a * b / mod) * mod + mod) % mod;
+LL llmul(LL a, LL b, LL m) {
+	return (a * b - (LL)((long double) a * b / m) * m + m) % m;
 }
 
-LL qpow(LL a, LL n, LL mod) {
+LL llpowi(LL a, LL n, LL m) {
 	if(n == 0) return 1;
-	if(n % 2 == 1) return mul(qpow(a, n - 1, mod), a, mod);
-	return qpow(mul(a, a, mod), n / 2, mod);
+	if(n % 2 == 1) return llmul(llpowi(a, n - 1, m), a, m);
+	return llpowi(llmul(a, a, m), n / 2, m);
 }
 
 bool miller_rabin(LL n) {
@@ -25,12 +25,12 @@ bool miller_rabin(LL n) {
 		d /= 2, r++;
 	for(int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
 		if(n == a) return true;
-		LL x = qpow(a, d, n);
+		LL x = llpowi(a, d, n);
 		if(x == 1 || x == n - 1)
 			continue;
 		bool composite = true;
 		REP(i, r - 1) {
-			x = mul(x, x, n);
+			x = llmul(x, x, n);
 			if(x == n - 1) {
 				composite = false;
 				break;

@@ -1,4 +1,14 @@
+/*
+ * Opis: podstawowe operacje na modulo.
+ * Użycie: pamiętać o constexpr.
+ */
+#pragma once
+
+#ifdef CHANGABLE_MOD
+int mod = 998'244'353;
+#else
 constexpr int mod = 998'244'353;
+#endif
 
 int add(int a, int b) {
 	a += b;

@@ -1,17 +1,20 @@
 #include "../../utils/testing/test-wrapper.cpp"
+#define CHANGABLE_MOD
 #include "../primitive-root/main.cpp"
 #include "main.cpp"
 
 void test() {
-	LL p;
 	while(true) {
-		p = rd(2, 100000000);
-		if(miller_rabin(p))
+		mod = rd(2, int(1e9));
+		if(miller_rabin(mod))
 			break;
 	} 
-	int a = primitive_root(p); int b = rd(1, p - 1);
-	int e = discrete_log(a, b, p);
-	debug(p, a, b, e);
-	assert(exp(a, e, p) == b);
+	int a = primitive_root(); 
+	int b = rd(1, mod - 1);
+	int e = discrete_log(a, b);
+	debug(mod, a, b, e);
+	if(e == -1)
+		return;
+	assert(powi(a, e) == b);
 }
 

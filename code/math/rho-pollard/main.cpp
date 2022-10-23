@@ -6,10 +6,11 @@
  */
 
 #include "../miller-rabin/main.cpp"
+
 LL rho_pollard(LL n) {
 	if(n % 2 == 0) return 2;
 	for(LL i = 1;; i++) {
-		auto f = [&](LL x) { return (mul(x, x, n) + i) % n; };
+		auto f = [&](LL x) { return (llmul(x, x, n) + i) % n; };
 		LL x = 2, y = f(x), p;
 		while((p = __gcd(n - x + y, n)) == 1)
 			x = f(x), y = f(f(y));

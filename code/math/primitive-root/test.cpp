@@ -1,22 +1,21 @@
 #include "../../utils/testing/test-wrapper.cpp"
+#define CHANGABLE_MOD
 #include "main.cpp"
-//#include "../miller-rabin/main.cpp"
 
 void test() {
-	LL p;
 	while(true) {
-		p = rd(7, 15);
-		if(miller_rabin(p))
+		mod = rd(7, int(1e5));
+		if(miller_rabin(mod))
 			break;
 	}
-	int g = primitive_root(p);
-	debug(p, g);
+	int g = primitive_root();
+	debug(mod, g);
 	set<int> res;
 	int mult = 1;
-	REP(i, p - 1) {
+	REP(i, mod - 1) {
 		debug(res);
 		assert(res.find(mult) == res.end());
 		res.insert(mult);
-		mult = (mult * g) % p;
+		mult = mul(mult, g);
 	}
 }

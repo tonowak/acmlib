@@ -1,23 +1,29 @@
 /*
- * Opis: Dla liczby pierwszej $p$ oraz $a, b \nmid p$
- * znajdzie $e$ takie że $a^e \equiv b \pmod{p}$
+ * Opis: Dla liczby pierwszej $mod$ oraz $a, b \nmid mod$ znajdzie $e$ takie że $a^e \equiv b \pmod{mod}$. Jak zwróci -1 to nie istnieje.
  * Czas: O(\sqrt{n} \log n)
  * Pamięć: O(\sqrt{n})
 */
 
-int discrete_log(int a, int b, int p) {
-	map<int, int> s1;
-	LL mult = 1, sq = sqrt(p);
-	REP(i, sq) {
-		s1[mult] = i; mult = mult * a % p;
-	}
-	int t = 1;
-	debug(s1, t);
-	REP(i, sq + 2) {
-		int inv = b * exp(t, p - 2, p) % p;
-		if(s1.count(inv)) return i * sq + s1[inv];
-		t = t * mult % p;
-	}
+#include "../simple-modulo/main.cpp"
+
+int discrete_log(int a, int b) {
+    int n = int(sqrt(mod)) + 1;
+    int an = 1;
+	REP(i, n)
+        an = mul(an, a);
+    unordered_map<int, int> vals;
+	int cur = b;
+	FOR(q, 0, n) {
+        vals[cur] = q;
+		cur = mul(cur, a);
+    }
+	cur = 1;
+	FOR(p, 1, n) {
+		cur = mul(cur, an);
+        if(vals.count(cur)) {
+            int ans = n * p - vals[cur];
+            return ans;
+        }
+    }
 	return -1;
 }
-	
