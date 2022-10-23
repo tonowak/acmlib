@@ -5,7 +5,7 @@
  * Użycie:
  *     sieve(n) przetwarza liczby do n włącznie
  *     comp[i] oznacza, czy i jest złożone
- *     prime zawiera wszystkie liczby piersze <= n
+ *     prime zawiera wszystkie liczby pierwsze <= n
  *     w praktyce na moim kompie dla n = 1e8 działa w 0.7s
  */
 
