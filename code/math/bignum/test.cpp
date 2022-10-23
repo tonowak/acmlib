@@ -1,15 +1,6 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-template<typename T1, typename T2>
-bool issame(T1 num, T2 x) {
-	stringstream snum;
-	snum << num;
-	stringstream sx;
-	sx << x;
-	return snum.str() == sx.str();
-}
-
 ostream& operator<<(ostream& o, __int128_t x) {
 	vector<int> v;
 	if (x == 0) v.emplace_back(0);
@@ -22,6 +13,15 @@ ostream& operator<<(ostream& o, __int128_t x) {
 		o << xd;
 	}
 	return o;
+}
+
+template<typename T1, typename T2>
+bool issame(T1 num, T2 x) {
+	stringstream snum;
+	snum << num;
+	stringstream sx;
+	sx << x;
+	return snum.str() == sx.str();
 }
 
 using T = __int128_t;

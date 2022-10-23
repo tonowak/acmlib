@@ -11,9 +11,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 
 ## Testing status
 - [ ] data-structures/find-union
-- [ ] data-structures/lazy-segment-tree
 - [ ] data-structures/persistent-treap
-- [ ] data-structures/segment-tree
 - [ ] data-structures/treap
 - [ ] geo/advanced-complex
 - [ ] geo/line
@@ -24,12 +22,14 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] data-structures/fenwick-tree
 - [x] data-structures/fenwick-tree-2d
 - [x] data-structures/hash-map
+- [x] data-structures/lazy-segment-tree
 - [x] data-structures/lichao-tree
 - [x] data-structures/line-container
 - [x] data-structures/link-cut
 - [x] data-structures/ordered-set
 - [x] data-structures/range-add
 - [x] data-structures/rmq
+- [x] data-structures/segment-tree
 - [x] geo/area
 - [x] geo/circles
 - [x] geo/convex-hull

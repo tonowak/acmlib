@@ -18,7 +18,7 @@ pair<LL, vector<int>> hungarian(vector<vector<int>> a) {
 		vector<bool> done(m + 1);
 		do {
 			done[j0] = true;
-			int i0 = p[j0], j1;
+			int i0 = p[j0], j1 = -1;
 			LL delta = numeric_limits<LL>::max();
 			FOR(j, 1, m - 1) 
 				if(!done[j]) {

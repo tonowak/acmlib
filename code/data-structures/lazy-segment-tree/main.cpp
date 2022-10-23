@@ -1,71 +1,75 @@
 /*
- * Opis: Drzewo przedział-przedział
- * Czas: O(\log n)
- * Pamięć : O(n)
- * Użycie:
- *   add(l, r, val) dodaje na przedziale
- *   quert(l, r) bierze maxa z przedziału
- *   Zmieniając z maxa na co innego trzeba edytować
- *   funkcje add_val i f
+ * Opis: Drzewo przedział-przedział, w miarę abstrakcyjne. Wystarczy zmienić Node i funkcje na nim.
  */
 
-using T = int;
 struct Node {
-	T val, lazy;
+	LL sum = 0, lazy = 0;
 	int sz = 1;
 };
+void push_to_sons(Node &n, Node &l, Node &r) {
+	auto push_to_son = [&](Node &c) {
+		c.sum += n.lazy * c.sz;
+		c.lazy += n.lazy;
+	};
+	push_to_son(l);
+	push_to_son(r);
+	n.lazy = 0;
+}
+Node merge(Node l, Node r) {
+	return Node{
+		.sum = l.sum + r.sum,
+		.lazy = 0,
+		.sz = l.sz + r.sz
+	};
+}
+void add_to_base(Node &n, int val) {
+	n.sum += n.sz * LL(val);
+	n.lazy += val;
+}
 
 struct Tree {
 	vector<Node> tree;
 	int sz = 1;
 
-	void add_val(int v, T val) {
-		tree[v].val += val;
-		tree[v].lazy += val;
-	}
-
-	T f(T a, T b) { return max(a, b); }
-
 	Tree(int n) {
-		while(sz < n) sz *= 2;
+		while(sz < n)
+			sz *= 2;
 		tree.resize(sz * 2);
-		for(int i = sz - 1; i >= 1; i--)
-			tree[i].sz = tree[i * 2].sz * 2;
+		for(int v = sz - 1; v >= 1; v--)
+			tree[v] = merge(tree[2 * v], tree[2 * v + 1]);
 	}
 
-	void propagate(int v) {
-		REP(i, 2)
-			add_val(v * 2 + i, tree[v].lazy);
-		tree[v].lazy = 0;
+	void push(int v) {
+		push_to_sons(tree[v], tree[2 * v], tree[2 * v + 1]);
 	}
-
-	T query(int l, int r, int v = 1) {
-		if(l == 0 && r == tree[v].sz - 1)
-			return tree[v].val;
-		propagate(v);	
+	Node get(int l, int r, int v = 1) {
+		if(l == 0 and r == tree[v].sz - 1)
+			return tree[v];
+		push(v);	
 		int m = tree[v].sz / 2;
 		if(r < m)
-			return query(l, r, v * 2);
+			return get(l, r, 2 * v);
 		else if(m <= l)
-			return query(l - m, r - m, v * 2 + 1);
+			return get(l - m, r - m, 2 * v + 1);
 		else
-			return f(query(l, m - 1, v * 2), query(0, r - m, v * 2 + 1));
+			return merge(get(l, m - 1, 2 * v), get(0, r - m, 2 * v + 1));
 	}
 
-	void add(int l, int r, T val, int v = 1) {
+	void update(int l, int r, int val, int v = 1) {
 		if(l == 0 && r == tree[v].sz - 1) {
-			add_val(v, val);
+			add_to_base(tree[v], val);
 			return;
 		}
-		propagate(v);
+		push(v);
 		int m = tree[v].sz / 2;
 		if(r < m)
-			add(l, r, val, v * 2);
+			update(l, r, val, 2 * v);
 		else if(m <= l)
-			add(l - m, r - m, val, v * 2 + 1);
-		else
-			add(l, m - 1, val, v * 2), add(0, r - m, val, v * 2 + 1);
-
-		tree[v].val = f(tree[v * 2].val, tree[v * 2 + 1].val);
+			update(l - m, r - m, val, 2 * v + 1);
+		else {
+			update(l, m - 1, val, 2 * v);
+			update(0, r - m, val, 2 * v + 1);
+		}
+		tree[v] = merge(tree[2 * v], tree[2 * v + 1]);
 	}
 };
