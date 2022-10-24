@@ -9,12 +9,12 @@
 
 vector<LL> sos_dp(int n, vector<LL> A, bool nad = false) {
 	int N = (1 << n);
-	if (nad) REP(i,N/2) swap(A[i], A[(N - 1) ^ i]);
+	if (nad) REP(i, N / 2) swap(A[i], A[(N - 1) ^ i]);
 	auto F = A;
-	REP(i,n)
-		REP(mask,N)
+	REP(i, n)
+		REP(mask, N)
 			if ((mask >> i) & 1)
 				F[mask] += F[mask ^ (1 << i)];
-	if (nad) REP(i,N/2) swap(F[i], F[(N - 1) ^ i]);
+	if (nad) REP(i, N / 2) swap(F[i], F[(N - 1) ^ i]);
 	return F;
 }

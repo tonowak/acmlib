@@ -16,13 +16,13 @@ struct TwoSat {
 	vector<vector<int>> gr;
 	vector<int> values;
 
-	TwoSat(int _n = 0) : n(_n), gr(2*n) {}
+	TwoSat(int _n = 0) : n(_n), gr(2 * n) {}
 
 	void either(int f, int j) {
-		f = max(2*f, -1-2*f);
-		j = max(2*j, -1-2*j);
-		gr[f].emplace_back(j^1);
-		gr[j].emplace_back(f^1);
+		f = max(2 * f, -1 - 2 * f);
+		j = max(2 * j, -1 - 2 * j);
+		gr[f].emplace_back(j ^ 1);
+		gr[j].emplace_back(f ^ 1);
 	}
 	void set_value(int x) { either(x, x); }
 
