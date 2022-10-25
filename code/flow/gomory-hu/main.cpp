@@ -3,7 +3,7 @@
  * Czas: O(n^2 + n * dinic(n, m))
  * Użycie: gomory_hu(n, edges)[s][t] == min cut (s, t)
  */
-#include "../flow/main.cpp"
+#include "../dinic/main.cpp"
 
 pair<Dinic::T, vector<bool>> get_min_cut(Dinic &dinic, int s, int t) {
 	for(Dinic::Edge &e : dinic.edges)
