@@ -10,25 +10,24 @@ do `test.py` można dać ścieżkę do odpowiedniego folderu jak chce się wytes
 Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 
 ## Testing status
-- [ ] data-structures/find-union
-- [ ] data-structures/persistent-treap
-- [ ] data-structures/treap
 - [ ] geo/advanced-complex
 - [ ] geo/geo3d
-- [ ] geo/line
 - [ ] graph/centro-decomp
 - [x] data-structures/associative-queue
 - [x] data-structures/fenwick-tree
 - [x] data-structures/fenwick-tree-2d
+- [x] data-structures/find-union
 - [x] data-structures/hash-map
 - [x] data-structures/lazy-segment-tree
 - [x] data-structures/lichao-tree
 - [x] data-structures/line-container
 - [x] data-structures/link-cut
 - [x] data-structures/ordered-set
+- [x] data-structures/persistent-treap
 - [x] data-structures/range-add
 - [x] data-structures/rmq
 - [x] data-structures/segment-tree
+- [x] data-structures/treap
 - [x] flow/blossom
 - [x] flow/dinic
 - [x] flow/gomory-hu
@@ -43,6 +42,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] geo/convex-hull-online
 - [x] geo/halfplane-intersection
 - [x] geo/intersect-lines
+- [x] geo/line
 - [x] geo/point
 - [x] graph/2sat
 - [x] graph/biconnected
