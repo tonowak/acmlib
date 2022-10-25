@@ -80,6 +80,7 @@ with open('README.md', 'r') as readme_f:
 
     # converting back to text
     status_strings = ['- [' + ('x' if path_to_status[name] else ' ') + '] ' + name for name in path_to_status]
+    status_strings = sorted(status_strings)
     readme_split[i_testing] = ' Testing status\n' + '\n'.join(status_strings)
     readme_new_content = '\n##'.join(readme_split)
 with open('README.md', 'w') as readme_f:
