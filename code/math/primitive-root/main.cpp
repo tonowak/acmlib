@@ -5,7 +5,6 @@
 
 #include "../simple-modulo/main.cpp"
 #include "../rho-pollard/main.cpp"
-#include "../../random-stuff/rd/main.cpp"
 
 int primitive_root() {
 	if(mod == 2)

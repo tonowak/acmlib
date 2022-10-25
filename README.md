@@ -16,7 +16,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] geo/advanced-complex
 - [ ] geo/line
 - [ ] graph/centro-decomp
-- [ ] math/discrete-root
 - [ ] string/aho-corasick
 - [x] data-structures/associative-queue
 - [x] data-structures/fenwick-tree
@@ -60,6 +59,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/crt
 - [x] math/determinant
 - [x] math/discrete-log
+- [x] math/discrete-root
 - [x] math/exp
 - [x] math/extended-gcd
 - [x] math/fft
