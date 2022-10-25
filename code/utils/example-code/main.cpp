@@ -1,7 +1,6 @@
 /**
  * Opis: jakiś tam opis, można walnąć latexa: $2+2=5$. ęóąśłżźćńĘÓĄŚŁŻŹĆŃ
  * Czas: O(n \sqrt{n} \log^2 n), gdzie $n$ to jakaś fajna zmienna, O(n \log n) pamięciowo
- * Status: untested / test.cpp / tested on codeforces/174D / not finished
  * Użycie:
  *  int rd = getRandomValue(0, 5);
  *  int rd01 = ExampleStruct().get();

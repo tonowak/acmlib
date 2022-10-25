@@ -1,6 +1,5 @@
 /*
  * Opis: Tablica suffixowa
- * Status: Cośtam potestowany
  * Czas: O(n \log n)
  * Użycie: SuffixArray t(s, lim) - lim to rozmiar alfabetu
  * sa zawiera posortowane suffixy, zawiera pusty suffix

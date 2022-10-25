@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane na zadankach
  * Opis: Implict Treap
  * Czas: wszystko w O(\log n)
  * Użycie:

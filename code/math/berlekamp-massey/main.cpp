@@ -1,6 +1,5 @@
 /*
  * Opis: Zgadywanie rekurencji liniowej
- * Status: Chyba działa xd
  * Czas: O(n^2 \log k)
  * Pamięć : O(n)
  * Użycie:

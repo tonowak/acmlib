@@ -1,5 +1,4 @@
 /*
- * Status: Przetestowane na zadankach
  * Opis: Find and union z mniejszy do wiekszego
  * Czas: O(\alpha(n)) oraz O(n) pamięciowo
  */
