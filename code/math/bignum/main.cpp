@@ -1,6 +1,7 @@
 /*
  * Opis: Reprezentacja dużych int'ów
- * Czas: Podstawa 1e9, mnożenie, dzielenie oraz modulo kwadratowe, wersje operatorX(Num, int) liniowe
+ * Czas: Podstawa wynosi 1e9. Mnożenie, dzielenie, nwd oraz modulo jest kwadratowe, wersje operatorX(Num, int) liniowe
+ * Użycie: Podstawę można zmieniać (ma zachodzić base == 10^digits_per_elem).
  */
 
 struct Num {
@@ -20,7 +21,7 @@ struct Num {
 			if(i < digits_per_elem)
 				x.emplace_back(stoi(s.substr(0, i)));
 			else
-				x.emplace_back(stoi(s.substr(i - digits_per_elem, 9)));
+				x.emplace_back(stoi(s.substr(i - digits_per_elem, digits_per_elem)));
 		shorten();
 	}
 	Num() {}
