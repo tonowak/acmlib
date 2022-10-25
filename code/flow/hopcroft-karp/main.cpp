@@ -1,5 +1,5 @@
-/* Opis: Hopcroft-Karp do liczenia matchingu.
- *   Przydaje się głównie w aproksymacji, ponieważ po k iteracjach gwarantuje matching o rozmiarze przynajmniej k/(k+1) * best_matching.
+/* 
+ * Opis: Hopcroft-Karp do liczenia matchingu. Przydaje się głównie w aproksymacji, ponieważ po $k$ iteracjach gwarantuje matching o rozmiarze przynajmniej $k/(k+1) \cdot$ best matching.
  * Użycie: wierzchołki grafu muszą być podzielone na warstwy 0..n0-1 oraz n0..n0+n1-1. Zwraca rozmiar matchingu oraz przypisanie (lub -1, gdy nie jest zmatchowane).
  * Czas: O(m \sqrt{n})
  */

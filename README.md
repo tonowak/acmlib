@@ -1,4 +1,4 @@
-credits for make: https://github.com/kth-competitive-programming/kactl/
+aredits for make: https://github.com/kth-competitive-programming/kactl/
 
 ## Building
 
@@ -83,8 +83,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] optimizations/pragmy
 - [x] optimizations/random
 - [x] optimizations/sos-dp
-- [x] random-stuff/dzien-probny
-- [x] random-stuff/memory-usage
 - [x] string/hashing
 - [x] string/kmp
 - [x] string/lyndon-min-cyclic-rot
@@ -93,5 +91,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] string/suffix-array
 - [x] string/suffix-automaton
 - [x] string/trie
+- [x] utils/dzien-probny
 - [x] utils/example-code
 - [x] utils/print-tree
