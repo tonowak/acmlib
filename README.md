@@ -85,7 +85,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] optimizations/sos-dp
 - [x] random-stuff/dzien-probny
 - [x] random-stuff/memory-usage
-- [x] random-stuff/rd
 - [x] string/hashing
 - [x] string/kmp
 - [x] string/lyndon-min-cyclic-rot
