@@ -72,18 +72,4 @@ struct AhoCorasick {
 			}
 		}
 	}
-
-	vector<bool> is_lit_on_link_path(vector<bool> is_lit) {
-		deque<int> que = {0};
-		while (not que.empty()) {
-			int v = que.front();
-			que.pop_front();
-			debug(v, is_lit[v], link(v), is_lit[link(v)]);
-			is_lit[v] = is_lit[v] or (v != 0 and is_lit[link(v)]);
-			REP(c, alpha)
-				if(node[v].next[c] != -1)
-					que.emplace_back(node[v].next[c]);
-		}
-		return is_lit;
-	}
 };
