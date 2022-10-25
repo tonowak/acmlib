@@ -59,8 +59,14 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 		\end{center}
 
 \section{Symbol Newtona}
-		$ \binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}=\binom{n-1}{k-1}+\binom{n-2}{k-1}+\dots+\binom{k-1}{k-1}$
+		$$ \binom{n}{k}=\dfrac{n!}{k!\left(n-k\right)!}=\dfrac{n^{\underline{k}}}{k!}$$
+		$$ \binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}=\binom{n-1}{k-1}+\binom{n-2}{k-1}+\dots+\binom{k-1}{k-1}$$
 		$$ (x+y)^n=\sum_{k=0}^n \binom{n}{k} x^k y^{n-k} $$
+		$$ \sum_{i=0}^k \binom{n+i}{i} = \binom{n+k+1}{k} $$
+		$$ \left(-1\right)^i \binom{x}{i} = \binom{i - 1 - x}{i} $$
+		$$ \sum_{i=0}^k \binom{n}{i} \binom{m}{k - i} = \binom{n + m}{k} $$
+		$$ \binom{n}{k} \binom{k}{i} = \binom{n}{i} \binom{n - i}{k - i} $$
+
 
 \section{Wzorki na pewne ciągi}
 	\subsection{Nieporządek}
@@ -95,7 +101,7 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 		$c(n,2) = 0, 0, 1, 3, 11, 50, 274, 1764, 13068, 109584, \dots$
 
 	\subsection{Stirling drugiego rzędu}
-		Liczba permutacji długości $n$ mające $k$ spójnych.
+		Liczba podziałów zbioru rozmiaru $n$ na $k$ bloków.
 		$$S(n,k) = S(n-1,k-1) + k S(n-1,k)$$
 		$$S(n,1) = S(n,n) = 1$$
 		$$S(n,k) = \frac{1}{k!}\sum_{j=0}^k (-1)^{k-j}\binom{k}{j}j^n$$
@@ -115,10 +121,15 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 		\end{itemize}
 
 		\hfil
-	
+
 	\subsection{Formuła Cayley'a}
 		Liczba różnych drzew (z dokładnością do numerowania wierzchołków) wynosi $n^{n-2}$.
 		Liczba sposobów by zespójnić $k$ spójnych o rozmiarach $s_1, s_2, \dots, s_k$ wynosi $s_1 \cdot s_2 \cdot \dots \cdot s_k \cdot n^{k-2}$.
+
+\section{Funkcje tworzące}
+		$$ \dfrac{1}{\left(1-x\right)^k} = \sum_{n\geq 0} \binom{k - 1 + n}{k - 1} x ^ n $$
+		$$ \exp(x) = \sum_{n\geq 0} \dfrac{x^n}{n!} $$
+		$$ -\log(1 - x) = \sum_{n\geq 1} \dfrac{x^n}{n} $$
 
 \section{Funkcje multiplikatywne}
 		\begin{itemize}[noitemsep]
