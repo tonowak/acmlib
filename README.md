@@ -84,7 +84,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] optimizations/random
 - [x] optimizations/sos-dp
 - [x] random-stuff/dzien-probny
-- [x] random-stuff/math-constants
 - [x] random-stuff/memory-usage
 - [x] random-stuff/rd
 - [x] string/hashing

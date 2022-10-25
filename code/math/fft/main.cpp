@@ -12,7 +12,7 @@ void fft(vector<Complex> &a) {
 	static vector<Complex> rt(2, 1);
 	for(static int k = 2; k < n; k *= 2) {
 		R.resize(n), rt.resize(n);
-		auto x = polar(1.0L, M_PIl / k);
+		auto x = polar(1.0L, acosl(-1) / k);
 		FOR(i, k, 2 * k - 1) 
 			rt[i] = R[i] = i & 1 ? R[i / 2] * x : R[i / 2];
 	}

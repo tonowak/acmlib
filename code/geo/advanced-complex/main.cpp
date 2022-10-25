@@ -2,6 +2,7 @@
  * Opis: Randomowe \sout{przydatne} wzorki, większość nie działa dla intów
  */
 #include "../point/main.cpp"
+constexpr D pi = acosl(-1);
 
 // nachylenie k-> y = kx + m
 D slope(P a, P b) { return tan(arg(b - a)); }
@@ -19,7 +20,7 @@ P rotate(P a, P p, D theta) {
 }
 // kat ABC, w radianach, zawsze zwraca mniejszy kat
 D angle(P a, P b, P c) {
-	return abs(remainder(arg(a - b) - arg(c - b), 2.0 * M_PI));
+	return abs(remainder(arg(a - b) - arg(c - b), 2.0 * pi));
 }
 // szybkie przeciecie prostych, nie dziala dla rownoleglych
 P intersection(P a, P b, P p, P q) {

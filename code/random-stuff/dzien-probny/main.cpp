@@ -51,6 +51,6 @@ void test_policy() {
 }
 
 void test_math() {
-	assert(3.14 < M_PI && M_PI < 3.15);
-	assert(3.14 < M_PIl && M_PIl < 3.15);
+	constexpr long double pi = acosl(-1);
+	assert(3.14 < pi && pi < 3.15);
 }
