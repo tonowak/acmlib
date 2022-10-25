@@ -32,3 +32,16 @@ int powi(int a, int b) {
 int inv(int x) {
 	return powi(x, mod - 2);
 }
+struct BinomCoeff {
+	vector<int> fac, rev;
+	BinomCoeff(int n) {
+		fac = rev = vector(n + 1, 1);
+		FOR(i, 1, n) fac[i] = mul(fac[i - 1], i);
+		rev[n] = inv(fac[n]);
+		for(int i = n; i > 0; --i)
+			rev[i - 1] = mul(rev[i], i);
+	}
+	int operator()(int n, int k) {
+		return mul(fac[n], mul(rev[n - k], rev[k]));
+	}
+};
