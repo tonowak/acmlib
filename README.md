@@ -14,9 +14,9 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [ ] data-structures/persistent-treap
 - [ ] data-structures/treap
 - [ ] geo/advanced-complex
+- [ ] geo/geo3d
 - [ ] geo/line
 - [ ] graph/centro-decomp
-- [ ] string/aho-corasick
 - [x] data-structures/associative-queue
 - [x] data-structures/fenwick-tree
 - [x] data-structures/fenwick-tree-2d
@@ -40,6 +40,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] geo/area
 - [x] geo/circles
 - [x] geo/convex-hull
+- [x] geo/convex-hull-online
 - [x] geo/halfplane-intersection
 - [x] geo/intersect-lines
 - [x] geo/point
@@ -83,6 +84,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] optimizations/pragmy
 - [x] optimizations/random
 - [x] optimizations/sos-dp
+- [x] string/aho-corasick
 - [x] string/hashing
 - [x] string/kmp
 - [x] string/lyndon-min-cyclic-rot
