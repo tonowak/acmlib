@@ -3,18 +3,19 @@
  * Czas: wszystko w O(\log n)
  * Użycie:
  *   wszystko indexowane od 0
- *   insert(key, val) insertuję na pozycję key
+ *   insert(i, val) insertuję na pozycję i
  *   kopiowanie struktury działa w O(1)
  *   robimy sobie vector<Treap>, żeby obsługiwać trwałość
  */
 
-mt19937 rng_key(0);
+mt19937 rng_i(0);
 
 struct Treap {
 	struct Node {
 		int val, prio, sub = 1;
 		Node *l = nullptr, *r = nullptr;
-		Node(int _val) : val(_val), prio(rng_key()) {}
+		Node(int _val) : val(_val), prio(int(rng_i())) {}
+		~Node() { delete l; delete r; }
 	};
 	using pNode = Node*;
 	pNode root = nullptr;
@@ -25,14 +26,14 @@ struct Treap {
 		n->sub = get_sub(n->l) + get_sub(n->r) + 1;
 	}
 
-	void split(pNode t, int key, pNode &l, pNode &r) {
+	void split(pNode t, int i, pNode &l, pNode &r) {
 		if(!t) l = r = nullptr;
 		else {
 			t = new Node(*t);
-			if(key <= get_sub(t->l))
-				split(t->l, key, l, t->l), r = t;
+			if(i <= get_sub(t->l))
+				split(t->l, i, l, t->l), r = t;
 			else
-				split(t->r, key - get_sub(t->l) - 1, t->r, r), l = t;
+				split(t->r, i - get_sub(t->l) - 1, t->r, r), l = t;
 		}
 		update(t);
 	}
@@ -50,37 +51,37 @@ struct Treap {
 		update(t);
 	}
 
-	void insert(pNode &t, int key, pNode it) { 
+	void insert(pNode &t, int i, pNode it) { 
 		if(!t) t = it;
 		else if(it->prio > t->prio)
-			split(t, key, it->l, it->r), t = it;
+			split(t, i, it->l, it->r), t = it;
 		else {
 			t = new Node(*t);
-			if(key <= get_sub(t->l))
-				insert(t->l, key, it);
+			if(i <= get_sub(t->l))
+				insert(t->l, i, it);
 			else
-				insert(t->r, key - get_sub(t->l) - 1, it);
+				insert(t->r, i - get_sub(t->l) - 1, it);
 		}
 		update(t);
 	}
-	void insert(int key, int val) {
-		insert(root, key, new Node(val));
+	void insert(int i, int val) {
+		insert(root, i, new Node(val));
 	}
 
-	void erase(pNode &t, int key) {
-		if(get_sub(t->l) == key)
+	void erase(pNode &t, int i) {
+		if(get_sub(t->l) == i)
 			merge(t, t->l, t->r);
 		else {
 			t = new Node(*t);
-			if(key <= get_sub(t->l))
-				erase(t->l, key);
+			if(i <= get_sub(t->l))
+				erase(t->l, i);
 			else
-				erase(t->r, key - get_sub(t->l) - 1);
+				erase(t->r, i - get_sub(t->l) - 1);
 		}
 		update(t);
 	}
-	void erase(int key) {
-		assert(key < get_sub(root));
-		erase(root, key);
+	void erase(int i) {
+		assert(i < get_sub(root));
+		erase(root, i);
 	}
 };
