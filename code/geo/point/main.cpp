@@ -24,6 +24,7 @@ constexpr D eps = 1e-9;
 
 istream &operator>>(istream &is, P &p) { return is >> p.x >> p.y; }
 bool equal(D a, D b) { return abs(a - b) < eps; }
+bool equal(P a, P b) { return equal(a.x, b.x) and equal(a.y, b.y); }
 int sign(D a) { return equal(a, 0) ? 0 : a > 0 ? 1 : -1; }
 bool operator<(P a, P b) { return tie(a.x, a.y) < tie(b.x, b.y); }
 
@@ -31,3 +32,4 @@ bool operator<(P a, P b) { return tie(a.x, a.y) < tie(b.x, b.y); }
 D cross(P a, P b) { return a.x * b.y - a.y * b.x; }
 D dot(P a, P b) { return a.x * b.x + a.y * b.y; }
 D dist(P a, P b) { return abs(a - b); }
+int dir(P a, P b, P c) { return sign(cross(b - a, c - b)); }

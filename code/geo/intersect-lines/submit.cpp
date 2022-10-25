@@ -1,4 +1,4 @@
-#include "../../utils/headers/main.cpp"
+#include "../../headers/main.cpp"
 #include "main.cpp"
 
 int main() {
@@ -11,7 +11,7 @@ int main() {
 	while(t --> 0) {
 		P p1, p2, p3, p4;
 		cin >> p1 >> p2 >> p3 >> p4;
-		auto v = intersect(p1, p2, p3, p4, true);
+		auto v = intersect_segments(p1, p2, p3, p4);
 		auto print = [&](P p) {
 			cout << p.x + eps << ' ' << p.y + eps << ' ';
 		};
