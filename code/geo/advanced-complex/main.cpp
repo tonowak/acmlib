@@ -18,7 +18,7 @@ P reflect(P p, P a, P b) {
 P rotate(P a, P p, D theta) {
 	return (a - p) * polar(1.0L, theta) + p;
 }
-// kat ABC, w radianach z przedziału [0..pi]
+// kat ABC, w radianach z przedzialu [0..pi]
 D angle(P a, P b, P c) {
 	return abs(remainder(arg(a - b) - arg(c - b), 2.0 * pi));
 }
