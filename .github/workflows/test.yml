@@ -13,14 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ["2.7"]
       - name: make pdf
         env:
           TEXINPUTS: ".:pdf/kactl-include/:"
           max_print_line: 1048576
-        run: |
-          shopt -s expand_aliases
-          alias python2=python
         uses: dante-ev/latex-action@latest
         with:
           root_file: code/main.tex
