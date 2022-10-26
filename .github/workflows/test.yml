@@ -13,8 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: make pdf
-        uses: actions/checkout@v2
+        env:
+          TEXINPUTS: ".:pdf/kactl-include/:"
+          max_print_line: 1048576
         uses: dante-ev/latex-action@latest
         with:
-          entrypoint: make pdf
+          root_file: code/main.tex
+          compiler: pdflatex
+          args: -shell-escape -output-directory pdf/build/
 
