@@ -18,7 +18,7 @@ P reflect(P p, P a, P b) {
 P rotate(P a, P p, D theta) {
 	return (a - p) * polar(1.0L, theta) + p;
 }
-// kat ABC, w radianach, zawsze zwraca mniejszy kat
+// kat ABC, w radianach
 D angle(P a, P b, P c) {
 	return abs(remainder(arg(a - b) - arg(c - b), 2.0 * pi));
 }
@@ -29,11 +29,11 @@ P intersection(P a, P b, P p, P q) {
 }
 // check czy sa rownolegle
 bool is_parallel(P a, P b, P p, P q) {
-	P c = (a - b) / (p - q); return c == conj(c);
+	P c = (a - b) / (p - q); return equal(c, conj(c));
 }
 // check czy sa prostopadle
 bool is_perpendicular(P a, P b, P p, P q) {
-	P c = (a - b) / (p - q); return c == -conj(c);
+	P c = (a - b) / (p - q); return equal(c, -conj(c));
 }
 // zwraca takie q, ze (p, q) jest rownolegle do (a, b)
 P parallel(P a, P b, P p) {
@@ -47,4 +47,3 @@ P perpendicular(P a, P b, P p) {
 P centro(P a, P b, P c) { 
 	return (a + b + c) / 3.0L;
 }
-

@@ -10,7 +10,6 @@ do `test.py` można dać ścieżkę do odpowiedniego folderu jak chce się wytes
 Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 
 ## Testing status
-- [ ] geo/advanced-complex
 - [ ] geo/geo3d
 - [x] data-structures/associative-queue
 - [x] data-structures/fenwick-tree
@@ -35,6 +34,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] flow/konig-theorem
 - [x] flow/matching
 - [x] flow/mcmf
+- [x] geo/advanced-complex
 - [x] geo/area
 - [x] geo/circle-intersection
 - [x] geo/circle-tangent
