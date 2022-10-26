@@ -72,6 +72,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/miller-rabin
 - [x] math/mod-int
 - [x] math/ntt
+- [x] math/pi
 - [x] math/polynomial
 - [x] math/power-sum
 - [x] math/primitive-root
