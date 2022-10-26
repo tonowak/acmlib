@@ -6,7 +6,7 @@
  *   min_cyclic_shift("abacaba") == "aabacab";
  */
 
-vector<pair<int, int>> duval(string s) {
+vector<pair<int, int>> duval(vector<int> s) {
 	int n = ssize(s), i = 0;
 	vector<pair<int, int>> ret;
 	while(i < n) {
@@ -23,17 +23,18 @@ vector<pair<int, int>> duval(string s) {
 	return ret;
 }
 
-string min_suffix(string s) {
-	return s.substr(duval(s).back().first);
+vector<int> min_suffix(vector<int> s) {
+	return {s.begin() + duval(s).back().first, s.end()};
 }
 
-string min_cyclic_shift(string s) {
+vector<int> min_cyclic_shift(vector<int> s) {
 	int n = ssize(s);
-	for(auto [l, r] : duval(s + s)) {
-		debug(l, r, s.data(), n);
-		if(n <= r)
-			return (s + s).substr(l, n);
-	}
+	REP(i, n)
+		s.emplace_back(s[i]);
+	for(auto [l, r] : duval(s))
+		if(n <= r) {
+			return {s.begin() + l, s.begin() + l + n};
+		}
 	assert(false);
 }
 

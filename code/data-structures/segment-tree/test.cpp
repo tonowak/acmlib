@@ -1,4 +1,3 @@
-#include <string>
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 

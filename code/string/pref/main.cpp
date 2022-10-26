@@ -4,7 +4,7 @@
  * Czas: O(n)
  */
 
-vector<int> pref(string str) {
+vector<int> pref(vector<int> str) {
 	int len = ssize(str);	
 	vector<int> ret(len);
 	ret[0] = len;

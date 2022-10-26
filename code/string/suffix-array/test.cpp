@@ -4,21 +4,21 @@
 void test() {
 	int n = rd(1, 30);
 	int r = rd(1, 26);
-	string s(n, 'a');
+	vector<int> s(n);
 	for (auto& x : s)
-		x = char('a' + rd(0, r - 1));
+		x = rd(0, r - 1);
 
 	SuffixArray sa(s);
 
-	vector<pair<string,int>> v(n + 1);
+	vector<pair<vector<int>,int>> v(n + 1);
 	REP(i,n+1)
-		v[i] = {s.substr(i, n - i), i};
+		v[i] = {vector(s.begin() + i, s.end()), i};
 	sort(v.begin(), v.end());
 
 	REP(i,n+1)
 		assert(sa.sa[i] == v[i].second);
 
-	auto common = [&](const string& a, const string& b) {
+	auto common = [&](const vector<int>& a, const vector<int>& b) {
 		int d = min(ssize(a), ssize(b));
 		REP(i,d)
 			if (a[i] != b[i])

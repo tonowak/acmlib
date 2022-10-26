@@ -2,12 +2,12 @@
  * Opis: KMP(str) zwraca tablicę pi.
  * Zachodzi [0, pi[i]) = (i - pi[i], i].
  * Użycie:
- *   get_kmp("abaababaab") == {0,0,1,1,2,3,2,3,4,5};
- *   get_borders("abaababaab") == {2,5,10};
+ *   get_kmp({0,1,0,0,1,0,1,0,0,1}) == {0,0,1,1,2,3,2,3,4,5};
+ *   get_borders({0,1,0,0,1,0,1,0,0,1}) == {2,5,10};
  * Czas: O(n)
  */
 
-vector<int> get_kmp(string str) {
+vector<int> get_kmp(vector<int> str) {
 	int len = ssize(str);
 	vector<int> ret(len);
 	for(int i = 1; i < len; i++) {
@@ -19,7 +19,7 @@ vector<int> get_kmp(string str) {
 	return ret;
 }
 
-vector<int> get_borders(string str) {
+vector<int> get_borders(vector<int> str) {
 	vector<int> kmp = get_kmp(str), ret;
 	int len = ssize(str);
 	while(len) {

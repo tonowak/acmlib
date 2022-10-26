@@ -1,7 +1,7 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-vector<int> brute_pref(string str) {
+vector<int> brute_pref(vector<int> str) {
 	int n = ssize(str);
 	vector<int> ret(n);
 	REP(i, n) {
@@ -15,8 +15,8 @@ vector<int> brute_pref(string str) {
 
 void test() {
 	int n = rd(1, 10);
-	string s;
+	vector<int> s;
 	REP(i, n)
-		s += char('a' + rd(0, 2));
+		s.emplace_back(rd(0, 2));
 	assert(brute_pref(s) == pref(s));
 }

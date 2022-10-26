@@ -1,4 +1,4 @@
-#include "../../utils/headers/main.cpp"
+#include "../../headers/main.cpp"
 #include "main.cpp"
 
 int main() {
@@ -7,7 +7,10 @@ int main() {
 
 	string str;
 	cin >> str;
-	SuffixArray q(str);
+	vector<int> s(str.begin(), str.end());
+	for(int &c : s)
+		c -= 'a';
+	SuffixArray q(s);
 	debug(q.sa);
 	debug(q.lcp);
 }

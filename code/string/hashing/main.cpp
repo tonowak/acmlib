@@ -9,10 +9,10 @@
 
 struct Hashing {
 	vector<int> ha, pw;
-	int mod = 1e9 + 696969;
+	static constexpr int mod = 1e9 + 696969;
 	int base;
 
-	Hashing(string &str, int b = 31) {
+	Hashing(const vector<int> &str, int b = 31) {
 		base = b;
 		int len = ssize(str);
 		ha.resize(len + 1);
@@ -30,7 +30,7 @@ struct Hashing {
 
 struct DoubleHashing {
 	Hashing h1, h2;
-	DoubleHashing(string &str) : h1(str), h2(str, 33) {} // change to rd on codeforces
+	DoubleHashing(const vector<int> &str) : h1(str), h2(str, 33) {} // change to rd on codeforces
 	LL operator()(int l, int r) {
 		return h1(l, r) * LL(h2.mod) + h2(l, r);
 	}
