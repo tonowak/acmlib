@@ -25,6 +25,7 @@ struct TwoSat {
 		gr[j].emplace_back(f ^ 1);
 	}
 	void set_value(int x) { either(x, x); }
+	void implication(int f, int j) { either(~f, j); }
 
 	int add_var() {
 		gr.emplace_back();
