@@ -1,4 +1,4 @@
-aredits for make: https://github.com/kth-competitive-programming/kactl/
+Credits for make: https://github.com/kth-competitive-programming/kactl/
 
 ## Building
 
@@ -36,7 +36,8 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] flow/matching
 - [x] flow/mcmf
 - [x] geo/area
-- [x] geo/circles
+- [x] geo/circle-intersection
+- [x] geo/circle-tangent
 - [x] geo/convex-hull
 - [x] geo/convex-hull-online
 - [x] geo/halfplane-intersection
@@ -61,7 +62,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/determinant
 - [x] math/discrete-log
 - [x] math/discrete-root
-- [x] math/exp
 - [x] math/extended-gcd
 - [x] math/fft
 - [x] math/fft-mod
@@ -93,7 +93,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] string/pref
 - [x] string/suffix-array
 - [x] string/suffix-automaton
-- [x] string/trie
 - [x] utils/dzien-probny
 - [x] utils/example-code
 - [x] utils/print-tree

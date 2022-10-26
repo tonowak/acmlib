@@ -72,7 +72,8 @@ with open('README.md', 'r') as readme_f:
     status_strings = readme_split[i_testing].split('\n')[1:]
     while len(status_strings) and status_strings[-1] == '':
         status_strings = status_strings[:-1]
-    path_to_status = dict([(s[6:], s[3] == 'x') for s in status_strings])
+    # path_to_status = dict([(s[6:], s[3] == 'x') for s in status_strings])
+    path_to_status = dict()
 
     # updating with new info
     for status, name in todolist:
