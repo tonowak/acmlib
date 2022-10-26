@@ -15,21 +15,21 @@ void test() {
 	auto rel_equal_P = [&](P a, P b) {
 		return rel_equal_D(a.x, b.x) and rel_equal_D(a.y, b.y);
 	};
-	auto to_close = [&](P a, P b) {
+	auto too_close = [&](P a, P b) {
 		return dist(a, b) < 0.001;
 	};
 
 	auto a = rd_P(), b = rd_P();
 	auto line = Line(a, b);
-	if (not to_close(a, b))
+	if (not too_close(a, b))
 		assert(rel_equal_D(line.get_dir().first, slope(a, b)));
 
 	auto p = rd_P();
-	if (not to_close(a, b))
+	if (not too_close(a, b))
 		assert(is_parallel(a, b, a + p, b + p));
 
 	auto r = reflect(p, a, b);
-	if (not to_close(p, r))
+	if (not too_close(p, r))
 		assert(is_perpendicular(a, b, p, r));
 	assert(equal(line.directed_dist(p), -line.directed_dist(r)));
 	assert(equal(line.dist(p), line.dist(r)));
@@ -38,9 +38,9 @@ void test() {
 	assert(not is_perpendicular(a, b, c, d));
 	assert(not is_parallel(a, b, c, d));
 
-	if (not to_close(a, b)) {
+	if (not too_close(a, b)) {
 		assert(is_parallel(a, b, p, parallel(a, b, p)));
-		if (not to_close(p, perpendicular(a, b, p)))
+		if (not too_close(p, perpendicular(a, b, p)))
 				assert(is_perpendicular(a, b, p, perpendicular(a, b, p)));
 	}
 
@@ -57,4 +57,5 @@ void test() {
 	}
 
 	assert(rel_equal_D(angle(a, b, c), acos((dot(a - b, c - b)) / dist(a, b) / dist(c, b))));
+	assert(rel_equal_D(angle(a, b, c), angle(c, b, a)));
 }
