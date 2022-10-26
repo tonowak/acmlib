@@ -8,10 +8,9 @@
  * 		decomp(v) - wywołanie dla spójnej z centroidem v
  * 		root - korzeń drzewa centroidów
  * 		par - ojciec w drzewie centroidów (ojcem root jest -1)
- * Hinty:
- * 		- jeśli decomp i elementy związane z tą funkcją działają niepoprawnie (np. pętlą się), to najprawdopodobniej robimy coś nielegalnego z vis
- * 		- jeśli coś wylicza nam się niepoprawnie możliwe, że pomyliliśmy calle DFS -> w szczególność nie piszemy DFS, który wywołuje inny typ DFS
- * 		- jeśli chcemy optymalizować pamięć i rzeczy podobne, to można przepisać decomp aby działał jak BFS, a nie DFS
+ * 		Jeśli decomp i elementy związane z tą funkcją działają niepoprawnie (np. pętlą się), to najprawdopodobniej robimy coś nielegalnego z vis
+ * 		Jeśli coś wylicza nam się niepoprawnie możliwe, że pomyliliśmy calle DFS -> w szczególności nie piszemy DFS, który wywołuje inny typ DFS
+ * 		Jeśli chcemy optymalizować pamięć i rzeczy podobne, to można przepisać decomp aby działał jak BFS, a nie DFS
  */
 
 struct CentroDecomp {
@@ -54,7 +53,7 @@ struct CentroDecomp {
 	}
 
 	void decomp(int v) {
-		// czynności na poziomie jednej spójnej z znanym centroidem v
+		// czynnosci na poziomie jednej spojnej z znanym centroidem v
 
 		++licz;
 		for(int u : graph[v])
@@ -63,7 +62,7 @@ struct CentroDecomp {
 				par[u] = v;
 				vis[u] = INF;
 
-				// dodatkowe przekazanie informacji kolejnemu centroidowi np. jego głębokość
+				// dodatkowe przekazanie informacji kolejnemu centroidowi np. jego glebokosc
 
 				decomp(u);
 			}

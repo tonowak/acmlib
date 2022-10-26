@@ -1,11 +1,11 @@
 /*
  * Opis: Operacje na wielomianach mod 998244353
- * Czas: deriv, integr - O(n), powi_deg - O(n * deg), sqrt, inv, log, exp, powi - O(n * \log n), powi_slow, eval, inter - O(n * \log ^2 n)
+ * Czas: deriv, integr - O(n), powi\_deg - O(n \cdot deg), sqrt, inv, log, exp, powi - O(n \cdot \log n), powi\_slow, eval, inter - O(n \cdot \log ^2 n)
  * Użycie:
  *   Ogólnie to przepisujemy co chcemy. Funkcje oznaczone jako KONIECZNE są wymagane od miejsca ich wystąpienia w kodzie. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
  *   deriv(a) zwraca a'
- *   integr(a) zwraca ∫a
- *   powi*(a, k, n) zwraca a^k (mod x^n)
+ *   integr(a) zwraca $\int$a
+ *   powi(_deg/_slow)(a, k, n) zwraca a^k (mod x^n)
  *   sqrt(a, n) zwraca a^1/2 (mod x^n)
  *   inv(a, n) zwraca a^-1 (mod x^n)
  *   log(a, n) zwraca ln(a) (mod x^n)

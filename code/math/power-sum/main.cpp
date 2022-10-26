@@ -1,8 +1,7 @@
 /*
- * Opis: power_monomial_sum(a, k, n) liczy $\sum_{i=0}^{n-1} a^i \cdot i^k, power_binomial_sum(a, k, n) liczy $\sum_{i=0}^{n-1} a^i \cdot binom{i}{k}
- * Czas: power_monomial_sum - O(k ^ 2 * \log(mod)), power_binomial_sum - O(k * \log(mod))
- * Użycie: power_monomial_sum(a, k, n), power_binomial_sum(a, k, n)
- * Działa dla $0 \leq n$ oraz $a\neq 1$.
+ * Opis: power\_monomial\_sum(a, k, n) liczy $\sum_{i=0}^{n-1} a^i \cdot i^k$, power\_binomial\_sum(a, k, n) liczy $\sum_{i=0}^{n-1} a^i \cdot {i \choose k}$
+ * Czas: power\_monomial\_sum - O(k ^ 2 \cdot \log(mod)), power\_binomial\_sum - O(k \cdot \log(mod))
+ * Użycie: Działa dla $0 \leq n$ oraz $a \neq 1$.
  */
 #include "../simple-modulo/main.cpp"
 
