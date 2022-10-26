@@ -12,7 +12,6 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 ## Testing status
 - [ ] geo/advanced-complex
 - [ ] geo/geo3d
-- [ ] graph/centro-decomp
 - [x] data-structures/associative-queue
 - [x] data-structures/fenwick-tree
 - [x] data-structures/fenwick-tree-2d
@@ -47,6 +46,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] graph/2sat
 - [x] graph/biconnected
 - [x] graph/cactus-cycles
+- [x] graph/centro-decomp
 - [x] graph/de-brujin
 - [x] graph/eulerian-path
 - [x] graph/hld
@@ -79,6 +79,7 @@ Wtedy i tak odpowiednio zmodyfikuje poniższą todolistę.
 - [x] math/sieve
 - [x] math/simple-modulo
 - [x] math/simplex
+- [x] math/xor-base
 - [x] optimizations/fio
 - [x] optimizations/linear-knapsack
 - [x] optimizations/pragmy
