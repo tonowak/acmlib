@@ -3,10 +3,18 @@ name: testing
 on: [push]
 
 jobs:
-  build:
+  run_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - run: python test.py
+  build_pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: make pdf
+        uses: dante-ev/latex-action@latest
+        with:
+          entrypoint: make pdf
 
