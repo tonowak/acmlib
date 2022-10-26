@@ -18,6 +18,9 @@ jobs:
         env:
           TEXINPUTS: ".:pdf/kactl-include/:"
           max_print_line: 1048576
+        run: |
+          shopt -s expand_aliases
+          alias python2=python
         uses: dante-ev/latex-action@latest
         with:
           root_file: code/main.tex
