@@ -22,7 +22,7 @@ vector<int> xor_base(vector<int> elems) {
 		}
 	at_bit.erase(at_bit.begin());
 
-	FOR(b0, 1, bits - 2)
+	REP(b0, bits - 1)
 		for(int a0 : at_bit[b0])
 			FOR(b1, b0 + 1, bits - 1)
 				for(int &a1 : at_bit[b1])
