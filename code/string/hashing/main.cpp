@@ -18,7 +18,7 @@ struct Hashing {
 		ha.resize(len + 1);
 		pw.resize(len + 1, 1);
 		REP(i, len) {
-			ha[i + 1] = int(((LL) ha[i] * base + str[i] - 'a' + 1) % mod);
+			ha[i + 1] = int(((LL) ha[i] * base + str[i] + 1) % mod);
 			pw[i + 1] = int(((LL) pw[i] * base) % mod);
 		}
 	}
