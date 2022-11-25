@@ -1,6 +1,6 @@
 /*
  * Opis: Silnie Spójnie Składowe
- * Czas: konstruktor O(n), get_compressed O(n \log n)
+ * Czas: konstruktor O(n), get\_compressed O(n \log n)
  * Użycie:
  *   kontruktor - SCC(graph)
  *   group[v] to numer silnie spójnej wierzchołka v
