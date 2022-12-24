@@ -21,16 +21,12 @@ bool on_segment(P a, P b, P p) {
 }
 
 bool is_intersection_segment(P a, P b, P c, P d) {
-	if(on_segment(a, b, c) or on_segment(a, b, d) or on_segment(c, d, a) or on_segment(c, d, b))
-		return true;
-	int acb = dir(a, c, b), adb = dir(a, d, b);
-	int cad = dir(c, a, d), cbd = dir(c, b, d);
-	if(acb != 0 and adb != 0 and acb == adb)
-		return false;
-	if(cad != 0 and cbd != 0 and cad == cbd)
-		return false;
-	if(acb == 0 and adb == 0)
-		return false;
+	if(sign(max(c.x, d.x) - min(a.x, b.x)) == -1) return false;
+	if(sign(max(a.x, b.x) - min(c.x, d.x)) == -1) return false;
+	if(sign(max(c.y, d.y) - min(a.y, b.y)) == -1) return false;
+	if(sign(max(a.y, b.y) - min(c.y, d.y)) == -1) return false;
+	if(dir(a, d, c) * dir(b, d, c) == 1) return false;
+	if(dir(d, b, a) * dir(c, b, a) == 1) return false;
 	return true;
 }
 
