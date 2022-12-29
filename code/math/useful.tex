@@ -126,6 +126,9 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 		Liczba różnych drzew (z dokładnością do numerowania wierzchołków) wynosi $n^{n-2}$.
 		Liczba sposobów by zespójnić $k$ spójnych o rozmiarach $s_1, s_2, \dots, s_k$ wynosi $s_1 \cdot s_2 \cdot \dots \cdot s_k \cdot n^{k-2}$.
 
+	\subsection{Twierdzenie Kirchhoffa}
+		Liczba różnych drzew rozpinających spójnego nieskierowanego grafu $G$ bez pętelek (mogą być multikrawędzie) o $n$ wierzchołkach jest równa $\det A_{n-1}$, gdzie $A = D - M$, $D$ to macierz diagonalna mająca na przekątnej stopnie wierzchołków w grafie $G$, $M$ to macierz incydencji grafu $G$, a $A_{n-1}$ to macierz $A$ z usuniętymi ostatnim wierszem oraz ostatnią kolumną.
+
 \section{Funkcje tworzące}
 		$$ \dfrac{1}{\left(1-x\right)^k} = \sum_{n\geq 0} \binom{k - 1 + n}{k - 1} x ^ n $$
 		$$ \exp(x) = \sum_{n\geq 0} \dfrac{x^n}{n!} $$
