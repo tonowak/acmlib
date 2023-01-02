@@ -16,7 +16,6 @@ vector<vector<int>> construct_graph(vector<pair<int, int>> ans) {
 }
 
 void test() {
-	// int line_n = rd(2, 10);
 	int line_n = rd(2, 6);
 	int line_m = rd(0, line_n * (line_n - 1) / 2);
 	set<pair<int, int>> line_edges;
@@ -129,5 +128,4 @@ void test() {
 	assert(main_found == not matching_original_graphs.empty());
 	if(main_found)
 		assert(matching_original_graphs.count(main_graph));
-	debug("halo");
 }

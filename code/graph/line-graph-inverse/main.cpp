@@ -1,3 +1,29 @@
+/*
+ * Opis: Dla danego H szuka takiego G, że L(G) = H,
+ *   gdzie L to proces tworzenia line graph'a 
+ *   -- z każdej krawędzi jest tworzony wierzchołek 
+ *   i między daną parą takich wierzchołków jest krawędź,
+ *   gdy krawędzie, na których leżą te wierzchołki, 
+ *   mają wspólny wierzchołek.
+ *   W skrócie, każde dwa nieizomorficzne spójne grafy proste 
+ *   o przynajmniej pięciu wierzchołkach mają różne line graphy.
+ *   Algorytm brutuje pasujący graf, aż będzie mieć wystarczający rozmiar,
+ *   po czym dla nowych line graphowych wierzchołków
+ *   wyznacza zbiór wierzchołków oryginalnego grafu,
+ *   które są końcami krawędzi, których wierzchołki line graphu
+ *   sąsiadują z rozpatrywanym wierzchołkiem,
+ *   i wyznacza ich vertex cover. Jeżeli ma on rozmiar 2,
+ *   to jest dodawana krawędź między nimi, a jeżeli 1,
+ *   to jest tworzony nowy wierzchołek i dodawana krawędź.
+ *   Ważne też jest, aby zapewnić, żeby konstruowany oryginalny graf
+ *   nie musiał zawierać multikrawędzi.
+ * Czas: O((n + m) (\log n + 2^6))
+ * Użycie: funkcja zwraca informację o istnieniu przynajmniej
+ *   jednego rozwiązania oraz przykładowe rozwiązanie,
+ *   tzn. dla każdego wierzchołka line graphu wyznacza krawędź
+ *   oryginalnego grafu, na której powinien leżeć.
+ */
+
 pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<int, int>> line_edges) {
 	vector<vector<int>> line_graph(line_n);
 	for(auto &[v, u] : line_edges) {
@@ -38,7 +64,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 
 	REP(component_v, line_n)
 		if(not visited[component_v]) {
-			debug(component_v);
 			vector<vector<int>> que_i_to_visited_neighbors;
 			int og_n = 0;
 
@@ -53,7 +78,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 
 			REP(que_i, ssize(que)) {
 				int line_v = que[que_i];
-				debug(que, line_v);
 				for(int u : line_graph[line_v])
 					if(not visited[u]) {
 						visited[u] = true;
@@ -68,7 +92,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 							og_deg_near_v_line[og_u] += 1;
 						que_i_to_visited_neighbors[que_i].emplace_back(line_u);
 					}
-				debug(og_n);
 
 				if(og_n <= 4) {
 					function<bool (int, int, set<pair<int, int>>&)> backtrack 
@@ -118,7 +141,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 						}
 						return 9;
 					}();
-					debug("new_og", og_n, ans);
 
 					if(og_n == 9)
 						return {false, {}};
@@ -126,12 +148,10 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 						save_current_graph(que_i);
 				}
 				else {
-					debug(og_deg_near_v_line);
 					set<int> candidates;
 					for(auto [og_v, deg] : og_deg_near_v_line)
 						if(deg == og_deg_visited[og_v])
 							candidates.emplace(og_v);
-					debug(candidates);
 
 					auto get_best_cover = [&] {
 						pair<int, int> found_cover_2 = {-1, -1};
@@ -168,12 +188,13 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 								found_cover_2.first, found_cover_2.second);
 					};
 					auto [cover_size, og_v_cover0, og_v_cover1] = get_best_cover();
-					debug(cover_size, og_v_cover0, og_v_cover1);
 					if(cover_size == 3)
 						return {false, {}};
-					if(cover_size == 1)
-						og_v_cover1 = og_n++;
-					ans[line_v] = {og_v_cover0, og_v_cover1};
+					if(cover_size == 1) {
+						og_v_cover1 = og_cnt_fixed_v++;
+						og_n++;
+					}
+					ans[line_v] = {min(og_v_cover0, og_v_cover1), max(og_v_cover0, og_v_cover1)};
 					save_edge(line_v);
 				}
 			}
