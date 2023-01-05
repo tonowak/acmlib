@@ -4,7 +4,8 @@
  */
 
 struct Triangles {
-	LL triangles3 = 0, stars3 = 0, paths3 = 0;
+	int triangles3 = 0;
+	LL stars3 = 0, paths3 = 0;
 	LL ps4 = 0, rectangles4 = 0, paths4 = 0;
 	__int128_t ys4 = 0, stars4 = 0;
 
