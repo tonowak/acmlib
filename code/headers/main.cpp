@@ -9,7 +9,7 @@ using LL=long long;
 #ifdef DEBUG
 auto&operator<<(auto&o,pair<auto,auto>p){return o<<"("<<p.first<<", "<<p.second<<")";}
 auto operator<<(auto&o,auto x)->decltype(x.end(),o){o<<"{";REP(i,ssize(x))o<<","[!i]<<x[i];return o<<"}";}
-#define debug(X...) cerr<<"["#X"]: ",[](auto...$){((cerr<<$<<"; "),...);}(X),cerr<<'\n'
+#define debug(X...) cerr<<"["#X"]: ",[](auto...$){((cerr<<$<<"; "),...);}(X),cerr<<endl
 #else
 #define debug(...) {}
 #endif
