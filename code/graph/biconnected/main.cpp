@@ -12,10 +12,10 @@ struct Low {
 
 	vector<vector<int>> bicon;
 	vector<int> bicon_stack, arti_points, bridges;
+	int gtime = 0;
 
 	void dfs(int v, int p) {
-		static int t = 0;
-		low[v] = pre[v] = t++;
+		low[v] = pre[v] = gtime++;
 		bool considered_parent = false;
 		int son_count = 0;
 		bool is_arti = false;
