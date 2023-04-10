@@ -9,6 +9,15 @@
 vector<int> conv_mod(vector<int> a, vector<int> b, int M) {
 	if(a.empty() or b.empty()) return {};
 	vector<int> res(ssize(a) + ssize(b) - 1);
+	const int CUTOFF = 125;
+	if (min(ssize(a), ssize(b)) <= CUTOFF) {
+		if (ssize(a) > ssize(b))
+			swap(a, b);
+		REP (i, ssize(a))
+			REP (j, ssize(b))
+				res[i + j] = (res[i + j] + LL(a[i]) * b[j]) % M;
+		return res;
+	}
 	int B = 32 - __builtin_clz(ssize(res)), n = 1 << B;
 	int cut = int(sqrt(M));
 	vector<Complex> L(n), R(n), outl(n), outs(n);
