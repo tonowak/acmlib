@@ -15,7 +15,7 @@ vector<int> conv_mod(vector<int> a, vector<int> b, int M) {
 			swap(a, b);
 		REP (i, ssize(a))
 			REP (j, ssize(b))
-				res[i + j] = (res[i + j] + LL(a[i]) * b[j]) % M;
+				res[i + j] = int((res[i + j] + LL(a[i]) * b[j]) % M);
 		return res;
 	}
 	int B = 32 - __builtin_clz(ssize(res)), n = 1 << B;
