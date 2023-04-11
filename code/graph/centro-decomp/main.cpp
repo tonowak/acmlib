@@ -2,33 +2,39 @@
  * Opis: template do Centroid Decomposition
  * Czas: O(n \log n)
  * Użycie:
- * 		a) traktujemy konstruktor jako main jeśli działanie wewnętrzne CD jest zbyt zależne od reszty kodu (potencjalnie wywalamy nawet przekazywanie grafu i każemy samemu wczytywać)
- * 		b) traktujemy jako blackbox z ograniczoną ilością informacji i wtedy dopisujemy kilka funkcji do rozwiązania jakiegoś prostego problemu na drzewie
- * 		konstruktor CentroDecomp(n, graf) - wywołuje dekompozycję
- * 		decomp(v) - wywołanie dla spójnej z centroidem v
- * 		root - korzeń drzewa centroidów
- * 		par - ojciec w drzewie centroidów (ojcem root jest -1)
- * 		Jeśli decomp i elementy związane z tą funkcją działają niepoprawnie (np. pętlą się), to najprawdopodobniej robimy coś nielegalnego z vis
- * 		Jeśli coś wylicza nam się niepoprawnie możliwe, że pomyliliśmy calle DFS -> w szczególności nie piszemy DFS, który wywołuje inny typ DFS
- * 		Jeśli chcemy optymalizować pamięć i rzeczy podobne, to można przepisać decomp aby działał jak BFS, a nie DFS
+ * 	Nie ruszamy rzeczy z _ na początku.
+ * 	Konstruktor przyjmuje liczbę wierzchołków i drzewo.
+ * 	Jeśli chcemy mieć rozbudowane krawędzie, to ($) przypomina, gdzie zmienić.
+ *
+ * 	Mamy tablicę odwiedzonych z refreshem w O(1) (używać bez skrępowania).
+ * 	visit(v) odznacza v jako odwiedzony.
+ * 	is_vis(v) zwraca, czy v jest odwiedzony.
+ * 	refresh(v) zamienia niezablokowane wierzchołki na nieodwiedzone.
+ * 	lock(v) blokuje v i teraz zawsze jest odwiedzony (nie używać na własną rękę).
+ * 	is_locked(v) zwraca, czy v jest zablokowany (opcjonalne, bo CD nie używa pierwotnie).
+ *
+ * 	W decomp mamy standardowe wykonanie CD na poziomie spójnej.
+ * 	Tablica par mówi kto jest naszym ojcem w drzewie CD.
+ * 	root to korzeń drzewa CD.
  */
 
 struct CentroDecomp {
-	using Neighbor = int;
-	const vector<vector<Neighbor>> &graph;
-	vector<int> par, _subsz, vis;
-	int licz = 1;
-	static constexpr int INF = int(1e9);
+	const vector<vector<int>> &graph; // $
+	vector<int> par, _subsz, _vis;
+	int _vis_cnt = 1;
+	const int _INF = int(1e9);
 	int root;
 
-	bool is_vis(int v) {
-		return vis[v] >= licz;
-	}
+	void refresh() { ++_vis_cnt; }
+	void visit(int v) { _vis[v] = _vis_cnt; }
+	bool is_vis(int v) { return _vis[v] >= _vis_cnt; }
+	void lock(int v) { _vis[v] = _INF; }
+	// bool is_locked(int v) { return _vis[v] == _INF; }
 
 	void dfs_subsz(int v) {
-		vis[v] = licz;
+		visit(v);
 		_subsz[v] = 1;
-		for (int u : graph[v])
+		for (int u : graph[v]) // $
 			if (!is_vis(u)) {
 				dfs_subsz(u);
 				_subsz[v] += _subsz[u];
@@ -36,13 +42,13 @@ struct CentroDecomp {
 	}
 
 	int centro(int v) {
-		++licz;
+		refresh();
 		dfs_subsz(v);
 		int sz = _subsz[v] / 2;
-		++licz;
+		refresh();
 		while (true) {
-			vis[v] = licz;
-			for (int u : graph[v])
+			visit(v);
+			for (int u : graph[v]) // $
 				if (!is_vis(u) && _subsz[u] > sz) {
 					v = u;
 					break;
@@ -53,25 +59,27 @@ struct CentroDecomp {
 	}
 
 	void decomp(int v) {
-		// czynnosci na poziomie jednej spojnej z znanym centroidem v
+		refresh();
+		// Tu pisać kod; spójna z centroidem v (cała nieodwiedzona, a v zablokowany)
 
-		++licz;
-		for(int u : graph[v])
+		// Nie ruszać dalej
+		refresh();
+		for(int u : graph[v]) // $
 			if (!is_vis(u)) {
 				u = centro(u);
 				par[u] = v;
-				vis[u] = INF;
+				lock(u);
 
-				// dodatkowe przekazanie informacji kolejnemu centroidowi np. jego glebokosc
+				// Opcjonalnie tutaj przekazujemy info synowi w drzewie CD przed wywołaniem.
 
 				decomp(u);
 			}
 	}
 
-	CentroDecomp(int n, vector<vector<Neighbor>> &_graph) 
-		: graph(_graph), par(n, -1), _subsz(n), vis(n) {
+	CentroDecomp(int n, vector<vector<int>> &_graph) /* $ */
+	   	: graph(_graph), par(n, -1), _subsz(n), _vis(n) {
 		root = centro(0);
-		vis[root] = INF;
+		lock(root);
 		decomp(root);
 	}
 };
