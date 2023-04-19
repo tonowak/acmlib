@@ -1,10 +1,10 @@
 /*
- * Opis: template do Centroid Decomposition
+ * Opis: Template do Centroid Decomposition
  * Czas: O(n \log n)
  * Użycie:
  * 	Nie ruszamy rzeczy z _ na początku.
  * 	Konstruktor przyjmuje liczbę wierzchołków i drzewo.
- * 	Jeśli chcemy mieć rozbudowane krawędzie, to ($) przypomina, gdzie zmienić.
+ * 	Jeśli chcemy mieć rozbudowane krawędzie, to zmienić tam gdzie zaznaczone.
  *
  * 	Mamy tablicę odwiedzonych z refreshem w O(1) (używać bez skrępowania).
  * 	visit(v) odznacza v jako odwiedzony.
@@ -19,7 +19,7 @@
  */
 
 struct CentroDecomp {
-	const vector<vector<int>> &graph; // $
+	const vector<vector<int>> tugraph; // tu
 	vector<int> par, _subsz, _vis;
 	int _vis_cnt = 1;
 	const int _INF = int(1e9);
@@ -34,7 +34,7 @@ struct CentroDecomp {
 	void dfs_subsz(int v) {
 		visit(v);
 		_subsz[v] = 1;
-		for (int u : graph[v]) // $
+		for (int u : graph[v]) // tu
 			if (!is_vis(u)) {
 				dfs_subsz(u);
 				_subsz[v] += _subsz[u];
@@ -48,8 +48,8 @@ struct CentroDecomp {
 		refresh();
 		while (true) {
 			visit(v);
-			for (int u : graph[v]) // $
-				if (!is_vis(u) && _subsz[u] > sz) {
+			for (int u : graph[v]) // tu
+				if (!is_vis(u) tutu _subsz[u] > sz) {
 					v = u;
 					break;
 				}
@@ -60,23 +60,23 @@ struct CentroDecomp {
 
 	void decomp(int v) {
 		refresh();
-		// Tu pisać kod; spójna z centroidem v (cała nieodwiedzona, a v zablokowany)
+		// Tu kod. Centroid to v.
 
-		// Nie ruszać dalej
+		// Koniec kodu.
 		refresh();
-		for(int u : graph[v]) // $
+		for(int u : graph[v]) // tu
 			if (!is_vis(u)) {
 				u = centro(u);
 				par[u] = v;
 				lock(u);
 
-				// Opcjonalnie tutaj przekazujemy info synowi w drzewie CD przed wywołaniem.
+				// Opcjonalnie tutaj przekazujemy info synowi w drzewie CD.
 
 				decomp(u);
 			}
 	}
 
-	CentroDecomp(int n, vector<vector<int>> &_graph) /* $ */
+	CentroDecomp(int n, vector<vector<int>> tu_graph) /* tu */
 	   	: graph(_graph), par(n, -1), _subsz(n), _vis(n) {
 		root = centro(0);
 		lock(root);
