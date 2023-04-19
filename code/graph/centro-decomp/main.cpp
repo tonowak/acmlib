@@ -19,7 +19,7 @@
  */
 
 struct CentroDecomp {
-	const vector<vector<int>> tugraph; // tu
+	const vector<vector<int>> &graph; // tu
 	vector<int> par, _subsz, _vis;
 	int _vis_cnt = 1;
 	const int _INF = int(1e9);
@@ -49,7 +49,7 @@ struct CentroDecomp {
 		while (true) {
 			visit(v);
 			for (int u : graph[v]) // tu
-				if (!is_vis(u) tutu _subsz[u] > sz) {
+				if (!is_vis(u) && _subsz[u] > sz) {
 					v = u;
 					break;
 				}
@@ -76,7 +76,7 @@ struct CentroDecomp {
 			}
 	}
 
-	CentroDecomp(int n, vector<vector<int>> tu_graph) /* tu */
+	CentroDecomp(int n, vector<vector<int>> &_graph) /* tu */
 	   	: graph(_graph), par(n, -1), _subsz(n), _vis(n) {
 		root = centro(0);
 		lock(root);
