@@ -5,7 +5,7 @@
  * get_pairs(n) zwraca posortowany vector par (dzielnik pierwszych, krotność) dla liczby n
  * all_factors(n) zwraca vector wszystkich dzielników n, niekoniecznie posortowany
  * factor(12) = {2, 2, 3}, factor(545423) = {53, 41, 251};
- * get_pair(12) = {(2, 2), (3, 1)}
+ * get_pairs(12) = {(2, 2), (3, 1)}
  * all_factors(12) = {1, 3, 2, 6, 4, 12}
  */
 
