@@ -184,3 +184,12 @@ $$| \bigcup_{i=1}^n A_i | = \sum_{\emptyset \neq J \subseteq  \{1,\dots,n\}} (-1
 $$F_n = \frac{\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}$$
 
 $F_{n-1}F_{n+1}-F_n^2=(-1)^n$, $F_{n+k}=F_k F_{n+1} + F_{k-1} F_n$, $F_n | F_{nk}$, $NWD(F_m, F_n) = F_{NWD(m, n)}$
+
+\section{Woodbury matrix identity}
+
+Dla $A\equiv n\times n, C\equiv k\times k, U\equiv n\times k, V\equiv k\times n$
+jest $$(A+UCV)^{-1} = A^{-1} - A^{-1}U(C^{-1}+VA^{-1}U)^{-1}VA^{-1},$$
+przy czym często $C=Id$.
+Używane gdy $A^{-1}$ jest już policzone i chcemy policzyć odwrotność lekko zmienionego $A$
+poprzez $C^{-1}$ i $VA^{-1}U$.
+Często występuje w kombinacji z tożsamością $\frac{1}{1-A} = \sum_{i=0}^\infty A^i$.
