@@ -2,8 +2,10 @@
  * Opis: Rozkład na czynniki Rho Pollarda
  * Czas: O(n^{\frac{1}{4}})
  * Użycie: factor(n) zwraca vector dzielników pierwszych n, niekoniecznie posortowany
+ * get_pairs(n) zwraca posortowany vector par (dzielnik pierwszych, krotność) dla liczby n
  * all_factors(n) zwraca vector wszystkich dzielników n, niekoniecznie posortowany
  * factor(12) = {2, 2, 3}, factor(545423) = {53, 41, 251};
+ * get_pair(12) = {(2, 2), (3, 1)}
  * all_factors(12) = {1, 3, 2, 6, 4, 12}
  */
 
@@ -29,24 +31,35 @@ vector<LL> factor(LL n) {
 	return l;
 }
 
-vector<LL> all_factors(LL n) {
+vector<pair<LL, int>> get_pairs(LL n) {
 	auto v = factor(n);
 	sort(v.begin(), v.end());
+	vector<pair<LL, int>> ret;
+	REP(i, ssize(v)) {
+		int x = i + 1;
+		while (x < ssize(v) and v[x] == v[i])
+			++x;
+		ret.emplace_back(v[i], x - i);
+		i = x - 1;
+	}
+	return ret;
+}
+
+vector<LL> all_factors(LL n) {
+	auto v = get_pairs(n);
 	vector<LL> ret;
 	function<void(LL,int)> gen = [&](LL val, int p) {
-		if (p > ssize(v)) {
+		if (p == ssize(v)) {
 			ret.emplace_back(val);
 			return;
 		}
-		int cnt = 1;
-		while (p < ssize(v) and v[p] == v[p - 1])
-			++p, ++cnt;
+		auto [x, cnt] = v[p];
 		gen(val, p + 1);
 		REP(i, cnt) {
-			val *= v[p - 1];
+			val *= x;
 			gen(val, p + 1);
 		}
 	};
-	gen(1, 1);
+	gen(1, 0);
 	return ret;
 }
