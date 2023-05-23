@@ -23,6 +23,14 @@ void test() {
 		return a;
 	};
 
+	auto brute_eval = [&](vi a, int x) {
+		reverse(a.begin(), a.end());
+		int ret = 0;
+		for (auto e : a)
+			ret = add(mul(ret, x), e);
+		return ret;
+	};
+
 	const int mn = 20;
 	const int mk = 20;
 
@@ -89,8 +97,21 @@ void test() {
 		assert(eq(powi(a, k, n), powi_slow(a, k, n)));
 	}
 
+	{ // div
+		auto a = get_vec(0, mn);
+		auto b = get_vec(1, mn);
+		auto [c, d] = div(a, b);
+		assert(a == add_vi(conv(c, b), d));
+	}
+
 	{ // eval
-		// TODO
+		const int L = rd(0, 100) ? mn : 1000;
+		auto a = get_vec(0, L);
+		auto x = get_vec(0, L);
+		auto y = eval(a, x);
+		assert(ssize(x) == ssize(y));
+		REP(i, ssize(x))
+			assert(brute_eval(a, x[i]) == y[i]);
 	}
 
 	{ // inter

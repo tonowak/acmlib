@@ -1,6 +1,6 @@
 /*
  * Opis: Operacje na wielomianach mod 998244353
- * Czas: deriv, integr - O(n), powi\_deg - O(n \cdot deg), sqrt, inv, log, exp, powi - O(n \cdot \log n), powi\_slow, eval, inter - O(n \cdot \log ^2 n)
+ * Czas: deriv, integr - O(n), powi\_deg - O(n \cdot deg), sqrt, inv, log, exp, powi, div - O(n \cdot \log n), powi\_slow, eval, inter - O(n \cdot \log ^2 n)
  * Użycie:
  *   Ogólnie to przepisujemy co chcemy. Funkcje oznaczone jako KONIECZNE są wymagane od miejsca ich wystąpienia w kodzie. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
  *   deriv(a) zwraca a'
@@ -10,6 +10,7 @@
  *   inv(a, n) zwraca a^-1 (mod x^n)
  *   log(a, n) zwraca ln(a) (mod x^n)
  *   exp(a, n) zwraca exp(a) (mod x^n)
+ *   div(a, b) zwraca (q, r) takie, że a = q * b + r
  *   eval(a, x) zwraca y taki, że a(x_i) = y_i
  *   inter(x, y) zwraca a taki, że a(x_i) = y_i
  */
@@ -187,10 +188,67 @@ vi powi(const vi& a, int k, int n) { // WYMAGA log, exp
 	return v;
 }
 
-vi eval(const vi& a, const vi& x) {
-	// TODO
-	(void)a; (void)x;
-	return {};
+pair<vi, vi> div_slow(vi a, const vi& b) {
+	vi x;
+	while(ssize(a) >= ssize(b)) {
+		x.emplace_back(mul(a.back(), inv(b.back())));
+		if(x.back() != 0)
+			REP(i, ssize(b))
+				a[ssize(a) - i - 1] = sub(a[ssize(a) - i - 1], mul(x.back(), b[ssize(b) - i - 1]));
+		a.pop_back();
+	}
+	reverse(x.begin(), x.end());
+	return {x, a};
+}
+
+pair<vi, vi> div(vi a, const vi& b) { // WYMAGA div_slow, inv
+	const int d = ssize(a) - ssize(b) + 1;
+	if (d <= 0)
+		return {{}, a};
+	if (min(d, ssize(b)) < 250)
+		return div_slow(a, b);
+	auto x = mod_xn(conv(mod_xn({a.rbegin(), a.rend()}, d), inv({b.rbegin(), b.rend()}, d)), d);
+	reverse(x.begin(), x.end());
+	sub(a, conv(x, b));
+	return {x, mod_xn(a, ssize(b))};
+}
+
+int eval_single(const vi& a, int x) {
+	int y = 0;
+	for (int i = ssize(a) - 1; i >= 0; --i) {
+		y = mul(y, x);
+		y = add(y, a[i]);
+	}
+	return y;
+}
+
+vi build(vector<vi> &tree, int v, auto l, auto r) {
+	if (r - l == 1) {
+		return tree[v] = vi{sub(0, *l), 1};
+	} else {
+		auto M = l + (r - l) / 2;
+		return tree[v] = conv(build(tree, 2 * v, l, M), build(tree, 2 * v + 1, M, r));
+	}
+}
+
+vi eval_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r) {
+	if (r - l == 1) {
+		return {eval_single(a, *l)};
+	} else {
+		auto m = l + (r - l) / 2;
+		auto A = eval_helper(div(a, tree[2 * v]).second, tree, 2 * v, l, m);
+		auto B = eval_helper(div(a, tree[2 * v + 1]).second, tree, 2 * v + 1, m, r);
+		A.insert(A.end(), B.begin(), B.end());
+		return A;
+	}
+}
+
+vi eval(const vi& a, const vi& x) { // WYMAGA div, eval_single, build, eval_helper
+	if (x.empty())
+		return {};
+	vector<vi> tree(4 * ssize(x));
+	build(tree, 1, begin(x), end(x));
+	return eval_helper(a, tree, 1, begin(x), end(x));
 }
 
 vi inter(const vi& x, const vi& y) {
