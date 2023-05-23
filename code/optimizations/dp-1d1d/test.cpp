@@ -17,7 +17,7 @@ void test() {
 	auto sm = [&](int l, int r) {
 		return sum[r] - (l > 0 ? sum[l - 1] : 0);
 	};
-	function<LL(int, int)> cost = [&](int l, int r) {
+	function<LL (int, int)> cost = [&](int l, int r) {
 		return sm(l, r) * sm(l, r) + penalty;
 	};
 	auto [score, cuts] = dp_1d1d(n, cost);
