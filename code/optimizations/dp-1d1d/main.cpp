@@ -4,7 +4,7 @@
  * Użycie:
  *   n - długość paska (n > 0)
  *   cost(i, j) - koszt odcinka [i, j]
- *   Dla a <= b <= c <= d, cost spełnia cost(a, c) + cost(b, d) <= cost(a, d) + cost(b, c).
+ *   Dla a <= b <= c <= d, cost musi spełniać cost(a, c) + cost(b, d) <= cost(a, d) + cost(b, c).
  *   Dzieli pasek [0, n) na odcinki [0, cuts[0]], ..., (cuts[i-1], cuts[i]],
  *   gdzie cuts.back() == n - 1, aby sumaryczny koszt wszystkich odcinków był minimalny.
  *   Zwraca (opt_cost, cuts).
