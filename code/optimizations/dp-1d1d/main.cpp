@@ -7,6 +7,7 @@
  *   Dla a <= b <= c <= d, cost musi spełniać cost(a, c) + cost(b, d) <= cost(a, d) + cost(b, c).
  *   Dzieli pasek [0, n) na odcinki [0, cuts[0]], ..., (cuts[i-1], cuts[i]],
  *   gdzie cuts.back() == n - 1, aby sumaryczny koszt wszystkich odcinków był minimalny.
+ *   cuts, to prawe końce tych odcinków.
  *   Zwraca (opt_cost, cuts).
  *   Aby maksymalizować koszt zamienić nierówności tam, gdzie wskazane.
  *   Aby uzyskać O(n), należy przepisać overtake w oparciu o dodatkowe założenia,
@@ -28,7 +29,7 @@ pair<LL, vector<int>> dp_1d1d(int n, function<LL (int, int)> cost) {
 		int bp = mn - 1, bk = n;
 		while (bk - bp > 1) {
 			int bs = (bp + bk) / 2;
-			if (score(bs, a) <= score(bs, b)) // tu zamienić na >=
+			if (score(bs, a) <= score(bs, b)) // tu >=
 				bk = bs;
 			else
 				bp = bs;
