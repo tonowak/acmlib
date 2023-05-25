@@ -201,13 +201,13 @@ pair<vi, vi> div_slow(vi a, const vi& b) {
 	return {x, a};
 }
 
-pair<vi, vi> div(vi a, const vi& b) { // WYMAGA div_slow, inv
+pair<vi, vi> div(vi a, const vi& b) { // WYMAGA inv, div_slow
 	const int d = ssize(a) - ssize(b) + 1;
 	if (d <= 0)
 		return {{}, a};
 	if (min(d, ssize(b)) < 250)
 		return div_slow(a, b);
-	auto x = mod_xn(conv(mod_xn({a.rbegin(), a.rend()}, d), inv({b.rbegin(), b.rend()}, d)), d);
+	vi x = mod_xn(conv(mod_xn({a.rbegin(), a.rend()}, d), inv({b.rbegin(), b.rend()}, d)), d);
 	reverse(x.begin(), x.end());
 	sub(a, conv(x, b));
 	return {x, mod_xn(a, ssize(b))};
@@ -236,8 +236,8 @@ vi eval_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r) {
 		return {eval_single(a, *l)};
 	} else {
 		auto m = l + (r - l) / 2;
-		auto A = eval_helper(div(a, tree[2 * v]).second, tree, 2 * v, l, m);
-		auto B = eval_helper(div(a, tree[2 * v + 1]).second, tree, 2 * v + 1, m, r);
+		vi A = eval_helper(div(a, tree[2 * v]).second, tree, 2 * v, l, m);
+		vi B = eval_helper(div(a, tree[2 * v + 1]).second, tree, 2 * v + 1, m, r);
 		A.insert(A.end(), B.begin(), B.end());
 		return A;
 	}
@@ -251,8 +251,27 @@ vi eval(const vi& a, const vi& x) { // WYMAGA div, eval_single, build, eval_help
 	return eval_helper(a, tree, 1, begin(x), end(x));
 }
 
-vi inter(const vi& x, const vi& y) {
-	// TODO
-	(void)x; (void)y;
-	return {};
+vi inter_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r, auto ly, auto ry) {
+	if (r - l == 1) {
+		return {mul(*ly, inv(a[0]))};
+	}
+	else {
+		auto m = l + (r - l) / 2;
+		auto my = ly + (ry - ly) / 2;
+		vi A = inter_helper(div(a, tree[2 * v]).second, tree, 2 * v, l, m, ly, my);
+		vi B = inter_helper(div(a, tree[2 * v + 1]).second, tree, 2 * v + 1, m, r, my, ry);
+		vi L = conv(A, tree[2 * v + 1]);
+		vi R = conv(B, tree[2 * v]);
+		REP(i, ssize(R))
+			L[i] = add(L[i], R[i]);
+		return L;
+	}
+}
+
+vi inter(const vi& x, const vi& y) { // WYMAGA deriv, div, build, inter_helper
+	assert(ssize(x) == ssize(y));
+	if (x.empty())
+		return {};
+	vector<vi> tree(4 * ssize(x));
+	return inter_helper(deriv(build(tree, 1, begin(x), end(x))), tree, 1, begin(x), end(x), begin(y), end(y));
 }

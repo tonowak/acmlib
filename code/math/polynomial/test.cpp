@@ -2,11 +2,26 @@
 #include "main.cpp"
 
 void test() {
-	auto get_vec = [&](int a, int b) {
-		int n = rd(a, b);
+	auto get_vec_given_length = [&](int n) {
 		vector<int> v(n);
 		for(int &e : v)
 			e = rd(0, mod - 1);
+		return v;
+	};
+
+	auto get_vec = [&](int a, int b) {
+		return get_vec_given_length(rd(a, b));
+	};
+
+	auto get_vec_diff = [&](int n) {
+		vector<int> v(n);
+		set<int> s;
+		for (int &e : v) {
+			do {
+				e = rd(0, mod - 1);
+			} while (s.find(e) != s.end());
+			s.emplace(e);
+		}
 		return v;
 	};
 
@@ -115,6 +130,12 @@ void test() {
 	}
 
 	{ // inter
-		// TODO
+		const int L = rd(0, 100) ? mn : 1000;
+		const int n = rd(0, L);
+		auto x = get_vec_diff(n);
+		auto y = get_vec_given_length(n);
+		auto a = inter(x, y);
+		assert(ssize(a) <= n);
+		assert(eval(a, x) == y);
 	}
 }
