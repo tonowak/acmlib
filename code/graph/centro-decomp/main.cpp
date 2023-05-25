@@ -10,8 +10,6 @@
  * 	visit(v) odznacza v jako odwiedzony.
  * 	is_vis(v) zwraca, czy v jest odwiedzony.
  * 	refresh(v) zamienia niezablokowane wierzchołki na nieodwiedzone.
- * 	lock(v) blokuje v i teraz zawsze jest odwiedzony (nie używać na własną rękę).
- * 	is_locked(v) zwraca, czy v jest zablokowany (opcjonalne, bo CD nie używa pierwotnie).
  *
  * 	W decomp mamy standardowe wykonanie CD na poziomie spójnej.
  * 	Tablica par mówi kto jest naszym ojcem w drzewie CD.
@@ -26,10 +24,8 @@ struct CentroDecomp {
 	int root;
 
 	void refresh() { ++_vis_cnt; }
-	void visit(int v) { _vis[v] = _vis_cnt; }
+	void visit(int v) { _vis[v] = max(_vis[v], _vis_cnt); }
 	bool is_vis(int v) { return _vis[v] >= _vis_cnt; }
-	void lock(int v) { _vis[v] = _INF; }
-	// bool is_locked(int v) { return _vis[v] == _INF; }
 
 	void dfs_subsz(int v) {
 		visit(v);
@@ -60,7 +56,7 @@ struct CentroDecomp {
 
 	void decomp(int v) {
 		refresh();
-		// Tu kod. Centroid to v.
+		// Tu kod. Centroid to v, ktory jest juz dozywotnie odwiedzony.
 
 		// Koniec kodu.
 		refresh();
@@ -68,7 +64,7 @@ struct CentroDecomp {
 			if (!is_vis(u)) {
 				u = centro(u);
 				par[u] = v;
-				lock(u);
+				_vis[u] = _INF;
 
 				// Opcjonalnie tutaj przekazujemy info synowi w drzewie CD.
 
@@ -76,10 +72,10 @@ struct CentroDecomp {
 			}
 	}
 
-	CentroDecomp(int n, vector<vector<int>> &_graph) /* tu */
+	CentroDecomp(int n, vector<vector<int>> &_graph) // tu
 	   	: graph(_graph), par(n, -1), _subsz(n), _vis(n) {
 		root = centro(0);
-		lock(root);
+		_vis[root] = _INF;
 		decomp(root);
 	}
 };
