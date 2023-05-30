@@ -21,7 +21,7 @@ void test() {
 			x = rd(0, r - 1);
 	}
 
-	SuffixArray sa(s);
+	auto [sa, _] = suffix_array(s);
 
 	auto get_t_lcp = [&](int i) -> int {
 		REP(k, ssize(t))
@@ -33,10 +33,10 @@ void test() {
 	};
 
 	vector<int> good_positions;
-	REP(i, ssize(sa.sa))
-		if(get_t_lcp(sa.sa[i]) == ssize(t))
+	REP(i, ssize(sa))
+		if(get_t_lcp(sa[i]) == ssize(t))
 			good_positions.emplace_back(i);
-	debug(n, s, t, sa.sa, good_positions);
+	debug(n, s, t, sa, good_positions);
 	REP(i, ssize(good_positions) - 1)
 		assert(good_positions[i] + 1 == good_positions[i + 1]);
 

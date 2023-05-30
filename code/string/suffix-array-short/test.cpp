@@ -8,7 +8,7 @@ void test() {
 	for (auto& x : s)
 		x = rd(0, r - 1);
 
-	SuffixArray sa(s);
+	auto [sa, lcp] = suffix_array(s);
 
 	vector<pair<vector<int>,int>> v(n + 1);
 	REP(i,n+1)
@@ -16,7 +16,7 @@ void test() {
 	sort(v.begin(), v.end());
 
 	REP(i,n+1)
-		assert(sa.sa[i] == v[i].second);
+		assert(sa[i] == v[i].second);
 
 	auto common = [&](const vector<int>& a, const vector<int>& b) {
 		int d = min(ssize(a), ssize(b));
@@ -26,5 +26,5 @@ void test() {
 		return d;
 	};
 	REP(i,n)
-		assert(sa.lcp[i + 1] == common(v[i].first, v[i + 1].first));
+		assert(lcp[i] == common(v[i].first, v[i + 1].first));
 }
