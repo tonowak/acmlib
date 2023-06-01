@@ -61,9 +61,7 @@ struct Dinic {
 
 	T operator()(int source, int sink) {
 		T answer = 0;
-		while(true) {
-			if(not bfs(source, sink))
-				break;
+		while(bfs(source, sink)) {
 			ended_at.assign(n, 0);
 			while(T pushed = dfs(source, sink))
 				answer += pushed;
