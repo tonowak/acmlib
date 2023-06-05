@@ -7,16 +7,11 @@
  */
 
 vector<vector<int>> cactus_cycles(vector<vector<int>> graph) {
-	int n = ssize(graph);
-	vector<int> state(n, 0);
-	vector<int> stack;
+	vector<int> state(ssize(graph), 0), stack;
 	vector<vector<int>> ret;
 	function<void (int, int)> dfs = [&](int v, int p) {
 		if(state[v] == 2) {
-			vector<int> cycle = {v};
-			for(int i = 0; stack[ssize(stack) - 1 - i] != v; ++i)
-				cycle.emplace_back(stack[ssize(stack) - 1 - i]);
-			ret.emplace_back(cycle);
+			ret.emplace_back(stack.rbegin(), find(stack.rbegin(), stack.rend(), v) + 1);
 			return;
 		}
 		stack.emplace_back(v);
@@ -30,4 +25,3 @@ vector<vector<int>> cactus_cycles(vector<vector<int>> graph) {
 	dfs(0, -1);
 	return ret;
 }
-
