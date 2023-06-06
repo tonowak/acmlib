@@ -1,6 +1,6 @@
 /*
  * Opis: Dla funkcji, których pary przecinaja sie 
- *   co najwyżej raz, oblicza maximum w punkcie x. 
+ *   co najwyżej raz, oblicza minimum w punkcie x. 
  *   Podany kod jest dla funkcji liniowych
  */
 
