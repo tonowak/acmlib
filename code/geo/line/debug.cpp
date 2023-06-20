@@ -1,7 +1,7 @@
 #include "../../utils/headers/main.cpp"
 #include "main.cpp"
 
-int main() { 
+int main() {
 	P a, b;
 	cin >> a >> b;
 	Line l(a, b);

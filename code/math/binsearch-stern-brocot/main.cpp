@@ -1,5 +1,5 @@
 /*
- * Opis: Binsearch na ułamkach. 
+ * Opis: Binsearch na ułamkach.
  * Czas: O(\log max\_val)
  * Użycie:
  *   Szuka największego a/b, że is_ok(a/b) oraz 0 <= a,b <= max_value. Zakłada, że is_ok(0) == true.

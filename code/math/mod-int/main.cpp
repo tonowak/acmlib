@@ -63,8 +63,8 @@ struct modular {
 	friend modular inv(const modular &a) {
 		assert(a != 0); return qpow(a, mod - 2);
 	}
-	modular& operator/=(const modular &m) { 
-		return (*this) *= inv(m); 
+	modular& operator/=(const modular &m) {
+		return (*this) *= inv(m);
 	}
 	modular operator++(int) {
 		modular res = (*this);

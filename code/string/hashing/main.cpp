@@ -1,6 +1,6 @@
 /*
  * Opis: Pojedyńcze i podwójne hashowanie.
- * Użycie: 
+ * Użycie:
  * Hashing hsh(str);
  * hsh(l, r) zwraca hasza [l, r] włącznie
  * można zmienić modulo i bazę

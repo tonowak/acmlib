@@ -49,7 +49,7 @@ struct TwoSat {
 	vector<int> val, comp, z;
 	int t = 0;
 	int dfs(int i) {
-		int low = val[i] = ++t, x; 
+		int low = val[i] = ++t, x;
 		z.emplace_back(i);
 		for(auto &e : gr[i]) if(!comp[e])
 			low = min(low, val[e] ?: dfs(e));

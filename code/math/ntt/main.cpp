@@ -5,7 +5,7 @@
  *   conv(a, b) zwraca iloczyn wielomianów a i b
  */
 
-#include "../simple-modulo/main.cpp" 
+#include "../simple-modulo/main.cpp"
 
 using vi = vector<int>;
 constexpr int root = 3;

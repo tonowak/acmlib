@@ -8,11 +8,11 @@
  * Dla s = "aabaaab" sa = {7, 3, 4, 0, 5, 1, 6, 2}, lcp = {0, 2, 3, 1, 2, 0, 1}
  */
 
-void induced_sort(const vector<int> &vec, int alpha, vector<int> &sa, 
+void induced_sort(const vector<int> &vec, int alpha, vector<int> &sa,
 		const vector<bool> &sl, const vector<int> &lms_idx) {
 	vector<int> l(alpha), r(alpha);
 	for (int c : vec) {
-		if (c + 1 < alpha) 
+		if (c + 1 < alpha)
 			++l[c + 1];
 		++r[c];
 	}
@@ -25,7 +25,7 @@ void induced_sort(const vector<int> &vec, int alpha, vector<int> &sa,
 		if (i >= 1 and sl[i - 1])
 			sa[l[vec[i - 1]]++] = i - 1;
 	fill(r.begin(), r.end(), 0);
-	for (int c : vec) 
+	for (int c : vec)
 		++r[c];
 	partial_sum(r.begin(), r.end(), r.begin());
 	for (int k = ssize(sa) - 1, i = sa[k]; k >= 1; --k, i = sa[k])
@@ -38,7 +38,7 @@ vector<int> sa_is(const vector<int> &vec, int alpha) {
 	vector<bool> sl(n);
 	for (int i = n - 2; i >= 0; --i) {
 		sl[i] = vec[i] > vec[i + 1] or (vec[i] == vec[i + 1] and sl[i + 1]);
-		if (sl[i] and not sl[i + 1]) 
+		if (sl[i] and not sl[i + 1])
 			lms_idx.emplace_back(i + 1);
 	}
 	reverse(lms_idx.begin(), lms_idx.end());

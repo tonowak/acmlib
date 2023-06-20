@@ -23,7 +23,7 @@ vector<LL> mul(vector<LL> A, vector<LL> B) {
 	return res;
 }
 
-void test() { 
+void test() {
 	/*
 	vector<LL> A = get_poly(), B = get_poly();
 	debug(A, B);
@@ -31,7 +31,7 @@ void test() {
 	debug(conv_mod(A, B, mod));
 	return mul(A, B) != conv_mod(A, B, mod);
 	*/
-	
+
 	vector<double> A = get_poly(), B = get_poly();
 	debug(A, B);
 	debug(conv(A, B));

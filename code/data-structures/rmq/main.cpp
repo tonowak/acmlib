@@ -3,8 +3,8 @@
  * Czas: O(n \log n)
  * Pamięć: O(n \log n)
  * Użycie:
- *    RMQ(vec) tworzy sparse table na ciągu vec
- *    query(l, r) odpowiada na RMQ w O(1)
+ *  RMQ(vec) tworzy sparse table na ciągu vec
+ *  query(l, r) odpowiada na RMQ w O(1)
  */
 
 struct RMQ {
@@ -19,7 +19,7 @@ struct RMQ {
 			if(q < n) st[i][j] = min(st[i][j], st[i - 1][q]);
 		}
 	}
- 
+
 	int query(int l, int r) {
 		int q = __lg(r - l + 1), x = r - (1 << q) + 1;
 		return min(st[q][l], st[q][x]);

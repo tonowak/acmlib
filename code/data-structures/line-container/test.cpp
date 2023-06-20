@@ -25,7 +25,7 @@ void test() {
 			lc.add(a, b);
 		}
 		else {
-			int x = rd(-1000, 1000); 
+			int x = rd(-1000, 1000);
 			assert(get(x) == lc.query(x));
 		}
 	}

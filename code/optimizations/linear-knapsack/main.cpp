@@ -1,5 +1,5 @@
 /*
- * Opis: Plecak zwracający największą otrzymywalną sumę ciężarów <= bound. 
+ * Opis: Plecak zwracający największą otrzymywalną sumę ciężarów <= bound.
  * Czas: O(n * max(wi)) (zamiast typowego O(n * sum(wi)))
  * Pamięć : O(n + max(wi))
  */

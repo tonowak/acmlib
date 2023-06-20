@@ -1,4 +1,4 @@
-/* 
+/*
  * Opis: Wzór na całkę z zasady Simpsona - zwraca całkę na przedziale [a, b]
  * Czas: O(n)
  * Użycie: integral([](T x) { return 3 * x * x - 8 * x + 3; }, a, b)

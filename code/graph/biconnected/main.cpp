@@ -25,7 +25,7 @@ struct Low {
 			if(u == p and not considered_parent)
 				considered_parent = true;
 			else if(pre[u] == -1) {
-				bicon_stack.emplace_back(e); 
+				bicon_stack.emplace_back(e);
 				dfs(u, v);
 				low[v] = min(low[v], low[u]);
 

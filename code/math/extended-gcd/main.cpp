@@ -1,5 +1,5 @@
 /*
- * Opis: Dla danego $(a, b)$ znajduje 
+ * Opis: Dla danego $(a, b)$ znajduje
  *   takie $(gcd(a, b), x, y)$, że $ax + by = gcd(a, b)$
  * Czas: O(\log(\min(a, b)))
  * Użycie:

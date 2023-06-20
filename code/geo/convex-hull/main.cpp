@@ -1,4 +1,4 @@
-/* 
+/*
  * Opis: Otoczka wypukła, osobno góra i dół
  * Czas: O(n \log n)
  * Użycie:

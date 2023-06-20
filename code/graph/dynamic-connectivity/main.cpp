@@ -7,7 +7,7 @@ struct DynamicConnectivity {
 	int n, leaves = 1;
 	vector<pair<int, int>> queries;
 	vector<vector<pair<int, int>>> edges_to_add;
-	DynamicConnectivity(int _n, vector<pair<int, int>> _queries) 
+	DynamicConnectivity(int _n, vector<pair<int, int>> _queries)
 			: n(_n), queries(_queries) {
 		while(leaves < ssize(queries))
 			leaves *= 2;

@@ -29,7 +29,7 @@ struct SimpleJumpPtr {
 			par_dfs(root);
 		jmp.resize(bits, vector<int>(n, -1));
 		jmp[0] = par;
-		FOR(b, 1, bits - 1) 
+		FOR(b, 1, bits - 1)
 			REP(v, n)
 				if(jmp[b - 1][v] != -1)
 					jmp[b][v] = jmp[b - 1][jmp[b - 1][v]];
@@ -47,14 +47,14 @@ struct SimpleJumpPtr {
 		v = jump_up(v, dep[v] - dep[u]);
 		if(v == u)
 			return v;
-		
+
 		for(int b = bits - 1; b >= 0; b--) {
 			if(jmp[b][v] != jmp[b][u]) {
 				v = jmp[b][v];
 				u = jmp[b][u];
 			}
 		}
-		return par[v];		
+		return par[v];
 	}
 };
 

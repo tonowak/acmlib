@@ -1,4 +1,4 @@
-/* 
+/*
  * Opis: Dla pierwszego $mod$ oraz $a \perp mod, k$ znajduje $b$ takie, że $b^k = a$ (pierwiastek k-tego stopnia z $a$). Jak zwróci -1 to nie istnieje.
 */
 

@@ -17,7 +17,7 @@ void print_tree(vector<vector<int>> &graph, int v = 0, int p = -1, int dep = 0, 
 	cerr << v << "\n";
 	int last = -1;
 	for(int u : graph[v]) if(u != p) last = u;
-	for(int u : graph[v]) if(u != p) 
+	for(int u : graph[v]) if(u != p)
 		print_tree(graph, u, v, dep + 1, last == u);
 	edge[dep] = false;
 }
