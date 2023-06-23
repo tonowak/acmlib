@@ -11,6 +11,7 @@ import getopt
 import subprocess
 
 def polskie(input):
+    '''
     input = input.replace('ę', r'\c e')
     input = input.replace('ą', r'\c a')
     input = input.replace('ż', r'\ensuremath{\dot{\text{z}}}')
@@ -19,6 +20,7 @@ def polskie(input):
     input = input.replace('Ą', r'\c A')
     input = input.replace('Ż', r'\ensuremath{\dot{\text{Z}}}')
     input = input.replace('Ł', r'L')
+    '''
     return input
 
 def escape(input):
@@ -40,6 +42,7 @@ def codeescape(input):
     input = input.replace('}', r'\}')
     input = input.replace('[', '{[}')
     input = input.replace(']', '{]}')
+    input = input.replace('~', '\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}')
     input = input.replace('^', r'\ensuremath{\hat{\;}}')
     input = escape(input)
     return input
@@ -65,8 +68,8 @@ def ordoescape(input, esc=True):
 def addref(caption, outstream):
     caption = pathescape(caption).strip()
     print(r"\kactlref{%s}" % caption, file=outstream)
-    with open('pdf/build/header.tmp', 'a') as f:
-        f.write(caption + "\n")
+    # with open('pdf/build/header.tmp', 'a') as f:
+        # f.write(caption + "\n")
 
 COMMENT_TYPES = [
     ('/*', '*/'),
@@ -112,7 +115,7 @@ def processwithcomments(caption, instream, outstream, listingslang):
         # Check includes
         include = parse_include(line)
         if include is not None and not keep_include:
-            includelist.append(include)
+            includelist.append(include.lstrip('"../').rstrip('/main.cpp"'))
             continue
         nlines.append(line)
     # Remove and process multiline comments
@@ -165,7 +168,7 @@ def processwithcomments(caption, instream, outstream, listingslang):
         p = subprocess.Popen(['sh', 'pdf/kactl-include/%s.sh' % hash_script], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
         hsh, _ = p.communicate(nsource)
         hsh = hsh.split(None, 1)[0]
-        hsh = hsh + ', '
+        hsh = hsh
     else:
         hsh = ''
     # Produce output
@@ -177,21 +180,25 @@ def processwithcomments(caption, instream, outstream, listingslang):
     else:
         foldername = caption.split('/')[-2]
         addref(foldername, outstream)
-        if commands.get("Opis"):
-            out.append(r"\defdescription{%s}" % escape(commands["Opis"]))
-        if commands.get("Pamięć"):
-            out.append(r"\defmemory{%s}" % ordoescape(commands["Pamięć"]))
-        if commands.get("Czas"):
-            out.append(r"\deftime{%s}" % ordoescape(commands["Czas"]))
-        if commands.get("Użycie"):
-            out.append(r"\defusage{%s}" % codeescape(commands["Użycie"]))
+        out.append(r"\newline\tiny{\#%s}" % (hsh))
         if includelist:
-            out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
-        if nsource:
-            out.append(r"\rightcaption{%s%d lines}" % (hsh, len(nsource.split("\n"))))
-        langstr = ", language="+listingslang
-        # out.append(r"\begin{lstlisting}[caption={%s}%s]" % (pathescape(caption), langstr))
-        out.append(r"\begin{lstlisting}[caption={%s}%s]" % (foldername, langstr))
+            out.append(r"\tiny{, needed: \texttt{%s}}" % (pathescape(", ".join(includelist))))
+
+        if commands.get("Opis"):
+            out.append(r"\par\noindent\scriptsize{%s}" % escape(commands["Opis"]))
+        if commands.get("Czas"):
+            out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Czas"]))
+        if commands.get("Użycie"):
+            out.append(r"\par\noindent\scriptsize{\texttt{%s}}" % codeescape(commands["Użycie"]))
+        # if includelist:
+            # out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
+        # if nsource:
+            # out.append(r"\rightcaption{%s%d lines}" % (hsh, len(nsource.split("\n"))))
+        langstr = "language="+listingslang
+        # out.append(r"\begin{lstlisting}[caption={%s}, %s]" % (pathescape(caption), langstr))
+        # out.append(r"\begin{lstlisting}[caption={\textbf{%s}}, %s]" % (foldername, langstr))
+        # out.append(r"\begin{lstlisting}[caption={}, %s]" % langstr)
+        out.append(r"\begin{lstlisting}[%s]" % langstr)
         out.append(nsource)
         out.append(r"\end{lstlisting}")
 
@@ -202,7 +209,7 @@ def processraw(caption, instream, outstream, listingslang = 'raw'):
     try:
         source = instream.read().strip()
         addref(caption, outstream)
-        print(r"\rightcaption{%d lines}" % len(source.split("\n")), file=outstream)
+        # print(r"\rightcaption{%d lines}" % len(source.split("\n")), file=outstream)
         print(r"\begin{lstlisting}[language=%s,caption={%s}]" % (listingslang, pathescape(caption)), file=outstream)
         print(source, file=outstream)
         print(r"\end{lstlisting}", file=outstream)

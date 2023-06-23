@@ -4,15 +4,12 @@
  * Pamięć : O(1)
  * Użycie:
  *   n musi być potęgą dwójki.
- *
  *   fwht_or(a)[i] = suma(j będące podmaską i) a[j].
  *   ifwht_or(fwht_or(a)) == a.
  *   convolution_or(a, b)[i] = suma(j | k == i) a[j] * b[k].
- *
  *   fwht_and(a)[i] = suma(j będące nadmaską i) a[j].
  *   ifwht_and(fwht_and(a)) == a.
  *   convolution_and(a, b)[i] = suma(j \& k == i) a[j] * b[k].
- *
  *   fwht_xor(a)[i] = suma(j oraz i mają parzyście wspólnie zapalonych bitów) a[j] - suma(j oraz i mają nieparzyście) a[j].
  *   ifwht_xor(fwht_xor(a)) == a.
  *   convolution_xor(a, b)[i] = suma(j ^ k == i) a[j] * b[k].

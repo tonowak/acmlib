@@ -3,9 +3,9 @@
  * Użycie:
  *  TwoSat ts(ilość zmiennych);
  *  \~ oznacza negację
- *  ts.either(0, \tilde3); // var 0 is true or var 3 is false
+ *  ts.either(0, \sim3); // var 0 is true or var 3 is false
  *  ts.set_value(2); // var 2 is true
- *  ts.at_most_one({0,\tilde1,2}); // co najwyżej jedna z var 0, \tilde1 i  2 to prawda
+ *  ts.at_most_one({0,\sim1,2}); // co najwyżej jedna z var 0, \sim1 i  2 to prawda
  *  ts.solve(); // rozwiązuje i zwraca true jeśli rozwiązanie istnieje
  *  ts.values[0..N-1] // to wartości rozwiązania
  * Czas: O(n+m), gdzie n to ilość zmiennych, i m to ilość przyporządkowań.

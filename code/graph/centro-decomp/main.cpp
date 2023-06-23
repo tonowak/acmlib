@@ -5,12 +5,10 @@
  * 	Nie ruszamy rzeczy z _ na początku.
  * 	Konstruktor przyjmuje liczbę wierzchołków i drzewo.
  * 	Jeśli chcemy mieć rozbudowane krawędzie, to zmienić tam gdzie zaznaczone.
- *
  * 	Mamy tablicę odwiedzonych z refreshem w O(1) (używać bez skrępowania).
  * 	visit(v) odznacza v jako odwiedzony.
  * 	is_vis(v) zwraca, czy v jest odwiedzony.
  * 	refresh(v) zamienia niezablokowane wierzchołki na nieodwiedzone.
- *
  * 	W decomp mamy standardowe wykonanie CD na poziomie spójnej.
  * 	Tablica par mówi kto jest naszym ojcem w drzewie CD.
  * 	root to korzeń drzewa CD.

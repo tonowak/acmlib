@@ -1,4 +1,4 @@
-LATEXCMD = pdflatex -shell-escape -output-directory pdf/build/
+LATEXCMD = lualatex -shell-escape -output-directory pdf/build/
 export TEXINPUTS=.:pdf/kactl-include/:
 export max_print_line = 1048576
 
