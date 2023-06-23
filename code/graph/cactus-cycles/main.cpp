@@ -1,6 +1,6 @@
 /*
  * Opis: Wyznaczanie cykli w grafie. Założenia - nieskierowany graf bez pętelek i multikrawędzi,
- *   każda krawędź leży na co najwyżej jednym cyklu prostym (silniejsze założenie, niż o wierzchołkach).
+ *   każda krawędź leży na co najwyżej jednym cyklu prostym (słabsze założenie, niż o wierzchołkach).
  * Czas: O(n)
  * Użycie:
  *   cactus_cycles(graph) zwraca taką listę cykli, że istnieje krawędź między i-tym, a (i+1) mod ssize(cycle)-tym wierzchołkiem.
@@ -22,6 +22,8 @@ vector<vector<int>> cactus_cycles(vector<vector<int>> graph) {
 		state[v] = 1;
 		stack.pop_back();
 	};
-	dfs(0, -1);
+	REP(i, ssize(graph))
+		if (!state[i])
+			dfs(i, -1);
 	return ret;
 }
