@@ -1,10 +1,7 @@
 /*
- * Opis: Drzewo potęgowe
- * Czas: O(\log n)
- * Użycie:
- *   wszystko indexowane od 0
- *   update(pos, val) dodaje val do elementu pos
- *   query(pos) zwraca sumę na przedziale [0, pos]
+ * Opis: O(\log n), indeksowane od 0,
+ *   \texttt{update(pos, val)} dodaje \texttt{val} do elementu \texttt{pos},
+ *   \texttt{query(pos)} zwraca sumę $[0, pos]$.
  */
 
 struct Fenwick {

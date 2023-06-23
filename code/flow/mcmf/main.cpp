@@ -1,8 +1,6 @@
 /*
- * Opis: Min-cost max-flow z SPFA
- * Czas: kto wie
- * Użycie: MCMF flow(2); flow.add_edge(0, 1, 5, 3); cout << flow(0, 1); // 15
- *   można przepisać funkcję get_flowing() z Dinic'a
+ * Opis: O(idk), Min-cost max-flow z SPFA.
+ *   Można przepisać funkcję get\_flowing() z Dinic'a.
  */
 
 struct MCMF {

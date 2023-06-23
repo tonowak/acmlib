@@ -1,10 +1,6 @@
 /*
- * Opis: Range Minimum Query z użyciem sparse table
- * Czas: O(n \log n)
- * Pamięć: O(n \log n)
- * Użycie:
- *    RMQ(vec) tworzy sparse table na ciągu vec
- *    query(l, r) odpowiada na RMQ w O(1)
+ * Opis: O(n \log n) czasowo i pamięciowo, Range Minimum Query z użyciem sparse table,
+ *   zapytanie jest w O(1).
  */
 
 struct RMQ {

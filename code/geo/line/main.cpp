@@ -1,5 +1,5 @@
 /*
- * Opis: konwersja różnych postaci prostej
+ * Opis: Konwersja różnych postaci prostej.
  */
 
 #include "../point/main.cpp"

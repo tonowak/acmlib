@@ -1,7 +1,6 @@
 /*
- * Opis: Dla macierzy wag (mogą być ujemne) między dwoma warstami o rozmiarach n0 oraz n1 (n0 <= n1) wyznacza minimalną sumę wag skojarzenia pełnego.
- * Zwraca sumę wag oraz matching.
- * Czas: O(n_0^2\cdot n_1)
+ * Opis: O(n_0^2\cdot n_1), dla macierzy wag (mogą być ujemne) między dwoma warstami o rozmiarach $n0$ oraz $n1$ ($n0 <= n1$) wyznacza minimalną sumę wag skojarzenia pełnego.
+ *   Zwraca sumę wag oraz matching.
  */
 
 pair<LL, vector<int>> hungarian(vector<vector<int>> a) {

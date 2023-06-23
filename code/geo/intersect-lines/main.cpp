@@ -1,11 +1,10 @@
 /*
- * Opis: Przecięcie prostych lub odcinków
- * Użycie: intersection(a, b, c, d) zwraca przecięcie prostych ab oraz cd
- * v = intersect_segments(a, b, c, d, s) zwraca przecięcie odcinków ab oraz cd
- * if ssize(v) == 0: nie ma przecięć
- * if ssize(v) == 1: v[0] jest przecięciem
- * if ssize(v) == 2 in intersect_segments: (v[0], v[1]) to odcinek, w którym są wszystkie inf rozwiązań
- * if ssize(v) == 2 in intersect_lines: v to niezdefiniowane punkty (inf rozwiązań)
+ * Opis: \texttt{intersection(a, b, c, d)} zwraca przecięcie prostych $ab$ oraz $cd$,
+ *   \texttt{v = intersect\_segments(a, b, c, d, s)} zwraca przecięcie odcinków $ab$ oraz $cd$,
+ *   \texttt{if ssize(v) == 0:} nie ma przecięć
+ *   \texttt{if ssize(v) == 1:} \texttt{v[0]} jest przecięciem
+ *   \texttt{if ssize(v) == 2 in intersect\_segments:} \texttt{(v[0], v[1])} to odcinek, w którym są wszystkie inf rozwiązań
+ *   \texttt{if ssize(v) == 2 in intersect\_lines:} \texttt{v} to niezdefiniowane punkty (inf rozwiązań)
  */
 
 #include "../point/main.cpp"

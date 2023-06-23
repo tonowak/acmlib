@@ -1,5 +1,5 @@
 /*
- * Opis: Drzewo przedział-przedział, w miarę abstrakcyjne. Wystarczy zmienić Node i funkcje na nim.
+ * Opis: Drzewo przedział-przedział, w miarę abstrakcyjne. Wystarczy zmienić \texttt{Node} i funkcje na nim.
  */
 
 struct Node {

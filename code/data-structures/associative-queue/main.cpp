@@ -1,12 +1,7 @@
 /*
- * Opis: Kolejka wspierająca dowolną operację łączną
- * Czas: O(1) zamortyzowany
- * Użycie:
- *   konstruktor przyjmuje dwuargumentową funkcję oraz jej element neutralny
- *   AssocQueue<int> q1([](int a, int b){ return min(a, b);}, numeric_limits<int>::max());
- *   AssocQueue<Matrix> q2([](Matrix a, Matrix b){ return a * b;});
- *   q2.emplace(a); q2.emplace(b); q2.emplace(c);
- *   q2.calc() // zwraca a * b * c
+ * Opis: Kolejka wspierająca dowolną operację łączną, O(1) zamortyzowany.
+ *   Konstruktor przyjmuje dwuargumentową funkcję oraz jej element neutralny.
+ *   Dla minów jest \texttt{AssocQueue<int> q([](int a, int b)\{ return min(a, b); \}, numeric\_limits<int>::max());}
  */
 
 template<typename T>

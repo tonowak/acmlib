@@ -1,12 +1,11 @@
 /*
- * Opis: set z dodatkowymi funkcjami
- * Użycie:
- *   insert(x) dodaje element x (nie ma emplace)
- *   find_by_order(i) zwraca iterator do i-tego elementu
- *   order_of_key(x) zwraca, ile jest mniejszych elementów,
- *   x nie musi być w secie
- *   Jeśli chcemy multiseta, to używamy par {val, id}.
- *   Przed includem trzeba dać undef _GLIBCXX_DEBUG
+ * Opis:
+ *   \texttt{insert(x)} dodaje element $x$ (nie ma emplace),
+ *   \texttt{find\_by\_order(i)} zwraca iterator do $i$-tego elementu,
+ *   \texttt{order\_of\_key(x)} zwraca ile jest mniejszych elementów
+ *   ($x$ nie musi być w secie).
+ *   Jeśli chcemy multiseta, to używamy par $(val, id)$.
+ *   Przed includem trzeba dać \texttt{undef \_GLIBCXX\_DEBUG}.
  */
 
 #include<ext/pb_ds/assoc_container.hpp>

@@ -1,9 +1,5 @@
 /*
- * Opis: szybsza mapa
- * Czas: O(1)
- * Użycie:
- * np hash_map<int, int>
- * trzeba przed includem dać undef _GLIBCXX_DEBUG
+ * Opis: O(1), trzeba przed includem dać undef \texttt{\_GLIBCXX\_DEBUG}.
  */
 
 #include<ext/pb_ds/assoc_container.hpp>

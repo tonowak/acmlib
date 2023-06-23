@@ -1,9 +1,8 @@
 /*
- * Opis: Drzewo potęgowe 2d offline
- * Czas: O(\log^2 n) Pamięć O(n \log n)
- * Użycie:
- * wywołujemy preprocess(x, y) na pozycjach, które chcemy updateować, później init()
- * update(x, y, val) dodaje val do a[x, y], query(x, y) zwraca sumę na prostokącie (0, 0) - (x, y)
+ * Opis: O(\log^2 n), pamięć O(n \log n),
+ *   2D offline,
+ *   wywołujemy \texttt{preprocess(x, y)} na pozycjach, które chcemy updateować, później \texttt{init()}.
+ *   \texttt{update(x, y, val)} dodaje \texttt{val} do $[x, y]$, \texttt{query(x, y)} zwraca sumę na prostokącie $(0, 0) - (x, y)$.
  */
 #include "../fenwick-tree/main.cpp"
 struct Fenwick2d {

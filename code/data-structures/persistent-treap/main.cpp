@@ -1,11 +1,9 @@
 /*
- * Opis: Implict Persistent Treap
- * Czas: wszystko w O(\log n)
- * Użycie:
- *   wszystko indexowane od 0
- *   insert(i, val) insertuję na pozycję i
- *   kopiowanie struktury działa w O(1)
- *   robimy sobie vector<Treap>, żeby obsługiwać trwałość
+ * Opis: O(\log n) Implict Persistent Treap,
+ *   wszystko indexowane od 0,
+ *   \texttt{insert(i, val)} insertuję na pozycję $i$,
+ *   kopiowanie struktury działa w O(1),
+ *   robimy sobie \texttt{vector<Treap>} żeby obsługiwać trwałość
  */
 
 mt19937 rng_i(0);

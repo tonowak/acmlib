@@ -1,10 +1,8 @@
 /*
- * Opis: Zmajoryzowany set (według operacji większe)
- * Czas: O(\log n)
- * Użycie:
- * 	w cur jest zmajoryzowany set (cur)
- * 	insert(p) wrzuca parę p do setu, majoryzuje go (zamortyzowany czas)
- * 	i zwraca, czy podany element został dodany
+ * Opis: O(\log n),
+ *   w \texttt{cur} jest zmajoryzowany set,
+ *   \texttt{insert(p)} wrzuca parę \texttt{p} do setu, majoryzuje go (zamortyzowany czas)
+ *   i zwraca, czy podany element został dodany.
  */
 
 struct MajorizedSet {

@@ -1,8 +1,6 @@
 /*
- * Opis: Dinic bez skalowania
- * Czas: O(V^2 E)
- * Użycie: Dinic flow(2); flow.add_edge(0, 1, 5); cout << flow(0, 1); // 5
- *   funkcja get_flowing() zwraca dla każdej oryginalnej krawędzi, ile przez nią leci
+ * Opis: O(V^2 E) Dinic bez skalowania.
+ *   funkcja \texttt{get\_flowing()} zwraca dla każdej oryginalnej krawędzi ile przez nią leci.
  */
 
 struct Dinic {

@@ -1,8 +1,7 @@
 /*
- * Opis: Wrapper na std::complex, pola .x oraz .y nie są const
- * wiele operacji na Point zwraca complex, np (p * p).x się nie skompiluje
- * Użycie: P p = {5, 6}; abs(p) = length; arg(p) = kąt; polar(len, angle);
- * exp(angle)
+ * Opis: Wrapper na \texttt{std::complex}, pola \texttt{.x} oraz \texttt{.y} nie są const.
+ *   Wiele operacji na \texttt{Point} zwraca complex, np \texttt{(p * p).x} się nie skompiluje.
+ *   \texttt{P p = {5, 6}; abs(p) = length; arg(p) = kąt; polar(len, angle);}
  */
 #pragma once
 

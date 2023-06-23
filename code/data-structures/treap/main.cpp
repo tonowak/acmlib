@@ -1,10 +1,8 @@
 /*
- * Opis: Implict Treap
- * Czas: wszystko w O(\log n)
- * Użycie:
- *   wszystko indexowane od 0
- *   insert(i, val) insertuję na pozycję i
- *   treap[i] zwraca i-tą wartość
+ * Opis: O(\log n) Implict Treap,
+ *   wszystko indexowane od 0,
+ *   \texttt{insert(i, val)} insertuję na pozycję $i$,
+ *   \texttt{treap[i]} zwraca $i$-tą wartość.
  */
 
 mt19937 rng_key(0);	

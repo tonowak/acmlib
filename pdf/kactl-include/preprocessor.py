@@ -10,23 +10,10 @@ import sys
 import getopt
 import subprocess
 
-def polskie(input):
-    '''
-    input = input.replace('ę', r'\c e')
-    input = input.replace('ą', r'\c a')
-    input = input.replace('ż', r'\ensuremath{\dot{\text{z}}}')
-    input = input.replace('ł', r'l')
-    input = input.replace('Ę', r'\c E')
-    input = input.replace('Ą', r'\c A')
-    input = input.replace('Ż', r'\ensuremath{\dot{\text{Z}}}')
-    input = input.replace('Ł', r'L')
-    '''
-    return input
-
 def escape(input):
-    input = polskie(input)
-    input = input.replace('<', r'\ensuremath{<}')
-    input = input.replace('>', r'\ensuremath{>}')
+    # input = input.replace('<', r'\ensuremath{<}')
+    # input = input.replace('>', r'\ensuremath{>}')
+    # input = input.replace('_', r'\_')
     return input
 
 def pathescape(input):
@@ -48,7 +35,6 @@ def codeescape(input):
     return input
 
 def ordoescape(input, esc=True):
-    input = polskie(input)
     if esc:
         input = escape(input)
     start = input.find("O(")
@@ -183,9 +169,10 @@ def processwithcomments(caption, instream, outstream, listingslang):
         out.append(r"\newline\tiny{\#%s}" % (hsh))
         if includelist:
             out.append(r"\tiny{, needed: \texttt{%s}}" % (pathescape(", ".join(includelist))))
+        out.append(r"\vspace{-1em}")
 
         if commands.get("Opis"):
-            out.append(r"\par\noindent\scriptsize{%s}" % escape(commands["Opis"]))
+            out.append(r"\par\noindent\scriptsize{%s}" % escape(ordoescape(commands["Opis"])))
         if commands.get("Czas"):
             out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Czas"]))
         if commands.get("Użycie"):
