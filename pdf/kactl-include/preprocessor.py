@@ -168,7 +168,7 @@ def processwithcomments(caption, instream, outstream, listingslang):
         addref(foldername, outstream)
         out.append(r"\newline\tiny{\#%s}" % (hsh))
         if includelist:
-            out.append(r"\tiny{, needed: \texttt{%s}}" % (pathescape(", ".join(includelist))))
+            out.append(r"\tiny{, includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
         out.append(r"\vspace{-1em}")
 
         if commands.get("Opis"):
