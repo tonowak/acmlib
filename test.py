@@ -20,7 +20,7 @@ for root, subdirs, files in os.walk(root_dir + '/' + testing_dir):
         if 'test.cpp' in files:
             # compiling and running the test.cpp file
             print("Compiling", code_name)
-            if os.system('g++ -std=c++17 -O3 -Wall -Wextra -Wshadow test.cpp') != 0:
+            if os.system('g++ -std=c++20 -O3 -Wall -Wextra -Wshadow test.cpp') != 0:
                 print('Failed testing :(')
                 sys.exit(1)
             print('Testing', code_name)
@@ -38,7 +38,7 @@ for root, subdirs, files in os.walk(root_dir + '/' + testing_dir):
             os.system('cat main.cpp >> a.cpp')
             os.system('sed -i "s/#pragma once//" a.cpp')
             os.system('echo "int main(){}" >> a.cpp')
-            if os.system('g++ -std=c++17 -Wall -Wextra -Wshadow a.cpp') != 0:
+            if os.system('g++ -std=c++20 -Wall -Wextra -Wshadow a.cpp') != 0:
                 print('Failed compile :(')
                 os.remove('a.cpp')
                 sys.exit(1)
