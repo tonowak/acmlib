@@ -1,12 +1,11 @@
 /*
- * Opis: Rozwiązywanie układów liniowych (modint albo double)
- * Czas: O(nm(n + m))
- * Użycie: Wrzucam n vectorów {wsp_x0, wsp_x1, ..., wsp_xm - 1, suma},
+ * Opis: O(nm(n+m)),
+ *   Wrzucam $n$ vectorów \texttt{\{wsp\_x0, wsp\_x1, ..., wsp\_xm - 1, suma\}},
  *   gauss wtedy zwraca liczbę rozwiązań
  *   (0, 1 albo 2 (tzn. nieskończoność))
  *   oraz jedno poprawne rozwiązanie (o ile istnieje).
- *   Przykład - gauss({2, -1, 1, 7}, {1, 1, 1, 1}, {0, 1, -1, 6.5})
- *   zwraca (1, {6.75, 0.375, -6.125})
+ *   Przykład \texttt{gauss(\{2, -1, 1, 7\}, \{1, 1, 1, 1\}, \{0, 1, -1, 6.5\})}
+ *   zwraca \texttt{(1, \{6.75, 0.375, -6.125\})}.
  */
 
 #include "../matrix-header/main.cpp"

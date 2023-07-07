@@ -1,10 +1,7 @@
 /*
- * Opis: Zgadywanie rekurencji liniowej
- * Czas: O(n^2 \log k)
- * Pamięć : O(n)
- * Użycie:
- *   Berlekamp_Massey<mod> bm(x) zgaduje rekurencję ciągu x
- *   bm.get(k) zwraca k-ty wyraz ciągu x (index 0)
+ * Opis: O(n^2 \log k),
+ *   \texttt{Berlekamp\_Massey<mod> bm(x)} zgaduje rekurencję ciągu $x$,
+ *   \texttt{bm.get(k)} zwraca $k$-ty wyraz ciągu $x$ (index 0)
  */
 
 template<int mod>

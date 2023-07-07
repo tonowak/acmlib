@@ -1,12 +1,9 @@
 /*
- * Opis: Wyznacza przedziały o takiej samej wartości $\lfloor n / x\rfloor$ lub $\lceil n / x\rceil$.
- * Czas: O(\sqrt{n})
- * Użycie:
- *  auto a = same_floor(n); auto b = same_ceil(n);
- *  same_floor(8) = {(1, 1), (2, 2), (3, 4), (5, 8)}
- *  same_ceil(8) = {(8, 8), (4, 7), (3, 3), (2, 2), (1, 1)}
- *  Na konteście raczej checemy przepisać tylko pętlę i od razu wykonywać obliczenia na parze (l, r) zamiast grupować wszyskie przedziały w vectorze.
- *  Dla n będącego intem można zmienić wszystkie LL na int, w celu zbicia stałej.
+ * Opis: O(\sqrt{n}), wyznacza przedziały o takiej samej wartości $\lfloor n / x\rfloor$ lub $\lceil n / x\rceil$.
+ *  \texttt{same\_floor(8) = \{(1, 1), (2, 2), (3, 4), (5, 8)\}},
+ *  \texttt{same\_ceil(8) = \{(8, 8), (4, 7), (3, 3), (2, 2), (1, 1)\}},
+ *  na konteście raczej checemy przepisać tylko pętlę i od razu wykonywać obliczenia na parze (l, r) zamiast grupować wszyskie przedziały w vectorze.
+ *  Dla $n$ będącego intem można zmienić wszystkie LL na int, w celu zbicia stałej.
  */
 
 vector<pair<LL, LL>> same_floor(LL n) {

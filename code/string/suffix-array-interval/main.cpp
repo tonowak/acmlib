@@ -1,8 +1,7 @@
 /*
- * Opis: Wyznaczanie przedziałów podsłowa w tablicy suffixowej
- * Czas: O(t \log n)
- * Użycie: zwraca przedział [l, r], gdzie dla każdego i w [l, r], t jest podsłowem sa.sa[i],
- *   lub [-1, -1] jeżeli nie ma takiego i.
+ * Opis: O(t\log n), wyznaczanie przedziałów podsłowa w tablicy suffixowej.
+ *   Zwraca przedział $[l, r]$, gdzie dla każdego $i$ w $[l, r]$, $t$ jest podsłowem $sa.sa[i]$
+ *   lub $[-1, -1]$ jeżeli nie ma takiego $i$.
  */
 #include "../suffix-array/main.cpp"
 

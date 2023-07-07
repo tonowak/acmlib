@@ -1,12 +1,9 @@
 /*
- * Opis: Sito Erastotenesa
- * Czas: O(n)
- * Pamięć : O(n)
- * Użycie:
- *     sieve(n) przetwarza liczby do n włącznie
- *     comp[i] oznacza, czy i jest złożone
- *     prime zawiera wszystkie liczby pierwsze <= n
- *     w praktyce na moim kompie dla n = 1e8 działa w 0.7s
+ * Opis: O(n),
+ *   \texttt{sieve(n)} przetwarza liczby do $n$ włącznie,
+ *   \texttt{comp[i]} oznacza czy $i$ jest złożone,
+ *   \texttt{prime} zawiera wszystkie liczby pierwsze \texttt{<= n},
+ *   na moim kompie dla $n = 1e8$ działa w 0.7s.
  */
 
 vector<bool> comp;

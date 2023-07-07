@@ -1,9 +1,7 @@
 /*
- * Opis: Dla danego $(a, b)$ znajduje 
- *   takie $(gcd(a, b), x, y)$, że $ax + by = gcd(a, b)$
- * Czas: O(\log(\min(a, b)))
- * Użycie:
- *  auto [gcd, x, y] = extended_gcd(a, b);
+ * Opis: O(\log(\min(a, b))), dla danego $(a, b)$ znajduje
+ *   takie $(gcd(a, b), x, y)$, że $ax + by = gcd(a, b)$.
+ *  \texttt{auto [gcd, x, y] = extended\_gcd(a, b);}
  */
 
 tuple<LL, LL, LL> extended_gcd(LL a, LL b) {

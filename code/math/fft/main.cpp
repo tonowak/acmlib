@@ -1,8 +1,5 @@
 /*
- * Opis: Mnożenie wielomianów
- * Czas: O(n \log n)
- * Użycie:
- *   conv(a, b) zwraca iloczyn wielomianów a i b
+ * Opis: O(n\log n), \texttt{conv(a, b)} to iloczyn wielomianów.
  */
 
 using Complex = complex<double>;

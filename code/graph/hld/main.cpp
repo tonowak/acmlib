@@ -1,14 +1,10 @@
 /*
- * Opis: Heavy-Light Decomposition
- * Czas: O(q \log n)
- * Użycie:
- *   kontruktor - HLD(n, adj)
- *   lca(v, u) zwraca lca
- *   get_vertex(v) zwraca pozycję odpowiadającą wierzchołkowi
- *   get_path(v, u) zwraca przedziały do obsługiwania drzewem przedziałowym
- *   get_path(v, u) jeśli robisz operacje na wierzchołkach
- *   get_path(v, u, false) jeśli na krawędziach (nie zawiera lca)
- *   get_subtree(v) zwraca przedział odpowiadający podrzewu v
+ * Opis: O(q \log n) Heavy-Light Decomposition.
+ *   \texttt{get\_vertex(v)} zwraca pozycję odpowiadającą wierzchołkowi.
+ *   \texttt{get\_path(v, u)} zwraca przedziały do obsługiwania drzewem przedziałowym.
+ *   \texttt{get\_path(v, u)} jeśli robisz operacje na wierzchołkach.
+ *   \texttt{get\_path(v, u, false)} jeśli na krawędziach (nie zawiera lca).
+ *   \texttt{get\_subtree(v)} zwraca przedział preorderów odpowiadający podrzewu v.
  */
 
 struct HLD {

@@ -1,10 +1,8 @@
 /*
- * Opis: Tablica suffixowa
- * Czas: O(n \log n)
- * Użycie: SuffixArray t(s, alpha) - alpha to rozmiar alfabetu
- * sa zawiera posortowane suffixy, zawiera pusty suffix
- * lcp[i] to lcp suffixu sa[i - 1] i sa[i]
- * Dla s = "aabaaab" sa = {7, 3, 4, 0, 5, 1, 6, 2}, lcp = {0, 0, 2, 3, 1, 2, 0, 1}
+ * Opis: O(n\log n),
+ * zawiera posortowane suffixy, zawiera pusty suffix,
+ * $lcp[i]$ to $lcp$ suffixu $sa[i - 1]$ i $sa[i]$,
+ * Dla \texttt{s = aabaaab}, \texttt{sa=\{7,3,4,0,5,1,6,2\},lcp=\{0,0,2,3,1,2,0,1\}}
  */
 
 struct SuffixArray {

@@ -1,7 +1,7 @@
 /*
- * Opis: Reprezentacja dużych int'ów
- * Czas: Podstawa wynosi 1e9. Mnożenie, dzielenie, nwd oraz modulo jest kwadratowe, wersje operatorX(Num, int) liniowe
- * Użycie: Podstawę można zmieniać (ma zachodzić base == 10^digits_per_elem).
+ * Opis: Podstawa wynosi $1e9$. Mnożenie, dzielenie, nwd oraz modulo jest kwadratowe,
+ * wersje \texttt{operatorX(Num, int)} liniowe.
+ * Podstawę można zmieniać (ma zachodzić \texttt{base == 10 do digits\_per\_elem}).
  */
 
 struct Num {

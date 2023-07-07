@@ -1,18 +1,18 @@
 /*
- * Opis: Operacje na wielomianach mod 998244353
- * Czas: deriv, integr - O(n), powi\_deg - O(n \cdot deg), sqrt, inv, log, exp, powi, div - O(n \cdot \log n), powi\_slow, eval, inter - O(n \cdot \log ^2 n)
- * Użycie:
- *   Ogólnie to przepisujemy co chcemy. Funkcje oznaczone jako KONIECZNE są wymagane od miejsca ich wystąpienia w kodzie. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
- *   deriv(a) zwraca a'
- *   integr(a) zwraca $\int$a
- *   powi(_deg/_slow)(a, k, n) zwraca a^k (mod x^n)
- *   sqrt(a, n) zwraca a^1/2 (mod x^n)
- *   inv(a, n) zwraca a^-1 (mod x^n)
- *   log(a, n) zwraca ln(a) (mod x^n)
- *   exp(a, n) zwraca exp(a) (mod x^n)
- *   div(a, b) zwraca (q, r) takie, że a = q * b + r
- *   eval(a, x) zwraca y taki, że a(x_i) = y_i
- *   inter(x, y) zwraca a taki, że a(x_i) = y_i
+ * Opis: Operacje na wielomianach mod $998244353$,
+ * deriv, integr O(n), powi\_deg O(n \cdot deg), sqrt, inv, log, exp, powi, div O(n \log n), powi\_slow, eval, inter O(n \log ^2 n)
+ * Ogólnie to przepisujemy co chcemy.
+ * Funkcje oznaczone jako KONIECZNE są wymagane od miejsca ich wystąpienia w kodzie. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
+ * \texttt{deriv(a)} zwraca $a'$,
+ * \texttt{integr(a)} zwraca $\int a$,
+ * \texttt{powi(\_deg\_slow)(a, k, n)} zwraca $a^k (\bmod x^n)$,
+ * \texttt{sqrt(a, n)} zwraca $a^\frac{1}{2} (\bmod x^n)$,
+ * \texttt{inv(a, n)} zwraca $a^{-1} (\bmod x^n)$,
+ * \texttt{log(a, n)} zwraca $ln(a) (\bmod x^n)$,
+ * \texttt{exp(a, n)} zwraca $exp(a) (\bmod x^n)$,
+ * \texttt{div(a, b)} zwraca $(q, r)$ takie, że $a = qb + r$,
+ * \texttt{eval(a, x)} zwraca $y$ taki, że $a(x_i) = y_i$,
+ * \texttt{inter(x, y)} zwraca $a$ taki, że $a(x_i) = y_i$.
  */
 
 #include "../ntt/main.cpp"

@@ -1,12 +1,11 @@
 /*
- * Opis: Rozkład na czynniki Rho Pollarda
- * Czas: O(n^{\frac{1}{4}})
- * Użycie: factor(n) zwraca vector dzielników pierwszych n, niekoniecznie posortowany
- * get_pairs(n) zwraca posortowany vector par (dzielnik pierwszych, krotność) dla liczby n
- * all_factors(n) zwraca vector wszystkich dzielników n, niekoniecznie posortowany
- * factor(12) = {2, 2, 3}, factor(545423) = {53, 41, 251};
- * get_pairs(12) = {(2, 2), (3, 1)}
- * all_factors(12) = {1, 3, 2, 6, 4, 12}
+ * Opis: O(n^\frac{1}{4}),
+ * \texttt{factor(n)} zwraca vector dzielników pierwszych $n$, niekoniecznie posortowany,
+ * \texttt{get\_pairs(n)} zwraca posortowany vector par (dzielnik pierwszych, krotność) dla liczby $n$,
+ * \texttt{all\_factors(n)} zwraca vector wszystkich dzielników $n$, niekoniecznie posortowany,
+ * \texttt{factor(12) = \{2, 2, 3\}, factor(545423) = \{53, 41, 251\};},
+ * \texttt{get\_pairs(12) = \{(2, 2), (3, 1)\}},
+ * \texttt{all\_factors(12) = \{1, 3, 2, 6, 4, 12\}}.
  */
 
 #include "../miller-rabin/main.cpp"

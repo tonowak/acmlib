@@ -1,6 +1,6 @@
 /*
- * Opis: Liczenie możliwych kształtów podzbiorów trzy- i czterokrawędziowych. Suma zmiennych *3 daje liczbę spójnych 3-elementowych podzbiorów krawędzi, analogicznie suma zmiennych *4.
- * Czas: O(m \sqrt{m})
+ * Opis: O(m \sqrt{m}), liczenie możliwych kształtów podzbiorów trzy- i czterokrawędziowych.
+ * Suma zmiennych *3 daje liczbę spójnych 3-elementowych podzbiorów krawędzi, analogicznie suma zmiennych *4.
  */
 
 struct Triangles {

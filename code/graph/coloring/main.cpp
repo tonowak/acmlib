@@ -1,9 +1,8 @@
 /*
- * Opis: Wyznacza kolorowanie grafu planaranego.
- * Czas: O(n * m)
- * Użycie:
- *   coloring(graph) zwraca 5-kolorowanie grafu
- *   coloring(graph, 4) zwraca 4-kolorowanie grafu, jeżeli w każdym momencie procesu usuwania wierzchołka o najmniejszym stopniu jego stopień jest nie większy niż 4
+ * Opis: O(nm), wyznacza kolorowanie grafu planaranego.
+ *   \texttt{coloring(graph)} zwraca 5-kolorowanie grafu
+ *   \texttt{coloring(graph, 4)} zwraca 4-kolorowanie grafu,
+ *   jeżeli w każdym momencie procesu usuwania wierzchołka o najmniejszym stopniu jego stopień jest nie większy niż 4
  */
 
 vector<int> coloring(const vector<vector<int>>& graph, const int limit = 5) {

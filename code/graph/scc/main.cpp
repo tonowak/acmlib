@@ -1,11 +1,8 @@
 /*
- * Opis: Silnie Spójnie Składowe
- * Czas: konstruktor O(n), get\_compressed O(n \log n)
- * Użycie:
- *   kontruktor - SCC(graph)
- *   group[v] to numer silnie spójnej wierzchołka v
- *   get_compressed() zwraca graf siline spójnych
- *   get_compressed(false) nie usuwa multikrawędzi
+ * Opis: konstruktor O(n), get\_compressed O(n \log n).
+ *   \texttt{group[v]} to numer silnie spójnej wierzchołka $v$,
+ *   \texttt{get\_compressed()} zwraca graf siline spójnyh,
+ *   \texttt{get\_compressed(false)} nie usuwa multikrawędzi.
  */
 
 struct SCC {

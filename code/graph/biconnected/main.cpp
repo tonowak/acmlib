@@ -1,8 +1,9 @@
 
 /*
- * Opis: Dwuspójne składowe, mosty oraz punkty artykulacji.
- * Czas: O(n + m)
- * Użycie: po skonstruowaniu, bicon = zbiór list id krawędzi, bridges = lista id krawędzi będącymi mostami, arti_points = lista wierzchołków będącymi punktami artykulacji. Tablice są nieposortowane. Wspiera multikrawędzie i wiele spójnych, ale nie pętelki.
+ * Opis: O(n+m), dwuspójne składowe, mosty oraz punkty artykulacji.
+ * po skonstruowaniu, \texttt{bicon} = zbiór list id krawędzi, \texttt{bridges} = lista id krawędzi będącymi mostami,
+ * \texttt{arti\_points} = lista wierzchołków będącymi punktami artykulacji.
+ * Tablice są nieposortowane. Wspiera multikrawędzie i wiele spójnych, ale nie pętle.
  */
 
 struct Low {

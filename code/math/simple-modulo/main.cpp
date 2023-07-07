@@ -1,6 +1,6 @@
 /*
- * Opis: podstawowe operacje na modulo.
- * Użycie: pamiętać o constexpr.
+ * Opis: podstawowe operacje na modulo,
+ * pamiętać o constexpr.
  */
 #pragma once
 

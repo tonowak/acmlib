@@ -1,10 +1,7 @@
 /*
- * Opis: Dla tablicy $A[i]$ oblicza tablicę $F[mask] = \sum_{i\subseteq mask} A[i]$, czyli sumę po podmaskach. Może też liczyć sumę po nadmaskach.
- * Czas: O(n * 2^n)
- * Użycie:
- * sos_dp(n, A, true/false) // $n$ - liczba bitów, $A$ - tablica długości $2^n$, bool - czy po nadmaskach
- * sos_dp(2, {4, 3, 7, 2}) // {4, 7, 11, 16} - po podmaskach
- * sos_dp(2, {4, 3, 7, 2}, true) // {16, 5, 9, 2} - po nadmaskach
+ * Opis: O(n 2^n), dla tablicy $A[i]$ oblicza tablicę $F[mask] = \sum_{i\subseteq mask} A[i]$, czyli sumę po podmaskach. Może też liczyć sumę po nadmaskach.
+ *   \texttt{sos\_dp(2, \{4, 3, 7, 2\})} zwraca \texttt{\{4, 7, 11, 16\}},
+ *   \texttt{sos\_dp(2, \{4, 3, 7, 2\}, true)} zwraca \texttt{\{16, 5, 9, 2\}}.
  */
 
 vector<LL> sos_dp(int n, vector<LL> A, bool nad = false) {

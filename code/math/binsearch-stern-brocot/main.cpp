@@ -1,8 +1,6 @@
 /*
- * Opis: Binsearch na ułamkach. 
- * Czas: O(\log max\_val)
- * Użycie:
- *   Szuka największego a/b, że is_ok(a/b) oraz 0 <= a,b <= max_value. Zakłada, że is_ok(0) == true.
+ * Opis: O(\log max\_val), szuka największego \texttt{a/b}, że \texttt{is\_ok(a/b)} oraz \texttt{0 <= a,b <= max\_value}.
+ * Zakłada, że \texttt{is\_ok(0) == true}.
  */
 using Frac = pair<LL, LL>;
 Frac my_max(Frac l, Frac r) {

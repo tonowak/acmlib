@@ -1,8 +1,6 @@
 /*
- * Opis: Mnożenie wielomianów
- * Czas: O(n \log n)
- * Użycie:
- *   conv_mod(a, b) zwraca iloczyn wielomianów a i b modulo, ma większą dokładność niż zwykłe fft
+ * Opis: O(n\ log n),
+ *   \texttt{conv\_mod(a, b)} zwraca iloczyn wielomianów modulo, ma większą dokładność niż zwykłe fft.
  */
 
 #include "../fft/main.cpp"

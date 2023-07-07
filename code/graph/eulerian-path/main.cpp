@@ -1,9 +1,8 @@
 /*
- * Opis: Ścieżka eulera
- * Czas: O(n)
- * Użycie: Krawędzie to pary (to, id) gdzie id dla grafu nieskierowanego jest takie samo dla (u, v) i (v, u)
- * 	 Graf musi być spójny, po zainicjalizowaniu w .path jest ścieżka/cykl eulera, vector o długości m + 1 kolejnych wierzchołków
- * 	 Jeśli nie ma ścieżki/cyklu, path jest puste. Dla cyklu, path[0] == path[m]
+ * Opis: O(n), ścieżka eulera.
+ * Krawędzie to pary $(to, id)$ gdzie $id$ dla grafu nieskierowanego jest takie samo dla $(u, v)$ i $(v, u)$.
+ * 	 Graf musi być spójny, po zainicjalizowaniu w \texttt{path} jest ścieżka/cykl eulera, vector o długości $m + 1$ kolejnych wierzchołków
+ * 	 Jeśli nie ma ścieżki/cyklu, \texttt{path} jest puste. Dla cyklu, \texttt{path[0] == path[m]}.
  */
 
 using PII = pair<int, int>;

@@ -1,5 +1,5 @@
 /*
- * Opis: Rzeczy do przetestowania w dzień próbny
+ * Opis: Rzeczy do przetestowania w dzień próbny.
  */
 
 void test_int128() {

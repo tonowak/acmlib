@@ -1,9 +1,7 @@
 /*
- * Opis: Solver do programowania liniowego
- * Czas: O(szybko)
- * Użycie:
- *   Simplex(n, m) tworzy lpsolver z n zmiennymi i m ograniczeniami
- *   Rozwiązuje max cx przy Ax <= b
+ * Opis: O(szybko),
+ *   \texttt{Simplex(n, m)} tworzy lpsolver z $n$ zmiennymi oraz $m$ ograniczeniami,
+ *   rozwiązuje $\max cx$ przy $Ax \leq b$.
  */
 
 #define FIND(n, expr) [&] { REP(i, n) if(expr) return i; return -1; }()

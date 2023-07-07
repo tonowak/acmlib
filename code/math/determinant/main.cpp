@@ -1,7 +1,5 @@
 /*
- * Opis: Wyznacznik macierzy (modulo lub double)
- * Czas: O(n^3)
- * Użycie: determinant(a)
+ * Opis: O(n^3), wyznacznik macierzy (modulo lub double)
  */
 
 #include "../matrix-header/main.cpp"

@@ -1,8 +1,7 @@
 /*
- * Opis: Dla tablicy cost(i,j) wylicza $dp(i,j) = min_{i\leq k<j}\; dp(i,k) + dp(k+1,j) + cost(i,j)$.
+ * Opis: O(n^2), dla tablicy $cost(i,j)$ wylicza $dp(i,j) = min_{i\leq k<j}\; dp(i,k) + dp(k+1,j) + cost(i,j)$.
  *   Działa tylko wtedy, gdy $opt(i,j-1)\le opt(i,j)\le opt(i+1,j)$,
  *   a jest to zawsze spełnione, gdy $cost(b,c)\le cost(a,d)$ oraz $cost(a,c) + cost(b,d)\le cost(a,d) + cost(b,c)$ dla $a\le b\le c\le d$.
- * Czas: O(n^2)
  */
 
 LL knuth_optimization(vector<vector<LL>> cost) {

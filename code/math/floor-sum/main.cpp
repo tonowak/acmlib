@@ -1,9 +1,7 @@
 /*
- * Opis: Liczy $\sum_{i=0}^{n-1} \left\lfloor \frac{a\cdot i + b}{c} \right\rfloor$
- * Czas: O(\log(a))
- * Użycie: floor_sum(n, a, b, c)
+ * Opis: O(\log a), liczy $\sum_{i=0}^{n-1} \left\lfloor \frac{a\cdot i + b}{c} \right\rfloor$.
  * Działa dla $0 \leq a, b < c$ oraz $1\leq c, n \leq 10^9$.
- * Dla innych $n, a, b, c$ trzeba uważać lub użyć __int128.
+ * Dla innych $n, a, b, c$ trzeba uważać lub użyć \texttt{\_\_int128}.
  */
 
 LL floor_sum(LL n, LL a, LL b, LL c) {

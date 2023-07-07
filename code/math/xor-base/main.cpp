@@ -1,6 +1,5 @@
 /*
- * Opis: dla $S$ wyznacza minimalny zbiór $B$ taki, że każdy element $S$ można zapisać jako xor jakiegoś podzbioru $B$.
- * Czas: O(nB + B^2) dla $B=bits$
+ * Opis: O(nB+B^2) dla $B=bits$, dla $S$ wyznacza minimalny zbiór $B$ taki, że każdy element $S$ można zapisać jako xor jakiegoś podzbioru $B$.
  */
 
 int hightest_bit(int ai) {

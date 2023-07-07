@@ -1,10 +1,8 @@
 /*
- * Opis: KMP(str) zwraca tablicę pi.
- * Zachodzi [0, pi[i]) = (i - pi[i], i].
- * Użycie:
- *   get_kmp({0,1,0,0,1,0,1,0,0,1}) == {0,0,1,1,2,3,2,3,4,5};
- *   get_borders({0,1,0,0,1,0,1,0,0,1}) == {2,5,10};
- * Czas: O(n)
+ * Opis: O(n),
+ *   zachodzi [0, pi[i]) = (i - pi[i], i].
+ *   \texttt{get\_kmp(\{0,1,0,0,1,0,1,0,0,1\}) == \{0,0,1,1,2,3,2,3,4,5\}},
+ *   \texttt{get\_borders(\{0,1,0,0,1,0,1,0,0,1\}) == \{2,5,10\}}.
  */
 
 vector<int> get_kmp(vector<int> str) {
