@@ -164,7 +164,7 @@ def processwithcomments(caption, instream, outstream, listingslang):
     if error:
         out.append(r"\kactlerror{%s: %s}" % (caption, error))
     else:
-        foldername = caption.split('/')[-2]
+        foldername = caption.split('/')[-2] if 'main' in caption else caption.split('/')[-1]
         addref(foldername, outstream)
         out.append(r"\newline\tiny{\#%s}" % (hsh))
         if includelist:
@@ -196,8 +196,7 @@ def processraw(caption, instream, outstream, listingslang = 'raw'):
     try:
         source = instream.read().strip()
         addref(caption, outstream)
-        # print(r"\rightcaption{%d lines}" % len(source.split("\n")), file=outstream)
-        print(r"\begin{lstlisting}[language=%s,caption={%s}]" % (listingslang, pathescape(caption)), file=outstream)
+        print(r"\begin{lstlisting}[language=%s]" % (listingslang,), file=outstream)
         print(source, file=outstream)
         print(r"\end{lstlisting}", file=outstream)
     except:
