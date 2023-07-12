@@ -8,6 +8,7 @@
 
 vector<int> coloring(const vector<vector<int>>& graph, const int limit = 5) {
 	const int n = ssize(graph);
+	if (!n) return {};
 	function<vector<int>(vector<bool>)> solve = [&](const vector<bool>& active) {
 		if (not *max_element(active.begin(), active.end()))
 			return vector (n, -1);
