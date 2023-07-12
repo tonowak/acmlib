@@ -54,8 +54,8 @@ def ordoescape(input, esc=True):
 def addref(caption, outstream):
     caption = pathescape(caption).strip()
     print(r"\kactlref{%s}" % caption, file=outstream)
-    # with open('pdf/build/header.tmp', 'a') as f:
-        # f.write(caption + "\n")
+    with open('pdf/build/header.tmp', 'a') as f:
+        f.write(caption + "\n")
 
 COMMENT_TYPES = [
     ('/*', '*/'),
