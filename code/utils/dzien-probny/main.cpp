@@ -2,6 +2,11 @@
  * Opis: Rzeczy do przetestowania w dzień próbny
  */
 
+// alternatywne mnożenie LL, gdyby na wypadek gdyby nie było __int128
+LL llmul(LL a, LL b, LL m) {
+	return (a * b - (LL)((long double) a * b / m) * m + m) % m;
+}
+
 void test_int128() {
 	__int128 x = (1llu << 62);
 	x *= x;
