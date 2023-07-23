@@ -15,6 +15,7 @@ void test() {
 	static int counter1 = ssize(v);
 	if (counter1 > 0) {
 		--counter1;
+		debug(v[counter1]);
 		assert(!miller_rabin(v[counter1]));
 		return;
 	}
@@ -27,6 +28,7 @@ void test() {
 	};
 	static int counter2 = 1e5;
 	if (counter2 >= 0) {
+		debug(counter2);
 		assert(miller_rabin(counter2) == brute(counter2));
 		--counter2;
 		return;

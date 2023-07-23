@@ -8,13 +8,17 @@
  */
 
 LL llmul(LL a, LL b, LL m) {
-	return (a * b - (LL)((long double) a * b / m) * m + m) % m;
+	return LL(__int128_t(a) * b % m);
 }
 
 LL llpowi(LL a, LL n, LL m) {
-	if(n == 0) return 1;
-	if(n % 2 == 1) return llmul(llpowi(a, n - 1, m), a, m);
-	return llpowi(llmul(a, a, m), n / 2, m);
+	for (LL ret = 1;; n /= 2) {
+		if (n == 0)
+			return ret;
+		if (n % 2)
+			ret = llmul(ret, a, m);
+		a = llmul(a, a, m);
+	}
 }
 
 bool miller_rabin(LL n) {
@@ -23,8 +27,8 @@ bool miller_rabin(LL n) {
 	LL d = n - 1;
 	while(d % 2 == 0)
 		d /= 2, r++;
-	for(int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
-		if(n == a) return true;
+	for(int a : {2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {
+		if (a % n == 0) continue;
 		LL x = llpowi(a, d, n);
 		if(x == 1 || x == n - 1)
 			continue;

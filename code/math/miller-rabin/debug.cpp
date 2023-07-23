@@ -1,9 +1,9 @@
-#include "../../utils/headers/main.cpp"
+#include "../../utils/main_test.cpp"
 #include "main.cpp"
 
 int main()
 {
 	LL n;
 	cin >> n;
-	cout << Miller_Rabin(n) << "\n";
+	cout << miller_rabin(n) << "\n";
 }
