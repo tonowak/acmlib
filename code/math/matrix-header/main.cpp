@@ -3,7 +3,11 @@
  */
 
 #if 1
+#ifdef CHANGABLE_MOD
+int mod = 998'244'353;
+#else
 constexpr int mod = 998'244'353;
+#endif
 bool equal(int a, int b) {
 	return a == b;
 }
