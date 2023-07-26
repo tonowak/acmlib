@@ -1,7 +1,6 @@
 /*
- * Opis: Zwraca min cięcie między każdą parą wierzchołków w nieskierowanym ważonym grafie o nieujemnych wagach.
- * Czas: O(n^2 + n * dinic(n, m))
- * Użycie: gomory_hu(n, edges)[s][t] == min cut (s, t)
+ * Opis: O(n^2 + n\cdot dinic(n, m)), zwraca min cięcie między każdą parą wierzchołków w nieskierowanym ważonym grafie o nieujemnych wagach.
+ *   \texttt{gomory\_hu(n, edges)[s][t] == min cut (s, t)}
  */
 #include "../dinic/main.cpp"
 

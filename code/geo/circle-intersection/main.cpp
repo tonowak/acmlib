@@ -1,6 +1,6 @@
 /*
- * Opis: Przecięcia okręgu oraz prostej ax+by+c=0 oraz przecięcia okręgu oraz okręgu.
- * Użycie: ssize(circle_circle(...)) == 3 to jest nieskończenie wiele rozwiązań
+ * Opis: Przecięcia okręgu oraz prostej $ax+by+c=0$ oraz przecięcia okręgu oraz okręgu.
+ *   Gdy \texttt{ssize(circle\_circle(...)) == 3} to jest nieskończenie wiele rozwiązań.
  */
 #include "../point/main.cpp"
 

@@ -1,6 +1,6 @@
 /*
- * Opis: Dla danych krawędzi i zapytań w postaci pary wierzchołków oraz listy indeksów krawędzi, stwierdza offline, czy wierzchołki są w jednej spójnej w grafie powstałym przez wzięcie wszystkich krawędzi poza tymi z listy.
- * Czas: O(q \log^2 m)
+ * Opis: O(q\log^2 m), dla danych krawędzi i zapytań w postaci pary wierzchołków oraz listy indeksów krawędzi,
+ * stwierdza offline, czy wierzchołki są w jednej spójnej w grafie powstałym przez wzięcie wszystkich krawędzi poza tymi z listy.
  */
 
 struct DynamicConnectivity {

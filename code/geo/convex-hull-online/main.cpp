@@ -1,6 +1,6 @@
 /*
- * Opis: Wyznacza górną otoczkę wypukłą online.
- * Czas: O(log n) na każdą operację dodania
+ * Opis: O(log n) na każdą operację dodania,
+ *   Wyznacza górną otoczkę wypukłą online.
  */
 
 using P = pair<int, int>;

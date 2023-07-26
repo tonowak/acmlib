@@ -1,7 +1,5 @@
 /*
- * Opis: pref(str) zwraca tablicę prefixo prefixową
- * [0, pref[i]) = [i, i + pref[i])
- * Czas: O(n)
+ * Opis: O(n), zwraca tablicę prefixo prefixową $[0, pref[i]) = [i, i + pref[i])$.
  */
 
 vector<int> pref(vector<int> str) {

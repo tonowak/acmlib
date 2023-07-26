@@ -1,11 +1,8 @@
 /*
- * Opis: Chińskie Twierdzenie o Resztach
- * Czas: O(\log n)
- * Pamięć : O(1)
- * Użycie:
- *   crt(a, m, b, n) zwraca takie x, że x mod m = a i x mod n = b
- *   m i n nie muszą być wzlędnie pierwsze, ale może nie być wtedy rozwiązania
- *   uwali się wtedy assercik, można zmienić na return -1
+ * Opis: O(\log n),
+ *   \texttt{crt(a, m, b, n)} zwraca takie $x$, że $x \bmod m = a$ oraz $x \bmod n = b$,
+ *   $m$ oraz $n$ nie muszą być wzlędnie pierwsze, ale może nie być wtedy rozwiązania
+ *   (assert wywali, ale można zmienić na return -1).
  */
 
 #include "../extended-gcd/main.cpp"

@@ -1,8 +1,7 @@
 /*
- * Opis: radius[p][i] = $rad$ = największy promień palindromu
- *   parzystości p o środku i. $L=i-rad+!p, \; R=i+rad$ to palindrom.
- *   Dla [abaababaab] daje [003000020], [0100141000].
- * Czas: O(n)
+ * Opis: O(n), \texttt{radius[p][i]} = $rad$ = największy promień palindromu
+ *   parzystości $p$ o środku $i$. $L=i-rad+!p, \; R=i+rad$ to palindrom.
+ *   Dla \texttt{[abaababaab]} daje \texttt{[003000020], [0100141000]}.
  */
 
 array<vector<int>, 2> manacher(vector<int> &in) {

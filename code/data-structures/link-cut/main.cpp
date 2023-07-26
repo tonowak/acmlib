@@ -1,10 +1,7 @@
 /*
- * Opis: Link-Cut Tree z wyznaczaniem odległości między wierzchołkami, lca w zakorzenionym drzewie, dodawaniem na ścieżce, dodawaniem na poddrzewie, zwracaniem sumy na ścieżce, zwracaniem sumy na poddrzewie.
- * Czas: O(q \log n)
- * Pamięć : O(n)
- * Użycie:
- *   Przepisać co się chce (logika lazy jest tylko w AdditionalInfo, można np. zostawić puste funkcje).
- *   Wywołać konstruktor, potem set_value na wierzchołkach (aby się ustawiło, że nie-nil to nie-nil) i potem jazda.
+ * Opis: O(q \log n) Link-Cut Tree z wyznaczaniem odległości między wierzchołkami, lca w zakorzenionym drzewie, dodawaniem na ścieżce, dodawaniem na poddrzewie, zwracaniem sumy na ścieżce, zwracaniem sumy na poddrzewie.
+ *   Przepisać co się chce (logika lazy jest tylko w \texttt{AdditionalInfo}, można np. zostawić puste funkcje).
+ *   Wywołać konstruktor, potem \texttt{set\_value} na wierzchołkach (aby się ustawiło, że nie-nil to nie-nil) i potem jazda.
  */
 
 struct AdditionalInfo {

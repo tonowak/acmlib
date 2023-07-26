@@ -1,14 +1,12 @@
 /*
- * Opis: Tworzy drzewo suffixowe.
- * Czas: O(n log n) lub O(n \alpha).
- * Użycie:
- * 	Dla słowa abaab\# (hash jest aby to zawsze liście były stanami kończącymi)
- * 	stworzy sons[0]={(\#,10),(a,4),(b,8)}, sons[4]={(a,5),(b,6)}, sons[6]={(\#,7),(a,2)}, sons[8]={(\#,9),(a,3)},
- * 	reszta sons'ów pusta, slink[6]=8 i reszta slink'ów 0
+ * Opis: O(n log n) lub O(n \alpha),
+ * 	Dla słowa \texttt{abaab\#} (hash jest aby to zawsze liście były stanami kończącymi)
+ * 	stworzy \texttt{sons[0]=\{(\#,10),(a,4),(b,8)\}, sons[4]=\{(a,5),(b,6)\}, sons[6]=\{(\#,7),(a,2)\}, sons[8]=\{(\#,9),(a,3)\}},
+ * 	reszta sons'ów pusta, \texttt{slink[6]=8} i reszta slink'ów $0$
  * 	(gdzie slink jest zdefiniowany dla nie-liści jako wierzchołek zawierający ten suffix bez ostatniej literki),
- * 	up_edge_range[2]=up_edge_range[3]=(2,5), up_edge_range[5]=(3,5) i reszta jednoliterowa.
+ * 	\texttt{up\_edge\_range[2]=up\_edge\_range[3]=(2,5), up\_edge\_range[5]=(3,5)} i reszta jednoliterowa.
  * 	Wierzchołek 1 oraz suffix wierzchołków jest roboczy.
- * 	Zachodzi up_edge_range[0]=(-1,-1), parent[0]=0, slink[0]=1.
+ * 	Zachodzi \texttt{up\_edge\_range[0]=(-1,-1), parent[0]=0, slink[0]=1}.
  */
 struct SuffixTree {
 	const int n;

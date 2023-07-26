@@ -1,6 +1,5 @@
 /*
- * Opis: Find and union z mniejszy do wiekszego
- * Czas: O(\alpha(n)) oraz O(n) pamięciowo
+ * Opis: O(\alpha(n)), mniejszy do wiekszego.
  */
 
 struct FindUnion {

@@ -1,11 +1,13 @@
 /*
- * Opis: Wyznacza sortowanie topologiczne w DAGu.
- * Czas: O(n)
- * Użycie:
- *   get_toposort_order(g) zwraca listę wierzchołków takich, że krawędzie są od wierzchołków wcześniejszych w liście do późniejszych.
- *   get_new_vertex_id_from_order(order) zwraca odwrotność tej permutacji, tzn. dla każdego wierzchołka trzyma jego nowy numer, aby po przenumerowaniu grafu istniały krawędzie tylko do wierzchołków o większych numerach.
- *   permute(elems, new_id) zwraca przepermutowaną tablicę elems według nowych numerów wierzchołków (przydatne jak się trzyma informacje o wierzchołkach, a chce się zrobić przenumerowanie topologiczne).
- *   renumerate_vertices(...) zwraca nowy graf, w którym wierzchołki są przenumerowane.
+ * Opis: O(n),
+ *   \texttt{get\_toposort\_order(g)} zwraca listę wierzchołków takich,
+ *   że krawędzie są od wierzchołków wcześniejszych w liście do późniejszych.
+ *   \texttt{get\_new\_vertex\_id\_from\_order(order)} zwraca odwrotność tej permutacji,
+ *    tzn. dla każdego wierzchołka trzyma jego nowy numer, aby po przenumerowaniu grafu istniały krawędzie tylko do wierzchołków o większych numerach.
+ *   \texttt{permute(elems, new\_id)} zwraca przepermutowaną tablicę elems według nowych numerów wierzchołków
+ *   (przydatne jak się trzyma informacje o wierzchołkach, a chce się zrobić przenumerowanie topologiczne).
+ *   \texttt{renumerate\_vertices(...)} zwraca nowy graf, w którym wierzchołki są przenumerowane.
+ *   Nowy graf: \texttt{renumerate\_vertices(graph, get\_new\_vertex\_id\_from\_order(get\_toposort\_order(graph)))}.
  */
 
 vector<int> get_toposort_order(vector<vector<int>> graph) {
@@ -56,5 +58,3 @@ vector<vector<int>> renumerate_vertices(vector<vector<int>> graph, vector<int> n
 			assert(v < u);
 	return ret;
 }
-
-// graph = renumerate_vertices(graph, get_new_vertex_id_from_order(get_toposort_order(graph)));

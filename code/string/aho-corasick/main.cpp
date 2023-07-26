@@ -1,14 +1,11 @@
 /*
- * Opis: Template do Aho-Corasick
- * Czas: O(S \alpha)
- * Użycie:
- * 	Operuje na alfabecie od 0 do alpha - 1 (alpha ustawiamy ręcznie)
- * 	Konstruktor tworzy sam korzeń w node[0]
- * 	add(s) dodaje słowo s
- * 	convert() zamienia nieodwracalnie trie w automat Aho-Corasick
- * 	link(x) zwraca suffix link x
- * 	go(x, c) zwraca następnik x przez literę c
- * 	Najpierw dodajemy słowa, potem robimy convert(), a na koniec używamy go i link
+ * Opis: O(|s|\alpha),
+ * 	Konstruktor tworzy sam korzeń w \texttt{node[0]},
+ * 	\texttt{add(s)} dodaje słowo,
+ * 	\texttt{convert()} zamienia nieodwracalnie trie w automat Aho-Corasick,
+ * 	\texttt{link(x)} zwraca suffix link,
+ * 	\texttt{go(x, c)} zwraca następnik x przez literę c,
+ * 	najpierw dodajemy słowa, potem robimy convert(), a na koniec używamy $go$ i $link$.
  */
 
 constexpr int alpha = 26;

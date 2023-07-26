@@ -1,10 +1,8 @@
 /*
- * Opis: Drzewo przedział-punkt (+, +)
- * Czas: O(\log n)
- * Użycie:
- *   wszystko indexowane od 0
- *   update(l, r, val) dodaje val na przedziale [l, r]
- *   query(pos) zwraca wartość elementu pos
+ * Opis: O(\log n) drzewo przedział-punkt $(+, +)$,
+ *   wszystko indexowane od 0,
+ *   \texttt{update(l, r, val)} dodaje val na przedziale $[l, r]$,
+ *   \texttt{query(pos)} zwraca wartość elementu $pos$.
  */
 #include "../fenwick-tree/main.cpp"
 

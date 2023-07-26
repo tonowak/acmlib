@@ -1,10 +1,7 @@
-/*
- * Opis: Otoczka wypukła, osobno góra i dół
- * Czas: O(n \log n)
- * Użycie:
- * top_bot_hull zwraca osobno górę i dół po id
- * hull_id zwraca całą otoczkę po id
- * hull zwraca punkty na otoczce
+/* 
+ * Opis: O(n \log n), \texttt{top\_bot\_hull} zwraca osobno górę i dół po id,
+ *   \texttt{hull\_id} zwraca całą otoczkę po id,
+ *   \texttt{hull} zwraca punkty na otoczce.
  */
 #include "../point/main.cpp"
 D cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }

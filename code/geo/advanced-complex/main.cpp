@@ -1,5 +1,5 @@
 /*
- * Opis: Randomowe \sout{przydatne} wzorki, większość nie działa dla intów
+ * Opis: Większość nie działa dla intów.
  */
 #include "../point/main.cpp"
 constexpr D pi = acosl(-1);

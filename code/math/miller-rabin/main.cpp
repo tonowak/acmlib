@@ -1,10 +1,6 @@
 /*
- * Opis: Test pierwszości Millera-Rabina
- * Czas: O(\log^2n)
- * Pamięć : O(1)
- * Użycie:
- *   miller_rabin(n) zwraca czy n jest pierwsze
- *   działa dla long longów
+ * Opis: O(\log^2 n) test pierwszości Millera-Rabina,
+ *   działa dla long longów.
  */
 
 LL llmul(LL a, LL b, LL m) {

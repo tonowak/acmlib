@@ -1,9 +1,6 @@
 /*
- * Opis: Wyznaczanie ujemnego cyklu (i stwierdzanie czy istnieje)
- * Czas: O(nm)
- * Użycie:
- *   [exists_negative, cycle] = negative_cycle(digraph);
- *   cycle spełnia własność, że istnieje krawędź cycle[i]->cycle[(i+1)%ssize(cycle)].
+ * Opis: O(nm) stwierdzanie istnienia i wyznaczanie ujemnego cyklu.
+ *   \texttt{cycle} spełnia \texttt{cycle[i]->cycle[(i+1)\%ssize(cycle)]}.
  *   Żeby wyznaczyć krawędzie na cyklu, wystarczy wybierać najtańszą krawędź między wierzchołkami.
  */
 

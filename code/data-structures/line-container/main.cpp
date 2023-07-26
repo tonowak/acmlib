@@ -1,8 +1,7 @@
 /*
- * Opis: Set dla funkcji liniowych
- * Czas: O(\log n)
- * Użycie: add(a, b) dodaje funkcję y = ax + b
- * query(x) zwraca największe y w punkcie x, x < inf
+ * Opis: O(\log n) set dla funkcji liniowych,
+ *   \texttt{add(a, b)} dodaje funkcję $y = ax + b$
+ *   \texttt{query(x)} zwraca największe $y$ w punkcie $x$.
  */
 
 struct Line {

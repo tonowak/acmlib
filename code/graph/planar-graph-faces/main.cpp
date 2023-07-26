@@ -1,6 +1,10 @@
 /*
- * Opis: Zakłada, że każdy punkt ma podane współrzędne, punkty są parami różne oraz krawędzie są nieprzecinającymi się odcinkami. Zwraca wszystkie ściany (wewnętrzne posortowane clockwise, zewnętrzne cc). WAŻNE czasem trzeba złączyć wszystkie ściany zewnętrzne (których może być kilka, gdy jest wiele spójnych) w jedną ścianę. Zewnętrzne ściany mogą wyglądać jak kaktusy, a wewnętrzne zawsze są niezdegenerowanym wielokątem.
- * Czas: O(m log m)
+ * Opis: O(m\log m), zakłada, że każdy punkt ma podane współrzędne,
+ * punkty są parami różne oraz krawędzie są nieprzecinającymi się odcinkami.
+ * Zwraca wszystkie ściany (wewnętrzne posortowane clockwise, zewnętrzne cc).
+ * WAŻNE czasem trzeba złączyć wszystkie ściany zewnętrzne
+ * (których może być kilka, gdy jest wiele spójnych) w jedną ścianę.
+ * Zewnętrzne ściany mogą wyglądać jak kaktusy, a wewnętrzne zawsze są niezdegenerowanym wielokątem.
  */
 
 struct Edge {

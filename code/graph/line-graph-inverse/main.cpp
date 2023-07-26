@@ -1,11 +1,15 @@
 /*
- * Opis: Dla danego H szuka takiego G, że L(G) = H,
- *   gdzie L to proces tworzenia line graph'a
- *   -- z każdej krawędzi jest tworzony wierzchołek
+ * Opis: O((n+m)(\log n + 2^6)), dla danego H szuka takiego G, że L(G) = H,
+ *   gdzie L to proces tworzenia line graph'a 
+ *   -- z każdej krawędzi jest tworzony wierzchołek 
  *   i między daną parą takich wierzchołków jest krawędź,
- *   gdy krawędzie, na których leżą te wierzchołki,
+ *   gdy krawędzie, na których leżą te wierzchołki, 
  *   mają wspólny wierzchołek.
- *   W skrócie, każde dwa nieizomorficzne spójne grafy proste
+ *   Funkcja zwraca informację o istnieniu przynajmniej
+ *   jednego rozwiązania oraz przykładowe rozwiązanie,
+ *   tzn. dla każdego wierzchołka line graphu wyznacza krawędź
+ *   oryginalnego grafu, na której powinien leżeć.
+ *   W skrócie, każde dwa nieizomorficzne spójne grafy proste 
  *   o przynajmniej pięciu wierzchołkach mają różne line graphy.
  *   Algorytm brutuje pasujący graf, aż będzie mieć wystarczający rozmiar,
  *   po czym dla nowych line graphowych wierzchołków
@@ -17,11 +21,6 @@
  *   to jest tworzony nowy wierzchołek i dodawana krawędź.
  *   Ważne też jest, aby zapewnić, żeby konstruowany oryginalny graf
  *   nie musiał zawierać multikrawędzi.
- * Czas: O((n + m) (\log n + 2^6))
- * Użycie: funkcja zwraca informację o istnieniu przynajmniej
- *   jednego rozwiązania oraz przykładowe rozwiązanie,
- *   tzn. dla każdego wierzchołka line graphu wyznacza krawędź
- *   oryginalnego grafu, na której powinien leżeć.
  */
 
 pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<int, int>> line_edges) {

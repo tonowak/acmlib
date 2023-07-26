@@ -18,7 +18,7 @@ struct Matrix {
 		}
 		return Matrix(res);
 	}
-	bool operator==(const Matrix& other) {
+	bool operator==(const Matrix& other) const {
 		REP(i,3) {
 			REP(j,3) {
 				if (this->m[i][j] != other.m[i][j]) {

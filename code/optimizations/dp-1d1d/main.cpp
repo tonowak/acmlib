@@ -1,14 +1,12 @@
 /*
- * Opis: DP 1D1D
- * Czas: O(n \log n)
- * Użycie:
- *   n - długość paska (n > 0)
- *   cost(i, j) - koszt odcinka [i, j]
- *   Dla a <= b <= c <= d, cost musi spełniać cost(a, c) + cost(b, d) <= cost(a, d) + cost(b, c).
- *   Dzieli pasek [0, n) na odcinki [0, cuts[0]], ..., (cuts[i-1], cuts[i]],
- *   gdzie cuts.back() == n - 1, aby sumaryczny koszt wszystkich odcinków był minimalny.
- *   cuts, to prawe końce tych odcinków.
- *   Zwraca (opt_cost, cuts).
+ * Opis: O(n\log n),
+ *   $n>0$ długość paska,
+ *   \texttt{cost(i, j)} koszt odcinka $[i, j]$
+ *   Dla $a \leq b \leq c \leq d$ \texttt{cost} ma spełniać $cost(a, c) + cost(b, d) \leq cost(a, d) + cost(b, c)$.
+ *   Dzieli pasek $[0, n)$ na odcinki $[0, cuts[0]], ..., (cuts[i-1], cuts[i]]$,
+ *   gdzie \texttt{cuts.back() == n - 1}, aby sumaryczny koszt wszystkich odcinków był minimalny.
+ *   \texttt{cuts} to prawe końce tych odcinków.
+ *   Zwraca \texttt{(opt\_cost, cuts)}.
  *   Aby maksymalizować koszt zamienić nierówności tam, gdzie wskazane.
  *   Aby uzyskać O(n), należy przepisać overtake w oparciu o dodatkowe założenia,
  *   aby chodził w O(1).

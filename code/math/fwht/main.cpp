@@ -1,21 +1,15 @@
 /*
- * Opis: FWHT
- * Czas: O(n \log n)
- * Pamięć : O(1)
- * Użycie:
- *   n musi być potęgą dwójki.
- *
- *   fwht_or(a)[i] = suma(j będące podmaską i) a[j].
- *   ifwht_or(fwht_or(a)) == a.
- *   convolution_or(a, b)[i] = suma(j | k == i) a[j] * b[k].
- *
- *   fwht_and(a)[i] = suma(j będące nadmaską i) a[j].
- *   ifwht_and(fwht_and(a)) == a.
- *   convolution_and(a, b)[i] = suma(j \& k == i) a[j] * b[k].
- *
- *   fwht_xor(a)[i] = suma(j oraz i mają parzyście wspólnie zapalonych bitów) a[j] - suma(j oraz i mają nieparzyście) a[j].
- *   ifwht_xor(fwht_xor(a)) == a.
- *   convolution_xor(a, b)[i] = suma(j ^ k == i) a[j] * b[k].
+ * Opis: O(n \log n),
+ *   $n$ musi być potęgą dwójki,
+ *   \texttt{fwht\_or(a)[i] = suma(j będące podmaską i) a[j]},
+ *   \texttt{ifwht\_or(fwht\_or(a)) == a},
+ *   \texttt{convolution\_or(a, b)[i] = suma(j | k == i) a[j] * b[k]},
+ *   \texttt{fwht\_and(a)[i] = suma(j będące nadmaską i) a[j]},
+ *   \texttt{ifwht\_and(fwht\_and(a)) == a},
+ *   \texttt{convolution\_and(a, b)[i] = suma(j \& k == i) a[j] * b[k]},
+ *   \texttt{fwht\_xor(a)[i] = suma(j oraz i mają parzyście wspólnie zapalonych bitów) a[j] - suma(j oraz i mają nieparzyście) a[j]},
+ *   \texttt{ifwht\_xor(fwht\_xor(a)) == a},
+ *   \texttt{convolution\_xor(a, b)[i] = suma(j \^ k == i) a[j] * b[k]}.
  */
 
 vector<int> fwht_or(vector<int> a) {

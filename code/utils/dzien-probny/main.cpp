@@ -1,5 +1,5 @@
 /*
- * Opis: Rzeczy do przetestowania w dzień próbny
+ * Opis: Rzeczy do przetestowania w dzień próbny.
  */
 
 // alternatywne mnożenie LL, gdyby na wypadek gdyby nie było __int128

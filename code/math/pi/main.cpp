@@ -1,9 +1,6 @@
 /*
- * Opis: Funkcja pi(n) - liczba liczb pierwszych na przedziale [1..n]
- * Czas: O(n ^ 3/4)
- * Użycie:
- *   Pi pi(n);
- *   pi.query(d); // d musi być dzielnikiem n
+ * Opis: O(n^\frac{3}{4}), liczba liczb pierwszych na przedziale $[1,n]$.
+ *   \texttt{Pi pi(n); pi.query(d); // musi zachodzic d | n}
  */
 
 struct Pi {

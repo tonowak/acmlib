@@ -1,8 +1,5 @@
 /*
- * Opis: Mnożenie wielomianów mod 998244353
- * Czas: O(n \log n)
- * Użycie:
- *   conv(a, b) zwraca iloczyn wielomianów a i b
+ * Opis: O(n\log n) mnożenie wielomianów mod $998244353$.
  */
 
 #include "../simple-modulo/main.cpp"

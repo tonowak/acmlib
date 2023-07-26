@@ -1,9 +1,7 @@
 /*
- * Opis: Wyznaczanie cykli w grafie. Założenia - nieskierowany graf bez pętelek i multikrawędzi,
- *   każda krawędź leży na co najwyżej jednym cyklu prostym (słabsze założenie, niż o wierzchołkach).
- * Czas: O(n)
- * Użycie:
- *   cactus_cycles(graph) zwraca taką listę cykli, że istnieje krawędź między i-tym, a (i+1) mod ssize(cycle)-tym wierzchołkiem.
+ * Opis: O(n), wyznaczanie cykli w grafie. Zakłada że jest nieskierowany graf bez pętelek i multikrawędzi,
+ *   każda krawędź leży na co najwyżej jednym cyklu prostym (silniejsze założenie, niż o wierzchołkach).
+ *   \texttt{cactus\_cycles(graph)} zwraca taką listę cykli, że istnieje krawędź między $i$-tym, a $(i+1) \text{mod} \text{ssize(cycle)}$-tym wierzchołkiem.
  */
 
 vector<vector<int>> cactus_cycles(vector<vector<int>> graph) {

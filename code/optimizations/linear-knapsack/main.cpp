@@ -1,7 +1,6 @@
 /*
- * Opis: Plecak zwracający największą otrzymywalną sumę ciężarów <= bound.
- * Czas: O(n * max(wi)) (zamiast typowego O(n * sum(wi)))
- * Pamięć : O(n + max(wi))
+ * Opis: O(n\cdot\max(w_i)) zamiast typowego O(n\cdot\sum(w_i)), pamięć O(n+\max(w_i)),
+ *   plecak zwracający największą otrzymywalną sumę ciężarów \texttt{<= bound}.
  */
 
 LL knapsack(vector<int> w, LL bound) {

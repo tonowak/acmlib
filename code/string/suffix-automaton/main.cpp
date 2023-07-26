@@ -1,6 +1,8 @@
 /*
- * Opis: buduje suffix automaton. Wystąpienia wzorca, liczba różnych podsłów, sumaryczna długość wszystkich podsłów, leksykograficznie k-te podsłowo, najmniejsze przesunięcie cykliczne, liczba wystąpień podsłowa, pierwsze wystąpienie, najkrótsze niewystępujące podsłowo, longest common substring dwóch słów, LCS wielu słów
- * Czas: O(n \alpha) (szybsze, ale więcej pamięci) albo O(n \log \alpha) (mapa)
+ * Opis: O(n\alpha) (szybsze, ale więcej pamięci) albo O(n\log\alpha) (mapa),
+ *   buduje suffix automaton. Wystąpienia wzorca, liczba różnych podsłów, sumaryczna długość wszystkich podsłów,
+ *   leksykograficznie $k$-te podsłowo, najmniejsze przesunięcie cykliczne, liczba wystąpień podsłowa, pierwsze wystąpienie,
+ *   najkrótsze niewystępujące podsłowo, longest common substring wielu słów.
  */
 
 struct SuffixAutomaton {
@@ -16,7 +18,7 @@ struct SuffixAutomaton {
 		new_node.fill(-1);	 // -1 - stan nieistniejacy
 		edges = {new_node};  // dodajemy stan startowy, ktory reprezentuje puste slowo
 	}
-
+			
 	void add_letter(int c) {
 		edges.emplace_back(new_node);
 		length.emplace_back(length[last] + 1);

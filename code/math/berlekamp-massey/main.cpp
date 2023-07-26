@@ -1,10 +1,7 @@
 /*
- * Opis: Zgadywanie rekurencji liniowej
- * Czas: O(n^2 \log k)
- * Pamięć : O(n)
- * Użycie:
- *   BerlekampMassey bm(x) zgaduje rekurencję liniową ciągu x
- *   bm.get(k) zwraca k-ty wyraz ciągu x (indeksowane od 0)
+ * Opis: O(n^2 \log k),
+ *   \texttt{BerlekampMassey<mod> bm(x)} zgaduje rekurencję ciągu $x$,
+ *   \texttt{bm.get(k)} zwraca $k$-ty wyraz ciągu $x$ (index 0)
  */
 
 #include "../simple-modulo/main.cpp"

@@ -1,11 +1,8 @@
 /*
- * Opis: Jump Pointery
- * Czas: O((n + q) \log n)
- * Użycie:
- *   konstruktor - SimpleJumpPtr(graph), można ustawić roota
- *   jump_up(v, k) zwraca wierzchołek o k krawędzi wyżej niż v, a jeśli nie istnieje, zwraca -1
- *   OperationJumpPtr pozwala na otrzymanie wyniku na ścieżce (np. suma na ścieżce, max, albo coś bardziej skomplikowanego).
- *   Jedynym założeniem co do własności operacji otrzymania wyniku na ścieżce do góry to łączność, ale wynik na dowolnej ścieżce jest poprawny tylko, gdy dopisze się odwracanie wyniku na ścieżce, lub jeżeli operacja jest przemienna.
+ * Opis: O((n+q) \log n),
+ *   \texttt{jump\_up(v, k)} zwraca wierzchołek o $k$ krawędzi wyżej niż $v$ lub $-1$.
+ *   \texttt{OperationJumpPtr} może otrzymać wynik na ścieżce.
+ *   Wynik na ścieżce do góry wymaga łączności, wynik dowolnej ścieżki jest poprawny, gdy jest odwrotność wyniku lub przemienna.
  */
 
 struct SimpleJumpPtr {

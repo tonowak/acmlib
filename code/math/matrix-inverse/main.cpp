@@ -1,7 +1,6 @@
 /*
- * Opis: Odwrotność macierzy (modulo lub double). Zwraca rząd macierzy. Dla odwracalnych macierzy (rząd = n) w a znajdzie się jej odwrotność.
- * Czas: O(n^3)
- * Użycie: inverse(a)
+ * Opis: O(n^3), odwrotność macierzy (modulo lub double). Zwraca rząd macierzy.
+ * Dla odwracalnych macierzy (rząd = n) w $a$ znajdzie się jej odwrotność.
  */
 
 #include "../matrix-header/main.cpp"

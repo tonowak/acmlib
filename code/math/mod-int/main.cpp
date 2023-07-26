@@ -1,7 +1,6 @@
 /*
  * Opis: Struktura do działań modulo
- * Czas: O(1), dzielenie O(\log mod)
- * Użycie: Ustaw modulo w ostatniej linii. Jeśli modulo nie jest const, usuń pierwszy wiersz i zadeklaruj mod
+ * Ustaw modulo w ostatniej linii. Jeśli modulo nie jest const, usuń pierwszy wiersz i zadeklaruj mod.
  */
 
 template<int mod>

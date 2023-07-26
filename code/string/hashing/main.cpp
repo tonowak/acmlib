@@ -1,10 +1,6 @@
 /*
- * Opis: Pojedyńcze i podwójne hashowanie.
- * Użycie:
- * Hashing hsh(str);
- * hsh(l, r) zwraca hasza [l, r] włącznie
- * można zmienić modulo i bazę
- * Czas: O(1)
+ * Opis: O(1) na zapytanie z niemałą stałą, pojedyńcze i podwójne hashowanie.
+ *   można zmienić modulo i bazę.
  */
 
 struct Hashing {

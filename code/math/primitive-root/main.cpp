@@ -1,6 +1,5 @@
 /*
- * Opis: Dla pierwszego $mod$ znajduje generator modulo $mod$
- * Czas: O(\log^2(mod)) (z być może sporą stałą)
+ * Opis: O(\log^2(mod)), dla pierwszego $mod$ znajduje generator modulo $mod$ (z być może sporą stałą).
  */
 
 #include "../simple-modulo/main.cpp"

@@ -1,10 +1,9 @@
 /**
- * Opis: jakiś tam opis, można walnąć latexa: $2+2=5$. ęóąśłżźćńĘÓĄŚŁŻŹĆŃ
- * Czas: O(n \sqrt{n} \log^2 n), gdzie $n$ to jakaś fajna zmienna, O(n \log n) pamięciowo
- * Użycie:
- *  int rd = getRandomValue(0, 5);
- *  int rd01 = ExampleStruct().get();
- *  ęóąśłżźćńĘÓĄŚŁŻŹĆŃ
+ * Opis: jakiś tam opis, można walnąć latexa: $2+2=5$. ęóąśłżźćńĘÓĄŚŁŻŹĆŃ.
+ *   O(n \sqrt{n} \log^2 n), gdzie $n$ to jakaś fajna zmienna, O(n \log n) pamięciowo,
+ *   \texttt{int rd = getRandomValue(0, 5)},
+ *   \texttt{int rd01 = ExampleStruct().get()},
+ *   \texttt{ęóąśłżźćńĘÓĄŚŁŻŹĆŃ}.
  */
 
 mt19937_64 rng(chrono::system_clock::now().time_since_epoch().count());
@@ -20,7 +19,7 @@ struct ExampleStruct {
 	ExampleStruct() {
 		random_variable = getRandomValue(left, right);
 		if(random_variable == 0) {
-			// some random bulls**t to show the style
+			// some random stuff to show the style
 			++random_variable;
 		}
 		else

@@ -1,7 +1,7 @@
 /*
- * Opis: Dla funkcji, których pary przecinaja sie
- *   co najwyżej raz, oblicza minimum w punkcie x.
- *   Podany kod jest dla funkcji liniowych
+ * Opis: Dla funkcji, których pary przecinają się
+ *   co najwyżej raz, oblicza maximum w punkcie $x$.
+ *   Podany kod jest dla funkcji liniowych.
  */
 
 constexpr LL inf = LL(1e9);

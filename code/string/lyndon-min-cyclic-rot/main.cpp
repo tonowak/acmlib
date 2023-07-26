@@ -1,9 +1,10 @@
 /*
- * Opis: Wyznaczanie faktoryzacji Lyndona oraz (przy jej pomocy) minimalnego suffixu oraz minimalnego przesunięcia cyklicznego. Ta faktoryzacja to unikalny podział słowa s na w1*w2*...*wk, że w1>=w2>=...>=wk oraz wi jest ściśle mniejsze od każdego jego suffixu.
- * Czas: O(n)
- * Użycie: duval("abacaba") == {{0, 3}, {4, 5}, {6, 6}};
- *   min_suffix("abacab") == "ab";
- *   min_cyclic_shift("abacaba") == "aabacab";
+ * Opis: O(n), wyznaczanie faktoryzacji Lyndona oraz (przy jej pomocy) minimalnego suffixu oraz minimalnego przesunięcia cyklicznego.
+ * Ta faktoryzacja to unikalny podział słowa $s$ na $w_1w_2\ldots w_k$, że $w_1\ge w_2\ge \ldots \ge w_k$
+ * oraz $w_i$ jest ściśle mniejsze od każdego jego suffixu.
+ * \texttt{duval("abacaba") == \{\{0, 3\}, \{4, 5\}, \{6, 6\}\}},
+ * \texttt{min\_suffix("abacab") == "ab"},
+ * \texttt{min\_cyclic\_shift("abacaba") == "aabacab"}.
  */
 
 vector<pair<int, int>> duval(vector<int> s) {

@@ -1,6 +1,5 @@
 /*
  * Opis: Geo3d od Warsaw Eagles.
- * Użycie: Mieć nadzieję, że nie trzeba będzie tego używać.
  */
 using LD = long double;
 const LD kEps = 1e-9;

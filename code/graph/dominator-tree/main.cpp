@@ -1,10 +1,9 @@
 /*
- * Opis: Dla spójnego DAGu o jednym korzeniu root wyznacza listę synów
+ * Opis: O(m\;\alpha(n)), dla spójnego DAGu o jednym korzeniu root wyznacza listę synów
  *   w dominator tree (które jest drzewem, gdzie ojciec wierzchołka v
  *   to najbliższy wierzchołek, którego usunięcie powoduje,
- *   że już nie ma ścieżki od korzenia do v).
- * Czas: O(m\;\alpha(n))
- * Uzycie: dominator_tree({{1,2},{3},{4},{4},{5}},0) == {{1,4,2},{3},{},{},{5},{}}
+ *   że już nie ma ścieżki od korzenia do v).
+ * \texttt{dominator\_tree(\{\{1,2\},\{3\},\{4\},\{4\},\{5\}\},0) == \{\{1,4,2\},\{3\},\{\},\{\},\{5\},\{\}\}\}}
  */
 vector<vector<int>> dominator_tree(vector<vector<int>> dag, int root) {
 	int n = ssize(dag);

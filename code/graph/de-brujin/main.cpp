@@ -1,8 +1,6 @@
 /*
- * Opis: Ciag/Cykl de Brujina słów długości n nad alfabetem {0, 1, ..., k - 1}
- * Czas: O(k ^ n)
- * Użycie: de_brujin(alphabet, length, is_path)
- * Jeżeli is_path to zwraca ciąg. W przeciwnym wypadku zwraca cykl.
+ * Opis: O(k^n), ciag/cykl de Brujina słów długości $n$ nad alfabetem $\{0, 1, ..., k - 1\}$.
+ * Jeżeli \texttt{is\_path} to zwraca ciąg, wpp. zwraca cykl.
  */
 #include "../eulerian-path/main.cpp"
 

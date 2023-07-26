@@ -1,8 +1,5 @@
 /*
- * Opis: Funkcja do debugu która wypisuje ładnie drzewo
- * Użycie:
- *   print_tree(graph, root)
- *   graph to vector<vector<int>>
+ * Opis: Funkcja do debugu która wypisuje ładnie drzewo, \texttt{print_tree(graph, root)}.
  */
 
 #ifdef DEBUG

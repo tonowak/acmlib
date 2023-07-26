@@ -1,10 +1,8 @@
 /*
- * Opis: Blossom
- * Czas: Jeden rabin powie O(nm), drugi rabin powie, że to nawet nie jest O(n^3).
- * Użycie:
+ * Opis: Jeden rabin powie O(nm), drugi rabin powie, że to nawet nie jest O(n^3).
  *   W grafie nie może być pętelek.
- *   Funkcja zwraca match'a, tzn match[v] == -1 albo z kim jest sparowany v.
- *   Rozmiar matchingu to (sum_v bool(match[v] != -1)) / 2.
+ *   Funkcja zwraca match'a, tzn \texttt{match[v] == -1} albo z kim jest sparowany $v$.
+ *   Rozmiar matchingu to $\sum_v \frac{\texttt{int(match[v] != -1)}}{2}$.
  */
 
 vector<int> blossom(vector<vector<int>> graph) {

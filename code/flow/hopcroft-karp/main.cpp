@@ -1,7 +1,6 @@
-/*
- * Opis: Hopcroft-Karp do liczenia matchingu. Przydaje się głównie w aproksymacji, ponieważ po $k$ iteracjach gwarantuje matching o rozmiarze przynajmniej $k/(k+1) \cdot$ best matching.
- * Użycie: wierzchołki grafu muszą być podzielone na warstwy 0..n0-1 oraz n0..n0+n1-1. Zwraca rozmiar matchingu oraz przypisanie (lub -1, gdy nie jest zmatchowane).
- * Czas: O(m \sqrt{n})
+/* 
+ * Opis: O(m \sqrt{n}) Hopcroft-Karp do liczenia matchingu. Przydaje się głównie w aproksymacji, ponieważ po $k$ iteracjach gwarantuje matching o rozmiarze przynajmniej $k/(k+1) \cdot$ best matching.
+ *   Wierzchołki grafu muszą być podzielone na warstwy $[0, n0)$ oraz $[n0, n0+n1)$. Zwraca rozmiar matchingu oraz przypisanie (lub -1, gdy nie jest zmatchowane).
  */
 
 pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) {
@@ -13,7 +12,6 @@ pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) 
 	vector<int> matched_with(n0 + n1, -1), dist(n0 + 1);
 	constexpr int inf = int(1e9);
 	vector<int> manual_que(n0 + 1);
-
 	auto bfs = [&] {
 		int head = 0, tail = -1;
 		fill(dist.begin(), dist.end(), inf);
@@ -33,7 +31,6 @@ pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) 
 		}
 		return dist[0] != inf;
 	};
-
 	function<bool (int)> dfs = [&](int v) {
 		if(v == -1)
 			return true;
@@ -48,7 +45,6 @@ pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) 
 		dist[1 + v] = inf;
 		return false;
 	};
-
 	int answer = 0;
 	for(int iter = 0; bfs(); ++iter)
 		REP(v, n0)
