@@ -80,7 +80,7 @@ struct Splay {
 	vector<Node> t;
 	const int nil;
 
-	Splay(int n) 
+	Splay(int n)
 	: t(n + 1), nil(n) {
 		t[nil].subsize_splay = 0;
 		for(Node &v : t)
@@ -231,7 +231,7 @@ struct LinkCut : Splay {
 	// Returns their LCA after a reroot operation.
 	int lca(int root, int v, int u) {
 		reroot(root);
-		if(v == u) 
+		if(v == u)
 			return v;
 		access(v);
 		return access(u);

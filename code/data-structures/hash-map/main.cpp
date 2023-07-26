@@ -12,5 +12,5 @@ struct chash {
 		return __builtin_bswap64((x^RANDOM) * C);
 	}
 };
-template<class L, class R> 
+template<class L, class R>
 using hash_map = gp_hash_table<L, R, chash>;

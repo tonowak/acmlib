@@ -331,16 +331,16 @@ void test() {
 		else if(type == 3)
 			out << rd(0, n - 1) << ' ' << rd(0, n - 1) << ' ' << rd(0, n - 1) << '\n';
 		else if(type == 4)
-            out << rd(0, n - 1) << ' ' << rd(-100, 100) << '\n';
-        else if(type == 5)
-            out << rd(0, n - 1) << ' ' << rd(0, n - 1) << '\n';
+			out << rd(0, n - 1) << ' ' << rd(-100, 100) << '\n';
+		else if(type == 5)
+			out << rd(0, n - 1) << ' ' << rd(0, n - 1) << '\n';
 		else if(type == 6)
-            out << rd(0, n - 1) << ' ' << rd(0, n - 1) << '\n';
+			out << rd(0, n - 1) << ' ' << rd(0, n - 1) << '\n';
 		else if(type == 7)
 			out << rd(0, n - 1) << ' ' << rd(0, n - 1) << ' ' << rd(-100, 100) << '\n';
 		else if(type == 8)
 			out << rd(0, n - 1) << ' ' << rd(0, n - 1) << ' ' << rd(-100, 100) << '\n';
-        else
+		else
 			assert(false);
 	}
 

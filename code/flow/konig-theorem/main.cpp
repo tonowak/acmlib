@@ -21,16 +21,16 @@ array<vector<int>, 2> get_coloring(vector<vector<int>> graph) {
 	function<void (int)> dfs = [&](int v) {
 		color[v] = 0;
 		for(int u : graph[v])
-			if(color[u] == -1 and not graph[u].empty()) {
+			if(color[u] == -1) {
 				color[u] = true;
 				dfs(match[u]);
 			}
 	};
 	REP(v, n)
-		if(not graph[v].empty() and match[v] == -1)
+		if(match[v] == -1)
 			dfs(v);
 	REP(v, n)
-		if(not graph[v].empty() and color[v] == -1)
+		if(color[v] == -1)
 			dfs(v);
 	array<vector<int>, 2> groups;
 	REP(v, n)
@@ -45,4 +45,3 @@ vector<int> get_max_independent_set(vector<vector<int>> graph) {
 vector<int> get_min_vertex_cover(vector<vector<int>> graph) {
 	return get_coloring(graph)[1];
 }
-

@@ -5,7 +5,7 @@
  *   \texttt{treap[i]} zwraca $i$-tą wartość.
  */
 
-mt19937 rng_key(0);	
+mt19937 rng_key(0);
 
 struct Treap {
 	struct Node {
@@ -26,7 +26,7 @@ struct Treap {
 
 	void split(pNode t, int i, pNode &l, pNode &r) {
 		if(!t) l = r = nullptr;
-		else if(i <= cnt(t->l)) 
+		else if(i <= cnt(t->l))
 			split(t->l, i, l, t->l), r = t;
 		else
 			split(t->r, i - cnt(t->l) - 1, t->r, r), l = t;

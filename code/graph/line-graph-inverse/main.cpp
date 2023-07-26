@@ -93,7 +93,7 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 					}
 
 				if(og_n <= 4) {
-					function<bool (int, int, set<pair<int, int>>&)> backtrack 
+					function<bool (int, int, set<pair<int, int>>&)> backtrack
 							= [&](int new_og_n, int i, set<pair<int, int>> &used_edges) {
 						if(i == que_i + 1)
 							return true;
@@ -107,7 +107,7 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 									auto is_valid = [&] {
 										REP(j, i) {
 											bool should_be_neighbor_to_v = bool(
-													find(que_i_to_visited_neighbors[i].begin(), 
+													find(que_i_to_visited_neighbors[i].begin(),
 														 que_i_to_visited_neighbors[i].end(),
 														 que[j])
 													!=   que_i_to_visited_neighbors[i].end()
@@ -175,7 +175,7 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 									return make_tuple(1, og_v_cover0, -1);
 
 								for(auto [og_v_cover1, og_deg_cover1] : og_deg_uncovered)
-									if(candidates.count(og_v_cover1) 
+									if(candidates.count(og_v_cover1)
 											and not og_used_edges.count(pair(
 													min(og_v_cover0, og_v_cover1),
 													max(og_v_cover0, og_v_cover1)
@@ -183,7 +183,7 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 											and og_deg_cover1 == uncovered)
 										found_cover_2 = {og_v_cover0, og_v_cover1};
 							}
-						return make_tuple(found_cover_2.first == -1 ? 3 : 2, 
+						return make_tuple(found_cover_2.first == -1 ? 3 : 2,
 								found_cover_2.first, found_cover_2.second);
 					};
 					auto [cover_size, og_v_cover0, og_v_cover1] = get_best_cover();

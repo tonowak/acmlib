@@ -14,7 +14,7 @@ struct HLD {
 	void init(int v, int p = -1) {
 		par[v] = p;
 		sz[v] = 1;
-		if(ssize(adj[v]) > 1 && adj[v][0] == p) 
+		if(ssize(adj[v]) > 1 && adj[v][0] == p)
 			swap(adj[v][0], adj[v][1]);
 		for(int &u : adj[v]) if(u != par[v]) {
 			init(u, v);

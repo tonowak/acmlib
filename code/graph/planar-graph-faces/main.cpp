@@ -22,7 +22,7 @@ struct Face {
 ostream& operator<<(ostream &o, Face f) {
 	return o << pair(f.is_outside, f.sorted_edges);
 }
-	
+
 vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int, int>> edges) {
 	int n = ssize(coord);
 	int E = ssize(edges);
@@ -60,7 +60,7 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 
 		REP(i, ssize(sorted)) {
 			int e0 = sorted[i].second;
-			int e1 = sorted[(i + 1) % ssize(sorted)].second; 
+			int e1 = sorted[(i + 1) % ssize(sorted)].second;
 			int side_e0 = side_of_edge(e0, v, true);
 			int side_e1 = side_of_edge(e1, v, false);
 			lead[find(side_e0)] = find(side_e1);
@@ -103,6 +103,6 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 			}
 			polygons.emplace_back(Face{area >= 0, sorted_edges});
 		}
-	// Remember that there can be multiple outside faces. 
+	// Remember that there can be multiple outside faces.
 	return polygons;
 }

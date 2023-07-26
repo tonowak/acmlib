@@ -49,7 +49,7 @@ struct Treap {
 		update(t);
 	}
 
-	void insert(pNode &t, int i, pNode it) { 
+	void insert(pNode &t, int i, pNode it) {
 		if(!t) t = it;
 		else if(it->prio > t->prio)
 			split(t, i, it->l, it->r), t = it;

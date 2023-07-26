@@ -20,7 +20,7 @@ void test() {
 		used.emplace(v, u);
 	}
 	debug(n, edges);
-	
+
 	int triangles3 = 0, paths3 = 0, stars3 = 0;
 	int ps4 = 0, rectangles4 = 0, ys4 = 0, paths4 = 0, stars4 = 0;
 

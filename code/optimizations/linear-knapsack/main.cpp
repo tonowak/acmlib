@@ -4,13 +4,7 @@
  */
 
 LL knapsack(vector<int> w, LL bound) {
-	{
-		vector<int> filtered;
-		for(int o : w)
-			if(LL(o) <= bound)
-				filtered.emplace_back(o);
-		w = filtered;
-	}
+	erase_if(w, [=](int x){ return x > bound; });
 	{
 		LL sum = accumulate(w.begin(), w.end(), 0LL);
 		if(sum <= bound)

@@ -10,7 +10,7 @@
 LL crt(LL a, LL m, LL b, LL n) {
 	if(n > m) swap(a, b), swap(m, n);
 	auto [d, x, y] = extended_gcd(m, n);
-	assert((a - b) % d == 0); 
+	assert((a - b) % d == 0);
 	LL ret = (b - a) % n * x % n / d * m + a;
 	return ret < 0 ? ret + m * n / d : ret;
 }

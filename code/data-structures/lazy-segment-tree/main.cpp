@@ -45,7 +45,7 @@ struct Tree {
 	Node get(int l, int r, int v = 1) {
 		if(l == 0 and r == tree[v].sz - 1)
 			return tree[v];
-		push(v);	
+		push(v);
 		int m = tree[v].sz / 2;
 		if(r < m)
 			return get(l, r, 2 * v);

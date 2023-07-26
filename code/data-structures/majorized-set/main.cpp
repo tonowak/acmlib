@@ -1,31 +1,21 @@
 /*
  * Opis: O(\log n),
- *   w \texttt{cur} jest zmajoryzowany set,
+ *   w \texttt{s} jest zmajoryzowany set,
  *   \texttt{insert(p)} wrzuca parę \texttt{p} do setu, majoryzuje go (zamortyzowany czas)
  *   i zwraca, czy podany element został dodany.
  */
 
+template<typename A, typename B>
 struct MajorizedSet {
-	set<pair<int, int>> cur;
+	set<pair<A, B>> s;
 
-	MajorizedSet() {}
-
-	bool insert(pair<int, int> p) {
-		auto x = cur.lower_bound(p);
-		if (x != cur.end() && (*x).second >= p.second)
+	bool insert(pair<A, B> p) {
+		auto x = s.lower_bound(p);
+		if (x != s.end() && x->second >= p.second)
 			return false;
-		while (true) {
-			x = cur.upper_bound(p);
-			if (x == cur.begin())
-				break;
-			--x;
-			if ((*x).second <= p.second) {
-				cur.erase(x);
-				continue;
-			}
-			break;
-		}
-		cur.emplace(p);
+		while (x != s.begin() && (--x)->second <= p.second)
+			x = s.erase(x);
+		s.emplace(p);
 		return true;
 	}
 };

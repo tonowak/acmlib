@@ -36,7 +36,6 @@ vector<int> get_new_vertex_id_from_order(vector<int> order) {
 	vector<int> ret(ssize(order), -1);
 	REP(v, ssize(order))
 		ret[order[v]] = v;
-	assert(*min_element(order.begin(), order.end()) != -1);
 	return ret;
 }
 

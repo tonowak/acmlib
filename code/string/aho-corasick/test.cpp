@@ -33,7 +33,7 @@ void test() {
 	}
 	debug(patterns);
 	aho.convert();
-	
+
 	auto is_suffix_equal_to_pattern = [&](vector<int> text) {
 		REP(i, ssize(text)) {
 			vector<int> suffix(text.begin() + i, text.end());

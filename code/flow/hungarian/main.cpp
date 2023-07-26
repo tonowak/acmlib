@@ -19,7 +19,7 @@ pair<LL, vector<int>> hungarian(vector<vector<int>> a) {
 			done[j0] = true;
 			int i0 = p[j0], j1 = -1;
 			LL delta = numeric_limits<LL>::max();
-			FOR(j, 1, n1 - 1) 
+			FOR(j, 1, n1 - 1)
 				if(!done[j]) {
 					auto cur = a[i0 - 1][j - 1] - u[i0] - v[j];
 					if(cur < dist[j])
@@ -41,7 +41,7 @@ pair<LL, vector<int>> hungarian(vector<vector<int>> a) {
 		}
 	}
 	FOR(j, 1, n1 - 1)
-		if(p[j]) 
+		if(p[j])
 			ans[p[j] - 1] = j - 1;
 	return {-v[0], ans};
 }

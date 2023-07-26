@@ -54,11 +54,11 @@ struct Brute {
 	}
 
 	void add(int v, int u, LL val) {
-		dfs(v, u, val);	
+		dfs(v, u, val);
 	}
 
 	LL query(int v, int u) {
-		return dfs(v, u, 0);	
+		return dfs(v, u, 0);
 	}
 
 	Brute(int n, vector<vector<int>> _graph) : graph(_graph), sums(n) {}
@@ -77,7 +77,7 @@ void test() {
 		graph[p].emplace_back(v);
 	}
 
-	Test hld(n, graph);	
+	Test hld(n, graph);
 	Brute brut(n, graph);
 
 	REP(i, q)
@@ -90,4 +90,4 @@ void test() {
 			int v = rd(0, n - 1), u = rd(0, n - 1);
 			assert(hld.query(v, u) == brut.query(v, u));
 		}
-}	
+}

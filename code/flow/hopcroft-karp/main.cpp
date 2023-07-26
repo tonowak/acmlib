@@ -12,7 +12,6 @@ pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) 
 	vector<int> matched_with(n0 + n1, -1), dist(n0 + 1);
 	constexpr int inf = int(1e9);
 	vector<int> manual_que(n0 + 1);
- 
 	auto bfs = [&] {
 		int head = 0, tail = -1;
 		fill(dist.begin(), dist.end(), inf);
@@ -32,7 +31,6 @@ pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) 
 		}
 		return dist[0] != inf;
 	};
- 
 	function<bool (int)> dfs = [&](int v) {
 		if(v == -1)
 			return true;
@@ -47,7 +45,6 @@ pair<int, vector<int>> hopcroft_karp(vector<vector<int>> graph, int n0, int n1) 
 		dist[1 + v] = inf;
 		return false;
 	};
- 
 	int answer = 0;
 	for(int iter = 0; bfs(); ++iter)
 		REP(v, n0)
