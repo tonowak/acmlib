@@ -1,8 +1,6 @@
 /*
- * Opis: Sortowanie kątowe wektorów
- * Czas: O(n \log n)
- * Użycie:
- * Zwraca wektory P posortowane kątowo zgodnie z ruchem wskazówek zegara
+ * Opis: O(n \log n),
+ * zwraca wektory P posortowane kątowo zgodnie z ruchem wskazówek zegara
  * od najbliższego kątowo do wektora (0, 1) włącznie.
  * Aby posortować po argumencie (kącie) swapujemy x, y,
  * używamy angle-sort i ponownie swapujemy x, y.

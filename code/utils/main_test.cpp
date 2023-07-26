@@ -1,7 +1,6 @@
 /*
- * Opis: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary
- * Użycie:
- *   debug(a, b, c); wypisze [a, b, c]: a; b; c;
+ * Opis: Nagłówki używane w każdym kodzie. Działa na każdy kontener i pary.
+ *   \texttt{debug(a, b, c);} wypisze \texttt{[a, b, c]: a; b; c;}
  */
 #pragma once
 
