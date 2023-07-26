@@ -3,7 +3,7 @@
  *   w dominator tree (które jest drzewem, gdzie ojciec wierzchołka v
  *   to najbliższy wierzchołek, którego usunięcie powoduje,
  *   że już nie ma ścieżki od korzenia do v).
- * \texttt{dominator_tree(\{\{1,2\},\{3\},\{4\},\{4\},\{5\}\},0) == \{\{1,4,2\},\{3\},\{\},\{\},\{5\},\{\}\}\}}
+ * \texttt{dominator\_tree(\{\{1,2\},\{3\},\{4\},\{4\},\{5\}\},0) == \{\{1,4,2\},\{3\},\{\},\{\},\{5\},\{\}\}\}}
  */
 vector<vector<int>> dominator_tree(vector<vector<int>> dag, int root) {
 	int n = ssize(dag);
