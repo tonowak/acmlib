@@ -1,7 +1,6 @@
 /*
  * Opis: Konwersja różnych postaci prostej.
  */
-
 #include "../point/main.cpp"
 struct Line {
 	D A, B, C;

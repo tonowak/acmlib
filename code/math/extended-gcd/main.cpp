@@ -3,7 +3,6 @@
  *   takie $(gcd(a, b), x, y)$, że $ax + by = gcd(a, b)$.
  *  \texttt{auto [gcd, x, y] = extended\_gcd(a, b);}
  */
-
 tuple<LL, LL, LL> extended_gcd(LL a, LL b) {
 	if(a == 0)
 		return {b, 0, 1};

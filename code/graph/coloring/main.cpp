@@ -4,14 +4,12 @@
  *   \texttt{coloring(graph, 4)} zwraca 4-kolorowanie grafu,
  *   jeżeli w każdym momencie procesu usuwania wierzchołka o najmniejszym stopniu jego stopień jest nie większy niż 4
  */
-
 vector<int> coloring(const vector<vector<int>>& graph, const int limit = 5) {
 	const int n = ssize(graph);
 	if (!n) return {};
 	function<vector<int>(vector<bool>)> solve = [&](const vector<bool>& active) {
 		if (not *max_element(active.begin(), active.end()))
 			return vector (n, -1);
-
 		pair<int, int> best = {n, -1};
 		REP(i, n) {
 			if (not active[i])
@@ -25,7 +23,6 @@ vector<int> coloring(const vector<vector<int>>& graph, const int limit = 5) {
 		auto cp = active;
 		cp[id] = false;
 		auto col = solve(cp);
-
 		vector<bool> used(limit);
 		for (int e : graph[id])
 			if (active[e])
@@ -35,7 +32,6 @@ vector<int> coloring(const vector<vector<int>>& graph, const int limit = 5) {
 				col[id] = i;
 				return col;
 			}
-
 		for (int e0 : graph[id]) {
 			for (int e1 : graph[id]) {
 				if (e0 >= e1)

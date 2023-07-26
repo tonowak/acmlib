@@ -2,7 +2,6 @@
  * Opis: O(n + matching(n, m)) wyznaczanie w grafie dwudzielnym kolejno minimalnego pokrycia krawędziowego (PK), maksymalnego zbioru niezależnych wierzchołków (NW), minimalnego pokrycia wierzchołkowego (PW) pokorzystając z maksymalnego zbioru niezależnych krawędzi (NK) (tak zwany matching). Z tw. Koniga zachodzi |NK|=n-|PK|=n-|NW|=|PW|.
  */
 #include "../matching/main.cpp"
-
 vector<pair<int, int>> get_min_edge_cover(vector<vector<int>> graph) {
 	vector<int> match = Matching(graph)().second;
 	vector<pair<int, int>> ret;
@@ -13,7 +12,6 @@ vector<pair<int, int>> get_min_edge_cover(vector<vector<int>> graph) {
 			ret.emplace_back(v, graph[v].front());
 	return ret;
 }
-
 array<vector<int>, 2> get_coloring(vector<vector<int>> graph) {
 	int n = ssize(graph);
 	vector<int> match = Matching(graph)().second;
@@ -37,11 +35,9 @@ array<vector<int>, 2> get_coloring(vector<vector<int>> graph) {
 		groups[color[v]].emplace_back(v);
 	return groups;
 }
-
 vector<int> get_max_independent_set(vector<vector<int>> graph) {
 	return get_coloring(graph)[0];
 }
-
 vector<int> get_min_vertex_cover(vector<vector<int>> graph) {
 	return get_coloring(graph)[1];
 }

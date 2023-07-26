@@ -1,10 +1,8 @@
 /*
  * Opis: O(\log^2(mod)), dla pierwszego $mod$ znajduje generator modulo $mod$ (z być może sporą stałą).
  */
-
 #include "../simple-modulo/main.cpp"
 #include "../rho-pollard/main.cpp"
-
 int primitive_root() {
 	if(mod == 2)
 		return 1;

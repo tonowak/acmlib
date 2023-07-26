@@ -1,7 +1,6 @@
 /*
  * Opis: Funkcja do debugu która wypisuje ładnie drzewo, \texttt{print_tree(graph, root)}.
  */
-
 #ifdef DEBUG
 map<int, bool> edge;
 void print_tree(vector<vector<int>> &graph, int v = 0, int p = -1, int dep = 0, bool end = false) {
@@ -21,4 +20,3 @@ void print_tree(vector<vector<int>> &graph, int v = 0, int p = -1, int dep = 0, 
 #else
 #define print_tree(...) false
 #endif
-

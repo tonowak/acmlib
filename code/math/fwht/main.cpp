@@ -11,7 +11,6 @@
  *   \texttt{ifwht\_xor(fwht\_xor(a)) == a},
  *   \texttt{convolution\_xor(a, b)[i] = suma(j \^ k == i) a[j] * b[k]}.
  */
-
 vector<int> fwht_or(vector<int> a) {
 	int n = ssize(a);
 	assert((n & (n - 1)) == 0);
@@ -39,7 +38,6 @@ vector<int> convolution_or(vector<int> a, vector<int> b) {
 		a[i] *= b[i];
 	return ifwht_or(a);
 }
-
 vector<int> fwht_and(vector<int> a) {
 	int n = ssize(a);
 	assert((n & (n - 1)) == 0);
@@ -67,7 +65,6 @@ vector<int> convolution_and(vector<int> a, vector<int> b) {
 		a[i] *= b[i];
 	return ifwht_and(a);
 }
-
 vector<int> fwht_xor(vector<int> a) {
 	int n = ssize(a);
 	assert((n & (n - 1)) == 0);
@@ -101,4 +98,3 @@ vector<int> convolution_xor(vector<int> a, vector<int> b) {
 		a[i] *= b[i];
 	return ifwht_xor(a);
 }
-

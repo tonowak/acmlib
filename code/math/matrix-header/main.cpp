@@ -1,7 +1,6 @@
 /*
  * Opis: Funkcje pomocnicze do algorytmów macierzowych.
  */
-
 #if 1
 #ifdef CHANGABLE_MOD
 int mod = 998'244'353;

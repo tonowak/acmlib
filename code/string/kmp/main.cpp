@@ -4,7 +4,6 @@
  *   \texttt{get\_kmp(\{0,1,0,0,1,0,1,0,0,1\}) == \{0,0,1,1,2,3,2,3,4,5\}},
  *   \texttt{get\_borders(\{0,1,0,0,1,0,1,0,0,1\}) == \{2,5,10\}}.
  */
-
 vector<int> get_kmp(vector<int> str) {
 	int len = ssize(str);
 	vector<int> ret(len);
@@ -16,7 +15,6 @@ vector<int> get_kmp(vector<int> str) {
 	}
 	return ret;
 }
-
 vector<int> get_borders(vector<int> str) {
 	vector<int> kmp = get_kmp(str), ret;
 	int len = ssize(str);

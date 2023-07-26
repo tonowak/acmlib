@@ -1,12 +1,10 @@
 /*
  * Opis: FIO do wpychania kolanem. Nie należy wtedy używać cin/cout
  */
-
 #ifdef WIN32
 inline int getchar_unlocked() { return _getchar_nolock(); }
 inline void putchar_unlocked(char c) { return _putchar_nolock(c); }
 #endif
-
 int fastin() {
 	int n = 0, c = getchar_unlocked();
 	while(c < '0' or '9' < c)
@@ -17,7 +15,6 @@ int fastin() {
 	}
 	return n;
 }
-
 int fastin_negative() {
 	int n = 0, negative = false, c = getchar_unlocked();
 	while(c != '-' and (c < '0' or '9' < c))
@@ -32,7 +29,6 @@ int fastin_negative() {
 	}
 	return negative ? -n : n;
 }
-
 void fastout(int x) {
 	if(x == 0) {
 		putchar_unlocked('0');

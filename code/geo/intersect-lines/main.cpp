@@ -6,19 +6,15 @@
  *   \texttt{if ssize(v) == 2 in intersect\_segments:} \texttt{(v[0], v[1])} to odcinek, w którym są wszystkie inf rozwiązań
  *   \texttt{if ssize(v) == 2 in intersect\_lines:} \texttt{v} to niezdefiniowane punkty (inf rozwiązań)
  */
-
 #include "../point/main.cpp"
-
 P intersection_lines(P a, P b, P c, P d) {
 	D c1 = cross(c - a, b - a), c2 = cross(d - a, b - a);
 	// zaklada, ze c1 != c2, tzn. proste nie sa rownolegle
 	return (c1 * d  - c2 * c) / (c1 - c2);
 }
-
 bool on_segment(P a, P b, P p) {
 	return equal(cross(a - p, b - p), 0) and dot(a - p, b - p) <= 0;
 }
-
 bool is_intersection_segment(P a, P b, P c, P d) {
 	if(sign(max(c.x, d.x) - min(a.x, b.x)) == -1) return false;
 	if(sign(max(a.x, b.x) - min(c.x, d.x)) == -1) return false;
@@ -28,7 +24,6 @@ bool is_intersection_segment(P a, P b, P c, P d) {
 	if(dir(d, b, a) * dir(c, b, a) == 1) return false;
 	return true;
 }
-
 vector<P> intersect_segments(P a, P b, P c, P d) {
 	D acd = cross(c - a, d - c), bcd = cross(c - b, d - c),
 		   cab = cross(a - c, b - a), dab = cross(a - d, b - a);
@@ -41,7 +36,6 @@ vector<P> intersect_segments(P a, P b, P c, P d) {
 	if(on_segment(a, b, d)) s.emplace(d);
 	return {s.begin(), s.end()};
 }
-
 vector<P> intersect_lines(P a, P b, P c, P d) {
 	D acd = cross(c - a, d - c), bcd = cross(c - b, d - c);
 	if(not equal(bcd, acd))

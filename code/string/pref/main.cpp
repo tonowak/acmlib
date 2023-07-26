@@ -1,7 +1,6 @@
 /*
  * Opis: O(n), zwraca tablicę prefixo prefixową $[0, pref[i]) = [i, i + pref[i])$.
  */
-
 vector<int> pref(vector<int> str) {
 	int n = ssize(str);
 	vector<int> ret(n);

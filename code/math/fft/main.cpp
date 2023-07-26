@@ -1,7 +1,6 @@
 /*
  * Opis: O(n\log n), \texttt{conv(a, b)} to iloczyn wielomianów.
  */
-
 using Complex = complex<double>;
 void fft(vector<Complex> &a) {
 	int n = ssize(a), L = 31 - __builtin_clz(n);
@@ -13,7 +12,6 @@ void fft(vector<Complex> &a) {
 		FOR(i, k, 2 * k - 1)
 			rt[i] = R[i] = i & 1 ? R[i / 2] * x : R[i / 2];
 	}
-
 	vector<int> rev(n);
 	REP(i, n) rev[i] = (rev[i / 2] | (i & 1) << L) / 2;
 	REP(i, n) if(i < rev[i]) swap(a[i], a[rev[i]]);
@@ -25,7 +23,6 @@ void fft(vector<Complex> &a) {
 		}
 	}
 }
-
 vector<double> conv(vector<double> &a, vector<double> &b) {
 	if(a.empty() || b.empty()) return {};
 	vector<double> res(ssize(a) + ssize(b) - 1);
@@ -40,4 +37,3 @@ vector<double> conv(vector<double> &a, vector<double> &b) {
 	REP(i, ssize(res)) res[i] = imag(out[i]) / (4 * n);
 	return res;
 }
-

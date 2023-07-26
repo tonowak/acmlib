@@ -9,7 +9,6 @@
  *   \texttt{renumerate\_vertices(...)} zwraca nowy graf, w którym wierzchołki są przenumerowane.
  *   Nowy graf: \texttt{renumerate\_vertices(graph, get\_new\_vertex\_id\_from\_order(get\_toposort\_order(graph)))}.
  */
-
 vector<int> get_toposort_order(vector<vector<int>> graph) {
 	int n = ssize(graph);
 	vector<int> indeg(n);
@@ -31,14 +30,12 @@ vector<int> get_toposort_order(vector<vector<int>> graph) {
 	}
 	return ret;
 }
-
 vector<int> get_new_vertex_id_from_order(vector<int> order) {
 	vector<int> ret(ssize(order), -1);
 	REP(v, ssize(order))
 		ret[order[v]] = v;
 	return ret;
 }
-
 template<class T>
 vector<T> permute(vector<T> elems, vector<int> new_id) {
 	vector<T> ret(ssize(elems));
@@ -46,7 +43,6 @@ vector<T> permute(vector<T> elems, vector<int> new_id) {
 		ret[new_id[v]] = elems[v];
 	return ret;
 }
-
 vector<vector<int>> renumerate_vertices(vector<vector<int>> graph, vector<int> new_id) {
 	int n = ssize(graph);
 	vector<vector<int>> ret(n);

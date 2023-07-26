@@ -3,7 +3,6 @@
  *   \texttt{sos\_dp(2, \{4, 3, 7, 2\})} zwraca \texttt{\{4, 7, 11, 16\}},
  *   \texttt{sos\_dp(2, \{4, 3, 7, 2\}, true)} zwraca \texttt{\{16, 5, 9, 2\}}.
  */
-
 vector<LL> sos_dp(int n, vector<LL> A, bool nad = false) {
 	int N = (1 << n);
 	if (nad) REP(i, N / 2) swap(A[i], A[(N - 1) ^ i]);

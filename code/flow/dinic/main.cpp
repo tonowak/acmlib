@@ -2,7 +2,6 @@
  * Opis: O(V^2 E) Dinic bez skalowania.
  *   funkcja \texttt{get\_flowing()} zwraca dla każdej oryginalnej krawędzi ile przez nią leci.
  */
-
 struct Dinic {
 	using T = int;
 	struct Edge {
@@ -12,9 +11,7 @@ struct Dinic {
 	int n;
 	vector<vector<int>> graph;
 	vector<Edge> edges;
-
 	Dinic(int N) : n(N), graph(n) {}
-
 	void add_edge(int v, int u, T cap) {
 		debug(v, u, cap);
 		int e = ssize(edges);
@@ -23,7 +20,6 @@ struct Dinic {
 		edges.emplace_back(Edge{v, u, 0, cap});
 		edges.emplace_back(Edge{u, v, 0, 0});
 	}
-
 	vector<int> dist;
 	bool bfs(int source, int sink) {
 		dist.assign(n, 0);
@@ -40,7 +36,6 @@ struct Dinic {
 		}
 		return dist[sink] != 0;
 	}
-
 	vector<int> ended_at;
 	T dfs(int v, int sink, T flow = numeric_limits<T>::max()) {
 		if(flow == 0 or v == sink)
@@ -56,7 +51,6 @@ struct Dinic {
 		}
 		return 0;
 	}
-
 	T operator()(int source, int sink) {
 		T answer = 0;
 		while(bfs(source, sink)) {
@@ -66,7 +60,6 @@ struct Dinic {
 		}
 		return answer;
 	}
-
 	map<pair<int, int>, T> get_flowing() {
 		map<pair<int, int>, T> ret;
 		REP(v, n)

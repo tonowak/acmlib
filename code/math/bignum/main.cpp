@@ -3,11 +3,9 @@
  * wersje \texttt{operatorX(Num, int)} liniowe.
  * Podstawę można zmieniać (ma zachodzić \texttt{base == 10 do digits\_per\_elem}).
  */
-
 struct Num {
 	static constexpr int digits_per_elem = 9, base = int(1e9);
 	vector<int> x;
-
 	Num& shorten() {
 		while(ssize(x) and x.back() == 0)
 			x.pop_back();
@@ -15,7 +13,6 @@ struct Num {
 			assert(0 <= a and a < base);
 		return *this;
 	}
-
 	Num(const string& s) {
 		for(int i = ssize(s); i > 0; i -= digits_per_elem)
 			if(i < digits_per_elem)
@@ -29,7 +26,6 @@ struct Num {
 		assert(s >= 0);
 	}
 };
-
 string to_string(const Num& n) {
 	stringstream s;
 	s << (ssize(n.x) ? n.x.back() : 0);
@@ -37,11 +33,9 @@ string to_string(const Num& n) {
 		s << setfill('0') << setw(n.digits_per_elem) << n.x[i];
 	return s.str();
 }
-
 ostream& operator<<(ostream &o, const Num& n) {
 	return o << to_string(n).c_str();
 }
-
 Num operator+(Num a, const Num& b) {
 	int carry = 0;
 	for(int i = 0; i < max(ssize(a.x), ssize(b.x)) or carry; ++i) {
@@ -54,7 +48,6 @@ Num operator+(Num a, const Num& b) {
 	}
 	return a.shorten();
 }
-
 bool operator<(const Num& a, const Num& b) {
 	if(ssize(a.x) != ssize(b.x))
 		return ssize(a.x) < ssize(b.x);
@@ -63,15 +56,12 @@ bool operator<(const Num& a, const Num& b) {
 			return a.x[i] < b.x[i];
 	return false;
 }
-
 bool operator==(const Num& a, const Num& b) {
 	return a.x == b.x;
 }
-
 bool operator<=(const Num& a, const Num& b) {
 	return a < b or a == b;
 }
-
 Num operator-(Num a, const Num& b) {
 	assert(b <= a);
 	int carry = 0;
@@ -83,7 +73,6 @@ Num operator-(Num a, const Num& b) {
 	}
 	return a.shorten();
 }
-
 Num operator*(Num a, int b) {
 	assert(0 <= b and b < a.base);
 	int carry = 0;
@@ -96,7 +85,6 @@ Num operator*(Num a, int b) {
 	}
 	return a.shorten();
 }
-
 Num operator*(const Num& a, const Num& b) {
 	Num c;
 	c.x.resize(ssize(a.x) + ssize(b.x));
@@ -108,7 +96,6 @@ Num operator*(const Num& a, const Num& b) {
 		}
 	return c.shorten();
 }
-
 Num operator/(Num a, int b) {
 	assert(0 < b and b < a.base);
 	int carry = 0;
@@ -119,14 +106,12 @@ Num operator/(Num a, int b) {
 	}
 	return a.shorten();
 }
-
 // zwraca a * pow(a.base, b)
 Num shift(Num a, int b) {
 	vector v(b, 0);
 	a.x.insert(a.x.begin(), v.begin(), v.end());
 	return a.shorten();
 }
-
 Num operator/(Num a, const Num& b) {
 	assert(ssize(b.x));
 	Num c;
@@ -145,12 +130,10 @@ Num operator/(Num a, const Num& b) {
 	}
 	return c.shorten();
 }
-
 template<typename T>
 Num operator%(const Num& a, const T& b) {
 	return a - ((a / b) * b);
 }
-
 Num nwd(const Num& a, const Num& b) {
 	if(b == Num())
 		return a;

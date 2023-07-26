@@ -4,7 +4,6 @@
  *   \texttt{OperationJumpPtr} może otrzymać wynik na ścieżce.
  *   Wynik na ścieżce do góry wymaga łączności, wynik dowolnej ścieżki jest poprawny, gdy jest odwrotność wyniku lub przemienna.
  */
-
 struct SimpleJumpPtr {
 	int bits;
 	vector<vector<int>> graph, jmp;
@@ -44,7 +43,6 @@ struct SimpleJumpPtr {
 		v = jump_up(v, dep[v] - dep[u]);
 		if(v == u)
 			return v;
-
 		for(int b = bits - 1; b >= 0; b--) {
 			if(jmp[b][v] != jmp[b][u]) {
 				v = jmp[b][v];
@@ -54,16 +52,13 @@ struct SimpleJumpPtr {
 		return par[v];
 	}
 };
-
 using PathAns = LL;
 PathAns merge(PathAns down, PathAns up) {
 	return down + up;
 }
-
 struct OperationJumpPtr {
 	SimpleJumpPtr ptr;
 	vector<vector<PathAns>> ans_jmp;
-
 	OperationJumpPtr(vector<vector<pair<int, int>>> g, int root = 0) {
 		debug(g, root);
 		int n = ssize(g);

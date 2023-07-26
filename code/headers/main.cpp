@@ -14,8 +14,6 @@ auto operator<<(auto&o,auto x)->decltype(x.end(),o){o<<"{";int i=0;for(auto e:x)
 #else
 #define debug(...) {}
 #endif
-
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-
 }

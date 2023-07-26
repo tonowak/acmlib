@@ -2,9 +2,7 @@
  * Opis: O(\sqrt{m} \log n) czasowo, O(\sqrt{n}) pamięciowo,
  * dla liczby pierwszej $mod$ oraz $a, b \nmid mod$ znajdzie $e$ takie że $a^e \equiv b \pmod{mod}$. Jak zwróci $-1$ to nie istnieje.
 */
-
 #include "../simple-modulo/main.cpp"
-
 int discrete_log(int a, int b) {
 	int n = int(sqrt(mod)) + 1;
 	int an = 1;

@@ -2,12 +2,10 @@
  * Opis: O(1) na zapytanie z niemałą stałą, pojedyńcze i podwójne hashowanie.
  *   można zmienić modulo i bazę.
  */
-
 struct Hashing {
 	vector<int> ha, pw;
 	static constexpr int mod = 1e9 + 696969;
 	int base;
-
 	Hashing(const vector<int> &str, int b = 31) {
 		base = b;
 		int len = ssize(str);
@@ -18,12 +16,10 @@ struct Hashing {
 			pw[i + 1] = int(((LL) pw[i] * base) % mod);
 		}
 	}
-
 	int operator()(int l, int r) {
 		return int(((ha[r + 1] - (LL) ha[l] * pw[r - l + 1]) % mod + mod) % mod);
 	}
 };
-
 struct DoubleHashing {
 	Hashing h1, h2;
 	DoubleHashing(const vector<int> &str) : h1(str), h2(str, 33) {} // change to rd on codeforces

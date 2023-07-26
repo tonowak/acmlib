@@ -4,7 +4,6 @@
  * 	 Graf musi być spójny, po zainicjalizowaniu w \texttt{path} jest ścieżka/cykl eulera, vector o długości $m + 1$ kolejnych wierzchołków
  * 	 Jeśli nie ma ścieżki/cyklu, \texttt{path} jest puste. Dla cyklu, \texttt{path[0] == path[m]}.
  */
-
 using PII = pair<int, int>;
 struct EulerianPath {
 	vector<vector<PII>> adj;

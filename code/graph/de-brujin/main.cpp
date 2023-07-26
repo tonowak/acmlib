@@ -3,7 +3,6 @@
  * Jeżeli \texttt{is\_path} to zwraca ciąg, wpp. zwraca cykl.
  */
 #include "../eulerian-path/main.cpp"
-
 vector<int> de_brujin(int k, int n, bool is_path) {
 	if (n == 1) {
 		vector<int> v(k);

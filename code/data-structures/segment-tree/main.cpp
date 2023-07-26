@@ -1,12 +1,10 @@
 /*
  * Opis: Drzewa punkt-przedział. Pierwsze ustawia w punkcie i podaje max na przedziale. Drugie maxuje elementy na przedziale i podaje wartość w punkcie.
  */
-
 struct Tree_Get_Max {
 	using T = int;
 	T f(T a, T b) { return max(a, b); }
 	const T zero = 0;
-
 	vector<T> tree;
 	int sz = 1;
 	Tree_Get_Max(int n) {
@@ -14,13 +12,11 @@ struct Tree_Get_Max {
 			sz *= 2;
 		tree.resize(sz * 2, zero);
 	}
-
 	void update(int pos, T val) {
 		tree[pos += sz] = val;
 		while(pos /= 2)
 			tree[pos] = f(tree[pos * 2], tree[pos * 2 + 1]);
 	}
-
 	T get(int l, int r) {
 		l += sz, r += sz;
 		T ret = l != r ? f(tree[l], tree[r]) : tree[l];
@@ -34,10 +30,8 @@ struct Tree_Get_Max {
 		return ret;
 	}
 };
-
 struct Tree_Update_Max_On_Interval {
 	using T = int;
-
 	vector<T> tree;
 	int sz = 1;
 	Tree_Update_Max_On_Interval(int n) {
@@ -45,14 +39,12 @@ struct Tree_Update_Max_On_Interval {
 			sz *= 2;
 		tree.resize(sz * 2);
 	}
-
 	T get(int pos) {
 		T ret = tree[pos += sz];
 		while(pos /= 2)
 			ret = max(ret, tree[pos]);
 		return ret;
 	}
-
 	void update(int l, int r, T val) {
 		l += sz, r += sz;
 		tree[l] = max(tree[l], val);

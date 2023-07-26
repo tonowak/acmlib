@@ -2,11 +2,9 @@
  * Opis: O(\log^2 n) test pierwszości Millera-Rabina,
  *   działa dla long longów.
  */
-
 LL llmul(LL a, LL b, LL m) {
 	return LL(__int128_t(a) * b % m);
 }
-
 LL llpowi(LL a, LL n, LL m) {
 	for (LL ret = 1;; n /= 2) {
 		if (n == 0)
@@ -16,7 +14,6 @@ LL llpowi(LL a, LL n, LL m) {
 		a = llmul(a, a, m);
 	}
 }
-
 bool miller_rabin(LL n) {
 	if(n < 2) return false;
 	int r = 0;

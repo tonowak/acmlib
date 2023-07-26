@@ -3,7 +3,6 @@
  */
 #include "../point/main.cpp"
 constexpr D pi = acosl(-1);
-
 // nachylenie k-> y = kx + m
 D slope(P a, P b) { return tan(arg(b - a)); }
 // rzut p na ab

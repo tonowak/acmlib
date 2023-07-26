@@ -5,7 +5,6 @@
  *   \texttt{query(pos)} zwraca wartość elementu $pos$.
  */
 #include "../fenwick-tree/main.cpp"
-
 struct RangeAdd {
 	Fenwick f;
 	RangeAdd(int n) : f(n) {}

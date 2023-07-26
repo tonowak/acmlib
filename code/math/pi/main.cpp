@@ -2,7 +2,6 @@
  * Opis: O(n^\frac{3}{4}), liczba liczb pierwszych na przedziale $[1,n]$.
  *   \texttt{Pi pi(n); pi.query(d); // musi zachodzic d | n}
  */
-
 struct Pi {
 	vector<LL> w, dp;
 	int id(LL v) {

@@ -3,7 +3,6 @@
  *   \texttt{gomory\_hu(n, edges)[s][t] == min cut (s, t)}
  */
 #include "../dinic/main.cpp"
-
 pair<Dinic::T, vector<bool>> get_min_cut(Dinic &dinic, int s, int t) {
 	for(Dinic::Edge &e : dinic.edges)
 		e.flow = 0;
@@ -13,7 +12,6 @@ pair<Dinic::T, vector<bool>> get_min_cut(Dinic &dinic, int s, int t) {
 		cut[v] = bool(dinic.dist[v]);
 	return {flow, cut};
 }
-
 vector<vector<Dinic::T>> get_gomory_hu(int n, vector<tuple<int, int, Dinic::T>> edges) {
 	Dinic dinic(n);
 	for(auto [v, u, cap] : edges) {
@@ -31,7 +29,6 @@ vector<vector<Dinic::T>> get_gomory_hu(int n, vector<tuple<int, int, Dinic::T>> 
 		tree[v].emplace_back(par[v], flow);
 		tree[par[v]].emplace_back(v, flow);
 	}
-
 	T inf = numeric_limits<T>::max();
 	vector ret(n, vector(n, inf));
 	REP(source, n) {
@@ -45,4 +42,3 @@ vector<vector<Dinic::T>> get_gomory_hu(int n, vector<tuple<int, int, Dinic::T>> 
 	}
 	return ret;
 }
-

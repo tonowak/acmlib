@@ -3,7 +3,6 @@
  * Działa dla $0 \leq a, b < c$ oraz $1\leq c, n \leq 10^9$.
  * Dla innych $n, a, b, c$ trzeba uważać lub użyć \texttt{\_\_int128}.
  */
-
 LL floor_sum(LL n, LL a, LL b, LL c) {
 	LL ans = 0;
 	if (a >= c) {

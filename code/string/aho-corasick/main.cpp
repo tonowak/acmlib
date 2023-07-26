@@ -7,14 +7,12 @@
  * 	\texttt{go(x, c)} zwraca następnik x przez literę c,
  * 	najpierw dodajemy słowa, potem robimy convert(), a na koniec używamy $go$ i $link$.
  */
-
 constexpr int alpha = 26;
 struct AhoCorasick {
 	struct Node {
 		array<int, alpha> next, go;
 		int p, pch, link = -1;
 		bool is_word_end = false;
-
 		Node(int _p = -1, int ch = -1) : p(_p), pch(ch) {
 			fill(next.begin(), next.end(), -1);
 			fill(go.begin(), go.end(), -1);
@@ -22,9 +20,7 @@ struct AhoCorasick {
 	};
 	vector<Node> node;
 	bool converted = false;
-
 	AhoCorasick() : node(1) {}
-
 	void add(const vector<int> &s) {
 		assert(!converted);
 		int v = 0;
@@ -37,17 +33,14 @@ struct AhoCorasick {
 		}
 		node[v].is_word_end = true;
 	}
-
 	int link(int v) {
 		assert(converted);
 		return node[v].link;
 	}
-
 	int go(int v, int c) {
 		assert(converted);
 		return node[v].go[c];
 	}
-
 	void convert() {
 		assert(!converted);
 		converted = true;

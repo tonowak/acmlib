@@ -5,7 +5,6 @@
  *  na konteście raczej checemy przepisać tylko pętlę i od razu wykonywać obliczenia na parze (l, r) zamiast grupować wszyskie przedziały w vectorze.
  *  Dla $n$ będącego intem można zmienić wszystkie LL na int, w celu zbicia stałej.
  */
-
 vector<pair<LL, LL>> same_floor(LL n) {
 	vector<pair<LL, LL>> v;
 	for (LL l = 1, r; l <= n; l = r + 1) {
@@ -14,7 +13,6 @@ vector<pair<LL, LL>> same_floor(LL n) {
 	}
 	return v;
 }
-
 vector<pair<LL, LL>> same_ceil(LL n) {
 	vector<pair<LL, LL>> v;
 	for (LL r = n, l; r >= 1; r = l - 1) {

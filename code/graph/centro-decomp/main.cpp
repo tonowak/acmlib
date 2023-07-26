@@ -11,18 +11,15 @@
  * 	Tablica \texttt{par} mówi kto jest naszym ojcem w drzewie CD.
  * 	\texttt{root} to korzeń drzewa CD.
  */
-
 struct CentroDecomp {
 	const vector<vector<int>> &graph; // tu
 	vector<int> par, _subsz, _vis;
 	int _vis_cnt = 1;
 	const int _INF = int(1e9);
 	int root;
-
 	void refresh() { ++_vis_cnt; }
 	void visit(int v) { _vis[v] = max(_vis[v], _vis_cnt); }
 	bool is_vis(int v) { return _vis[v] >= _vis_cnt; }
-
 	void dfs_subsz(int v) {
 		visit(v);
 		_subsz[v] = 1;
@@ -32,7 +29,6 @@ struct CentroDecomp {
 				_subsz[v] += _subsz[u];
 			}
 	}
-
 	int centro(int v) {
 		refresh();
 		dfs_subsz(v);
@@ -49,11 +45,9 @@ struct CentroDecomp {
 				return v;
 		}
 	}
-
 	void decomp(int v) {
 		refresh();
 		// Tu kod. Centroid to v, ktory jest juz dozywotnie odwiedzony.
-
 		// Koniec kodu.
 		refresh();
 		for(int u : graph[v]) // tu
@@ -61,13 +55,10 @@ struct CentroDecomp {
 				u = centro(u);
 				par[u] = v;
 				_vis[u] = _INF;
-
 				// Opcjonalnie tutaj przekazujemy info synowi w drzewie CD.
-
 				decomp(u);
 			}
 	}
-
 	CentroDecomp(int n, vector<vector<int>> &_graph) // tu
 	   	: graph(_graph), par(n, -1), _subsz(n), _vis(n) {
 		root = centro(0);

@@ -3,7 +3,6 @@
  *   Wierzchołki grafu nie muszą być ładnie podzielone na dwia przedziały, musi być po prostu dwudzielny.
  *   Na przykład \texttt{auto [match\_size, match] = Matching(graph)();}
  */
-
 struct Matching {
 	vector<vector<int>> &adj;
 	vector<int> mat, vis;

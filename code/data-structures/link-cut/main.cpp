@@ -3,18 +3,15 @@
  *   Przepisać co się chce (logika lazy jest tylko w \texttt{AdditionalInfo}, można np. zostawić puste funkcje).
  *   Wywołać konstruktor, potem \texttt{set\_value} na wierzchołkach (aby się ustawiło, że nie-nil to nie-nil) i potem jazda.
  */
-
 struct AdditionalInfo {
 	using T = LL;
 	static constexpr T neutral = 0; // Remember that there is a nil vertex!
 	T node_value = neutral, splay_value = neutral;//, splay_value_reversed = neutral;
 	T whole_subtree_value = neutral, virtual_value = neutral;
-
 	T splay_lazy = neutral; // lazy propagation on paths
 	T splay_size = 0; // 0 because of nil
 	T whole_subtree_lazy = neutral, whole_subtree_cancel = neutral; // lazy propagation on subtrees
 	T whole_subtree_size = 0, virtual_size = 0; // 0 because of nil
-
 	void set_value(T x) {
 		node_value = splay_value = whole_subtree_value = x;
 		splay_size = 1;
@@ -67,26 +64,22 @@ struct AdditionalInfo {
 		virtual_value += x * virtual_size;
 	}
 };
-
 struct Splay {
 	struct Node {
 		array<int, 2> child;
 		int parent;
 		int subsize_splay = 1;
 		bool lazy_flip = false;
-
 		AdditionalInfo info;
 	};
 	vector<Node> t;
 	const int nil;
-
 	Splay(int n)
 	: t(n + 1), nil(n) {
 		t[nil].subsize_splay = 0;
 		for(Node &v : t)
 			v.child[0] = v.child[1] = v.parent = nil;
 	}
-
 	void apply_lazy_and_push(int v) {
 		auto &[l, r] = t[v].child;
 		if(t[v].lazy_flip) {
@@ -100,7 +93,6 @@ struct Splay {
 				t[c].info.pull_lazy_from_parent(t[v].info);
 		t[v].lazy_flip = false;
 	}
-
 	void update_from_sons(int v) {
 		// assumes that v's info is pushed
 		auto [l, r] = t[v].child;
@@ -109,7 +101,6 @@ struct Splay {
 			apply_lazy_and_push(c);
 		t[v].info.update_from_sons(t[l].info, t[r].info);
 	}
-
 	// After that, v is pushed and updated
 	void splay(int v) {
 		apply_lazy_and_push(v);
@@ -144,7 +135,6 @@ struct Splay {
 					t[path_up[i]].info.pull_lazy_from_parent(t[path_up[i + 1]].info);
 				apply_lazy_and_push(path_up[i]);
 			}
-
 			int dp = get_dir(v), dpp = get_dir(p);
 			if(dpp == -1)
 				rotate(p, dp);
@@ -159,10 +149,8 @@ struct Splay {
 		}
 	}
 };
-
 struct LinkCut : Splay {
 	LinkCut(int n) : Splay(n) {}
-
 	// Cuts the path from x downward, creates path to root, splays x.
 	int access(int x) {
 		int v = x, cv = nil;
@@ -178,7 +166,6 @@ struct LinkCut : Splay {
 		splay(x);
 		return cv;
 	}
-
 	// Changes the root to v.
 	// Warning: Linking, cutting, getting the distance, etc, changes the root.
 	void reroot(int v) {
@@ -186,7 +173,6 @@ struct LinkCut : Splay {
 		t[v].lazy_flip ^= 1;
 		apply_lazy_and_push(v);
 	}
-
 	// Returns the root of tree containing v.
 	int get_leader(int v) {
 		access(v);
@@ -197,7 +183,6 @@ struct LinkCut : Splay {
 	bool is_in_same_tree(int v, int u) {
 		return get_leader(v) == get_leader(u);
 	}
-
 	// Assumes that v and u aren't in same tree and v != u.
 	// Adds edge (v, u) to the forest.
 	void link(int v, int u) {
@@ -208,7 +193,6 @@ struct LinkCut : Splay {
 		t[v].parent = u;
 		t[v].info.cancel_subtree_lazy_from_parent(t[u].info);
 	}
-
 	// Assumes that v and u are in same tree and v != u.
 	// Cuts edge going from v to the subtree where is u
 	// (in particular, if there is an edge (v, u), it deletes it).
@@ -226,7 +210,6 @@ struct LinkCut : Splay {
 			c = t[c].child[1];
 		return c;
 	}
-
 	// Assumes that v and u are in same tree.
 	// Returns their LCA after a reroot operation.
 	int lca(int root, int v, int u) {
@@ -236,7 +219,6 @@ struct LinkCut : Splay {
 		access(v);
 		return access(u);
 	}
-
 	// Assumes that v and u are in same tree.
 	// Returns their distance (in number of edges).
 	int dist(int v, int u) {
@@ -244,7 +226,6 @@ struct LinkCut : Splay {
 		access(u);
 		return t[t[u].child[0]].subsize_splay;
 	}
-
 	// Assumes that v and u are in same tree.
 	// Returns the sum of values on the path from v to u.
 	auto get_path_sum(int v, int u) {
@@ -252,7 +233,6 @@ struct LinkCut : Splay {
 		access(u);
 		return t[u].info.get_path_sum();
 	}
-
 	// Assumes that v and u are in same tree.
 	// Returns the sum of values on the subtree of v in which u isn't present.
 	auto get_subtree_sum(int v, int u) {
@@ -261,7 +241,6 @@ struct LinkCut : Splay {
 		link(v, u);
 		return ret;
 	}
-
 	// Applies function f on vertex v (useful for a single add/set operation)
 	void apply_on_vertex(int v, function<void (AdditionalInfo&)> f) {
 		access(v);
@@ -269,7 +248,6 @@ struct LinkCut : Splay {
 		// apply_lazy_and_push(v); not needed
 		// update_from_sons(v);
 	}
-
 	// Assumes that v and u are in same tree.
 	// Adds val to each vertex in path from v to u.
 	void add_on_path(int v, int u, int val) {
@@ -277,7 +255,6 @@ struct LinkCut : Splay {
 		access(u);
 		t[u].info.add_lazy_in_path(val);
 	}
-
 	// Assumes that v and u are in same tree.
 	// Adds val to each vertex in subtree of v that doesn't have u.
 	void add_on_subtree(int v, int u, int val) {

@@ -3,7 +3,6 @@
  * \texttt{integral([](T x) \{ return 3 * x * x - 8 * x + 3; \}, a, b)},
  * daj asserta na błąd, ewentualnie zwiększ n (im większe n, tym mniejszy błąd).
  */
-
 using T = double;
 T integral(function<T(T)> f, T a, T b) {
 	const int n = 1000;

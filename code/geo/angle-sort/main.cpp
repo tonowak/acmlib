@@ -6,7 +6,6 @@
  * używamy angle-sort i ponownie swapujemy x, y.
  */
 #include "../point/main.cpp"
-
 vector<P> angle_sort(vector<P> t) {
 	auto it = partition(t.begin(), t.end(), [](P a){ return P(0, 0) < a; });
 	auto cmp = [&](P a, P b) {

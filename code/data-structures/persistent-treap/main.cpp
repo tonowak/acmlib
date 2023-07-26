@@ -5,9 +5,7 @@
  *   kopiowanie struktury działa w O(1),
  *   robimy sobie \texttt{vector<Treap>} żeby obsługiwać trwałość
  */
-
 mt19937 rng_i(0);
-
 struct Treap {
 	struct Node {
 		int val, prio, sub = 1;
@@ -17,13 +15,11 @@ struct Treap {
 	};
 	using pNode = Node*;
 	pNode root = nullptr;
-
 	int get_sub(pNode n) { return n ? n->sub : 0; }
 	void update(pNode n) {
 		if(!n) return;
 		n->sub = get_sub(n->l) + get_sub(n->r) + 1;
 	}
-
 	void split(pNode t, int i, pNode &l, pNode &r) {
 		if(!t) l = r = nullptr;
 		else {
@@ -35,7 +31,6 @@ struct Treap {
 		}
 		update(t);
 	}
-
 	void merge(pNode &t, pNode l, pNode r) {
 		if(!l || !r) t = (l ? l : r);
 		else if(l->prio > r->prio) {
@@ -48,7 +43,6 @@ struct Treap {
 		}
 		update(t);
 	}
-
 	void insert(pNode &t, int i, pNode it) {
 		if(!t) t = it;
 		else if(it->prio > t->prio)
@@ -65,7 +59,6 @@ struct Treap {
 	void insert(int i, int val) {
 		insert(root, i, new Node(val));
 	}
-
 	void erase(pNode &t, int i) {
 		if(get_sub(t->l) == i)
 			merge(t, t->l, t->r);

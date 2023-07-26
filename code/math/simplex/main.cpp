@@ -3,9 +3,7 @@
  *   \texttt{Simplex(n, m)} tworzy lpsolver z $n$ zmiennymi oraz $m$ ograniczeniami,
  *   rozwiązuje $\max cx$ przy $Ax \leq b$.
  */
-
 #define FIND(n, expr) [&] { REP(i, n) if(expr) return i; return -1; }()
-
 struct Simplex {
 	using T = double;
 	const T eps = 1e-9, inf = 1/.0;
@@ -14,13 +12,11 @@ struct Simplex {
 	vector<vector<T>> A;
 	vector<T> b, c;
 	T res = 0;
-
 	Simplex(int vars, int eqs)
 		: n(vars), m(eqs), N(n), B(m), A(m, vector<T>(n)), b(m), c(n) {
 		REP(i, n) N[i] = i;
 		REP(i, m) B[i] = n + i;
 	}
-
 	void pivot(int eq, int var) {
 		T coef = 1 / A[eq][var], k;
 		REP(i, n)
@@ -36,7 +32,6 @@ struct Simplex {
 		res += k * b[eq];
 		swap(B[eq], N[var]);
 	}
-
 	bool solve() {
 		int eq, var;
 		while(true) {
@@ -61,7 +56,6 @@ struct Simplex {
 		}
 		return true;
 	}
-
 	vector<T> get_vars() {
 		vector<T> vars(n);
 		REP(i, m)

@@ -12,7 +12,6 @@ pair<vector<int>, vector<int>> top_bot_hull(const vector<P> &pts) {
 	sort(ord.begin(), ord.end(), [&](int i, int j) {
 		return pts[i] < pts[j];
 	});
-
 	vector<int> top, bot;
 	REP(dir, 2) {
 		vector<int> &hull = (dir ? bot : top);
@@ -26,7 +25,6 @@ pair<vector<int>, vector<int>> top_bot_hull(const vector<P> &pts) {
 	}
 	return {top, bot};
 }
-
 vector<int> hull_id(const vector<P> &pts) {
 	if(pts.empty()) return {};
 	auto [top, bot] = top_bot_hull(pts);
@@ -34,7 +32,6 @@ vector<int> hull_id(const vector<P> &pts) {
 	top.insert(top.end(), bot.begin(), bot.end());
 	return top;
 }
-
 vector<P> hull(const vector<P> &pts) {
 	vector<P> ret;
 	for(int i : hull_id(pts))

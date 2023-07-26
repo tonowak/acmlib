@@ -3,7 +3,6 @@
  *   Gdy \texttt{ssize(circle\_circle(...)) == 3} to jest nieskończenie wiele rozwiązań.
  */
 #include "../point/main.cpp"
-
 vector<P> circle_line(D r, D a, D b, D c) {
 	D len_ab = a * a + b * b,
 	  x0 = -a * c / len_ab,

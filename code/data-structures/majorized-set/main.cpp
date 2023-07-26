@@ -4,11 +4,9 @@
  *   \texttt{insert(p)} wrzuca parę \texttt{p} do setu, majoryzuje go (zamortyzowany czas)
  *   i zwraca, czy podany element został dodany.
  */
-
 template<typename A, typename B>
 struct MajorizedSet {
 	set<pair<A, B>> s;
-
 	bool insert(pair<A, B> p) {
 		auto x = s.lower_bound(p);
 		if (x != s.end() && x->second >= p.second)

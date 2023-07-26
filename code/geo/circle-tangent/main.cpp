@@ -2,7 +2,6 @@
  * Opis: O(1), dla punktu $p$ oraz okręgu o promieniu $r$ i środku $o$ zwraca punkty $p_0, p_1$ będące punktami styczności prostych stycznych do okręgu. Zakłada, że $abs(p) > r$.
  */
 #include "../point/main.cpp"
-
 pair<P, P> tangents_to_circle(P o, D r, P p) {
 	p -= o;
 	D r2 = r * r;

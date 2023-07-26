@@ -11,8 +11,6 @@ template<class T>auto operator<<(ostream&o,T x)->decltype(x.end(),o){o<<'{';int 
 #else
 #define debug(...) {}
 #endif
-
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-
 }

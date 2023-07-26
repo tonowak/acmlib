@@ -4,7 +4,6 @@
  *   Funkcja zwraca match'a, tzn \texttt{match[v] == -1} albo z kim jest sparowany $v$.
  *   Rozmiar matchingu to $\sum_v \frac{\texttt{int(match[v] != -1)}}{2}$.
  */
-
 vector<int> blossom(vector<vector<int>> graph) {
 	int n = ssize(graph), timer = -1;
 	REP(v, n)
@@ -73,4 +72,3 @@ vector<int> blossom(vector<vector<int>> graph) {
 			bfs(i);
 	return match;
 }
-

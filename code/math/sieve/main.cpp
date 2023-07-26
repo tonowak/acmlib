@@ -5,7 +5,6 @@
  *   \texttt{prime} zawiera wszystkie liczby pierwsze \texttt{<= n},
  *   na moim kompie dla $n = 1e8$ działa w 0.7s.
  */
-
 vector<bool> comp;
 vector<int> prime;
 void sieve(int n) {

@@ -1,9 +1,7 @@
 /*
  * Opis: O(n\log n) mnożenie wielomianów mod $998244353$.
  */
-
 #include "../simple-modulo/main.cpp"
-
 using vi = vector<int>;
 constexpr int root = 3;
 void ntt(vi& a, int n, bool inverse = false) {

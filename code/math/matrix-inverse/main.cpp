@@ -2,9 +2,7 @@
  * Opis: O(n^3), odwrotność macierzy (modulo lub double). Zwraca rząd macierzy.
  * Dla odwracalnych macierzy (rząd = n) w $a$ znajdzie się jej odwrotność.
  */
-
 #include "../matrix-header/main.cpp"
-
 int inverse(vector<vector<T>>& a) {
 	int n = ssize(a);
 	vector<int> col(n);

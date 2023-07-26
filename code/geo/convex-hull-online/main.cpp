@@ -2,7 +2,6 @@
  * Opis: O(log n) na każdą operację dodania,
  *   Wyznacza górną otoczkę wypukłą online.
  */
-
 using P = pair<int, int>;
 LL operator*(P l, P r) {
 	return l.first * LL(r.second) - l.second * r.first;
@@ -16,10 +15,8 @@ int sign(LL x) {
 int dir(P a, P b, P c) {
 	return sign((b - a) * (c - b));
 }
-
 struct UpperConvexHull {
 	set<P> hull;
-
 	void add_point(P p) {
 		if(hull.empty()) {
 			hull = {p};

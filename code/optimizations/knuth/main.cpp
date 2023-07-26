@@ -3,7 +3,6 @@
  *   Działa tylko wtedy, gdy $opt(i,j-1)\le opt(i,j)\le opt(i+1,j)$,
  *   a jest to zawsze spełnione, gdy $cost(b,c)\le cost(a,d)$ oraz $cost(a,c) + cost(b,d)\le cost(a,d) + cost(b,c)$ dla $a\le b\le c\le d$.
  */
-
 LL knuth_optimization(vector<vector<LL>> cost) {
 	int n = ssize(cost);
 	vector dp(n, vector<LL>(n, numeric_limits<LL>::max()));

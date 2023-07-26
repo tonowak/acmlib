@@ -22,14 +22,12 @@
  *   Ważne też jest, aby zapewnić, żeby konstruowany oryginalny graf
  *   nie musiał zawierać multikrawędzi.
  */
-
 pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<int, int>> line_edges) {
 	vector<vector<int>> line_graph(line_n);
 	for(auto &[v, u] : line_edges) {
 		line_graph[v].emplace_back(u);
 		line_graph[u].emplace_back(v);
 	}
-
 	map<vector<int>, int> line_neighbors_repeated;
 	vector<int> line_vertex_reduced_to(line_n, -1);
 	REP(v, line_n) {
@@ -41,17 +39,14 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 		else
 			line_vertex_reduced_to[v] = line_neighbors_repeated[neigh_with_v];
 	}
-
 	vector<pair<int, int>> ans(line_n, pair(-1, -1));
 	vector<bool> visited(line_n, false);
 	REP(v, line_n)
 		if(line_vertex_reduced_to[v] != -1)
 			visited[v] = true;
-
 	int og_cnt_fixed_v = 0;
 	map<int, int> og_deg_visited;
 	set<pair<int, int>> og_used_edges;
-
 	auto save_edge = [&](int line_v) {
 		assert(ans[line_v].first != -1);
 		int v = ans[line_v].first;
@@ -60,21 +55,17 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 			og_deg_visited[og_v] += 1;
 		og_used_edges.emplace(min(v, u), max(v, u));
 	};
-
 	REP(component_v, line_n)
 		if(not visited[component_v]) {
 			vector<vector<int>> que_i_to_visited_neighbors;
 			int og_n = 0;
-
 			vector<int> que = {component_v};
 			visited[component_v] = true;
-
 			auto save_current_graph = [&](int until_i) {
 				og_cnt_fixed_v += og_n;
 				REP(que_j, until_i + 1)
 					save_edge(que[que_j]);
 			};
-
 			REP(que_i, ssize(que)) {
 				int line_v = que[que_i];
 				for(int u : line_graph[line_v])
@@ -82,7 +73,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 						visited[u] = true;
 						que.emplace_back(u);
 					}
-
 				que_i_to_visited_neighbors.emplace_back();
 				map<int, int> og_deg_near_v_line;
 				for(int line_u : line_graph[line_v])
@@ -91,7 +81,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 							og_deg_near_v_line[og_u] += 1;
 						que_i_to_visited_neighbors[que_i].emplace_back(line_u);
 					}
-
 				if(og_n <= 4) {
 					function<bool (int, int, set<pair<int, int>>&)> backtrack
 							= [&](int new_og_n, int i, set<pair<int, int>> &used_edges) {
@@ -131,7 +120,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 								}
 						return false;
 					};
-
 					og_n = [&] {
 						for(int ret = 2; ret <= 8; ++ret) {
 							set<pair<int, int>> used_edges;
@@ -140,7 +128,6 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 						}
 						return 9;
 					}();
-
 					if(og_n == 9)
 						return {false, {}};
 					if(og_n > 4)
@@ -151,10 +138,8 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 					for(auto [og_v, deg] : og_deg_near_v_line)
 						if(deg == og_deg_visited[og_v])
 							candidates.emplace(og_v);
-
 					auto get_best_cover = [&] {
 						pair<int, int> found_cover_2 = {-1, -1};
-
 						for(int og_v_cover0 : {
 								ans[que_i_to_visited_neighbors[que_i].front()].first,
 								ans[que_i_to_visited_neighbors[que_i].front()].second,
@@ -170,10 +155,8 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 											++og_deg_uncovered[v];
 									}
 								}
-
 								if(uncovered == 0)
 									return make_tuple(1, og_v_cover0, -1);
-
 								for(auto [og_v_cover1, og_deg_cover1] : og_deg_uncovered)
 									if(candidates.count(og_v_cover1)
 											and not og_used_edges.count(pair(
@@ -200,10 +183,8 @@ pair<bool, vector<pair<int, int>>> get_original_graph(int line_n, vector<pair<in
 			if(og_n <= 4)
 				save_current_graph(ssize(que) - 1);
 		}
-
 	REP(line_v, line_n)
 		if(line_vertex_reduced_to[line_v] != -1)
 			ans[line_v] = ans[line_vertex_reduced_to[line_v]];
-
 	return {true, ans};
 }

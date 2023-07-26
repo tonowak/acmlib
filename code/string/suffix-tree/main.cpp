@@ -14,7 +14,6 @@ struct SuffixTree {
 	vector<map<int, int>> sons;
 	vector<pair<int, int>> up_edge_range;
 	vector<int> parent, slink;
-
 	int tv = 0, tp = 0, ts = 2, la = 0;
 	void ukkadd(int c) {
 		auto &lr = up_edge_range;
@@ -45,7 +44,6 @@ suff:
 			tp = lr[tv].second - (tp - lr[ts-2].second) + 2; goto suff;
 		}
 	}
-
 	// Remember to append string with a hash.
 	SuffixTree(const vector<int> &in, int alpha)
 		: n(ssize(in)), _in(in), sons(2 * n + 1),

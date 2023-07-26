@@ -3,7 +3,6 @@
  *   \texttt{cycle} spełnia \texttt{cycle[i]->cycle[(i+1)\%ssize(cycle)]}.
  *   Żeby wyznaczyć krawędzie na cyklu, wystarczy wybierać najtańszą krawędź między wierzchołkami.
  */
-
 template</*integral*/class I>
 pair<bool, vector<int>> negative_cycle(vector<vector<pair<int, I>>> graph) {
 	int n = ssize(graph);
@@ -22,7 +21,6 @@ pair<bool, vector<int>> negative_cycle(vector<vector<pair<int, I>>> graph) {
 	}
 	if(v_on_cycle == -1)
 		return {false, {}};
-
 	REP(iter, n)
 		v_on_cycle = from[v_on_cycle];
 	vector<int> cycle = {v_on_cycle};

@@ -2,7 +2,6 @@
  * Opis: O(n \log n) czasowo i pamięciowo, Range Minimum Query z użyciem sparse table,
  *   zapytanie jest w O(1).
  */
-
 struct RMQ {
 	vector<vector<int>> st;
 	RMQ(const vector<int> &a) {

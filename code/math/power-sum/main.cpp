@@ -4,7 +4,6 @@
  * Działa dla $0 \leq n$ oraz $a \neq 1$.
  */
 #include "../simple-modulo/main.cpp"
-
 int power_monomial_sum(int a, int k, int n) {
 	const int powan = powi(a, n);
 	const int inva1 = inv(sub(a, 1));
@@ -24,7 +23,6 @@ int power_monomial_sum(int a, int k, int n) {
 	}
 	return ans;
 }
-
 int power_binomial_sum(int a, int k, int n) {
 	const int powan = powi(a, n);
 	const int inva1 = inv(sub(a, 1));

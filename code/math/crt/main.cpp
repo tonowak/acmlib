@@ -4,9 +4,7 @@
  *   $m$ oraz $n$ nie muszą być wzlędnie pierwsze, ale może nie być wtedy rozwiązania
  *   (assert wywali, ale można zmienić na return -1).
  */
-
 #include "../extended-gcd/main.cpp"
-
 LL crt(LL a, LL m, LL b, LL n) {
 	if(n > m) swap(a, b), swap(m, n);
 	auto [d, x, y] = extended_gcd(m, n);

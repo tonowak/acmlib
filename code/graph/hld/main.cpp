@@ -6,7 +6,6 @@
  *   \texttt{get\_path(v, u, false)} jeśli na krawędziach (nie zawiera lca).
  *   \texttt{get\_subtree(v)} zwraca przedział preorderów odpowiadający podrzewu v.
  */
-
 struct HLD {
 	vector<vector<int>> &adj;
 	vector<int> sz, pre, pos, nxt, par;

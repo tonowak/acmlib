@@ -1,7 +1,6 @@
 /*
  * Opis: Drzewo przedział-przedział, w miarę abstrakcyjne. Wystarczy zmienić \texttt{Node} i funkcje na nim.
  */
-
 struct Node {
 	LL sum = 0, lazy = 0;
 	int sz = 1;
@@ -26,11 +25,9 @@ void add_to_base(Node &n, int val) {
 	n.sum += n.sz * LL(val);
 	n.lazy += val;
 }
-
 struct Tree {
 	vector<Node> tree;
 	int sz = 1;
-
 	Tree(int n) {
 		while(sz < n)
 			sz *= 2;
@@ -38,7 +35,6 @@ struct Tree {
 		for(int v = sz - 1; v >= 1; v--)
 			tree[v] = merge(tree[2 * v], tree[2 * v + 1]);
 	}
-
 	void push(int v) {
 		push_to_sons(tree[v], tree[2 * v], tree[2 * v + 1]);
 	}
@@ -54,7 +50,6 @@ struct Tree {
 		else
 			return merge(get(l, m - 1, 2 * v), get(0, r - m, 2 * v + 1));
 	}
-
 	void update(int l, int r, int val, int v = 1) {
 		if(l == 0 && r == tree[v].sz - 1) {
 			add_to_base(tree[v], val);

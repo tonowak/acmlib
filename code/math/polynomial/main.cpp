@@ -14,15 +14,12 @@
  * \texttt{eval(a, x)} zwraca $y$ taki, że $a(x_i) = y_i$,
  * \texttt{inter(x, y)} zwraca $a$ taki, że $a(x_i) = y_i$.
  */
-
 #include "../ntt/main.cpp"
-
 vi deriv(vi a) {
 	REP(i, ssize(a)) a[i] = mul(a[i], i);
 	if(ssize(a)) a.erase(a.begin());
 	return a;
 }
-
 vi integr(vi a) {
 	int n = ssize(a);
 	a.insert(a.begin(), 0);
@@ -33,7 +30,6 @@ vi integr(vi a) {
 		a[i] = mul(a[i], mul(r, f[i - 1])), r = mul(r, i);
 	return a;
 }
-
 vi powi_deg(const vi& a, int k, int n) {
 	assert(ssize(a) and a[0] != 0);
 	vi v(n);
@@ -46,11 +42,9 @@ vi powi_deg(const vi& a, int k, int n) {
 	}
 	return v;
 }
-
 vi mod_xn(const vi& a, int n) { // KONIECZNE
 	return vi(a.begin(), a.begin() + min(n, ssize(a)));
 }
-
 vi powi_slow(const vi &a, int k, int n) {
 	vi v{1}, b = mod_xn(a, n);
 	int x = 1; while(x < n) x *= 2;
@@ -69,7 +63,6 @@ vi powi_slow(const vi &a, int k, int n) {
 	}
 	return mod_xn(v, n);
 }
-
 vi sqrt(const vi& a, int n) {
 	auto at = [&](int i) { if(i < ssize(a)) return a[i]; else return 0; };
 	assert(ssize(a) and a[0] == 1);
@@ -99,12 +92,10 @@ vi sqrt(const vi& a, int n) {
 	}
 	return mod_xn(v, n);
 }
-
 void sub(vi& a, const vi& b) { // KONIECZNE
 	a.resize(max(ssize(a), ssize(b)));
 	REP(i, ssize(b)) a[i] = sub(a[i], b[i]);
 }
-
 vi inv(const vi& a, int n) {
 	assert(ssize(a) and a[0] != 0);
 	vi v{inv(a[0])};
@@ -121,12 +112,10 @@ vi inv(const vi& a, int n) {
 	}
 	return mod_xn(v, n);
 }
-
 vi log(const vi& a, int n) { // WYMAGA deriv, integr, inv
 	assert(ssize(a) and a[0] == 1);
 	return integr(mod_xn(conv(deriv(mod_xn(a, n)), inv(a, n)), n - 1));
 }
-
 vi exp(const vi& a, int n) { // WYMAGA deriv, integr
 	assert(a.empty() or a[0] == 0);
 	vi v{1}, f{1}, g, h{0}, s;
@@ -165,7 +154,6 @@ vi exp(const vi& a, int n) { // WYMAGA deriv, integr
 	}
 	return mod_xn(v, n);
 }
-
 vi powi(const vi& a, int k, int n) { // WYMAGA log, exp
 	vi v = mod_xn(a, n);
 	int cnt = 0;
@@ -187,7 +175,6 @@ vi powi(const vi& a, int k, int n) { // WYMAGA log, exp
 	v.insert(v.begin(), t.begin(), t.end());
 	return v;
 }
-
 pair<vi, vi> div_slow(vi a, const vi& b) {
 	vi x;
 	while(ssize(a) >= ssize(b)) {
@@ -200,7 +187,6 @@ pair<vi, vi> div_slow(vi a, const vi& b) {
 	reverse(x.begin(), x.end());
 	return {x, a};
 }
-
 pair<vi, vi> div(vi a, const vi& b) { // WYMAGA inv, div_slow
 	const int d = ssize(a) - ssize(b) + 1;
 	if (d <= 0)
@@ -212,7 +198,6 @@ pair<vi, vi> div(vi a, const vi& b) { // WYMAGA inv, div_slow
 	sub(a, conv(x, b));
 	return {x, mod_xn(a, ssize(b))};
 }
-
 int eval_single(const vi& a, int x) {
 	int y = 0;
 	for (int i = ssize(a) - 1; i >= 0; --i) {
@@ -221,7 +206,6 @@ int eval_single(const vi& a, int x) {
 	}
 	return y;
 }
-
 vi build(vector<vi> &tree, int v, auto l, auto r) {
 	if (r - l == 1) {
 		return tree[v] = vi{sub(0, *l), 1};
@@ -230,7 +214,6 @@ vi build(vector<vi> &tree, int v, auto l, auto r) {
 		return tree[v] = conv(build(tree, 2 * v, l, M), build(tree, 2 * v + 1, M, r));
 	}
 }
-
 vi eval_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r) {
 	if (r - l == 1) {
 		return {eval_single(a, *l)};
@@ -242,7 +225,6 @@ vi eval_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r) {
 		return A;
 	}
 }
-
 vi eval(const vi& a, const vi& x) { // WYMAGA div, eval_single, build, eval_helper
 	if (x.empty())
 		return {};
@@ -250,7 +232,6 @@ vi eval(const vi& a, const vi& x) { // WYMAGA div, eval_single, build, eval_help
 	build(tree, 1, begin(x), end(x));
 	return eval_helper(a, tree, 1, begin(x), end(x));
 }
-
 vi inter_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r, auto ly, auto ry) {
 	if (r - l == 1) {
 		return {mul(*ly, inv(a[0]))};
@@ -267,7 +248,6 @@ vi inter_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r, auto ly, a
 		return L;
 	}
 }
-
 vi inter(const vi& x, const vi& y) { // WYMAGA deriv, div, build, inter_helper
 	assert(ssize(x) == ssize(y));
 	if (x.empty())

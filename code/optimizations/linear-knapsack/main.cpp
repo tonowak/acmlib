@@ -2,7 +2,6 @@
  * Opis: O(n\cdot\max(w_i)) zamiast typowego O(n\cdot\sum(w_i)), pamięć O(n+\max(w_i)),
  *   plecak zwracający największą otrzymywalną sumę ciężarów \texttt{<= bound}.
  */
-
 LL knapsack(vector<int> w, LL bound) {
 	erase_if(w, [=](int x){ return x > bound; });
 	{
@@ -14,7 +13,6 @@ LL knapsack(vector<int> w, LL bound) {
 	int b;
 	for(b = 0; w_init + w[b] <= bound; ++b)
 		w_init += w[b];
-
 	int W = *max_element(w.begin(), w.end());
 	vector<int> prev_s(2 * W, -1);
 	auto get = [&](vector<int> &v, LL i) -> int& {

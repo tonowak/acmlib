@@ -2,7 +2,6 @@
  * Opis: O(n\ log n),
  *   \texttt{conv\_mod(a, b)} zwraca iloczyn wielomianów modulo, ma większą dokładność niż zwykłe fft.
  */
-
 #include "../fft/main.cpp"
 vector<int> conv_mod(vector<int> a, vector<int> b, int M) {
 	if(a.empty() or b.empty()) return {};

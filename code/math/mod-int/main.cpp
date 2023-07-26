@@ -2,7 +2,6 @@
  * Opis: Struktura do działań modulo
  * Ustaw modulo w ostatniej linii. Jeśli modulo nie jest const, usuń pierwszy wiersz i zadeklaruj mod.
  */
-
 template<int mod>
 struct modular {
 	int val;
@@ -12,7 +11,6 @@ struct modular {
 		if(val < 0) val += mod;
 	}
 	int to_int() { return val; }
-
 	friend ostream& operator<<(ostream &os, const modular &a) {
 #ifdef DEBUG
 		constexpr int mx = 1024;
@@ -27,7 +25,6 @@ struct modular {
 	friend istream& operator>>(istream &is, modular &a) {
 		return is >> a.val;
 	}
-
 	friend bool operator==(const modular &a, const modular &b) {
 		return a.val == b.val;
 	}
@@ -40,7 +37,6 @@ struct modular {
 	friend bool operator<=(const modular &a, const modular &b) {
 		return a.val <= b.val;
 	}
-
 	modular operator-() const { return modular(-val); }
 	modular& operator+=(const modular &m) {
 		if((val += m.val) >= mod) val -= mod;
@@ -70,7 +66,6 @@ struct modular {
 		(*this) += 1;
 		return res;
 	}
-
 	friend modular operator+(modular a, const modular &b) { return a += b; }
 	friend modular operator-(modular a, const modular &b) { return a -= b; }
 	friend modular operator*(modular a, const modular &b) { return a *= b; }
@@ -78,7 +73,6 @@ struct modular {
 };
 using mint = modular<int(1e9 + 7)>;
 // using mint = modular<998244353>;
-
 struct BinomCoeff {
 	vector<mint> fac, rev;
 	BinomCoeff(int n) {

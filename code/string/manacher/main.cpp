@@ -3,7 +3,6 @@
  *   parzystości $p$ o środku $i$. $L=i-rad+!p, \; R=i+rad$ to palindrom.
  *   Dla \texttt{[abaababaab]} daje \texttt{[003000020], [0100141000]}.
  */
-
 array<vector<int>, 2> manacher(vector<int> &in) {
 	int n = ssize(in);
 	array<vector<int>, 2> radius = {{vector<int>(n - 1), vector<int>(n)}};

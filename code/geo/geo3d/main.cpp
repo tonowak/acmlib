@@ -313,7 +313,6 @@ vector<P3> intersect(Sphere a, Sphere b, Sphere c) { // Does not work for 3 coli
 	ez = ex.CrossProd(ey);
 	d = (b.o - a.o).Norm();
 	j = ey.DotProd(c.o - a.o);
-
 	bool cnd = 0;
 	if (Eq(r2, d - r1)) {
 		cnd_x = +r1; cnd = 1;
@@ -321,7 +320,6 @@ vector<P3> intersect(Sphere a, Sphere b, Sphere c) { // Does not work for 3 coli
 	if (Eq(r2, d + r1)) {
 		cnd_x = -r1; cnd = 1;
 	}
-
 	if (!cnd && (r2 < d - r1 || r2 > d + r1)) return res;
 	if (cnd) {
 		if (Eq(Sq(r3), (Sq(cnd_x - i) + Sq(j))))

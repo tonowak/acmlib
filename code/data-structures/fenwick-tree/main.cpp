@@ -3,7 +3,6 @@
  *   \texttt{update(pos, val)} dodaje \texttt{val} do elementu \texttt{pos},
  *   \texttt{query(pos)} zwraca sumę $[0, pos]$.
  */
-
 struct Fenwick {
 	vector<LL> s;
 	Fenwick(int n) : s(n) {}

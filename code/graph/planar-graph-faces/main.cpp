@@ -6,7 +6,6 @@
  * (których może być kilka, gdy jest wiele spójnych) w jedną ścianę.
  * Zewnętrzne ściany mogą wyglądać jak kaktusy, a wewnętrzne zawsze są niezdegenerowanym wielokątem.
  */
-
 struct Edge {
 	int e, from, to;
 	// face is on the right of "from -> to"
@@ -22,7 +21,6 @@ struct Face {
 ostream& operator<<(ostream &o, Face f) {
 	return o << pair(f.is_outside, f.sorted_edges);
 }
-
 vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int, int>> edges) {
 	int n = ssize(coord);
 	int E = ssize(edges);
@@ -32,7 +30,6 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 		graph[v].emplace_back(e);
 		graph[u].emplace_back(e);
 	}
-
 	vector<int> lead(2 * E);
 	iota(lead.begin(), lead.end(), 0);
 	function<int (int)> find = [&](int v) {
@@ -57,7 +54,6 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 				return half_l;
 			return l.first * LL(r.second) - l.second * LL(r.first) > 0;
 		});
-
 		REP(i, ssize(sorted)) {
 			int e0 = sorted[i].second;
 			int e1 = sorted[(i + 1) % ssize(sorted)].second;
@@ -69,7 +65,6 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 	vector<vector<int>> comps(2 * E);
 	REP(i, 2 * E)
 		comps[find(i)].emplace_back(i);
-
 	vector<Face> polygons;
 	vector<vector<pair<int, int>>> outgoing_for_face(n);
 	REP(leader, 2 * E)
@@ -94,7 +89,6 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 			};
 			dfs(edges[comps[leader].front() / 2].first);
 			reverse(sorted_edges.begin(), sorted_edges.end());
-
 			LL area = 0;
 			for(auto edge : sorted_edges) {
 				auto l = coord[edge.from];

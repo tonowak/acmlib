@@ -3,14 +3,12 @@
  *   \texttt{add(a, b)} dodaje funkcję $y = ax + b$
  *   \texttt{query(x)} zwraca największe $y$ w punkcie $x$.
  */
-
 struct Line {
 	mutable LL a, b, p;
 	LL eval(LL x) const { return a * x + b; }
 	bool operator<(const Line & o) const { return a < o.a; }
 	bool operator<(LL x) const { return p < x; }
 };
-
 struct LineContainer : multiset<Line, less<>> {
 	// jak double to inf = 1 / .0, div(a, b) = a / b
 	const LL inf = LLONG_MAX;

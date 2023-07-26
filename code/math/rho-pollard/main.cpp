@@ -7,9 +7,7 @@
  * \texttt{get\_pairs(12) = \{(2, 2), (3, 1)\}},
  * \texttt{all\_factors(12) = \{1, 3, 2, 6, 4, 12\}}.
  */
-
 #include "../miller-rabin/main.cpp"
-
 LL rho_pollard(LL n) {
 	if(n % 2 == 0) return 2;
 	for(LL i = 1;; i++) {
@@ -20,7 +18,6 @@ LL rho_pollard(LL n) {
 		if(p != n) return p;
 	}
 }
-
 vector<LL> factor(LL n) {
 	if(n == 1) return {};
 	if(miller_rabin(n)) return {n};
@@ -29,7 +26,6 @@ vector<LL> factor(LL n) {
 	l.insert(l.end(), r.begin(), r.end());
 	return l;
 }
-
 vector<pair<LL, int>> get_pairs(LL n) {
 	auto v = factor(n);
 	sort(v.begin(), v.end());
@@ -43,7 +39,6 @@ vector<pair<LL, int>> get_pairs(LL n) {
 	}
 	return ret;
 }
-
 vector<LL> all_factors(LL n) {
 	auto v = get_pairs(n);
 	vector<LL> ret;
