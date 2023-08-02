@@ -9,7 +9,7 @@ vector<bool> comp;
 vector<int> prime;
 void sieve(int n) {
 	prime.clear();
-	comp.assign(n + 1, false);
+	comp.resize(n + 1);
 	FOR(i, 2, n) {
 		if(!comp[i]) prime.emplace_back(i);
 		REP(j, ssize(prime)) {
