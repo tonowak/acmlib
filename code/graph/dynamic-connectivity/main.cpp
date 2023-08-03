@@ -64,7 +64,7 @@ vector<bool> dynamic_connectivity(int n, vector<tuple<int, int, Event_type>> eve
 				continue;
 			if(leadsz[e0] > leadsz[e1])
 				swap(e0, e1);
-			rollback.emplace_back(make_tuple(e0, lead[e0], e1, leadsz[e1]));
+			rollback.emplace_back(e0, lead[e0], e1, leadsz[e1]);
 			leadsz[e1] += leadsz[e0];
 			lead[e0] = e1;
 		}
