@@ -1,8 +1,8 @@
 /*
- * Opis: Generatorka wielokątów wypukłych
- * Czas: O(n \log n)
- * Użycie:
- *
+ * Opis: Generatorka wielokątów wypukłych.
+ * Przyjmuje n, zakres i wielokąt ma być ściśle wypukły (domyślnie nie).
+ * Zwraca wielokąt mniejszy o maksymalnie DEC% punktów w zakresie [-range, range].
+ * Nieścisłe zwraca zawsze rozmiaru n.
  */
 #include "../point/main.cpp"
 #include "../angle-sort/main.cpp"
@@ -34,6 +34,7 @@ vector<int> capped_zero_split(int cap, int n) {
 vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 	assert(n > 2);
 	vector<P> t;
+	const double DEC = 0.1;
 	do {
 		t.clear();
 		auto dx = capped_zero_split(range, n);
@@ -59,7 +60,7 @@ vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 			}
 			t = nt;
 		}
-	} while (ssize(t) * 1.1 < n);
+	} while (ssize(t) * (1 + DEC) < n);
 
 	vector<P> ret;
 	ret.emplace_back(P(0, 0));

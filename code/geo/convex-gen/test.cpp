@@ -14,6 +14,9 @@ void test() {
 	// cerr << ' ' << n;
 	assert(n * 1.1 >= N);
 
+	REP (i, n)
+		assert(abs(loose[i].x) <= z && abs(loose[i].y) <= z);
+
 	const int reps = 100;
 	REP (rep, reps) {
 		int mid = rd(0, n - 1);
@@ -28,6 +31,9 @@ void test() {
 	n = ssize(strict);
 	// cerr << ' ' << n << endl;
 	assert(n * 1.1 >= N);
+
+	REP (i, n)
+		assert(abs(strict[i].x) <= z && abs(strict[i].y) <= z);
 
 	REP (rep, reps) {
 		int mid = rd(0, n - 1);
