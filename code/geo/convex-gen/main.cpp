@@ -7,21 +7,14 @@
 #include "../point/main.cpp"
 #include "../angle-sort/main.cpp"
 #include "../../headers/gen.cpp"
-D cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
-
 vector<int> num_split(int value, int n) {
-	vector<int> fence(n);
-	fence[0] = 0;
-	FOR (i, 1, n - 1)
-		fence[i] = rd(0, value);
-	fence.emplace_back(value);
-	sort(fence.begin(), fence.end());
-	vector<int> ret(n);
-	FOR (i, 1, n)
-		ret[i - 1] = fence[i] - fence[i - 1];
-	return ret;
+	vector<int> v(n, value);
+	REP(i, n - 1)
+		v[i] = rd(0, value);
+	sort(v.begin(), v.end());
+	adjacent_difference(v.begin(), v.end(), v.begin());
+	return v;
 }
-
 vector<int> capped_zero_split(int cap, int n) {
 	int m = rd(1, n - 1);
 	auto lf = num_split(cap, m);
@@ -30,7 +23,6 @@ vector<int> capped_zero_split(int cap, int n) {
 		lf.emplace_back(-i);
 	return lf;
 }
-
 vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 	assert(n > 2);
 	vector<P> t;
@@ -42,9 +34,8 @@ vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 		shuffle(dx.begin(), dx.end(), rng);
 		REP (i, n)
 			if (dx[i] || dy[i])
-				t.emplace_back(P(dx[i], dy[i]));
+				t.emplace_back(dx[i], dy[i]);
 		t = angle_sort(t);
-
 		if (strictly_convex) {
 			vector<P> nt;
 			nt.emplace_back(t[0]);
@@ -61,10 +52,6 @@ vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 			t = nt;
 		}
 	} while (ssize(t) * (1 + DEC) < n);
-
-	vector<P> ret;
-	ret.emplace_back(P(0, 0));
-	REP (i, ssize(t) - 1)
-		ret.emplace_back(ret.back() + t[i]);
-	return ret;
+	partial_sum(t.begin(), t.end(), t.begin());
+	return t;
 }
