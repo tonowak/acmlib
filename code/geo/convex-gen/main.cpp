@@ -1,8 +1,9 @@
 /*
  * Opis: Generatorka wielokątów wypukłych.
- * Przyjmuje n, zakres i wielokąt ma być ściśle wypukły (domyślnie nie).
- * Zwraca wielokąt mniejszy o maksymalnie DEC% punktów w zakresie [-range, range].
- * Nieścisłe zwraca zawsze rozmiaru n.
+ * Zwraca wielokąt z co najmniej n * PROC punktami w zakresie [-range, range].
+ * Jeśli n (n > 2) jest około range ^ (2/3), to powinno chodzić O(n \log n).
+ * Dla większych n może nie dać rady.
+ * Ostatni punkt jest zawsze w (0, 0) - można dodać przesunięcie o wektor dla pełnej losowości.
  */
 #include "../point/main.cpp"
 #include "../angle-sort/main.cpp"
@@ -26,7 +27,7 @@ vector<int> capped_zero_split(int cap, int n) {
 vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 	assert(n > 2);
 	vector<P> t;
-	const double DEC = 0.1;
+	const double PROC = 0.9;
 	do {
 		t.clear();
 		auto dx = capped_zero_split(range, n);
@@ -37,8 +38,7 @@ vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 				t.emplace_back(dx[i], dy[i]);
 		t = angle_sort(t);
 		if (strictly_convex) {
-			vector<P> nt;
-			nt.emplace_back(t[0]);
+			vector<P> nt(1, t[0]);
 			FOR (i, 1, ssize(t) - 1) {
 				if (!sign(cross(t[i], nt.back())))
 					nt.back() += t[i];
@@ -51,7 +51,7 @@ vector<P> gen_convex_polygon(int n, int range, bool strictly_convex = false) {
 			}
 			t = nt;
 		}
-	} while (ssize(t) * (1 + DEC) < n);
+	} while (ssize(t) < n * PROC);
 	partial_sum(t.begin(), t.end(), t.begin());
 	return t;
 }

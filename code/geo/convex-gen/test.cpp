@@ -6,13 +6,14 @@
 #undef rd
 
 void test() {
+	const double PROC = 0.9;
 	int N = rd(3, 1'000);
 	int z = int(1e5);
 	// cerr << N;
 	auto loose = gen_convex_polygon(N, z);
 	int n = ssize(loose);
 	// cerr << ' ' << n;
-	assert(n * 1.1 >= N);
+	assert(n >= N * PROC);
 
 	REP (i, n)
 		assert(abs(loose[i].x) <= z && abs(loose[i].y) <= z);
@@ -30,7 +31,7 @@ void test() {
 	auto strict = gen_convex_polygon(N, z, true);
 	n = ssize(strict);
 	// cerr << ' ' << n << endl;
-	assert(n * 1.1 >= N);
+	assert(n >= N * PROC);
 
 	REP (i, n)
 		assert(abs(strict[i].x) <= z && abs(strict[i].y) <= z);
