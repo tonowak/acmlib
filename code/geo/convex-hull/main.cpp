@@ -4,18 +4,17 @@
  *   \texttt{hull} zwraca punkty na otoczce.
  */
 #include "../point/main.cpp"
-D cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
+int cross(P a, P b, P c) { return sign(cross(b - a, c - a)); }
 pair<vector<int>, vector<int>> top_bot_hull(const vector<P> &pts) {
 	int n = ssize(pts);
-	vector<int> ord(n);
+	vector<int> ord(n), top, bot;
 	REP(i, n) ord[i] = i;
 	sort(ord.begin(), ord.end(), [&](int i, int j) {
 		return pts[i] < pts[j];
 	});
-	vector<int> top, bot;
 	REP(dir, 2) {
 		vector<int> &hull = (dir ? bot : top);
-		auto l = [&](int i) { return pts[hull[ssize(hull) - i]]; };
+		auto l = [&](int i) { return pts[hull.end()[-i]]; };
 		for(int i : ord) {
 			while(ssize(hull) > 1 && cross(l(2), l(1), pts[i]) >= 0)
 				hull.pop_back();

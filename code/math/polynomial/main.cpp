@@ -181,7 +181,7 @@ pair<vi, vi> div_slow(vi a, const vi& b) {
 		x.emplace_back(mul(a.back(), inv(b.back())));
 		if(x.back() != 0)
 			REP(i, ssize(b))
-				a[ssize(a) - i - 1] = sub(a[ssize(a) - i - 1], mul(x.back(), b[ssize(b) - i - 1]));
+				a.end()[-i - 1] = sub(a.end()[-i - 1], mul(x.back(), b.end()[-i - 1]));
 		a.pop_back();
 	}
 	reverse(x.begin(), x.end());
