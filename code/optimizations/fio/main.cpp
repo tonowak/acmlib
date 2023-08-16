@@ -1,9 +1,10 @@
 /*
  * Opis: FIO do wpychania kolanem. Nie należy wtedy używać cin/cout
  */
-#ifdef WIN32
+#ifdef ONLINE_JUDGE
+// write this when judge is on Windows
 inline int getchar_unlocked() { return _getchar_nolock(); }
-inline void putchar_unlocked(char c) { return _putchar_nolock(c); }
+inline void putchar_unlocked(char c) { _putchar_nolock(c); }
 #endif
 int fastin() {
 	int n = 0, c = getchar_unlocked();
