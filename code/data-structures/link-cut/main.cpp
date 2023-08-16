@@ -178,6 +178,7 @@ struct LinkCut : Splay {
 		access(v);
 		while(apply_lazy_and_push(v), t[v].child[0] != nil)
 			v = t[v].child[0];
+		splay(v);
 		return v;
 	}
 	bool is_in_same_tree(int v, int u) {
@@ -208,6 +209,7 @@ struct LinkCut : Splay {
 		update_from_sons(v);
 		while(apply_lazy_and_push(c), t[c].child[1] != nil)
 			c = t[c].child[1];
+		splay(c);
 		return c;
 	}
 	// Assumes that v and u are in same tree.
@@ -245,8 +247,6 @@ struct LinkCut : Splay {
 	void apply_on_vertex(int v, function<void (AdditionalInfo&)> f) {
 		access(v);
 		f(t[v].info);
-		// apply_lazy_and_push(v); not needed
-		// update_from_sons(v);
 	}
 	// Assumes that v and u are in same tree.
 	// Adds val to each vertex in path from v to u.
