@@ -19,15 +19,17 @@ struct Tree_Get_Max {
 	}
 	T get(int l, int r) {
 		l += sz, r += sz;
-		T ret = l != r ? f(tree[l], tree[r]) : tree[l];
+		if(l == r)
+			return tree[l];
+		T ret_l = tree[l], ret_r = tree[r];
 		while(l + 1 < r) {
 			if(l % 2 == 0)
-				ret = f(ret, tree[l + 1]);
+				ret_l = f(ret_l, tree[l + 1]);
 			if(r % 2 == 1)
-				ret = f(ret, tree[r - 1]);
+				ret_r = f(tree[r - 1], ret_r);
 			l /= 2, r /= 2;
 		}
-		return ret;
+		return f(ret_l, ret_r);
 	}
 };
 struct Tree_Update_Max_On_Interval {
