@@ -8,9 +8,9 @@ inline void putchar_unlocked(char c) { _putchar_nolock(c); }
 #endif
 int fastin() {
 	int n = 0, c = getchar_unlocked();
-	while(c < '0' or '9' < c)
+	while(isspace(c))
 		c = getchar_unlocked();
-	while('0' <= c and c <= '9') {
+	while(isdigit(c)) {
 		n = 10 * n + (c - '0');
 		c = getchar_unlocked();
 	}
@@ -18,17 +18,40 @@ int fastin() {
 }
 int fastin_negative() {
 	int n = 0, negative = false, c = getchar_unlocked();
-	while(c != '-' and (c < '0' or '9' < c))
+	while(isspace(c))
 		c = getchar_unlocked();
 	if(c == '-') {
 		negative = true;
 		c = getchar_unlocked();
 	}
-	while('0' <= c and c <= '9') {
+	while(isdigit(c)) {
 		n = 10 * n + (c - '0');
 		c = getchar_unlocked();
 	}
 	return negative ? -n : n;
+}
+double fastin_double() {
+	double x = 0, t = 1;
+	int negative = false, c = getchar_unlocked();
+	while(isspace(c))
+		c = getchar_unlocked();
+	if (c == '-') {
+		negative = true;
+		c = getchar_unlocked();
+	}
+	while (isdigit(c)) {
+		x = x * 10 + (c - '0');
+		c = getchar_unlocked();
+	}
+	if (c == '.') {
+		c = getchar_unlocked();
+		while (isdigit(c)) {
+			t /= 10;
+			x = x + t * (c - '0');
+			c = getchar_unlocked();
+		}
+	}
+	return negative ? -x : x;
 }
 void fastout(int x) {
 	if(x == 0) {
