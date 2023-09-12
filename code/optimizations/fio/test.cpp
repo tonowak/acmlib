@@ -2,7 +2,7 @@
 #include "main.cpp"
 
 bool equal(double a, double b) {
-	return abs(a - b) < 1e12;
+	return abs(a - b) < 1e-12;
 }
 
 void test() {
@@ -11,7 +11,7 @@ void test() {
 		assert(fastin() == i);
 
 	assert(equal(fastin_double(), .1234));
-	assert(equal(fastin_double(), -53.321));
+	assert(equal(fastin_double(), -53.231));
 	assert(equal(fastin_double(), 3232.2323));
 	assert(equal(fastin_double(), 101));
 	assert(equal(fastin_double(), 2));
