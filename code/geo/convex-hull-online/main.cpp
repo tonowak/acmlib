@@ -4,7 +4,7 @@
  */
 using P = pair<int, int>;
 LL operator*(P l, P r) {
-	return l.first * LL(r.second) - l.second * r.first;
+	return l.first * LL(r.second) - l.second * LL(r.first);
 }
 P operator-(P l, P r) {
 	return {l.first - r.first, l.second - r.second};

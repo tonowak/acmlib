@@ -15,7 +15,7 @@ vector<P> top_hull(vector<P> pts) {
 
 void test() {
 	int n = rd(1, 10);
-	constexpr int mx = 10;
+	const int mx = vector<int>{10, int(1e5), int(1e9)}[rd(0, 2)];
 	UpperConvexHull online;
 	vector<P> curr;
 	while(n --> 0) {
