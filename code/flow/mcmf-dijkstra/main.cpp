@@ -2,6 +2,7 @@
  * Opis: O(V E + |flow| E \log V), Min-cost max-flow.
  *   Można przepisać funkcję get\_flowing() z Dinic'a.
  *   Kiedy wie się coś więcej o początkowym grafie np. że jest DAG-iem lub że ma tylko nieujemne wagi krawędzi, można napisać własne calc\_init\_dist by usunąć $V E$ ze złożoności.
+ *   Jeżeli $E = O(V^2)$, to może być lepiej napisać samemu kwadratową dijkstrę.
  */
 struct MCMF {
 	struct Edge {
