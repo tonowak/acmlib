@@ -17,8 +17,8 @@ struct Dinic {
 		int e = ssize(edges);
 		graph[v].emplace_back(e);
 		graph[u].emplace_back(e + 1);
-		edges.emplace_back(Edge{v, u, 0, cap});
-		edges.emplace_back(Edge{u, v, 0, 0});
+		edges.emplace_back(v, u, 0, cap);
+		edges.emplace_back(u, v, 0, 0);
 	}
 	vector<int> dist;
 	bool bfs(int source, int sink) {

@@ -44,8 +44,7 @@ vector<int> blossom(vector<vector<int>> graph) {
 		fill(label.begin(), label.end(), -1);
 		iota(orig.begin(), orig.end(), 0);
 		label[root] = 0;
-		q.clear();
-		q.emplace_back(root);
+		q = {root};
 		REP(i, ssize(q)) {
 			int v = q[i];
 			for(int x : graph[v])
