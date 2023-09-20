@@ -1,7 +1,7 @@
 /*
  * Opis: O(V E + |flow| E \log V), Min-cost max-flow.
  *   Można przepisać funkcję get\_flowing() z Dinic'a.
- *   Można napisać własne calc_init_dist by usunąć $V E$ ze złożoności.
+ *   Kiedy wie się coś więcej o początkowym grafie np. że jest DAG-iem lub że ma tylko nieujemne wagi krawędzi, można napisać własne calc\_init\_dist by usunąć $V E$ ze złożoności.
  */
 struct MCMF {
 	struct Edge {
