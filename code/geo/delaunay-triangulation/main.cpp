@@ -9,6 +9,8 @@
  * zwraca pusty vector.
  * Zwraca vector rozmiaru 3X, gdzie wartości 3i, 3i+1, 3i+2
  * tworzą counter-clockwise trójkąt.
+ * Wśród sąsiadów zawsze jest najbliższy wierzchołek.
+ * Euclidean min. spanning tree to podzbiór krawędzi.
  */
 using PI = pair<int, int>;
 typedef struct Quad* Q;
