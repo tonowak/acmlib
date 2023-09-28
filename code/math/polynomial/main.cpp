@@ -32,13 +32,16 @@ vi integr(vi a) {
 }
 vi powi_deg(const vi& a, int k, int n) {
 	assert(ssize(a) and a[0] != 0);
-	vi v(n);
+	vi v(n), f(n, 1);
 	v[0] = powi(a[0], k);
+	REP(i, n - 1) f[i + 1] = mul(f[i], n - i);
+	int r = inv(f[n - 1]), inv0 = inv(a[0]);
 	FOR(i, 1, n - 1) {
 		FOR(j, 1, min(ssize(a) - 1, i)) {
 			v[i] = add(v[i], mul(a[j], mul(v[i - j], sub(mul(k, j), i - j))));
 		}
-		v[i] = mul(v[i], inv(mul(i, a[0])));
+		v[i] = mul(v[i], mul(inv0, mul(r, f[n - i])));
+		r = mul(r, i);
 	}
 	return v;
 }
