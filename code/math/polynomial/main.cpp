@@ -35,12 +35,12 @@ vi powi_deg(const vi& a, int k, int n) {
 	vi v(n), f(n, 1);
 	v[0] = powi(a[0], k);
 	REP(i, n - 1) f[i + 1] = mul(f[i], n - i);
-	int r = inv(f[n - 1]), inv0 = inv(a[0]);
+	int r = inv(mul(f[n - 1], a[0]));
 	FOR(i, 1, n - 1) {
 		FOR(j, 1, min(ssize(a) - 1, i)) {
 			v[i] = add(v[i], mul(a[j], mul(v[i - j], sub(mul(k, j), i - j))));
 		}
-		v[i] = mul(v[i], mul(inv0, mul(r, f[n - i])));
+		v[i] = mul(v[i], mul(r, f[n - i]));
 		r = mul(r, i);
 	}
 	return v;
