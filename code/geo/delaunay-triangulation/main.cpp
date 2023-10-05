@@ -27,9 +27,7 @@ PI operator-(PI a, PI b) {
 	return {a.first - b.first,
 		a.second - b.second};
 }
-LL cross(PI a, PI b, PI c) {
-	return (a - b) * (b - c);
-}
+LL cross(PI a, PI b, PI c) { return (a - b) * (b - c); }
 struct Quad {
 	Q rot, o = nullptr;
 	PI p = distinct;

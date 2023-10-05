@@ -1,18 +1,6 @@
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
-/*
-LL cross(pair<int, int> a, pair<int, int> b) {
-	return a.first * LL(b.second) - a.second * LL(b.first);
-}
-pair<int, int> operator-(pair<int, int> a, pair<int, int> b) {
-	return {a.first - b.first, a.second - b.second};
-}
-LL cross(pair<int, int> a, pair<int, int> b, pair<int, int> c) {
-	return cross(a - b, b - c);
-}
-*/
-
 void test() {
 	int n = rd(0, 20);
 	int mx = rd(0, 1) ? 10 : int(1e9);
@@ -69,7 +57,6 @@ void test() {
 	REP(i, ssize(ret) / 3)
 		triangles_area += cross(ret[3 * i], ret[3 * i + 1], ret[3 * i + 2]);
 
-	// TODO: fix it
 	triangles_area *= -1;
 
 	assert(correct_area == triangles_area);
