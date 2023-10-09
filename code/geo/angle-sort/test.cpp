@@ -13,14 +13,24 @@ bool check_equiv(vector<P> a, vector<P> b) {
 }
 
 void test() {
+	int points_type = rd(0, 1);
 	auto rd_D = [&] {
-		return D(rd(-1e9, 1e9)) / 1e6;
+		if(points_type)
+			return D(rd(-5, 5));
+		else
+			return D(rd(-1e9, 1e9)) / 1e6;
 	};
-	int n = rd(0, 1000);
+	int n = rd(0, 1) ? rd(0, 10) : rd(0, 1000);
 	vector<P> t(n);
 	REP (i, n)
-		t[i] = P(rd_D(), rd_D());
+		while (true) {
+			t[i] = P(rd_D(), rd_D());
+			if(t[i] != P(0, 0))
+				break;
+		}
+	debug(t);
 	auto sorted_t = angle_sort(t);
+	debug(sorted_t);
 	assert(check_equiv(t, sorted_t));
 	REP (i, n - 1)
 		assert((sorted_t[i + 1] < P(0, 0)) >= (sorted_t[i] < P(0, 0)));
