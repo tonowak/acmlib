@@ -12,7 +12,7 @@ using Frac = pair<__int128_t, __int128_t>;
 D to_d(Frac f) { return D(f.first) / D(f.second); }
 Frac create_frac(__int128_t a, __int128_t b) {
 	assert(b != 0);
-	if(a < 0) a *= -1, b *= -1;
+	if(b < 0) a *= -1, b *= -1;
 	__int128_t d = __gcd(a, b);
 	return {a / d, b / d};
 }
