@@ -11,7 +11,7 @@ vector<P> angle_sort(vector<P> t) {
 	for(P p : t) assert(not equal(p, P(0, 0)));
 	auto it = partition(t.begin(), t.end(), [](P a){ return P(0, 0) < a; });
 	auto cmp = [&](P a, P b) {
-		return cross(a, b) < 0;
+		return sign(cross(a, b)) == -1;
 	};
 	sort(t.begin(), it, cmp);
 	sort(it, t.end(), cmp);
