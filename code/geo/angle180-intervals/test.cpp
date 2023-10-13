@@ -1,4 +1,5 @@
 #include "../../utils/testing/test-wrapper.cpp"
+#include "../angle-sort/main.cpp"
 #include "main.cpp"
 
 void test() {

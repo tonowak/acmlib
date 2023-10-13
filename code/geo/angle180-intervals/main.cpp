@@ -7,6 +7,7 @@
  * są ściśle ,,po prawej''
  * stronie wektora $(0,0)-in[i]$, albo są na tej półprostej.
  */
+#include "../point/main.cpp"
 vector<pair<int, int>> angle180_intervals(vector<P> in) {
 	// in must be sorted by angle
 	int n = ssize(in);
