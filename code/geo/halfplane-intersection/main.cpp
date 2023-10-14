@@ -21,7 +21,7 @@ bool is_outside(Halfplane hi, P p) {
 	return sign(cross(hi.pq, p - hi.p)) == -1;
 }
 P inter(Halfplane s, Halfplane t) {
-	return intersection_lines(s.p, s.p + s.pq, t.p, t.p + t.pq);
+	return intersect_lines(s.p, s.p + s.pq, t.p, t.p + t.pq);
 }
 vector<P> halfplane_intersection(vector<Halfplane> h) {
 	for(int i = 0; i < 4; ++i) {
