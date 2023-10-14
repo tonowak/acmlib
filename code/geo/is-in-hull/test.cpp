@@ -19,10 +19,6 @@ void test() {
 					valid = false;
 		REP(i, n)
 			REP(j, i)
-				if(equal(in[i], in[j]))
-					valid = false;
-		REP(i, n)
-			REP(j, i)
 				REP(k, j)
 					if(dir(in[i], in[j], in[k]) == 0)
 						valid = false;
