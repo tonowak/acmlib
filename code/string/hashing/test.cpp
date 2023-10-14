@@ -2,7 +2,7 @@
 #include "main.cpp"
 
 void test() {
-	int n = rd(1, 20);
+	int n = rd(1, 100);
 	vector<int> s;
 	REP(i, n)
 		s.emplace_back(vector{0, 13, 25}[rd(0, 2)]);
