@@ -1,6 +1,6 @@
 /*
  * Opis: O(\log n), zwraca czy punkt jest wewnątrz otoczki h.
- * Zakłada że punkty są clockwise, różne oraz nie ma trzech współliniowych (działa na convex-hull).
+ * Zakłada że punkty są clockwise oraz nie ma trzech współliniowych (działa na convex-hull).
  */
 #include "../intersect-lines/main.cpp"
 
