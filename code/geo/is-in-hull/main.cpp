@@ -1,9 +1,8 @@
 /*
- * Opis: O(\log n), zwraca czy punkt jest wewnątrz otoczki h
- * (zakłada że kolejność punktów jest taka jak zwraca hull z biblioteczki).
+ * Opis: O(\log n), zwraca czy punkt jest wewnątrz otoczki h.
+ * Zakłada że punkty są clockwise, różne oraz nie ma trzech współliniowych (działa na convex-hull).
  */
 #include "../intersect-lines/main.cpp"
-#include "../convex-hull/main.cpp"
 
 bool is_in_hull(vector<P> h, P p, bool can_on_edge) {
 	if(ssize(h) < 3) return can_on_edge and on_segment(h[0], h.back(), p);
