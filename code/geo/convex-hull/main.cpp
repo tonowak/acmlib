@@ -17,7 +17,7 @@ array<vector<P>, 2> top_bot_hull(vector<P> in) {
 	return ret;
 }
 vector<P> hull(vector<P> in) {
-	if(ssize(in) <= 2) return in;
+	if(ssize(in) <= 1) return in;
 	auto ret = top_bot_hull(in);
 	REP(d, 2) ret[d].pop_back();
 	ret[0].insert(ret[0].end(), ret[1].begin(), ret[1].end());
