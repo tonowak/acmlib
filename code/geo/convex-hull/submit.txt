@@ -1,2 +1,0 @@
-It is being tested in geo/halfplane-intersection/test.cpp
-
