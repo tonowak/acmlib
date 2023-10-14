@@ -7,7 +7,7 @@ struct Hashing {
 	LL reduce(LL x) { return x >= mod ? x - mod : x; }
 	LL mul(LL a, LL b) {
 		const auto c = __int128(a) * b;
-		return reduce(LL(c & mod) + LL(c >> 61));;
+		return reduce(LL(c & mod) + LL(c >> 61));
 	}
 	Hashing(const vector<int> &str, const int base = 37) {
 		int len = ssize(str);
