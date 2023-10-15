@@ -18,7 +18,7 @@ ostream& operator<<(ostream &o, __int128_t x) {
 #include "../intersect-lines/main.cpp"
 
 D rd_d(int l, int r) {
-	return uniform_real_distribution<D>(l, r)(rng);
+	return uniform_real_distribution<D>(l, r)(tester_rng);
 }
 
 void test() {

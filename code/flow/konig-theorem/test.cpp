@@ -93,7 +93,7 @@ void test() {
 	vector<int> which_group(n0 + n1);
 	REP(i, n1)
 		which_group[i] = 1;
-	shuffle(which_group.begin(), which_group.end(), rng);
+	shuffle(which_group.begin(), which_group.end(), tester_rng);
 	array<vector<int>, 2> in_group;
 	REP(v, n)
 		in_group[which_group[v]].emplace_back(v);
