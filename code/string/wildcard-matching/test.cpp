@@ -1,5 +1,7 @@
 #include "../../utils/testing/test-wrapper.cpp"
+#define rng rng_wrapper
 #include "main.cpp"
+#undef rng
 
 vector<bool> brute(vector<int> text, vector<int> pattern) {
 	const int n = ssize(text);
