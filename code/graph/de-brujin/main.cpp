@@ -9,9 +9,8 @@ vector<int> de_brujin(int k, int n, bool is_path) {
 		iota(v.begin(), v.end(), 0);
 		return v;
 	}
-	if (k == 1) {
+	if (k == 1)
 		return vector (n, 0);
-	}
 	int N = 1;
 	REP(i, n - 1)
 		N *= k;
