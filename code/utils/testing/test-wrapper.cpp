@@ -2,12 +2,12 @@
 
 void test();
 
-mt19937 rng(0);
+mt19937 tester_rng(0);
 int rd(int l, int r) {
-	return uniform_int_distribution<int>(l, r)(rng);
+	return uniform_int_distribution<int>(l, r)(tester_rng);
 }
 LL rd_ll(LL l, LL r) {
-	return uniform_int_distribution<LL>(l, r)(rng);
+	return uniform_int_distribution<LL>(l, r)(tester_rng);
 }
 
 template<class T>

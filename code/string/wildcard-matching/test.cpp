@@ -23,8 +23,11 @@ void test() {
 	int n = rd(1, 30);
 	int m = rd(1, n);
 	vector<int> text(n), pattern(m);
-	for (int& e : text) e = rd(-1, 2);
-	for (int& e : pattern) e = rd(-1, 2);
-	debug(text, pattern, brute(text, pattern));
-	assert(brute(text, pattern) == wildcard_matching(text, pattern));
+	const int alpha = rd(0, 1) ? 3 : 20;
+	for (int& e : text) e = rd(-1, alpha - 1);
+	for (int& e : pattern) e = rd(-1, alpha - 1);
+	const auto brute_ret = brute(text, pattern);
+	debug(text, pattern, brute_ret);
+	assert(brute_ret == wildcard_matching(text, pattern));
+	assert(brute_ret == safer_wildcard_matching(text, pattern, alpha));
 }

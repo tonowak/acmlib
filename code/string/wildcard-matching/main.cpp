@@ -1,5 +1,5 @@
 /*
- * Opis: O(n \log n), zwraca tablicę wystąpień wzorca. Alfabet od 0. Znaki zapytania to -1. Mogą być zarówno w tekście jak i we wzrocu. Im większy alfabet tym bardziej trzeba uważać.
+ * Opis: O(n \log n), zwraca tablicę wystąpień wzorca. Alfabet od $0$. Znaki zapytania to $-1$. Mogą być zarówno w tekście jak i we wzrocu. Dla alfabetów większych niż $15$ lepiej użyć bezpieczniejszej wersji.
  */
 #include "../../math/ntt/main.cpp"
 vector<bool> wildcard_matching(vi text, vi pattern) {
@@ -24,5 +24,19 @@ vector<bool> wildcard_matching(vi text, vi pattern) {
 	h(identity(),[](int x){return powi(x,3);});
 	vector<bool> ret(n - m + 1);
 	FOR(i, m, n) ret[i - m] = !c[i - 1];
+	return ret;
+}
+vector<bool> safer_wildcard_matching(vi text, vi pattern, int alpha = 26) {
+	static mt19937 rng(0); // Can be changed.
+	int n = ssize(text), m = ssize(pattern);
+	vector ret(n - m + 1, true);
+	vector<int> v(alpha), a(n, -1), b(m, -1);
+	REP(iters, 2) { // The more the better.
+		REP(i, alpha) v[i] = int(rng() % (mod - 1));
+		REP(i, n) if (text[i] != -1) a[i] = v[text[i]];
+		REP(i, m) if (pattern[i] != -1) b[i] = v[pattern[i]];
+		auto h = wildcard_matching(a, b);
+		REP(i, n - m + 1) ret[i] = min(ret[i], h[i]);
+	}
 	return ret;
 }
