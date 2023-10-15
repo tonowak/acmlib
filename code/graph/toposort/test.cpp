@@ -22,7 +22,7 @@ void test() {
 	vector<vector<int>> graph(n);
 	vector<int> per(n);
 	iota(per.begin(), per.end(), 0);
-	shuffle(per.begin(), per.end(), tester_rng);
+	shuffle(per.begin(), per.end(), rng);
 	REP (i, m) {
 		int u = rd(0, n - 2);
 		int v = rd(u + 1, n - 1);

@@ -1,6 +1,8 @@
 #include "../../utils/testing/test-wrapper.cpp"
+#define rng rng_wrapper
 #define rd rd_wrapper
 #include "main.cpp"
+#undef rng
 #undef rd
 
 void test() {

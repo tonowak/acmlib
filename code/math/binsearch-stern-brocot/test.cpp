@@ -3,7 +3,7 @@
 
 void test() {
 	LL max_value = rd(0, 1) ? LL(1e1) : rd(0, 1) ? LL(4e2) : LL(1e18);
-	long double ld = uniform_real_distribution<long double>(0, max_value + 1)(tester_rng);
+	long double ld = uniform_real_distribution<long double>(0, max_value + 1)(rng);
 	debug(max_value, ld);
 	auto is_good = [&](pair<LL, LL> p) {
 		assert(p.second > 0);

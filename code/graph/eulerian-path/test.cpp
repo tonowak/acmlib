@@ -48,7 +48,7 @@ void test() {
 				cands = {a, b};
 			}
 
-			shuffle(cands.begin(), cands.end(), tester_rng);
+			shuffle(cands.begin(), cands.end(), rng);
 			int a = cands[0], b = cands[1];
 			add_edge(a, b);
 		} else {
@@ -67,8 +67,8 @@ void test() {
 				cands_out = {a}, cands_in = {b};
 			}
 
-			shuffle(cands_out.begin(), cands_out.end(), tester_rng);
-			shuffle(cands_in.begin(), cands_in.end(), tester_rng);
+			shuffle(cands_out.begin(), cands_out.end(), rng);
+			shuffle(cands_in.begin(), cands_in.end(), rng);
 			int a = cands_out[0], b = cands_in[0];
 			add_edge(a, b);
 		}

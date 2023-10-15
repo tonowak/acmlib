@@ -2,7 +2,7 @@
 #include "main.cpp"
 
 D rd_double(D l, D r) {
-	return uniform_real_distribution<D>(l, r)(tester_rng);
+	return uniform_real_distribution<D>(l, r)(rng);
 }
 
 void test() {
