@@ -1,5 +1,5 @@
 /*
- * Opis: O(n), przyjmuje wartości wielomianu w punktach $0,1,\dots$ i wylicza jego wartość w $x$. lagrange\_consecutive(\{2, 3, 4\}, 3) == 5
+ * Opis: O(n), przyjmuje wartości wielomianu w punktach $0,1,\dots,n-1$ i wylicza jego wartość w $x$. lagrange\_consecutive(\{2, 3, 4\}, 3) == 5
  */
 #include "../simple-modulo/main.cpp"
 int lagrange_consecutive(vector<int> y, int x) {
