@@ -1,37 +1,31 @@
 /*
- * Opis: power\_monomial\_sum O(k ^ 2 \cdot \log(mod)), power\_binomial\_sum O(k \cdot \log(mod)).
+ * Opis: power\_monomial\_sum O(k \log k), power\_binomial\_sum O(k).
  * power\_monomial\_sum(a, k, n) liczy $\sum_{i=0}^{n-1} a^i \cdot i^k$, power\_binomial\_sum(a, k, n) liczy $\sum_{i=0}^{n-1} a^i \cdot {i \choose k}$.
  * Działa dla $0 \leq n$ oraz $a \neq 1$.
  */
-#include "../simple-modulo/main.cpp"
+#include "../lagrange-consecutive/main.cpp"
 int power_monomial_sum(int a, int k, int n) {
-	const int powan = powi(a, n);
-	const int inva1 = inv(sub(a, 1));
-	int monom = 1, ans = 0;
-	vector<int> v(k + 1);
+	if (n == 0) return 0;
+	int p = 1, b = 1, c = 0, d = a, inva = inv(a);
+	vector<int> v(k + 1, k == 0);
+	FOR(i, 1, k) v[i] = add(v[i - 1], mul(p = mul(p, a), powi(i, k)));
+	BinomCoeff bc(k + 1);
 	REP(i, k + 1) {
-		int binom = 1, sum = 0;
-		REP(j, i) {
-			sum = add(sum, mul(binom, v[j]));
-			binom = mul(binom, mul(i - j, inv(j + 1)));
-		}
-		ans = sub(mul(powan, monom), mul(sum, a));
-		if(!i) ans = sub(ans, 1);
-		ans = mul(ans, inva1);
-		v[i] = ans;
-		monom = mul(monom, n);
+		c = add(c, mul(bc(k + 1, i), mul(v[k - i], b)));
+		b = mul(b, sub(0, a));
 	}
-	return ans;
+	c = mul(c, inv(powi(sub(1, a), k + 1)));
+	REP(i, k + 1) v[i] = mul(sub(v[i], c), d = mul(d, inva));
+	return add(c, mul(lagrange_consecutive(v, n - 1), powi(a, n - 1)));
 }
 int power_binomial_sum(int a, int k, int n) {
-	const int powan = powi(a, n);
-	const int inva1 = inv(sub(a, 1));
-	int binom = 1, ans = 0;
+	int p = powi(a, n), inva1 = inv(sub(a, 1)), binom = 1, ans = 0;
+	BinomCoeff bc(k + 1);
 	REP(i, k + 1) {
-		ans = sub(mul(powan, binom), mul(ans, a));
+		ans = sub(mul(p, binom), mul(ans, a));
 		if(!i) ans = sub(ans, 1);
 		ans = mul(ans, inva1);
-		binom = mul(binom, mul(n - i, inv(i + 1)));
+		binom = mul(binom, mul(n - i, mul(bc.rev[i + 1], bc.fac[i])));
 	}
 	return ans;
 }
