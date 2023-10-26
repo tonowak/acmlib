@@ -13,31 +13,31 @@
  */
 struct CentroDecomp {
 	const vector<vector<int>> &graph; // tu
-	vector<int> par, _subsz, _vis;
-	int _vis_cnt = 1;
-	const int _INF = int(1e9);
+	vector<int> par, subsz, vis;
+	int vis_cnt = 1;
+	const int INF = int(1e9);
 	int root;
-	void refresh() { ++_vis_cnt; }
-	void visit(int v) { _vis[v] = max(_vis[v], _vis_cnt); }
-	bool is_vis(int v) { return _vis[v] >= _vis_cnt; }
+	void refresh() { ++vis_cnt; }
+	void visit(int v) { vis[v] = max(vis[v], vis_cnt); }
+	bool is_vis(int v) { return vis[v] >= vis_cnt; }
 	void dfs_subsz(int v) {
 		visit(v);
-		_subsz[v] = 1;
+		subsz[v] = 1;
 		for (int u : graph[v]) // tu
 			if (!is_vis(u)) {
 				dfs_subsz(u);
-				_subsz[v] += _subsz[u];
+				subsz[v] += subsz[u];
 			}
 	}
 	int centro(int v) {
 		refresh();
 		dfs_subsz(v);
-		int sz = _subsz[v] / 2;
+		int sz = subsz[v] / 2;
 		refresh();
 		while (true) {
 			visit(v);
 			for (int u : graph[v]) // tu
-				if (!is_vis(u) && _subsz[u] > sz) {
+				if (!is_vis(u) && subsz[u] > sz) {
 					v = u;
 					break;
 				}
@@ -54,15 +54,15 @@ struct CentroDecomp {
 			if (!is_vis(u)) {
 				u = centro(u);
 				par[u] = v;
-				_vis[u] = _INF;
+				vis[u] = INF;
 				// Opcjonalnie tutaj przekazujemy info synowi w drzewie CD.
 				decomp(u);
 			}
 	}
-	CentroDecomp(int n, vector<vector<int>> &_graph) // tu
-	   	: graph(_graph), par(n, -1), _subsz(n), _vis(n) {
+	CentroDecomp(int n, vector<vector<int>> &grph) // tu
+	   	: graph(grph), par(n, -1), subsz(n), vis(n) {
 		root = centro(0);
-		_vis[root] = _INF;
+		vis[root] = INF;
 		decomp(root);
 	}
 };
