@@ -1,15 +1,16 @@
 /*
  * Opis: Dla funkcji, których pary przecinają się
- *   co najwyżej raz, oblicza maximum w punkcie $x$.
+ *   co najwyżej raz, oblicza minimum w punkcie $x$.
  *   Podany kod jest dla funkcji liniowych.
  */
-constexpr LL inf = LL(1e9);
+constexpr LL inf = LL(1e18);
 struct Function {
-	int a, b;
+	int a;
+	LL b;
 	LL operator()(int x) {
 		return x * LL(a) + b;
 	}
-	Function(int p = 0, int q = inf) : a(p), b(q) {}
+	Function(int p = 0, LL q = inf) : a(p), b(q) {}
 };
 ostream& operator<<(ostream &os, Function f) {
 	return os << pair(f.a, f.b);
