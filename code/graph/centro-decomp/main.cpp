@@ -1,6 +1,6 @@
 /*
  * Opis: O(n \log n), template do Centroid Decomposition
- * 	Nie ruszamy rzeczy z \_ na początku.
+ * 	Nie używamy subsz, vis oraz vis_cnt!
  * 	Konstruktor przyjmuje liczbę wierzchołków i drzewo.
  * 	Jeśli chcemy mieć rozbudowane krawędzie, to zmienić tam gdzie zaznaczone.
  * 	Mamy tablicę odwiedzonych z refreshem w O(1) (używać bez skrępowania).
