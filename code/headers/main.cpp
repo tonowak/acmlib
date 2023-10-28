@@ -9,7 +9,7 @@ using LL=long long;
 #define ssize(x) int(x.size())
 #ifdef DEBUG
 auto&operator<<(auto&o,pair<auto,auto>p){return o<<"("<<p.first<<", "<<p.second<<")";}
-auto operator<<(auto&o,auto x)->decltype(x.end(),o){o<<"{";int i=0;for(auto e:x)o<<","+!i++<<e;return o<<"}";}
+auto&operator<<(auto&o,auto x){o<<"{";int i=0;for(auto e:x)o<<","+!i++<<e;return o<<"}";}
 #define debug(X...) cerr<<"["#X"]: ",[](auto...$){((cerr<<$<<"; "),...)<<endl;}(X)
 #else
 #define debug(...) {}
