@@ -68,7 +68,7 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 	vector<Face> polygons;
 	vector<vector<pair<int, int>>> outgoing_for_face(n);
 	REP(leader, 2 * E)
-		if(not comps[leader].empty()) {
+		if(ssize(comps[leader])) {
 			for(int id : comps[leader]) {
 				int v = edges[id / 2].first;
 				int u = edges[id / 2].second;
@@ -80,11 +80,11 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 			}
 			vector<Edge> sorted_edges;
 			function<void (int)> dfs = [&](int v) {
-				while(not outgoing_for_face[v].empty()) {
+				while(ssize(outgoing_for_face[v])) {
 					auto [u, e] = outgoing_for_face[v].back();
 					outgoing_for_face[v].pop_back();
 					dfs(u);
-					sorted_edges.emplace_back(Edge{e, v, u});
+					sorted_edges.emplace_back(e, v, u);
 				}
 			};
 			dfs(edges[comps[leader].front() / 2].first);
@@ -95,7 +95,7 @@ vector<Face> split_planar_to_faces(vector<pair<int, int>> coord, vector<pair<int
 				auto r = coord[edge.to];
 				area += l.first * LL(r.second) - l.second * LL(r.first);
 			}
-			polygons.emplace_back(Face{area >= 0, sorted_edges});
+			polygons.emplace_back(area >= 0, sorted_edges);
 		}
 	// Remember that there can be multiple outside faces.
 	return polygons;

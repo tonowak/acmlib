@@ -1,9 +1,9 @@
 /*
  * Opis: Generatorka wielokątów wypukłych.
- * Zwraca wielokąt z co najmniej n * PROC punktami w zakresie [-range, range].
- * Jeśli n (n > 2) jest około range ^ (2/3), to powinno chodzić O(n \log n).
- * Dla większych n może nie dać rady.
- * Ostatni punkt jest zawsze w (0, 0) - można dodać przesunięcie o wektor dla pełnej losowości.
+ * Zwraca wielokąt z co najmniej $n \cdot \texttt{PROC}$ punktami w zakresie $[-\texttt{range}, \texttt{range}]$.
+ * Jeśli $n$ $(n > 2)$ jest około $\texttt{range}^{\frac{2}{3}}$, to powinno chodzić O(n \log n).
+ * Dla większych $n$ może nie dać rady.
+ * Ostatni punkt jest zawsze w $(0, 0)$ - można dodać przesunięcie o wektor dla pełnej losowości.
  */
 #include "../point/main.cpp"
 #include "../angle-sort/main.cpp"

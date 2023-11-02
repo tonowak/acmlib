@@ -1,5 +1,5 @@
 /*
- * Opis: O(n log n) lub O(n \alpha),
+ * Opis: O(n \log n) lub O(n \alpha),
  * 	Dla słowa \texttt{abaab\#} (hash jest aby to zawsze liście były stanami kończącymi)
  * 	stworzy \texttt{sons[0]=\{(\#,10),(a,4),(b,8)\}, sons[4]=\{(a,5),(b,6)\}, sons[6]=\{(\#,7),(a,2)\}, sons[8]=\{(\#,9),(a,3)\}},
  * 	reszta sons'ów pusta, \texttt{slink[6]=8} i reszta slink'ów $0$

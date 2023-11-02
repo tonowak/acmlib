@@ -1,5 +1,5 @@
 /*
- * Opis: O(n\ log n),
+ * Opis: O(n \log n),
  *   \texttt{conv\_mod(a, b)} zwraca iloczyn wielomianów modulo, ma większą dokładność niż zwykłe fft.
  */
 #include "../fft/main.cpp"

@@ -30,7 +30,7 @@ vector<bool> safer_wildcard_matching(vi text, vi pattern, int alpha = 26) {
 	static mt19937 rng(0); // Can be changed.
 	int n = ssize(text), m = ssize(pattern);
 	vector ret(n - m + 1, true);
-	vector<int> v(alpha), a(n, -1), b(m, -1);
+	vi v(alpha), a(n, -1), b(m, -1);
 	REP(iters, 2) { // The more the better.
 		REP(i, alpha) v[i] = int(rng() % (mod - 1));
 		REP(i, n) if (text[i] != -1) a[i] = v[text[i]];

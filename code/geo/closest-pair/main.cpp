@@ -1,5 +1,5 @@
 /*
- * Opis: O(n log n), zakłada ssize(in) > 1.
+ * Opis: O(n \log n), zakłada ssize(in) > 1.
  */
 #include "../point/main.cpp"
 
