@@ -88,6 +88,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
             continue
         if had_comment and not line:
             continue
+        if line == '':
+            continue
         # Check includes
         include = parse_include(line)
         if include is not None and not keep_include:
@@ -162,10 +164,6 @@ def processwithcomments(caption, instream, outstream, listingslang):
 
         if commands.get("Opis"):
             out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Opis"]))
-        if commands.get("Czas"):
-            out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Czas"]))
-        if commands.get("Użycie"):
-            out.append(r"\par\noindent\scriptsize{\texttt{%s}}" % codeescape(commands["Użycie"]))
         langstr = "language="+listingslang
         out.append(r"\begin{lstlisting}[%s]" % langstr)
         out.append(nsource)
@@ -249,7 +247,6 @@ def main():
                 if language == None:
                     language = getlang(value)
                 if caption == None:
-                    # caption = getfilename(value)
                     caption = value
             if option in ("-l", "--language"):
                 language = value
@@ -261,22 +258,14 @@ def main():
             print_header(print_header_value, outstream)
             return
         print(" * \x1b[1m{}\x1b[0m".format(value))
-        if language == "cpp" or language == "cc" or language == "c" or language == "h" or language == "hpp":
+        if language == "cpp":
             processwithcomments(caption, instream, outstream, 'C++')
-        elif language == "java":
-            processwithcomments(caption, instream, outstream, 'Java')
-        elif language == "ps":
-            processraw(caption, instream, outstream) # PostScript was added in listings v1.4
         elif language == "raw":
             processraw(caption, instream, outstream)
-        elif language == "rawcpp":
-            processraw(caption, instream, outstream, 'C++')
         elif language == "sh":
             processraw(caption, instream, outstream, 'bash')
         elif language == "py":
             processwithcomments(caption, instream, outstream, 'Python')
-        elif language == "rawpy":
-            processraw(caption, instream, outstream, 'Python')
         else:
             raise ValueError("Unkown language: " + str(language))
     except (ValueError, getopt.GetoptError, IOError) as err:
