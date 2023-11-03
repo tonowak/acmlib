@@ -4,6 +4,7 @@
  *   \texttt{OperationJumpPtr} może otrzymać wynik na ścieżce.
  *   Wynik na ścieżce do góry wymaga łączności, wynik dowolnej ścieżki jest poprawny, gdy jest odwrotność wyniku lub przemienna.
  */
+// BEGIN HASH
 struct SimpleJumpPtr {
 	int bits;
 	vector<vector<int>> graph, jmp;
@@ -52,6 +53,8 @@ struct SimpleJumpPtr {
 		return par[v];
 	}
 };
+// END HASH
+// BEGIN HASH
 using PathAns = LL;
 PathAns merge(PathAns down, PathAns up) {
 	return down + up;
@@ -96,3 +99,4 @@ struct OperationJumpPtr {
 		);
 	}
 };
+// END HASH

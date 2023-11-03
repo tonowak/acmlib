@@ -59,8 +59,36 @@ def find_start_comment(source, start=None):
         i = source.find(s, start)
         if i != -1 and (i < first[0] or first[0] == -1):
             first = (i, i + len(s), e)
-
     return first
+
+def get_hash(txt):
+    p = subprocess.Popen(['sh', 'pdf/kactl-include/hash.sh'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    hsh, _ = p.communicate(txt)
+    return hsh.split(None, 1)[0]
+
+def hash_fragments_or_whole(txt):
+    txt = txt.split('\n')
+    found_any_fragment = False
+
+    def hash_fragment(l, r):
+        assert txt[l] == '// BEGIN HASH'
+        assert txt[r] == '// END HASH'
+        hsh = get_hash('\n'.join(txt[l + 1 : r]))
+        txt[l] += ' ' + hsh
+
+    for r in range(len(txt)):
+        if txt[r] == '// END HASH':
+            for l in range(r - 1, -1, -1):
+                if txt[l] == '// BEGIN HASH':
+                    hash_fragment(l, r)
+                    found_any_fragment = True
+                    break
+    txt = '\n'.join(txt)
+    
+    if found_any_fragment:
+        return None, txt
+    else:
+        return get_hash(txt), txt
 
 def processwithcomments(caption, instream, outstream, listingslang):
     knowncommands = ['Opis']
@@ -144,9 +172,7 @@ def processwithcomments(caption, instream, outstream, listingslang):
         nsource = nsource.rstrip() + source[end:]
     nsource = nsource.strip()
 
-    p = subprocess.Popen(['sh', 'pdf/kactl-include/hash.sh'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    hsh, _ = p.communicate(nsource)
-    hsh = hsh.split(None, 1)[0]
+    hsh, nsource = hash_fragments_or_whole(nsource)
 
     # Produce output
     out = []
@@ -157,7 +183,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
     else:
         foldername = caption.split('/')[-2] if 'main' in caption else caption.split('/')[-1]
         addref(foldername, outstream)
-        out.append(r"\newline\tiny{\#%s}" % (hsh))
+        if hsh is not None:
+            out.append(r"\newline\tiny{\#%s}" % hsh)
         if includelist:
             out.append(r"\tiny{, includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
         out.append(r"\vspace{-1em}")
@@ -269,7 +296,7 @@ def main():
         else:
             raise ValueError("Unkown language: " + str(language))
     except (ValueError, getopt.GetoptError, IOError) as err:
-        print(str(err), file=sys.stderr)
+        print((err), file=sys.stderr)
         print("\t for help use --help", file=sys.stderr)
         return 2
 
