@@ -4,7 +4,7 @@
  *   \texttt{P p = {5, 6}; abs(p) = length; arg(p) = kąt; polar(len, angle);}
  */
 #pragma once
-using D = long double;
+using D = long double; // use double in case of TLE
 struct P : complex<D> {
 	D *m = (D *) this, &x, &y;
 	P(D _x = 0, D _y = 0) : complex<D>(_x, _y), x(m[0]), y(m[1]) {}
