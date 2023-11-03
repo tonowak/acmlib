@@ -1,6 +1,7 @@
 /*
  * Opis: O(n\log n), \texttt{conv(a, b)} to iloczyn wielomianów.
  */
+// BEGIN HASH
 using Complex = complex<double>;
 void fft(vector<Complex> &a) {
 	int n = ssize(a), L = 31 - __builtin_clz(n);
@@ -22,7 +23,7 @@ void fft(vector<Complex> &a) {
 			a[i + j] += z;
 		}
 	}
-}
+} // END HASH
 vector<double> conv(vector<double> &a, vector<double> &b) {
 	if(a.empty() || b.empty()) return {};
 	vector<double> res(ssize(a) + ssize(b) - 1);

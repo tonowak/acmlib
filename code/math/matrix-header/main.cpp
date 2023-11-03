@@ -7,6 +7,7 @@ int mod = 998'244'353;
 #else
 constexpr int mod = 998'244'353;
 #endif
+// BEGIN HASH
 bool equal(int a, int b) {
 	return a == b;
 }
@@ -36,7 +37,9 @@ int sub(int a, int b) {
 	return add(a, mod - b);
 }
 using T = int;
+// END HASH
 #else
+// BEGIN HASH
 constexpr double eps = 1e-9;
 bool equal(double a, double b) {
 	return abs(a - b) < eps;
@@ -47,4 +50,5 @@ OP(add, +)
 OP(divide, /)
 OP(sub, -)
 using T = double;
+// END HASH
 #endif

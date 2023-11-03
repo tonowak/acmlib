@@ -4,6 +4,7 @@
  *   \texttt{get\_kmp(\{0,1,0,0,1,0,1,0,0,1\}) == \{0,0,1,1,2,3,2,3,4,5\}},
  *   \texttt{get\_borders(\{0,1,0,0,1,0,1,0,0,1\}) == \{2,5,10\}}.
  */
+// BEGIN HASH
 vector<int> get_kmp(vector<int> str) {
 	int len = ssize(str);
 	vector<int> ret(len);
@@ -14,7 +15,7 @@ vector<int> get_kmp(vector<int> str) {
 		ret[i] = pos + (str[i] == str[pos]);
 	}
 	return ret;
-}
+} // END HASH
 vector<int> get_borders(vector<int> str) {
 	vector<int> kmp = get_kmp(str), ret;
 	int len = ssize(str);

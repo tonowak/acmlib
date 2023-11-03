@@ -8,6 +8,7 @@
  * \texttt{all\_factors(12) = \{1, 3, 2, 6, 4, 12\}}.
  */
 #include "../miller-rabin/main.cpp"
+// BEGIN HASH
 LL rho_pollard(LL n) {
 	if(n % 2 == 0) return 2;
 	for(LL i = 1;; i++) {
@@ -25,7 +26,7 @@ vector<LL> factor(LL n) {
 	auto l = factor(x), r = factor(n / x);
 	l.insert(l.end(), r.begin(), r.end());
 	return l;
-}
+} // END HASH
 vector<pair<LL, int>> get_pairs(LL n) {
 	auto v = factor(n);
 	sort(v.begin(), v.end());

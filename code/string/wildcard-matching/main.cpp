@@ -2,6 +2,7 @@
  * Opis: O(n \log n), zwraca tablicę wystąpień wzorca. Alfabet od $0$. Znaki zapytania to $-1$. Mogą być zarówno w tekście jak i we wzrocu. Dla alfabetów większych niż $15$ lepiej użyć bezpieczniejszej wersji.
  */
 #include "../../math/ntt/main.cpp"
+// BEGIN HASH
 vector<bool> wildcard_matching(vi text, vi pattern) {
 	for (int& e : text) ++e;
 	for (int& e : pattern) ++e;
@@ -25,7 +26,7 @@ vector<bool> wildcard_matching(vi text, vi pattern) {
 	vector<bool> ret(n - m + 1);
 	FOR(i, m, n) ret[i - m] = !c[i - 1];
 	return ret;
-}
+} // END HASH
 vector<bool> safer_wildcard_matching(vi text, vi pattern, int alpha = 26) {
 	static mt19937 rng(0); // Can be changed.
 	int n = ssize(text), m = ssize(pattern);

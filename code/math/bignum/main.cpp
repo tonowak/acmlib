@@ -3,6 +3,7 @@
  * wersje \texttt{operatorX(Num, int)} liniowe.
  * Podstawę można zmieniać (ma zachodzić \texttt{base == 10 do digits\_per\_elem}).
  */
+// BEGIN HASH
 struct Num {
 	static constexpr int digits_per_elem = 9, base = int(1e9);
 	vector<int> x;
@@ -25,7 +26,8 @@ struct Num {
 	Num(LL s) : Num(to_string(s)) {
 		assert(s >= 0);
 	}
-};
+}; // END HASH
+// BEGIN HASH
 string to_string(const Num& n) {
 	stringstream s;
 	s << (ssize(n.x) ? n.x.back() : 0);
@@ -35,7 +37,8 @@ string to_string(const Num& n) {
 }
 ostream& operator<<(ostream &o, const Num& n) {
 	return o << to_string(n).c_str();
-}
+} // END HASH
+// BEGIN HASH
 Num operator+(Num a, const Num& b) {
 	int carry = 0;
 	for(int i = 0; i < max(ssize(a.x), ssize(b.x)) or carry; ++i) {
@@ -47,7 +50,8 @@ Num operator+(Num a, const Num& b) {
 			a.x[i] -= a.base;
 	}
 	return a.shorten();
-}
+} // END HASH
+// BEGIN HASH
 bool operator<(const Num& a, const Num& b) {
 	if(ssize(a.x) != ssize(b.x))
 		return ssize(a.x) < ssize(b.x);
@@ -61,7 +65,8 @@ bool operator==(const Num& a, const Num& b) {
 }
 bool operator<=(const Num& a, const Num& b) {
 	return a < b or a == b;
-}
+} // END HASH
+// BEGIN HASH
 Num operator-(Num a, const Num& b) {
 	assert(b <= a);
 	int carry = 0;
@@ -72,7 +77,8 @@ Num operator-(Num a, const Num& b) {
 			a.x[i] += a.base;
 	}
 	return a.shorten();
-}
+} // END HASH
+// BEGIN HASH
 Num operator*(Num a, int b) {
 	assert(0 <= b and b < a.base);
 	int carry = 0;
@@ -84,7 +90,8 @@ Num operator*(Num a, int b) {
 		carry = int(cur / a.base);
 	}
 	return a.shorten();
-}
+} // END HASH
+// BEGIN HASH
 Num operator*(const Num& a, const Num& b) {
 	Num c;
 	c.x.resize(ssize(a.x) + ssize(b.x));
@@ -95,7 +102,8 @@ Num operator*(const Num& a, const Num& b) {
 			carry = int(cur / a.base);
 		}
 	return c.shorten();
-}
+} // END HASH
+// BEGIN HASH
 Num operator/(Num a, int b) {
 	assert(0 < b and b < a.base);
 	int carry = 0;
@@ -105,7 +113,8 @@ Num operator/(Num a, int b) {
 		carry = int(cur % b);
 	}
 	return a.shorten();
-}
+} // END HASH
+// BEGIN HASH
 // zwraca a * pow(a.base, b)
 Num shift(Num a, int b) {
 	vector v(b, 0);
@@ -129,7 +138,8 @@ Num operator/(Num a, const Num& b) {
 		a = a - shift(b * l, i);
 	}
 	return c.shorten();
-}
+} // END HASH
+// BEGIN HASH
 template<typename T>
 Num operator%(const Num& a, const T& b) {
 	return a - ((a / b) * b);
@@ -138,4 +148,4 @@ Num nwd(const Num& a, const Num& b) {
 	if(b == Num())
 		return a;
 	return nwd(b, a % b);
-}
+} // END HASH

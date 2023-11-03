@@ -9,6 +9,7 @@
  *   \texttt{renumerate\_vertices(...)} zwraca nowy graf, w którym wierzchołki są przenumerowane.
  *   Nowy graf: \texttt{renumerate\_vertices(graph, get\_new\_vertex\_id\_from\_order(get\_toposort\_order(graph)))}.
  */
+// BEGIN HASH
 vector<int> get_toposort_order(vector<vector<int>> graph) {
 	int n = ssize(graph);
 	vector<int> indeg(n);
@@ -29,7 +30,7 @@ vector<int> get_toposort_order(vector<vector<int>> graph) {
 				que.emplace_back(u);
 	}
 	return ret;
-}
+} // END HASH
 vector<int> get_new_vertex_id_from_order(vector<int> order) {
 	vector<int> ret(ssize(order), -1);
 	REP(v, ssize(order))

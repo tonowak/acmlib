@@ -4,6 +4,7 @@
  * $lcp[i]$ to $lcp$ suffixu $sa[i]$ i $sa[i + 1]$,
  * Dla \texttt{s = aabaaab}, \texttt{sa=\{7,3,4,0,5,1,6,2\},lcp=\{0,2,3,1,2,0,1\}}
  */
+// BEGIN HASH
 void induced_sort(const vector<int> &vec, int alpha, vector<int> &sa,
 		const vector<bool> &sl, const vector<int> &lms_idx) {
 	vector<int> l(alpha), r(alpha);
@@ -79,7 +80,7 @@ vector<int> suffix_array(const vector<int> &s, int alpha) {
 		vec[i] = s[i] + 1;
 	vector<int> ret = sa_is(vec, alpha + 2);
 	return ret;
-}
+} // END HASH
 vector<int> get_lcp(const vector<int> &s, const vector<int> &sa) {
 	int n = ssize(s), k = 0;
 	vector<int> lcp(n), rank(n);
