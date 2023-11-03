@@ -16,7 +16,6 @@ struct P : complex<D> {
 	}
 };
 constexpr D eps = 1e-9;
-istream &operator>>(istream &is, P &p) { return is >> p.x >> p.y; }
 bool equal(D a, D b) { return abs(a - b) < eps; }
 bool equal(P a, P b) { return equal(a.x, b.x) and equal(a.y, b.y); }
 int sign(D a) { return equal(a, 0) ? 0 : a > 0 ? 1 : -1; }
