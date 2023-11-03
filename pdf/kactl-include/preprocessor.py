@@ -68,7 +68,6 @@ def get_hash(txt):
 
 def hash_fragments_or_whole(txt):
     txt = txt.split('\n')
-    found_any_fragment = False
 
     def hash_fragment(l, r):
         assert txt[l] == '// BEGIN HASH'
@@ -81,14 +80,10 @@ def hash_fragments_or_whole(txt):
             for l in range(r - 1, -1, -1):
                 if txt[l] == '// BEGIN HASH':
                     hash_fragment(l, r)
-                    found_any_fragment = True
                     break
     txt = '\n'.join(txt)
-    
-    if found_any_fragment:
-        return None, txt
-    else:
-        return get_hash(txt), txt
+
+    return get_hash(txt), txt
 
 def processwithcomments(caption, instream, outstream, listingslang):
     knowncommands = ['Opis']

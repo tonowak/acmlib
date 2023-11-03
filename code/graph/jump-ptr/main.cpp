@@ -54,7 +54,6 @@ struct SimpleJumpPtr {
 	}
 };
 // END HASH
-// BEGIN HASH
 using PathAns = LL;
 PathAns merge(PathAns down, PathAns up) {
 	return down + up;
@@ -99,4 +98,3 @@ struct OperationJumpPtr {
 		);
 	}
 };
-// END HASH
