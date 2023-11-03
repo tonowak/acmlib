@@ -1,3 +1,4 @@
+#include "../point/before_bits.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 

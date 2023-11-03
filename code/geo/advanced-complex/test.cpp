@@ -1,3 +1,4 @@
+#include "../point/before_bits.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 #include "../line/main.cpp"
@@ -13,7 +14,7 @@ void test() {
 		return equal(a, b) or (a * b >= 0 and max(abs(a), abs(b)) <= (1. + eps) * min(abs(a), abs(b)));
 	};
 	auto rel_equal_P = [&](P a, P b) {
-		return rel_equal_D(a.x, b.x) and rel_equal_D(a.y, b.y);
+		return rel_equal_D(a.x(), b.x()) and rel_equal_D(a.y(), b.y());
 	};
 	auto too_close = [&](P a, P b) {
 		return dist(a, b) < 0.001;

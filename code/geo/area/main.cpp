@@ -6,7 +6,7 @@
  */
 #include "../point/main.cpp"
 D area(vector<P> pts) {
-	int n = size(pts);
+	int n = ssize(pts);
 	D ans = 0;
 	REP(i, n) ans += cross(pts[i], pts[(i + 1) % n]);
 	return fabsl(ans / 2);
