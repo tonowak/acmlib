@@ -10,16 +10,9 @@ import sys
 import getopt
 import subprocess
 
-def escape(input):
-    # input = input.replace('<', r'\ensuremath{<}')
-    # input = input.replace('>', r'\ensuremath{>}')
-    # input = input.replace('_', r'\_')
-    return input
-
 def pathescape(input):
     input = input.replace('\\', r'\\')
     input = input.replace('_', r'\_')
-    input = escape(input)
     return input
 
 def codeescape(input):
@@ -31,12 +24,9 @@ def codeescape(input):
     input = input.replace(']', '{]}')
     input = input.replace('~', '\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}')
     input = input.replace('^', r'\ensuremath{\hat{\;}}')
-    input = escape(input)
     return input
 
-def ordoescape(input, esc=True):
-    if esc:
-        input = escape(input)
+def ordoescape(input):
     start = input.find("O(")
     if start >= 0:
         bracketcount = 1
@@ -48,7 +38,7 @@ def ordoescape(input, esc=True):
             elif input[end] == ')':
                 bracketcount = bracketcount - 1
         if bracketcount == 0:
-            return r"%s\bigo{%s}%s" % (input[:start], input[start+2:end], ordoescape(input[end+1:], False))
+            return r"%s\bigo{%s}%s" % (input[:start], input[start+2:end], ordoescape(input[end+1:]))
     return input
 
 def addref(caption, outstream):
@@ -152,14 +142,10 @@ def processwithcomments(caption, instream, outstream, listingslang):
         nsource = nsource.rstrip() + source[end:]
     nsource = nsource.strip()
 
-    if listingslang in ['C++', 'Java']:
-        hash_script = 'hash'
-        p = subprocess.Popen(['sh', 'pdf/kactl-include/%s.sh' % hash_script], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-        hsh, _ = p.communicate(nsource)
-        hsh = hsh.split(None, 1)[0]
-        hsh = hsh
-    else:
-        hsh = ''
+    p = subprocess.Popen(['sh', 'pdf/kactl-include/hash.sh'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    hsh, _ = p.communicate(nsource)
+    hsh = hsh.split(None, 1)[0]
+
     # Produce output
     out = []
     if warning:
@@ -175,19 +161,12 @@ def processwithcomments(caption, instream, outstream, listingslang):
         out.append(r"\vspace{-1em}")
 
         if commands.get("Opis"):
-            out.append(r"\par\noindent\scriptsize{%s}" % escape(ordoescape(commands["Opis"])))
+            out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Opis"]))
         if commands.get("Czas"):
             out.append(r"\par\noindent\scriptsize{%s}" % ordoescape(commands["Czas"]))
         if commands.get("Użycie"):
             out.append(r"\par\noindent\scriptsize{\texttt{%s}}" % codeescape(commands["Użycie"]))
-        # if includelist:
-            # out.append(r"\leftcaption{%s}" % pathescape(", ".join(includelist)))
-        # if nsource:
-            # out.append(r"\rightcaption{%s%d lines}" % (hsh, len(nsource.split("\n"))))
         langstr = "language="+listingslang
-        # out.append(r"\begin{lstlisting}[caption={%s}, %s]" % (pathescape(caption), langstr))
-        # out.append(r"\begin{lstlisting}[caption={\textbf{%s}}, %s]" % (foldername, langstr))
-        # out.append(r"\begin{lstlisting}[caption={}, %s]" % langstr)
         out.append(r"\begin{lstlisting}[%s]" % langstr)
         out.append(nsource)
         out.append(r"\end{lstlisting}")
