@@ -71,12 +71,12 @@ def hash_fragments_or_whole(txt):
 
     def hash_fragment(l, r):
         assert txt[l] == '// BEGIN HASH'
-        assert txt[r] == '// END HASH'
-        hsh = get_hash('\n'.join(txt[l + 1 : r]))
+        assert txt[r].endswith('// END HASH')
+        hsh = get_hash('\n'.join(txt[l + 1 : r + 1]))
         txt[l] += ' ' + hsh
 
     for r in range(len(txt)):
-        if txt[r] == '// END HASH':
+        if txt[r].endswith('// END HASH'):
             for l in range(r - 1, -1, -1):
                 if txt[l] == '// BEGIN HASH':
                     hash_fragment(l, r)

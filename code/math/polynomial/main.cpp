@@ -2,7 +2,7 @@
  * Opis: Operacje na wielomianach mod $998244353$,
  * deriv, integr O(n), powi\_deg O(n \cdot deg), sqrt, inv, log, exp, powi, div O(n \log n), powi\_slow, eval, inter O(n \log ^2 n)
  * Ogólnie to przepisujemy co chcemy.
- * Funkcje oznaczone jako KONIECZNE są wymagane od miejsca ich wystąpienia w kodzie. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
+ * Funkcje oznaczone jako KONIECZNE są wymagane. Funkcje oznaczone WYMAGA ABC wymagają wcześniejszego przepisania ABC.
  * \texttt{deriv(a)} zwraca $a'$,
  * \texttt{integr(a)} zwraca $\int a$,
  * \texttt{powi(\_deg\_slow)(a, k, n)} zwraca $a^k (\bmod x^n)$,
@@ -15,6 +15,15 @@
  * \texttt{inter(x, y)} zwraca $a$ taki, że $a(x_i) = y_i$.
  */
 #include "../ntt/main.cpp"
+// BEGIN HASH
+vi mod_xn(const vi& a, int n) { // KONIECZNE
+	return vi(a.begin(), a.begin() + min(n, ssize(a)));
+}
+void sub(vi& a, const vi& b) { // KONIECZNE
+	a.resize(max(ssize(a), ssize(b)));
+	REP(i, ssize(b)) a[i] = sub(a[i], b[i]);
+} // END HASH
+// BEGIN HASH
 vi deriv(vi a) {
 	REP(i, ssize(a)) a[i] = mul(a[i], i);
 	if(ssize(a)) a.erase(a.begin());
@@ -29,7 +38,8 @@ vi integr(vi a) {
 	for(int i = n; i > 0; --i)
 		a[i] = mul(a[i], mul(r, f[i - 1])), r = mul(r, i);
 	return a;
-}
+} // END HASH
+// BEGIN HASH
 vi powi_deg(const vi& a, int k, int n) {
 	assert(ssize(a) and a[0] != 0);
 	vi v(n), f(n, 1);
@@ -44,10 +54,8 @@ vi powi_deg(const vi& a, int k, int n) {
 		r = mul(r, i);
 	}
 	return v;
-}
-vi mod_xn(const vi& a, int n) { // KONIECZNE
-	return vi(a.begin(), a.begin() + min(n, ssize(a)));
-}
+} // END HASH
+// BEGIN HASH
 vi powi_slow(const vi &a, int k, int n) {
 	vi v{1}, b = mod_xn(a, n);
 	int x = 1; while(x < n) x *= 2;
@@ -65,7 +73,8 @@ vi powi_slow(const vi &a, int k, int n) {
 		k /= 2;
 	}
 	return mod_xn(v, n);
-}
+} // END HASH
+// BEGIN HASH
 vi sqrt(const vi& a, int n) {
 	auto at = [&](int i) { if(i < ssize(a)) return a[i]; else return 0; };
 	assert(ssize(a) and a[0] == 1);
@@ -94,11 +103,8 @@ vi sqrt(const vi& a, int n) {
 		REP(i, x) v.emplace_back(mul(c[i + x], inv2));
 	}
 	return mod_xn(v, n);
-}
-void sub(vi& a, const vi& b) { // KONIECZNE
-	a.resize(max(ssize(a), ssize(b)));
-	REP(i, ssize(b)) a[i] = sub(a[i], b[i]);
-}
+} // END HASH
+// BEGIN HASH
 vi inv(const vi& a, int n) {
 	assert(ssize(a) and a[0] != 0);
 	vi v{inv(a[0])};
@@ -114,11 +120,13 @@ vi inv(const vi& a, int n) {
 		sub(v, f);
 	}
 	return mod_xn(v, n);
-}
+} // END HASH
+// BEGIN HASH
 vi log(const vi& a, int n) { // WYMAGA deriv, integr, inv
 	assert(ssize(a) and a[0] == 1);
 	return integr(mod_xn(conv(deriv(mod_xn(a, n)), inv(a, n)), n - 1));
-}
+} // END HASH
+// BEGIN HASH
 vi exp(const vi& a, int n) { // WYMAGA deriv, integr
 	assert(a.empty() or a[0] == 0);
 	vi v{1}, f{1}, g, h{0}, s;
@@ -156,7 +164,8 @@ vi exp(const vi& a, int n) { // WYMAGA deriv, integr
 		REP(i, x) v.emplace_back(d[i]);
 	}
 	return mod_xn(v, n);
-}
+} // END HASH
+// BEGIN HASH
 vi powi(const vi& a, int k, int n) { // WYMAGA log, exp
 	vi v = mod_xn(a, n);
 	int cnt = 0;
@@ -177,7 +186,8 @@ vi powi(const vi& a, int k, int n) { // WYMAGA log, exp
 	vi t(cnt * k, 0);
 	v.insert(v.begin(), t.begin(), t.end());
 	return v;
-}
+} // END HASH
+// BEGIN HASH
 pair<vi, vi> div_slow(vi a, const vi& b) {
 	vi x;
 	while(ssize(a) >= ssize(b)) {
@@ -200,15 +210,8 @@ pair<vi, vi> div(vi a, const vi& b) { // WYMAGA inv, div_slow
 	reverse(x.begin(), x.end());
 	sub(a, conv(x, b));
 	return {x, mod_xn(a, ssize(b))};
-}
-int eval_single(const vi& a, int x) {
-	int y = 0;
-	for (int i = ssize(a) - 1; i >= 0; --i) {
-		y = mul(y, x);
-		y = add(y, a[i]);
-	}
-	return y;
-}
+} // END HASH
+// BEGIN HASH
 vi build(vector<vi> &tree, int v, auto l, auto r) {
 	if (r - l == 1) {
 		return tree[v] = vi{sub(0, *l), 1};
@@ -216,6 +219,15 @@ vi build(vector<vi> &tree, int v, auto l, auto r) {
 		auto M = l + (r - l) / 2;
 		return tree[v] = conv(build(tree, 2 * v, l, M), build(tree, 2 * v + 1, M, r));
 	}
+} // END HASH
+// BEGIN HASH
+int eval_single(const vi& a, int x) {
+	int y = 0;
+	for (int i = ssize(a) - 1; i >= 0; --i) {
+		y = mul(y, x);
+		y = add(y, a[i]);
+	}
+	return y;
 }
 vi eval_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r) {
 	if (r - l == 1) {
@@ -234,7 +246,8 @@ vi eval(const vi& a, const vi& x) { // WYMAGA div, eval_single, build, eval_help
 	vector<vi> tree(4 * ssize(x));
 	build(tree, 1, begin(x), end(x));
 	return eval_helper(a, tree, 1, begin(x), end(x));
-}
+} // END HASH
+// BEGIN HASH
 vi inter_helper(const vi& a, vector<vi>& tree, int v, auto l, auto r, auto ly, auto ry) {
 	if (r - l == 1) {
 		return {mul(*ly, inv(a[0]))};
@@ -257,4 +270,4 @@ vi inter(const vi& x, const vi& y) { // WYMAGA deriv, div, build, inter_helper
 		return {};
 	vector<vi> tree(4 * ssize(x));
 	return inter_helper(deriv(build(tree, 1, begin(x), end(x))), tree, 1, begin(x), end(x), begin(y), end(y));
-}
+} // END HASH

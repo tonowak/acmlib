@@ -2,6 +2,7 @@
  * Opis: O(n\log n) mnożenie wielomianów mod $998244353$.
  */
 #include "../simple-modulo/main.cpp"
+// BEGIN HASH
 using vi = vector<int>;
 constexpr int root = 3;
 void ntt(vi& a, int n, bool inverse = false) {
@@ -21,7 +22,7 @@ void ntt(vi& a, int n, bool inverse = false) {
 		int invn = inv(n);
 		for(int& e : a) e = mul(e, invn);
 	}
-}
+} // END HASH
 vi conv(vi a, vi b) {
 	if(a.empty() or b.empty()) return {};
 	int l = ssize(a) + ssize(b) - 1, sz = 1 << __lg(2 * l - 1);
