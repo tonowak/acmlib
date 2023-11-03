@@ -101,7 +101,10 @@ def processwithcomments(caption, instream, outstream, listingslang):
         # Check includes
         include = parse_include(line)
         if include is not None and not keep_include:
-            includelist.append(include.lstrip('"../').rstrip('/main.cpp"'))
+            include = include.lstrip('"../').rstrip('.cpp"')
+            if include.endswith('/main'):
+                include = include.rstrip('/main')
+            includelist.append(include)
             continue
         nlines.append(line)
     # Remove and process multiline comments
