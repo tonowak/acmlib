@@ -16,6 +16,4 @@ auto&operator<<(auto&o,auto x){o<<"{";int i=0;for(auto e:x)o<<","+!i++<<e;return
 #endif
 int main() {
 	cin.tie(0)->sync_with_stdio(0);
-	REP(i, 5)
-		debug(i);
 }
