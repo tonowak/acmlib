@@ -1,5 +1,6 @@
 /*
  * Opis: Hashowanie z małą stałą. Można zmienić bazę (jeśli serio trzeba).
+ * \texttt{openssl prime -generate -bits 60} generuje losową liczbę pierwszą o $60$ bitach ($\le 1.15 \cdot 10^{18} $).
  */
 struct Hashing {
 	vector<LL> ha, pw;
