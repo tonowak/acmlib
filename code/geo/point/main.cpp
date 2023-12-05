@@ -1,7 +1,6 @@
 /*
- * Opis: Wrapper na \texttt{std::complex}, pola \texttt{.x} oraz \texttt{.y} nie są const.
- *   Wiele operacji na \texttt{Point} zwraca complex, np \texttt{(p * p).x} się nie skompiluje.
- *   \texttt{P p = {5, 6}; abs(p) = length; arg(p) = kąt; polar(len, angle);}
+ * Opis: Wrapper na \texttt{std::complex}, definy trzeba dać nad bitsami, wtedy istnieje \texttt{p.x()} oraz \texttt{p.y()}.
+ *   \texttt{abs} długość, \texttt{arg} kąt $[-\pi, \pi]$ gdzie $(0,1)$ daje $\pi$, \texttt{polar(len, angle)} tworzy $P$. Istnieją \texttt{atan2}, \texttt{asin}, \texttt{sinh}.
  */
 #pragma once
 // Before include bits:
