@@ -2,7 +2,7 @@
  * Opis: O(n\alpha) konstrukcja, O(n) DP oraz odzyskanie.
  * Eertree ma korzeń ,,pusty'' w $0$ oraz ,,ujemny'' w $1$.
  * Z wierzchołka wychodzi krawędź z literą, gdy jego słowo można otoczyć z obu stron tą literą.
- * Funkcja \texttt{add} zwraca wierzchołek odpowiadający za największy palindromiczny suffix aktualnego słowa.
+ * Funkcja \texttt{add\_letter} zwraca wierzchołek odpowiadający za największy palindromiczny suffix aktualnego słowa.
  * Suffix link prowadzi do najdłuższego palindromicznego suffixu słowa wierzchołka.
  * Linki tworzą drzewo z $1$ jako korzeń (który ma syna $0$).
  * Żeby policzyć liczbę wystąpień wierzchołka, po każdym dodaniu litery ,,wystarczy'' dodać $+1$ każdemu na ścieżce od \texttt{last} do korzenia po linkach.
@@ -27,7 +27,7 @@ struct Eertree {
 			v = link[v];
 		return v;
 	}
-	int add(int c) {
+	int add_letter(int c) {
 		str.emplace_back(c);
 		last = find(last);
 		if(edge[last][c] == 0) {
@@ -39,7 +39,7 @@ struct Eertree {
 		return last = edge[last][c];
 	}
 }; // END HASH
-int add(int a, int b) { return a + b; }
+int add(int a, int b) { return a + b; } // Dopisać modulo jeżeli trzeba.
 // BEGIN HASH
 struct Dp { int mn, mn_i, cnt; };
 Dp operator+(Dp l, Dp r) {
@@ -51,7 +51,7 @@ vector<Dp> palindromic_split_dp(vector<int> str, bool only_even_lens = false) {
 	vector<int> big_link(2), diff(2);
 	vector<Dp> series_ans(2), ans(n, {n + 1, -1, 0});
 	REP(i, n) {
-		int last = t.add(str[i]);
+		int last = t.add_letter(str[i]);
 		if(last >= ssize(big_link)) {
 			diff.emplace_back(t.len.back() - t.len[t.link.back()]);
 			big_link.emplace_back(diff.back() == diff[t.link.back()] ? big_link[t.link.back()] : t.link.back());
