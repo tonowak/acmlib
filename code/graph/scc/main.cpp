@@ -1,7 +1,8 @@
 /*
  * Opis: konstruktor O(n), get\_compressed O(n \log n).
  *   \texttt{group[v]} to numer silnie spójnej wierzchołka $v$,
- *   \texttt{get\_compressed()} zwraca graf siline spójnyh,
+ *   \texttt{order} to toposort, w którym krawędzie idą w lewo,
+ *   \texttt{get\_compressed()} zwraca graf silnie spójnyh,
  *   \texttt{get\_compressed(false)} nie usuwa multikrawędzi.
  */
 struct SCC {
