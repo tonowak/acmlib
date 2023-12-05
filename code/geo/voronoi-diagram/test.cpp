@@ -1,3 +1,4 @@
+#include "../point/before_bits.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 ostream& operator<<(ostream &o, __int128_t x) {

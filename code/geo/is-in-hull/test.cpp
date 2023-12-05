@@ -1,3 +1,4 @@
+#include "../point/before_bits.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
 #include "main.cpp"
 
@@ -40,7 +41,7 @@ void test() {
 		
 		int inter_cnt = 0;
 		REP(i, n)
-			if(is_intersection_segment(p, P(100, p.y + 1), in[i], in[(i + 1) % n]))
+			if(is_intersection_segment(p, P(100, p.y() + 1), in[i], in[(i + 1) % n]))
 				++inter_cnt;
 		debug(inter_cnt);
 

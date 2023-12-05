@@ -18,8 +18,8 @@ bool is_intersection_segment(P a, P b, P c, P d) {
 	auto aux = [&](D q, D w, D e, D r) {
 		return sign(max(q, w) - min(e, r)) >= 0;
 	};
-	return  aux(c.x, d.x, a.x, b.x) and aux(a.x, b.x, c.x, d.x)
-		and aux(c.y, d.y, a.y, b.y) and aux(a.y, b.y, c.y, d.y)
+	return  aux(c.x(), d.x(), a.x(), b.x()) and aux(a.x(), b.x(), c.x(), d.x())
+		and aux(c.y(), d.y(), a.y(), b.y()) and aux(a.y(), b.y(), c.y(), d.y())
 		and dir(a, d, c) * dir(b, d, c) != 1
 		and dir(d, b, a) * dir(c, b, a) != 1;
 } // END HASH

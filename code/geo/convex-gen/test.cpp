@@ -1,3 +1,4 @@
+#include "../point/before_bits.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
 #define rng rng_wrapper
 #define rd rd_wrapper
@@ -16,7 +17,7 @@ void test() {
 	assert(n >= N * PROC);
 
 	REP (i, n)
-		assert(abs(loose[i].x) <= z && abs(loose[i].y) <= z);
+		assert(abs(loose[i].x()) <= z && abs(loose[i].y()) <= z);
 
 	const int reps = 100;
 	REP (rep, reps) {
@@ -34,7 +35,7 @@ void test() {
 	assert(n >= N * PROC);
 
 	REP (i, n)
-		assert(abs(strict[i].x) <= z && abs(strict[i].y) <= z);
+		assert(abs(strict[i].x()) <= z && abs(strict[i].y()) <= z);
 
 	REP (rep, reps) {
 		int mid = rd(0, n - 1);
