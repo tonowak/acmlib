@@ -1,3 +1,4 @@
+#include "../../geo/point/before_bits.cpp"
 #include "../../utils/testing/test-wrapper.cpp"
 #include "../../geo/intersect-lines/main.cpp"
 #include "main.cpp"
