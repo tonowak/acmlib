@@ -1,6 +1,6 @@
 /*
  * Opis: Wrapper na \texttt{std::complex}, definy trzeba dać nad bitsami, wtedy istnieje \texttt{p.x()} oraz \texttt{p.y()}.
- *   \texttt{abs} długość, \texttt{arg} kąt $[-\pi, \pi]$ gdzie $(0,1)$ daje $\pi$, \texttt{polar(len, angle)} tworzy $P$. Istnieją \texttt{atan2}, \texttt{asin}, \texttt{sinh}.
+ *   \texttt{abs} długość, \texttt{arg} kąt $(-\pi, \pi]$ gdzie $(0,1)$ daje $\frac{\pi}{2}$, \texttt{polar(len, angle)} tworzy $P$. Istnieją \texttt{atan2}, \texttt{asin}, \texttt{sinh}.
  */
 #pragma once
 // Before include bits:
