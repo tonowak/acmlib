@@ -7,7 +7,7 @@
  * Linki tworzą drzewo z $1$ jako korzeń (który ma syna $0$).
  * Żeby policzyć liczbę wystąpień wierzchołka, po każdym dodaniu litery ,,wystarczy'' dodać $+1$ każdemu na ścieżce od \texttt{last} do korzenia po linkach.
  * \texttt{palindromic\_split\_dp} zwraca na każdym prefixie (min podział palindromiczny,
- * liczbę podziałów, indeks do odzyskania min podziału).
+ * indeks do odzyskania min podziału, liczbę podziałów).
  * Gdy \texttt{only\_even\_lens} to może nie istnieć odpowiedź, wtedy \texttt{.mn == n + 1, .cnt == 0}.
  * \texttt{construct\_min\_palindromic\_split} zwraca palindromiczne przedziały pokrywające słowo.
  */
@@ -23,7 +23,7 @@ struct Eertree {
 		edge.resize(2, empty);
 	}
 	int find(int v) {
-		while(str[ssize(str) - 1] != str[ssize(str) - len[v] - 2])
+		while(str.end()[-1] != str.end()[-len[v] - 2])
 			v = link[v];
 		return v;
 	}
