@@ -29,14 +29,15 @@ vector<P> brute_halfplane(vector<Halfplane> h) {
 }
 
 void test() {
-	int n = rd(0, 10);
+	const int n = rd(0, 10);
 	vector<Halfplane> in;
 	for(int i = 0; i < 4; ++i) {
 		constexpr D inf = 1e5;
 		array box = {P(-inf, -inf), P(inf, -inf), P(inf, inf), P(-inf, inf)};
 		in.emplace_back(box[i], box[(i + 1) % 4]);
 	}
-	constexpr int mx = 20;
+	const int lg = rd(0, 30);
+	const int mx = 1 << lg;
 	auto get_random_p = [&] {
 		return P(rd(-mx, mx), rd(-mx, mx));
 	};
@@ -51,13 +52,13 @@ void test() {
 		in.emplace_back(a, b);
 	}
 	debug(in);
-	auto ans1 = halfplane_intersection(in);
-	auto ans2 = brute_halfplane(in);
-	debug(ans1, ans2);
-	sort(ans1.begin(), ans1.end());
-	sort(ans2.begin(), ans2.end());
-	ans2.erase(unique(ans2.begin(), ans2.end()), ans2.end());
-	assert(ssize(ans1) == ssize(ans2));
-	REP(i, ssize(ans1))
-		assert(ans1[i] == ans2[i]);
+	auto ans_main = halfplane_intersection(in);
+	auto ans_brute = brute_halfplane(in);
+	debug(ans_main, ans_brute);
+	sort(ans_main.begin(), ans_main.end());
+	sort(ans_brute.begin(), ans_brute.end());
+	ans_brute.erase(unique(ans_brute.begin(), ans_brute.end(), [&](P l, P r) { return equal(l, r); }), ans_brute.end());
+	assert(ssize(ans_main) == ssize(ans_brute));
+	REP(i, ssize(ans_main))
+		assert(equal(ans_main[i], ans_brute[i]));
 }
