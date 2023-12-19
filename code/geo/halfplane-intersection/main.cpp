@@ -18,11 +18,11 @@ ostream& operator<<(ostream&o, Halfplane h) {
 	return o << '(' << h.p << ", " << h.pq << ", " << h.angle << ')';
 }
 bool is_outside(Halfplane hi, P p) {
-	return hi.pq.x() * __float128(hi.p.y()) - hi.pq.y() * __float128(hi.p.x()) < -eps;
+	return sign(cross(hi.pq, p - hi.p)) == -1;
 }
 P inter(Halfplane s, Halfplane t) {
-	D alpha = cross((t.p - s.p), t.pq) / cross(s.pq, t.pq);
-	return s.p + (s.pq * alpha);
+	D alpha = cross(t.p - s.p, t.pq) / cross(s.pq, t.pq);
+	return s.p + s.pq * alpha;
 }
 vector<P> halfplane_intersection(vector<Halfplane> h) {
 	for(int i = 0; i < 4; ++i) {
@@ -39,7 +39,7 @@ vector<P> halfplane_intersection(vector<Halfplane> h) {
 			dq.pop_back();
 		while(ssize(dq) >= 2 and is_outside(hi, inter(dq[0], dq[1])))
 			dq.pop_front();
-		if(ssize(dq) and dir(P(), hi.pq, dq.back().pq) == 0) {
+		if(ssize(dq) and sign(cross(hi.pq, dq.back().pq)) == 0) {
 			if(sign(dot(hi.pq, dq.back().pq)) < 0)
 				return {};
 			if(is_outside(hi, dq.back().p))
