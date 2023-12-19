@@ -18,16 +18,6 @@ LL crossPInt(PInt l, PInt r) {
 	return l.first * LL(r.second) - l.second * LL(r.first);
 }
 
-Frac reduce(Frac x) {
-	Num g = nwd(x.first, x.second);
-	x.first = x.first / g;
-	x.second = x.second / g;
-	if(x.second < 0) {
-		x.first = -x.first;
-		x.second = -x.second;
-	}
-	return x;
-}
 Frac to_frac(int x) {
 	return {x, 1};
 }
@@ -35,10 +25,10 @@ PFrac to_pfrac(PInt p) {
 	return {to_frac(p.first), to_frac(p.second)};
 }
 Frac mul(int x, Frac y) {
-	return reduce({y.first * x, y.second});
+	return {y.first * x, y.second};
 }
 Frac add(Frac l, Frac r) {
-	return reduce({l.first * r.second + l.second * r.first, l.second * r.second});
+	return {l.first * r.second + l.second * r.first, l.second * r.second};
 }
 PFrac add_pfrac(PFrac l, PFrac r) {
 	return {add(l.first, r.first), add(l.second, r.second)};
@@ -50,7 +40,7 @@ PFrac sub_pfrac(PFrac l, PFrac r) {
 	return {add(l.first, neg(r.first)), add(l.second, neg(r.second))};
 }
 Frac mul_frac(Frac l, Frac r) {
-	return reduce({l.first * r.first, l.second * r.second});
+	return {l.first * r.first, l.second * r.second};
 }
 PFrac mul_pfrac(PFrac l, Frac r) {
 	return {mul_frac(l.first, r), mul_frac(l.second, r)};
