@@ -1,7 +1,11 @@
-#include "../../utils/testing/test-wrapper.cpp"
-#include "main.cpp"
+#include <bits/stdc++.h>
+using namespace std;
 
 ostream& operator<<(ostream& o, __int128_t x) {
+	if(x < 0) {
+		x = -x;
+		o << "-";
+	}
 	vector<int> v;
 	if (x == 0) v.emplace_back(0);
 	while (x > 0) {
@@ -14,6 +18,9 @@ ostream& operator<<(ostream& o, __int128_t x) {
 	}
 	return o;
 }
+
+#include "../../utils/testing/test-wrapper.cpp"
+#include "main.cpp"
 
 template<typename T1, typename T2>
 bool issame(T1 num, T2 x) {
@@ -33,6 +40,8 @@ T gcd(T a, T b) {
 	return gcd(b, a % b);
 }
 
+T abs(T x) { return x < 0 ? -x : x; }
+
 void test() {
 	vector<Num> vnum{1, 2, 4, 11};
 	vector<T> vt{1, 2, 4, 11};
@@ -44,8 +53,9 @@ void test() {
 		int y = rd(0, ssize(vnum) - 1);
 		int type = rd(0, 11);
 		int sp = ssize(vt);
+		debug(vt[x], vt[y], type);
 		if (type == 0) {
-			if (INF - vt[x] < vt[y]) continue;
+			if (INF - abs(vt[x]) < abs(vt[y])) continue;
 			vt.emplace_back(vt[x] + vt[y]);
 			vnum.emplace_back(vnum[x] + vnum[y]);
 		}
@@ -64,18 +74,20 @@ void test() {
 			vnum.emplace_back(vnum[x] - vnum[y]);
 		}
 		else if (type == 5) {
-			int val = rd(1, 1e9);
-			if (INF / val < vt[x]) continue;
+			int val = rd(-1e9, 1e9);
+			debug(val);
+			if (INF / abs(val) < abs(vt[x])) continue;
 			vt.emplace_back(vt[x] * val);
 			vnum.emplace_back(vnum[x] * val);
 		}
 		else if (type == 6) {
-			if (vt[x] != 0 and INF / vt[x] < vt[y]) continue;
+			if (vt[x] != 0 and INF / abs(vt[x]) < abs(vt[y])) continue;
 			vt.emplace_back(vt[x] * vt[y]);
 			vnum.emplace_back(vnum[x] * vnum[y]);
 		}
 		else if (type == 7) {
-			int val = rd(1, 1e9);
+			int val = rd(-1e9, 1e9);
+			debug(val);
 			vt.emplace_back(vt[x] / val);
 			vnum.emplace_back(vnum[x] / val);
 		}
@@ -90,7 +102,8 @@ void test() {
 			vnum.emplace_back(vnum[x] % vnum[y]);
 		}
 		else if (type == 10) {
-			int val = rd(1, 1e9);
+			int val = rd(-1e9, 1e9);
+			debug(val);
 			vt.emplace_back(vt[x] % val);
 			vnum.emplace_back(vnum[x] % val);
 		}
@@ -108,10 +121,11 @@ void test() {
 				vnum.pop_back();
 			}
 		}
+		debug(vt);
+		debug(vnum);
 		assert(issame(vt.back(), vnum.back()));
 		--opcnt;
 		++cnt[type];
-		debug(vnum);
 	}
 	debug(cnt);
 }
