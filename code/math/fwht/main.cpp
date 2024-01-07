@@ -1,14 +1,8 @@
 /*
  * Opis: O(n \log n),
  *   $n$ musi być potęgą dwójki,
- *   \texttt{fwht\_or(a)[i] = suma(j będące podmaską i) a[j]},
- *   \texttt{ifwht\_or(fwht\_or(a)) == a},
  *   \texttt{convolution\_or(a, b)[i] = suma(j | k == i) a[j] * b[k]},
- *   \texttt{fwht\_and(a)[i] = suma(j będące nadmaską i) a[j]},
- *   \texttt{ifwht\_and(fwht\_and(a)) == a},
  *   \texttt{convolution\_and(a, b)[i] = suma(j \& k == i) a[j] * b[k]},
- *   \texttt{fwht\_xor(a)[i] = suma(j oraz i mają parzyście wspólnie zapalonych bitów) a[j] - suma(j oraz i mają nieparzyście) a[j]},
- *   \texttt{ifwht\_xor(fwht\_xor(a)) == a},
  *   \texttt{convolution\_xor(a, b)[i] = suma(j \^ k == i) a[j] * b[k]}.
  */
 
@@ -27,6 +21,18 @@ void kronecker(vector<int> &a, T mt) {
 				a[i + s] = add(mul(val, mt[1][0]), mul(a[i + s], mt[1][1]));
 			}
 } // END HASH
+template<int t00, int t01, int t10, int t11>
+void other_kronecker(vector<int> &a, integer_sequence<int, t00, t01, t10, t11>) {
+	int n = ssize(a);
+	assert((n & (n - 1)) == 0);
+	for (int s = 1; 2 * s <= n; s *= 2)
+		for (int l = 0; l < n; l += 2 * s)
+			for (int i = l; i < l + s; ++i) {
+				int val = a[i];
+				a[i] = add(mul(a[i], t00), mul(a[i + s], t01));
+				a[i + s] = add(mul(val, t10), mul(a[i + s], t11));
+			}
+}
 // BEGIN HASH
 vector<int> kronecker_convolution(vector<int> a, vector<int> b, T mt, T rev) {
 	int n = ssize(a);
@@ -38,6 +44,19 @@ vector<int> kronecker_convolution(vector<int> a, vector<int> b, T mt, T rev) {
 	kronecker(a, rev);
 	return a;
 } // END HASH
+template<int t00, int t01, int t10, int t11, int r00, int r01, int r10, int r11>
+vector<int> other_kronecker_convolution(vector<int> a, vector<int> b,
+		integer_sequence<int, t00, t01, t10, t11> s1,
+		integer_sequence<int, r00, r01, r10, r11> s2) {
+	int n = ssize(a);
+	assert(ssize(b) == n);
+	other_kronecker(a, s1);
+	other_kronecker(b, s1);
+	REP (i, n)
+		a[i] = mul(a[i], b[i]);
+	other_kronecker(a, s2);
+	return a;
+}
 // BEGIN HASH
 vector<int> convolution_or(vector<int> a, vector<int> b) {
 	return kronecker_convolution(a, b,
@@ -52,8 +71,21 @@ vector<int> convolution_and(vector<int> a, vector<int> b) {
 } // END HASH
 // BEGIN HASH
 vector<int> convolution_xor(vector<int> a, vector<int> b) {
-	const int rev2 = (mod + 1) / 2;
+	constexpr int rev2 = (mod + 1) / 2;
+	auto ret = other_kronecker_convolution(a, b,
+			integer_sequence<int, 1, 1, 1, mod - 1>{},
+			integer_sequence<int, 1, 1, 1, mod - 1>{});
+	int n = ssize(a);
+	assert(n);
+	int revn = 1;
+	REP (i, __lg(n))
+		revn = mul(revn, rev2);
+	for (auto &i : a)
+		i = mul(i, revn);
+	return a;
+	/*
 	return kronecker_convolution(a, b,
 			T{{{1, 1}, {1, mod - 1}}},
 			T{{{rev2, rev2}, {rev2, mod - rev2}}});
+			*/
 } // END HASH
