@@ -13,7 +13,6 @@ bool equal(D a, D b) { return abs(a - b) < eps; }
 bool equal(P a, P b) { return equal(a.x(), b.x()) and equal(a.y(), b.y()); }
 int sign(D a) { return equal(a, 0) ? 0 : a > 0 ? 1 : -1; }
 namespace std { bool operator<(P a, P b) { return sign(a.x() - b.x()) == 0 ? sign(a.y() - b.y()) < 0 : a.x() < b.x(); } }
-ostream& operator<<(ostream &o, P p) { return o << pair(p.x(), p.y()); }
 // cross({1, 0}, {0, 1}) = 1
 D cross(P a, P b) { return a.x() * b.y() - a.y() * b.x(); }
 D dot(P a, P b) { return a.x() * b.x() + a.y() * b.y(); }
