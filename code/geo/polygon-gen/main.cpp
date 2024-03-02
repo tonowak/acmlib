@@ -1,8 +1,8 @@
 /*
  * Opis: Generatorka wielokątów niekoniecznie-wypukłych.
- * Zwraca wielokąt z o $n$ punktach w zakresie $[-\texttt{r}, \texttt{r}]$,
+ * Zwraca wielokąt o $n$ punktach w zakresie $[-\texttt{r}, \texttt{r}]$,
  * który nie zawiera jakiejkolwiek trójki współliniowych punktów.
- * Ciągnie do ~80. Dla $n < 3$ zwraca zdegenerowane.
+ * Ciągnie do $\sim 80$. Dla $n < 3$ zwraca zdegenerowane.
  */
 #include "../point/main.cpp"
 #include "../intersect-lines/main.cpp"
