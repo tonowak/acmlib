@@ -17,6 +17,7 @@ namespace Treap {
 	int get_cnt(pNode t) { return t ? t->cnt : 0; }
 	void update(pNode t) {
 		if (!t) return;
+		// push(t);
 		t->cnt = get_cnt(t->l) + get_cnt(t->r) + 1;
 	}
 	void split(pNode t, int i, pNode &l, pNode &r) {
@@ -32,7 +33,7 @@ namespace Treap {
 		update(t);
 	}
 	void merge(pNode &t, pNode l, pNode r) {
-		if (!l || !r) t = (l ? l : r);
+		if (!l or !r) t = l ?: r;
 		else if (l->prio > r->prio) {
 			// push(l);
 			merge(l->r, l->r, r), t = l;
@@ -42,5 +43,14 @@ namespace Treap {
 			merge(r->l, l, r->l), t = r;
 		}
 		update(t);
+	}
+	void apply_on_interval(pNode &root, int l, int r, function<void (pNode)> f) {
+		pNode left, mid, right;
+		split(root, r + 1, mid, right);
+		split(mid, l, left, mid);
+		assert(l <= r and mid);
+		f(mid);
+		merge(mid, left, mid);
+		merge(root, mid, right);
 	}
 }
