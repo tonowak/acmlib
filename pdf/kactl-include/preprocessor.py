@@ -198,7 +198,8 @@ def processwithcomments(caption, instream, outstream, listingslang):
 def processraw(caption, instream, outstream, listingslang = 'raw'):
     try:
         source = instream.read().strip()
-        addref(caption, outstream)
+        foldername = caption.split('/')[-2] if 'main' in caption else caption.split('/')[-1]
+        addref(foldername, outstream)
         print(r"\begin{lstlisting}[language=%s]" % (listingslang,), file=outstream)
         print(source, file=outstream)
         print(r"\end{lstlisting}", file=outstream)
@@ -234,9 +235,7 @@ def print_header(data, outstream):
     def adjust(name):
         return name if name.startswith('.') else name.split('.')[0]
     output = r"\enspace{}".join(map(adjust, lines[:ind]))
-    font_size = 10
-    if header_length > 150:
-        font_size = 8
+    font_size = 8
     output = r"\hspace{3mm}\textbf{" + output + "}"
     output = "\\fontsize{%d}{%d}" % (font_size, font_size) + output
     print(output, file=outstream)
