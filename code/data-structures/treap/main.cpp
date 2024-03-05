@@ -8,7 +8,7 @@
 namespace Treap {
 	mt19937 rng_key(0);
 	struct Node {
-		int prio, cnt;
+		int prio, cnt = 1;
 		Node *l = nullptr, *r = nullptr;
 		Node() : prio(int(rng_key())) {}
 		~Node() { delete l; delete r; }
