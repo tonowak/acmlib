@@ -5,6 +5,7 @@
  *   \texttt{order\_of\_key(x)} zwraca ile jest mniejszych elementów
  *   ($x$ nie musi być w secie).
  *   Jeśli chcemy multiseta, to używamy par $(val, id)$.
+ *   Przed includem trzeba dać \texttt{undef \_GLIBCXX\_DEBUG}.
  */
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
