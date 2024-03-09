@@ -1,3 +1,8 @@
+/*
+ * Opis: O(q \log^2 n), rozwala zadania, gdzie wynik to dp bottom-up na drzewie i zmienia się wartość wierzchołka/krawędzi.
+ * To zakłada, że da się tak uogólnić tego bottom-up'a, że da się trzymać fragmenty drzewa
+ * z "dwoma dziurami" i doczepiać jak LEGO dwa takie fragmenty do siebie.
+ */
 #include "../hld/main.cpp"
 // Information about a single vertex (e.g. color).
 // A component contains answers for vertices, not edges.
@@ -11,12 +16,14 @@ struct DpTwoEnds;
 DpTwoEnds merge(DpTwoEnds u, DpTwoEnds d);
 // DpOneEnd Contains information about a component after forgetting the "down" vertex.
 // Probably you want: answer for whole component, informations about top vertices.
+// It needs a default constructor.
 struct DpOneEnd;
 // Merge two parallel components. They are vertex-disjoint. They do not contain the
 // parent (it will be included in the next function).
 DpOneEnd merge(DpOneEnd a, DpOneEnd b);
 // Assuming that DpOneEnd contain all components of the light sons of the parent,
-// merge those components once with the parent.
+// merge those components once with the parent. It has to support passing the
+// default/neutral value of DpOneEnd -- it means that the vertex doesn't have light sons.
 DpTwoEnds merge(DpOneEnd sons, Value_v value_parent);
 // From a path that remembers "up" and "down" vertices, forget the "down" one.
 DpOneEnd two_to_one(DpTwoEnds two);
