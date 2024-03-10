@@ -1,8 +1,9 @@
 /*
- * Opis: O(n), ścieżka eulera.
- * Krawędzie to pary $(to, id)$ gdzie $id$ dla grafu nieskierowanego jest takie samo dla $(u, v)$ i $(v, u)$.
- * 	 Graf musi być spójny, po zainicjalizowaniu w \texttt{path} jest ścieżka/cykl eulera, vector o długości $m + 1$ kolejnych wierzchołków
- * 	 Jeśli nie ma ścieżki/cyklu, \texttt{path} jest puste. Dla cyklu, \texttt{path[0] == path[m]}.
+ * Opis: O(n + m), ścieżka eulera.
+ * Po zainicjalizowaniu w \texttt{exists} jest informacja czy jest ścieżka/cykl eulera.
+ * Jeżeli jest, to \texttt{start} jest początkiem tej ścieżki, a \texttt{ids} zawiera id kolejnych krawędzi.
+ * Vector \texttt{vertices} zawiera dodatkowo listę wierzchołków na tej ścieżce.
+ * Dla cyklu, \texttt{vertices[0] == vertices[m]}.
  */
 struct EulerianPath {
 	vector<pair<int, int>> edges;
