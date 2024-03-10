@@ -4,33 +4,62 @@
  * 	 Graf musi być spójny, po zainicjalizowaniu w \texttt{path} jest ścieżka/cykl eulera, vector o długości $m + 1$ kolejnych wierzchołków
  * 	 Jeśli nie ma ścieżki/cyklu, \texttt{path} jest puste. Dla cyklu, \texttt{path[0] == path[m]}.
  */
-using PII = pair<int, int>;
 struct EulerianPath {
-	vector<vector<PII>> adj;
+	vector<pair<int, int>> edges;
+	vector<vector<int>> adj;
+	bool exists = true;
+	int start = 0;
+	vector<int> ids, vertices;
 	vector<bool> used;
-	vector<int> path;
+	int other(int v, int id) {
+		auto [a, b] = edges[id];
+		return v ^ a ^ b;
+	}
 	void dfs(int v) {
-		while(!adj[v].empty()) {
-			auto [u, id] = adj[v].back();
+		while (ssize(adj[v])) {
+			int id = adj[v].back(), u = other(v, id);
 			adj[v].pop_back();
-			if(used[id]) continue;
+			if (used[id]) continue;
 			used[id] = true;
 			dfs(u);
+			ids.emplace_back(id);
 		}
-		path.emplace_back(v);
 	}
-	EulerianPath(vector<vector<PII>> _adj, bool directed = false) : adj(_adj) {
-		int s = 0, m = 0;
-		vector<int> in(ssize(adj));
-		REP(i, ssize(adj)) for(auto [j, id] : adj[i]) in[j]++, m++;
-		REP(i, ssize(adj)) if(directed) {
-			if(in[i] < ssize(adj[i])) s = i;
-		} else {
-			if(ssize(adj[i]) % 2) s = i;
+	EulerianPath(int n, const vector<pair<int, int>>& _edges, bool directed) : edges(_edges), adj(n), used(ssize(edges)) {
+		vector<int> in(n);
+		REP(i, ssize(edges)) {
+			auto [a, b] = edges[i];
+			start = a;
+			++in[b];
+			adj[a].emplace_back(i);
+			if (not directed)
+				adj[b].emplace_back(i);
 		}
-		m /= (2 - directed);
-		used.resize(m); dfs(s);
-		if(ssize(path) != m + 1) path.clear();
-		reverse(path.begin(), path.end());
+		int cnt_in = 0, cnt_out = 0;
+		REP(i, n) {
+			if (directed) {
+				if (in[i] < ssize(adj[i]))
+					start = i, ++cnt_in;
+				else
+					cnt_out += in[i] > ssize(adj[i]);
+			}
+			else if (ssize(adj[i]) % 2)
+				start = i, ++cnt_in;
+		}
+		if (directed)
+			REP(i, n)
+				if (abs(ssize(adj[i]) - in[i]) > 1) {
+					exists = false;
+					return;
+				}
+		dfs(start);
+		if (cnt_in + cnt_out > 2 or not all_of(used.begin(), used.end(), identity{})) {
+			exists = false;
+			return;
+		}
+		reverse(ids.begin(), ids.end());
+		vertices = {start};
+		for (int id : ids)
+			vertices.emplace_back(other(vertices.back(), id));
 	}
 };
