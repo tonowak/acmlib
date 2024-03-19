@@ -11,9 +11,9 @@ void test() {
 		edges.emplace_back(rd(0, n - 1), rd(0, n - 1));
 	debug(n, m, directed, edges);
 
-	EulerianPath ep(n, edges, directed);
+	EulerRet ep = eulerian_path(n, edges, directed);
 
-	bool exists = false;
+	bool exists = m ? false : true;
 	REP(start, n) {
 		vector<bool> used(m);
 		function<bool(int, int)> gen = [&](int last, int len) -> bool {
@@ -42,7 +42,7 @@ void test() {
 	assert(exists == ep.exists);
 
 	if (exists) {
-		int v = ep.start;
+		int v = ep.vertices.empty() ? 0 : ep.vertices.front();
 		const auto ids = ep.ids;
 		assert(v >= 0 and v < n);
 		assert(ssize(ids) == m);
@@ -62,7 +62,7 @@ void test() {
 			}
 		}
 		const auto vertices = ep.vertices;
-		assert(ssize(vertices) == m + 1);
+		assert((m == 0 and ep.vertices.empty()) or (m > 0 and ssize(vertices) == m + 1));
 		for (int x : vertices)
 			assert(x >= 0 and x < n);
 		REP(i, m) {
