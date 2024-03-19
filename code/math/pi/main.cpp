@@ -1,5 +1,5 @@
 /*
- * Opis: O(n^\frac{3}{4}), liczba liczb pierwszych na przedziale $[1,n]$.
+ * Opis: O(n\^{}\frac{3}{4}), liczba liczb pierwszych na przedziale $[1,n]$.
  *   \texttt{Pi pi(n); pi.query(d); // musi zachodzic d | n}
  */
 struct Pi {

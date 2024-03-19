@@ -6,7 +6,7 @@
  * \texttt{deriv(a)} zwraca $a'$,
  * \texttt{integr(a)} zwraca $\int a$,
  * \texttt{powi(\_deg\_slow)(a, k, n)} zwraca $a^k (\bmod x^n)$,
- * \texttt{sqrt(a, n)} zwraca $a^\frac{1}{2} (\bmod x^n)$,
+ * \texttt{sqrt(a, n)} zwraca $a\^{}\frac{1}{2} (\bmod x^n)$,
  * \texttt{inv(a, n)} zwraca $a^{-1} (\bmod x^n)$,
  * \texttt{log(a, n)} zwraca $ln(a) (\bmod x^n)$,
  * \texttt{exp(a, n)} zwraca $exp(a) (\bmod x^n)$,

@@ -1,5 +1,5 @@
 /*
- * Opis: O(n^\frac{1}{4}),
+ * Opis: O(n\^{}\frac{1}{4}),
  * \texttt{factor(n)} zwraca vector dzielników pierwszych $n$, niekoniecznie posortowany,
  * \texttt{get\_pairs(n)} zwraca posortowany vector par (dzielnik pierwszych, krotność) dla liczby $n$,
  * \texttt{all\_factors(n)} zwraca vector wszystkich dzielników $n$, niekoniecznie posortowany,

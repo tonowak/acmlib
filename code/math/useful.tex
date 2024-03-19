@@ -1,8 +1,8 @@
 \chapter{Wzorki}
 
 \section{Równości}
-$x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}$,
-Wierzchołek paraboli $= (- \frac{b}{2a}, - \frac{\Delta}{4a})$,
+$x = \dfrac{-b\pm\sqrt{b^2-4ac}}{2a}$,
+Wierzchołek paraboli $= (- \dfrac{b}{2a}, - \dfrac{\Delta}{4a})$,
 $ax+by=e \wedge cx+dy=f \implies
 x=\dfrac{ed-bf}{ad-bc} \wedge y=\dfrac{af-ec}{ad-bc}$.
 
@@ -54,7 +54,7 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 \section{Lemat Burnside'a}
 	Liczba takich samych obiektów z dokładnością do symetrii wynosi
 	% Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
-	$ {\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, $
+	$ {\dfrac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, $
 	gdzie $G$ to zbiór symetrii (ruchów) oraz $X^g$ to punkty (obiekty) stałe symetrii $g$.
 
 \section{Silnia}
@@ -91,7 +91,7 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 \section{Wzorki na pewne ciągi}
 	\subsection{Nieporządek}
 		Liczba takich permutacji, że $p_i \neq i$ (żadna liczba nie wraca na tą samą pozycję):
-		$ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil $
+		$ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\dfrac{n!}{e}\right\rceil $
 
 	\subsection{Liczba podziałów}
 		Liczba sposobów zapisania $n$ jako sumę posortowanych liczb dodatnich:
@@ -124,11 +124,11 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 		Liczba podziałów zbioru rozmiaru $n$ na $k$ bloków:
 		$S(n,k) = S(n-1,k-1) + k S(n-1,k)$,
 		$S(n,1) = S(n,n) = 1$,
-		$S(n,k) = \frac{1}{k!}\sum_{j=0}^k (-1)^{k-j}\binom{k}{j}j^n$.
+		$S(n,k) = \dfrac{1}{k!}\sum_{j=0}^k (-1)^{k-j}\binom{k}{j}j^n$.
 
 	\subsection{Liczby Catalana}
-		$ C_n=\frac{1}{n+1}\binom{2n}{n}= \binom{2n}{n}-\binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} $,
-		$ C_0=1,\ C_{n+1} = \frac{2(2n+1)}{n+2}C_n,\ C_{n+1}=\sum C_iC_{n-i} $,
+		$ C_n=\dfrac{1}{n+1}\binom{2n}{n}= \binom{2n}{n}-\binom{2n}{n+1} = \dfrac{(2n)!}{(n+1)!n!} $,
+		$ C_0=1,\ C_{n+1} = \dfrac{2(2n+1)}{n+2}C_n,\ C_{n+1}=\sum C_iC_{n-i} $,
 		$C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, \dots$.
 
 		Równoważne:
@@ -159,7 +159,7 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 			$\sigma_k\left(n\right) = \sum_{d|n}d^k$, $\sigma = \sigma_1$, $\tau = \sigma_0$,
 			$\mu\left(p^k\right) = [k = 0] - [k = 1]$,
 			$\varphi\left(p^k\right) = p^k - p^{k - 1}$,
-			$\left(f \ast g\right)\left(n\right) = \sum_{d|n}f\left(d\right)g\left(\frac{n}{d}\right)$,
+			$\left(f \ast g\right)\left(n\right) = \sum_{d|n}f\left(d\right)g\left(\dfrac{n}{d}\right)$,
 			$f \ast g = g \ast f$,
 			$f \ast \left(g \ast h\right) = \left(f \ast g\right) \ast h$,
 			$f \ast \left(g + h\right) = f \ast g + f \ast h$,
@@ -170,11 +170,11 @@ Dwa drzewa, zaczynając od $(2, 1)$ (parzysta-nieparzysta) oraz $(3, 1)$ (niepar
 			$\varphi \ast \mathbbm{1} = id$,
 			$id_k \ast \mathbbm{1} = \sigma_k$, $id \ast \mathbbm{1} = \sigma$, $\mathbbm{1} \ast \mathbbm{1} = \tau$,
 			$s_f\left(n\right) = \sum_{i=1}^nf\left(i\right)$,
-			$s_f\left(n\right) = \frac{s_{f\ast g}\left(n\right) - \sum_{d=2}^n s_f\left(\lfloor\frac{n}{d}\rfloor\right)g\left(d\right)}{g\left(1\right)}$.
+			$s_f\left(n\right) = \dfrac{s_{f\ast g}\left(n\right) - \sum_{d=2}^n s_f\left(\lfloor\frac{n}{d}\rfloor\right)g\left(d\right)}{g\left(1\right)}$.
 
 \section{Fibonacci}
 
-$F_n = \frac{\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}$,
+$F_n = \dfrac{\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n}{\sqrt{5}}$,
 $F_{n-1}F_{n+1}-F_n^2=(-1)^n$, $F_{n+k}=F_k F_{n+1} + F_{k-1} F_n$, $F_n | F_{nk}$, $NWD(F_m, F_n) = F_{NWD(m, n)}$
 
 \section{Woodbury matrix identity}
@@ -184,9 +184,12 @@ jest $(A+UCV)^{-1} = A^{-1} - A^{-1}U(C^{-1}+VA^{-1}U)^{-1}VA^{-1},$
 przy czym często $C=Id$.
 Używane gdy $A^{-1}$ jest już policzone i chcemy policzyć odwrotność lekko zmienionego $A$
 poprzez $C^{-1}$ i $VA^{-1}U$.
-Często występuje w kombinacji z tożsamością $\frac{1}{1-A} = \sum_{i=0}^\infty A^i$.
+Często występuje w kombinacji z tożsamością $\dfrac{1}{1-A} = \sum_{i=0}^\infty A^i$.
 
 \section{Zasada włączeń i wyłączeń}
+
+\newpage
+
 $X$ - uniwersum, $A_1, \dots, A_n$ - podzbiory $X$ zwane własnościami
 $S_j = \sum_{1\le i_1 \le \dots \le i_j \le n} | A_{i_1} \cap \dots \cap A_{i_j}|$
 W szczególności $S_0 = |X|$. Niech $D(k)$ oznacza liczbę elementów $X$ mających dokładnie $k$ własności.

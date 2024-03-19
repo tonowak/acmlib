@@ -180,9 +180,9 @@ def processwithcomments(caption, instream, outstream, listingslang):
         foldername = caption.split('/')[-2] if 'main' in caption else caption.split('/')[-1]
         addref(foldername, outstream)
         if hsh is not None:
-            out.append(r"\newline\tiny{\#%s}" % hsh)
+            out.append(r"\newline\scriptsize{\#%s}" % hsh)
         if includelist:
-            out.append(r"\tiny{, includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
+            out.append(r"\scriptsize{, includes: \texttt{%s}}" % (pathescape(", ".join(includelist))))
         out.append(r"\vspace{-1em}")
 
         if commands.get("Opis"):

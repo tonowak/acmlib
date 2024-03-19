@@ -2,7 +2,7 @@
  * Opis: Jeden rabin powie O(nm), drugi rabin powie, że to nawet nie jest O(n^3).
  *   W grafie nie może być pętelek.
  *   Funkcja zwraca match'a, tzn \texttt{match[v] == -1} albo z kim jest sparowany $v$.
- *   Rozmiar matchingu to $\sum_v \frac{\texttt{int(match[v] != -1)}}{2}$.
+ *   Rozmiar matchingu to $\frac{1}{2}\sum_v \texttt{int(match[v] != -1)}$.
  */
 vector<int> blossom(vector<vector<int>> graph) {
 	int n = ssize(graph), timer = -1;
