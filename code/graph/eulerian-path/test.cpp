@@ -11,7 +11,7 @@ void test() {
 		edges.emplace_back(rd(0, n - 1), rd(0, n - 1));
 	debug(n, m, directed, edges);
 
-	EulerRet ep = eulerian_path(n, edges, directed);
+	auto [ep_exists, ep_ids, ep_vertices] = eulerian_path(n, edges, directed);
 
 	bool exists = m ? false : true;
 	REP(start, n) {
@@ -38,12 +38,12 @@ void test() {
 		if (exists)
 			break;
 	}
-	debug(exists, ep.exists);
-	assert(exists == ep.exists);
+	debug(exists, ep_exists);
+	assert(exists == ep_exists);
 
 	if (exists) {
-		int v = ep.vertices.empty() ? 0 : ep.vertices.front();
-		const auto ids = ep.ids;
+		int v = ep_vertices.empty() ? 0 : ep_vertices.front();
+		const auto ids = ep_ids;
 		assert(v >= 0 and v < n);
 		assert(ssize(ids) == m);
 		for (int id : ids)
@@ -61,8 +61,8 @@ void test() {
 				v ^= a ^ b;
 			}
 		}
-		const auto vertices = ep.vertices;
-		assert((m == 0 and ep.vertices.empty()) or (m > 0 and ssize(vertices) == m + 1));
+		const auto vertices = ep_vertices;
+		assert((m == 0 and ep_vertices.empty()) or (m > 0 and ssize(vertices) == m + 1));
 		for (int x : vertices)
 			assert(x >= 0 and x < n);
 		REP(i, m) {
