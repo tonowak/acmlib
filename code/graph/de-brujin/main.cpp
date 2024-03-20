@@ -14,12 +14,11 @@ vector<int> de_brujin(int k, int n, bool is_path) {
 	int N = 1;
 	REP(i, n - 1)
 		N *= k;
-	vector<vector<PII>> adj(N);
+	vector<pair<int, int>> edges;
 	REP(i, N)
 		REP(j, k)
-			adj[i].emplace_back(i * k % N + j, i * k + j);
-	EulerianPath ep(adj, true);
-	auto path = ep.path;
+			edges.emplace_back(i, i * k % N + j);
+	vector<int> path = get<2>(eulerian_path(N, edges, true));
 	path.pop_back();
 	for(auto& e : path)
 		e = e % k;
