@@ -8,7 +8,7 @@
 
 vector<tuple<int, int, int>> squares(const vector<int> &s) {
 	vector<tuple<int, int, int>> ans;
-	vector pos(ssize(s) / 2 + 2, -1);
+	vector pos(ssize(s) + 2, -1);
 	FOR(mid, 1, ssize(s) - 1) {
 		int part = mid & ~(mid - 1), off = mid - part;
 		int end = min(mid + part, ssize(s));
