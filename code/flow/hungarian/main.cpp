@@ -6,6 +6,7 @@ pair<LL, vector<int>> hungarian(vector<vector<int>> a) {
 	if(a.empty())
 		return {0, {}};
 	int n0 = ssize(a) + 1, n1 = ssize(a[0]) + 1;
+    assert(n0 <= n1);
 	vector<int> p(n1), ans(n0 - 1);
 	vector<LL> u(n0), v(n1);
 	FOR(i, 1, n0 - 1) {
