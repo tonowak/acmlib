@@ -43,18 +43,6 @@
 	\mychapter{utils}
 	\end{multicols*}
 
-    \begin{tikzpicture}
-        \foreach \i in {\xMin,...,\xMax} {
-            \draw [very thin,black] (\i,\yMin) -- (\i,\yMax)  node [below] at (\i,\yMin) {$\the\numexpr2*\i$};
-        }
-        \foreach \i in {\yMin,...,\yMax} {
-            \draw [very thin,black] (\xMin,\i) -- (\xMax,\i) node [left] at (\xMin,\i) {$\the\numexpr2*\i$};
-        }
-        \draw [step=1.0,black, thick] (0.0,0.0) grid (27.0,19.0);
-        \draw [thick, black, step=1.0cm,xshift=-0.5cm, yshift=-0.5cm] (0.5,0.5) grid +(27.0,19.0);
-    \end{tikzpicture}
-
-
 	% \begin{multicols*}{3}
 	% \kactlchapter{appendix}
 	% \end{multicols*}
