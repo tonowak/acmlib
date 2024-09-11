@@ -4,6 +4,7 @@
  *   \texttt{insert(i, val)} insertuję na pozycję $i$,
  *   kopiowanie struktury działa w O(1),
  *   robimy sobie \texttt{vector<Treap>} żeby obsługiwać trwałość
+ *   UPD. uwaga potencjalnie się kwadraci, spytać Bartka kiedy
  */
 mt19937 rng_i(0);
 struct Treap {

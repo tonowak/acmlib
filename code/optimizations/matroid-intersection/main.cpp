@@ -1,13 +1,14 @@
 /*
- * Opis: Find largest subset S of [n] such that S is independent in both
+ * Opis: O(r^2 \cdot (init + n \cdot add)), where r is max independent set.
+ * Find largest subset S of [n] such that S is independent in both
  * matroid A and B, given by their oracles, see example implementations below.
  * Returns vector V such that V[i] = 1 iff i-th element is included in found set;
- * Time: O(r^2 \cdot (init + n \cdot add)), where r is max independent set.
  * Zabrane z https://github.com/KacperTopolski/kactl/tree/main
  * Zmienne w matroidach ustawiamy ręcznie aby "zainicjalizować" tylko jeśli mają
  * komentarz co znaczą. W przeciwnym wypadku intersectMatroids zrobi robotę wołając init.
  */
 
+// BEGIN HASH
 template<class T, class U>
 vector<bool> intersectMatroids(T& A, U& B, int n) {
 	vector<bool> ans(n);
@@ -60,7 +61,7 @@ vector<bool> intersectMatroids(T& A, U& B, int n) {
 		}
 	}
 	return ans;
-}
+} // END HASH
 // Matroid where each element has color
 // and set is independent iff for each color c
 // #{elements of color c} <= maxAllowed[c].

@@ -7,7 +7,7 @@
  *   \texttt{get\_subtree(v)} zwraca przedział preorderów odpowiadający podrzewu v.
  */
 struct HLD {
-	// BEGIN HASH
+// BEGIN HASH
 	vector<vector<int>> &adj;
 	vector<int> sz, pre, pos, nxt, par;
 	int t = 0;

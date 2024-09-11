@@ -195,3 +195,11 @@ $S_j = \sum_{1\le i_1 \le \dots \le i_j \le n} | A_{i_1} \cap \dots \cap A_{i_j}
 W szczególności $S_0 = |X|$. Niech $D(k)$ oznacza liczbę elementów $X$ mających dokładnie $k$ własności.
 $D(k) = \sum_{j\ge k}\binom{j}{k} \left(-1\right)^{j-k}S_j$
 W szczególności $D(0) = \sum_{j \ge 0} \left(-1\right)^j S_j$
+
+\section{Karp’s minimum mean-weight cycle algorithm}
+$G = (V, E)$ - directed graph with weight function $w : E \to \mathbb{R}$
+$n = |V|$
+Assume that every vertex is reachable from $s \in V$.
+$\delta_k(s, v)$ shortest $k$-path from $s$ to $v$ (simple dp)
+Minimum mean-weight cycle is
+$$ \min_{v\in V} \max_{0 \leq k \leq n-1} \frac{\delta_n(s, v) - \delta_k(s, v)}{n - k} $$
