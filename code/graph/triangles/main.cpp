@@ -51,7 +51,7 @@ struct Triangles {
 		REP(v, n) {
 			int s = ssize(graph[v]);
 			stars3 += s * LL(s - 1) * LL(s - 2);
-			stars4 += s * LL(s - 1) * LL(s - 2) * LL(s - 3);
+			stars4 += s * LL(s - 1) * LL(s - 2) * __int128_t(s - 3);
 		}
 		stars3 /= 6;
 		stars4 /= 24;
